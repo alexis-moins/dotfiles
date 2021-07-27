@@ -1,0 +1,30 @@
+# Author: Alexis Moins
+# Creation: 6 janvier 2021
+# vim: ft=zsh syn=zsh
+
+# Change de dossier sans avoir à utiliser cd
+setopt autocd       
+
+# N'affiche pas le dossier lors de la navigation
+setopt cdsilent 
+
+# Ajoute automatiquement les dossiers dans la pile de dossiers
+setopt autopushd
+
+# Inverse l'utilisation de cd - et cd +
+setopt pushdminus
+
+# N'affiche pas les éléments de la pile lors des changements de dossiers
+setopt pushdsilent
+
+# N'ajoute pas le dossier s'il est déjà présent dans la pile
+setopt pushdignoredups
+
+# Maximum size of the dirstack
+DIRSTACKSIZE=9
+
+# Add the zsh & vim config directories to the dirstack
+dirstack+=( "${ZDOTDIR}" "${VIMDOTDIR}" )
+
+# Displays the dirstack
+alias dl="dirs -p"

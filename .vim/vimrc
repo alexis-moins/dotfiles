@@ -1,0 +1,111 @@
+" User configuration for vim
+" Author: Alexis Moins
+" Creation: 18 juin 2020
+
+" Detects filetype, plugin and indentation
+filetype plugin indent on
+
+" Enables syntax coloration
+syntax enable
+
+" Loads colorscheme sonar
+colorscheme sonar
+
+" Automatically replace tabulations with spaces
+set expandtab
+
+" One tab equals 4 spaces
+set tabstop=4
+
+" Use 4 spaces for indentation
+set shiftwidth=4
+
+" Keep the indentation of the last line
+set autoindent
+
+" Change buffers without having to save them
+set hidden
+
+" Reload files modified from outside of vim
+set autoread
+
+" Ignore the case during search
+set ignorecase
+
+" Override 'ignorecase' if the search pattern contains upper case characters
+set smartcase
+
+" Display match during search
+set incsearch
+
+" Never wrap lines when they are too long
+set nowrap  
+
+" Always display the next 8 lines below or above the cursor 
+set scrolloff=5
+
+" Never pass beyond 80 characters on a line
+set textwidth=80
+
+" Open vertical splits to the right
+set splitright
+
+" Open horizontal splits below
+set splitbelow
+
+" Never show the modeline below the statusline
+set noshowmode
+
+" Always display the statusline
+set laststatus=2
+
+" Set the content of the statusline
+set statusline=%!jev#Normal()
+
+" Set the content of the tabline
+set tabline=%!utils#Tabline()
+
+" Use markers to create folds
+set foldmethod=marker
+
+" Format the fold's visual
+set foldtext=utils#FoldText()
+
+" Use the patience algorithm to show differences, don't take whitespaces into
+" account and completely fold identical parts
+set diffopt+=algorithm:patience,iwhiteall,context:0
+
+" Highlight the text line of the cursor
+set cursorline
+
+" Add French to the known languages for spellcheck
+set spelllang+=fr
+
+" Location of the system dictionary
+set dictionary=/usr/share/dict/words
+
+" Don't add anything at the end of the folded line
+set fillchars=fold:\ 
+
+set listchars=eol:¬,extends:>,precedes:<,tab:>\ 
+
+" During search, look inside of the current directory and subdirectories
+set path=.,**
+
+" Expected behaviour of the backspace key
+set backspace=start,eol,indent
+
+" Specifies the method used to autocomplete
+set omnifunc=syntaxcomplete#Complete
+
+" Location of the .viminfo file
+set viminfofile=${VIMDOTDIR}/.viminfo
+
+" Never use swapfiles
+set noswapfile
+
+" Save the undotree for each file in the .undo directory
+set undofile
+
+" Location of the .undo directory
+set undodir=${VIMDOTDIR}/.undo

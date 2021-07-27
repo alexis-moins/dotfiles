@@ -1,0 +1,18 @@
+# Misc
+TODO
+tags
+.DS_Store
+
+# Zsh
+cache
+history
+.zsh_history
+tmux-sessions
+.zsh_sessions
+
+# Vim
+.undo
+*.swp
+.viminfo
+.vim-session
+

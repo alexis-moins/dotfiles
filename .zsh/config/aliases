@@ -1,0 +1,51 @@
+# Author: Alexis Moins
+# Creation: 14 mars 2020
+# vim: ft=zsh syn=zsh
+
+# Édite .zshrc avec vim
+alias zshrc="${EDITOR} ${ZDOTDIR}/.zshrc"
+#
+alias zshenv="${EDITOR} ${ZDOTDIR}/../.zshenv"
+
+# Édite virmc avec vim
+alias vimrc="${EDITOR} ${VIMDOTDIR}/vimrc"
+#
+alias aliasrc="${EDITOR} ${ZDOTDIR}/config/aliases"
+
+# Affiche l'historique, avec la date et l'heure (E)
+alias hist="history -E"
+
+alias path="echo '${PATH//:/\n}'"
+
+alias fpath="echo '${FPATH//:/\n}'"
+
+# Met à jour homebrew et les paquets
+alias daily="brew update; brew upgrade; brew cleanup"
+
+# Liste les éléments non cachés, avec de la couleur (G)
+alias ls='ls -G'
+# Liste y compris les fichiers cachés (A)
+alias la='ls -A'
+# Liste en format long (l), en format compréhensible (h)
+alias ll='ls -Alh'
+# Liste tous les éléments (a) sur plusieurs lignes (1)
+alias l='ls -A1'
+
+# Liste l'arborescence avec une profondeur de 1
+alias ts='tree -L 1 -I ".git*"'
+# Liste l'arborescence avec les fichiers cachés (a) sans .git/ (I)
+alias tra='tree -a -I ".git*"'
+
+alias venv='python -m venv'
+
+# Utilise la couleur avec grep
+alias grep="grep --colour=auto"
+
+# Displays logs for git
+alias gl="git log --all --graph --oneline --decorate=short --branches='*' --tags='*'"
+# Displays the status of the current repo
+alias gs="git status"
+
+alias gc="git checkout"
+
+alias gb="git branch"

@@ -1,0 +1,41 @@
+# Author: Alexis Moins
+# Creation: 30 juin 2021
+# vim: ft=zsh syn=zsh
+
+# Use vi keybindings
+bindkey -v
+
+# Enters command mode
+bindkey '^A' vi-cmd-mode 
+
+# Enters command mode (from visual mode)
+bindkey -M visual '^A' vi-cmd-mode 
+
+# Loads the zle-keymap-select function
+autoload zle-keymap-select
+
+# Defines the function as a widget
+zle -N zle-keymap-select
+
+# Changes cursor to blinking underscore
+change_cursor() {
+    printf "\e[3 q"
+}
+
+# Executes the change_cursor function before each prompt
+precmd_functions+=( change_cursor )
+
+# Loads the completion list module (makes menuselect available)
+zmodload zsh/complist
+
+# Selects the completion on the left
+bindkey -M menuselect 'h' vi-backward-char
+
+# Selects the completion at the bottom
+bindkey -M menuselect 'j' vi-down-line-or-history
+
+# Selects the completion at the top
+bindkey -M menuselect 'k' vi-up-line-or-history
+
+# Selects the completion on the right
+bindkey -M menuselect 'l' vi-forward-char

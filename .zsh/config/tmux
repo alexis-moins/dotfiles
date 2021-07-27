@@ -1,0 +1,18 @@
+# Author: Alexis Moins
+# Creation: 31 mai 2021
+# vim: syn=zsh ft=zsh
+
+# Location of the tmux session file
+SESSIONSFILE="${ZDOTDIR}/cache/tmux-sessions"
+
+# Attach to the last tmux session
+alias ta='tmux attach-session'
+
+# Display the list of all running tmux sessions
+alias tl='tmux list-sessions'
+
+# Save the current tmux sessions
+alias save="save-tmux-sessions"
+
+# Restore the last tmux sessions and attach to them
+alias restore="restore-tmux-sessions; tmux attach"

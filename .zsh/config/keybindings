@@ -1,0 +1,28 @@
+# Author: Alexis Moins
+# Creation: 30 octobre 2020
+# vim: ft=zsh syn=zsh
+
+# Cycles through history backward
+bindkey '^P' up-line-or-search
+# Cycles through history forward
+bindkey '^N' down-line-or-search
+
+# Removes the character just before the cursor (backspace)
+bindkey '^?' backward-delete-char
+# Removes the word before the cursor
+bindkey '^W' backward-kill-word
+
+# Searches history backward
+bindkey '^R' history-incremental-search-backward
+# Searches history forward
+bindkey '^T' history-incremental-search-forward
+
+# Removes every character before the cursor
+bindkey '^U' backward-kill-line
+# Removes every character after the cursor
+bindkey '^K' kill-line
+
+# Resumes the last process sent to the background
+bindkey -s '^Z' 'fg^M'
+# Pulls the current line, executes a command then push the line back
+bindkey '^B' push-line-or-edit

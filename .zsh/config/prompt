@@ -1,0 +1,29 @@
+# Author: Alexis Moins
+# Creation: 18 juin 2020
+# vim: ft=zsh syn=zsh
+
+# Enable variable / function substitution in the prompt
+setopt promptsubst
+
+# Loads the version control function
+autoload vcs_info
+
+# Executes the version control function before each prompt
+precmd_functions+=( vcs_info )
+
+# Styles used for both regular and special actions
+zstyle ':vcs_info:*' formats '(%b%u%c)'
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' actionformats '(%F{5}%a%f %b%u%c)'
+
+# Style used for staged and unstaged files
+zstyle ':vcs_info:*' stagedstr ' %F{1}!%f'
+zstyle ':vcs_info:*' unstagedstr ' %F{1}&%f'
+
+# Les single quotes sont obligatoire
+# pour que vcs_info fonctionne correctement
+export PROMPT='
+%(#.%F{1}root%f .)%(1j.%j:.)%F{6}%1/%f${vcs_info_msg_0_}%(?..%F{1}*%f) '
+
+# Prompt pour le corps des fonctions
+export PROMPT2="%F{2}... %f"

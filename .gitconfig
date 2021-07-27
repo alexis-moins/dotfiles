@@ -1,0 +1,7 @@
+[user]
+	email = moinsalexis@gmail.com
+	name = AlexisMoins
+[init]
+	defaultBranch = main
+[core]
+	editor = vim
