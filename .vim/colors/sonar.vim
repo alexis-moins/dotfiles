@@ -60,6 +60,7 @@ call sonar#Highlight("FoldColumn", g:palette.grey, g:palette.black)
 
 call sonar#Highlight("Question", g:palette.lightGreen, g:palette.black)
 call sonar#Highlight("MoreMsg", g:palette.lightGreen, g:palette.black)
+call sonar#Highlight("ModeMsg", g:palette.lightGreen, g:palette.black)
 
 call sonar#Highlight("DiffAdd", g:palette.lightGreen, g:palette.none)
 call sonar#Highlight("DiffText", g:palette.magenta, g:palette.none)

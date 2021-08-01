@@ -1,16 +1,16 @@
 let mapleader = " " 
 
-nnoremap ]q <Cmd>cnext<CR>
-nnoremap [q <Cmd>cprevious<CR>
+nnoremap ]q :cnext<CR>
+nnoremap [q :cprevious<CR>
 
-nnoremap ]a <Cmd>next<CR>
-nnoremap [a <Cmd>previous<CR>
+nnoremap ]a :next<CR>
+nnoremap [a :previous<CR>
 
 nnoremap <leader>cs :mks! .vim-session<CR>
 nnoremap <leader>ss <Cmd>source .vim-session<CR>
 
-nnoremap <leader>- <Cmd>silent edit %:p:h<CR><C-L>
-nnoremap <leader>~ <Cmd>silent edit `pwd`<CR><C-L>
+nnoremap <leader>- <Cmd>edit %:p:h<CR><C-L>
+nnoremap <leader>~ <Cmd>edit `pwd`<CR><C-L>
 
 nnoremap <leader>qo <Cmd>copen<CR>
 nnoremap <leader>qc <Cmd>cclose<CR>
@@ -18,8 +18,8 @@ nnoremap <leader>qc <Cmd>cclose<CR>
 nnoremap <leader>nu <Cmd>setl nu! nornu<CR>
 nnoremap <leader>rnu <Cmd>setl rnu! nonu<CR>
 
-nnoremap <leader>st <Cmd>setl list!<CR>
-nnoremap <leader>sp <Cmd>setl spell!<CR>
+nnoremap <leader>st :setl list!<CR>
+nnoremap <leader>sp :setl spell!<CR>
 
 nnoremap <leader>cd <Cmd>lcd %:p:h<CR>
 nnoremap <leader>cb <Cmd>lcd -<CR>
@@ -33,7 +33,7 @@ nnoremap <leader>syn <Cmd>call utils#SyntaxGroup()<CR>
 nnoremap <leader>tn <Cmd>tabnew<CR>
 nnoremap <leader>tc <Cmd>tabclose<CR>
 
-nnoremap <leader>mk <Cmd>silent make <Bar> silent redraw!<CR>
+nnoremap <leader>mk :silent make <Bar> silent redraw!<CR>
 nnoremap <leader>op <Cmd>!open .<CR>
 
 nnoremap <leader>tt <Cmd>edit TODO<CR>

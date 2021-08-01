@@ -4,7 +4,7 @@
 # Prevents Terminal.app from saving / restoring sessions
 SHELL_SESSIONS_DISABLE=1
 
-# Prevents the venv module from displaying virtal env in the prompt
+# Prevents the python venv module from displaying virtal env in the prompt
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # Path to the zsh config directory

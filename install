@@ -1,0 +1,16 @@
+#!/bin/zsh
+# Author: Alexis Moins
+# Creation: 01 aug 2021
+
+set -x
+
+# Where the zsh config is located
+DOTFILES="${0:h:P}"
+
+ZSH="${DOTFILES}/.zsh"
+
+ignored=( ".git" ".gitignore" "install" )
+
+# Creates .zshenv symbolic link
+for element in "${DOTFILES}/"[.]*; do
+    [[ -n "${ignored[(r)${element}]}" ]] && ln -fsvi "${element}" "${HOME}/${element}"; done
