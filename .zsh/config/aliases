@@ -40,12 +40,3 @@ alias venv='python -m venv'
 
 # Utilise la couleur avec grep
 alias grep="grep --colour=auto"
-
-# Displays logs for git
-alias gl="git log --all --graph --oneline --decorate=short --branches='*' --tags='*'"
-# Displays the status of the current repo
-alias gs="git status"
-
-alias gc="git checkout"
-
-alias gb="git branch"

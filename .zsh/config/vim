@@ -11,11 +11,8 @@ bindkey '^A' vi-cmd-mode
 # Enters command mode (from visual mode)
 bindkey -M visual '^A' vi-cmd-mode 
 
-# Loads the zle-keymap-select function
-autoload zle-keymap-select
-
-# Defines the function as a widget
-zle -N zle-keymap-select
+# Loads the zle-keymap-select function as a widget
+autoload zle-keymap-select && zle -N zle-keymap-select
 
 # Changes cursor to blinking underscore
 change_cursor() {

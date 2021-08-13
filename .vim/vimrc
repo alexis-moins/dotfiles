@@ -53,9 +53,6 @@ set splitright
 " Open horizontal splits below
 set splitbelow
 
-" Never show the modeline below the statusline
-set noshowmode
-
 " Always display the statusline
 set laststatus=2
 
