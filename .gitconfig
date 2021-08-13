@@ -20,5 +20,3 @@
     co = checkout
     #
     b = branch
-    #
-    Add = add -A

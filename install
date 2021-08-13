@@ -2,21 +2,20 @@
 # Author: Alexis Moins
 # Creation: 01 aug 2021
 
-# Where the zsh config is located
-DOTFILES="${0:h:P}"
-
-# Files and directories that must be ignored
-ignored=( ".git" ".gitignore" "install" )
+# Location of the `.dotfiles` directory
+_dotfiles="${0:t:P}"
 
 # Directories needed in order for vim to work correctly
-[[ ! -d "${DOTFILES}/.vim/.undo" ]] && mkdir -v "${DOTFILES}/.vim/.undo"
+[[ ! -d "${_dotfiles}/.vim/.undo" ]] && mkdir -v "${_dotfiles}/.vim/.undo"
 
 # Directories needed in order for zsh to work correctly
-[[ ! -d "${DOTFILES}/.zsh/cache" ]] && mkdir -pv "${DOTFILES}/.zsh/cache/completion"
+[[ ! -d "${_dotfiles}/.zsh/cache" ]] && mkdir -pv "${_dotfiles}/.zsh/cache/completion"
 
-# Links all files and directories
-for link in "${DOTFILES}/"*(D); do
-    [[ -z "${ignored[(r)${link:t}]}" ]] && ln -fnsv "${link}" "${HOME}/${link:t}"; done
+# Configures homebrew based on the Brewfile
+brew bundle --file="${_dotfiles}/Brewfile"
 
-# Removes the unnecessary variables
-unset DOTFILES ignored
+# Symlinks the dotfiles
+stow --restow .
+
+# Cleans the environment
+unset _dotfiles
