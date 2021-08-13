@@ -4,8 +4,8 @@ tags
 .DS_Store
 
 # Zsh
+cache
 history
-completion/*
 .zsh_history
 tmux-sessions
 .zsh_sessions
@@ -15,4 +15,3 @@ tmux-sessions
 *.swp
 .viminfo
 .vim-session
-

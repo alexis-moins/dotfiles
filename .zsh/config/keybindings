@@ -22,7 +22,10 @@ bindkey '^U' backward-kill-line
 # Removes every character after the cursor
 bindkey '^K' kill-line
 
-# Resumes the last process sent to the background
-bindkey -s '^Z' 'fg^M'
 # Pulls the current line, executes a command then push the line back
 bindkey '^B' push-line-or-edit
+
+# Resumes the last process sent to the background
+bindkey -s '^Z' 'fg^M'
+# Restores the previously saved tmux sessions
+bindkey -s '^X' 'restore^M'

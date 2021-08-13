@@ -2,15 +2,21 @@
 # Author: Alexis Moins
 # Creation: 01 aug 2021
 
-set -x
-
 # Where the zsh config is located
 DOTFILES="${0:h:P}"
 
-ZSH="${DOTFILES}/.zsh"
-
+# Files and directories that must be ignored
 ignored=( ".git" ".gitignore" "install" )
 
-# Creates .zshenv symbolic link
-for element in "${DOTFILES}/"[.]*; do
-    [[ -n "${ignored[(r)${element}]}" ]] && ln -fsvi "${element}" "${HOME}/${element}"; done
+# Directories needed in order for vim to work correctly
+[[ ! -d "${DOTFILES}/.vim/.undo" ]] && mkdir -v "${DOTFILES}/.vim/.undo"
+
+# Directories needed in order for zsh to work correctly
+[[ ! -d "${DOTFILES}/.zsh/cache" ]] && mkdir -pv "${DOTFILES}/.zsh/cache/completion"
+
+# Links all files and directories
+for link in "${DOTFILES}/"*(D); do
+    [[ -z "${ignored[(r)${link:t}]}" ]] && ln -fnsv "${link}" "${HOME}/${link:t}"; done
+
+# Removes the unnecessary variables
+unset DOTFILES ignored

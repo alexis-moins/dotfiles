@@ -1,7 +1,24 @@
 [user]
+    # The default email
     email = moinsalexis@gmail.com
+    # The default name
     name = AlexisMoins
 [init]
+    # Use 'main' as the default branch name
     defaultBranch = main
 [core]
+    # Use vim as the default editor
     editor = vim
+[alias]
+    # Starts a new local repository and perform initial commit
+    this = !git init && git add . && git commmit -m "Initial commit"
+    # Displays a better log
+    l = log --all --graph --oneline --decorate=short --branches='*' --tags='*'
+    # Displays the status of the repository
+    st = status
+    #
+    co = checkout
+    #
+    b = branch
+    #
+    Add = add -A
