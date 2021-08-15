@@ -15,3 +15,6 @@ tmux-sessions
 *.swp
 .viminfo
 .vim-session
+
+# Brew
+*.lock*

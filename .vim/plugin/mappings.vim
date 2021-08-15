@@ -1,21 +1,18 @@
 let mapleader = " " 
 
 " Goes to the next / previous element of the quickfix list
-nnoremap ]q <Cmd>cnext<CR>
-nnoremap [q <Cmd>cprevious<CR>
+nnoremap <Down> <Cmd>cnext<CR>
+nnoremap <Up> <Cmd>cprevious<CR>
 
 " Goes to the next / previous element of the arglist
-nnoremap ]a <Cmd>next<CR>
-nnoremap [a <Cmd>previous<CR>
+nnoremap <Right> <Cmd>next<CR>
+nnoremap <Left> <Cmd>previous<CR>
 
 nnoremap <leader>cs :mks! .vim-session<CR>
 nnoremap <leader>ss <Cmd>source .vim-session<CR>
 
-nnoremap <leader>- <Cmd>edit %:p:h<CR><C-L>
-nnoremap <leader>~ <Cmd>edit `pwd`<CR><C-L>
-
-nnoremap <leader>qo <Cmd>copen<CR>
-nnoremap <leader>qc <Cmd>cclose<CR>
+nnoremap - <Cmd>edit %:p:h<CR><C-L>
+nnoremap + <Cmd>edit `pwd`<CR><C-L>
 
 nnoremap <leader>nu <Cmd>setl nu! nornu<CR>
 nnoremap <leader>rnu <Cmd>setl rnu! nonu<CR>
@@ -33,11 +30,9 @@ nnoremap <leader>rg :argdo! %s/<C-R><C-W>//gce<left><left><left><left>
 nnoremap <leader>src :source %<CR>
 nnoremap <leader>syn <Cmd>call utils#SyntaxGroup()<CR>
 
-nnoremap <leader>tn <Cmd>tabnew<CR>
-nnoremap <leader>tc <Cmd>tabclose<CR>
+nnoremap <Tab> <Cmd>tabnew<CR>
 
 nnoremap <leader>mk :silent make <Bar> silent redraw!<CR>
-nnoremap <leader>op <Cmd>!open .<CR>
 
 " Yanks until the end of the line
 nnoremap Y y$
