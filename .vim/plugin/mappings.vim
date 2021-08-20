@@ -1,13 +1,14 @@
 let mapleader = " " 
 
-" Goes to the next / previous element of the quickfix list
-nnoremap <Down> <Cmd>cnext<CR>
-nnoremap <Up> <Cmd>cprevious<CR>
-
 " Goes to the next / previous element of the arglist
 nnoremap <Right> <Cmd>next<CR>
 nnoremap <Left> <Cmd>previous<CR>
 
+" Goes to the next / previous element of the quickfix list
+nnoremap <Down> <Cmd>cnext<CR>
+nnoremap <Up> <Cmd>cprevious<CR>
+
+nnoremap <F1> :silent make <Bar> silent redraw!<CR>
 nnoremap <leader>cs :mks! .vim-session<CR>
 nnoremap <leader>ss <Cmd>source .vim-session<CR>
 
@@ -30,9 +31,7 @@ nnoremap <leader>rg :argdo! %s/<C-R><C-W>//gce<left><left><left><left>
 nnoremap <leader>src :source %<CR>
 nnoremap <leader>syn <Cmd>call utils#SyntaxGroup()<CR>
 
-nnoremap <Tab> <Cmd>tabnew<CR>
-
-nnoremap <leader>mk :silent make <Bar> silent redraw!<CR>
+nnoremap <Tab> magg=G`a
 
 " Yanks until the end of the line
 nnoremap Y y$
@@ -52,7 +51,5 @@ nnoremap <leader>l <C-W>l
 " Selects the first match in the spelling list
 nnoremap <C-S> mp[s1z=`p
 inoremap <C-S> <C-C>[s1z=`]a
-
-nnoremap <leader>ind magg=G`a
 
 iabbrev <expr> tdd strftime("%d %b %Y")
