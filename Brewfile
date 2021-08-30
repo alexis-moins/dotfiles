@@ -23,7 +23,7 @@ tap 'homebrew/cask-fonts'
 # Distributed revision control system
 brew 'git'
 
-# Vi 'workalike' with many additional features
+# Vi `workalike` with many additional features
 brew 'vim'
 
 # UNIX shell (command interpreter)
@@ -40,6 +40,12 @@ brew 'ctags'
 
 # Python version management
 brew 'pyenv'
+
+# Organize software neatly under a single directory tree
+brew 'stow'
+
+# Development kit for the Java programming language 
+brew 'java'
 
 # }}}
 

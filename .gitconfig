@@ -23,7 +23,7 @@
     ui = true
 [diff]
     # Use `vimdiff` as the diff interface
-	tool = vimdiff
+    tool = vimdiff
 [format]
     # Formatting used as default by the `--format` option
     pretty = format:%C(auto)%h [%D] %C(brightblack)%an%C(reset) %s (%C(blue)%cs%C(reset))
