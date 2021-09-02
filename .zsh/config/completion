@@ -46,4 +46,4 @@ zstyle ':completion:*' expand prefix suffix
 # Utilise le cache pour la complétion
 zstyle ':completion:*' use-cache on
 # Chemin vers le dossier .compcache
-zstyle ':completion:*' cache-path "${ZDOTDIR}/cache/completion"
+zstyle ':completion:*' cache-path "${ZDOTDIR}/.cache/completion"

@@ -5,7 +5,7 @@
 # {{{ zsh
 
 # Create the needed directories for `zsh`
-[[ ! -d "${ZDOTDIR}/cache" ]] && mkdir -pv "${ZDOTDIR}/cache/completion"
+[[ ! -d "${ZDOTDIR}/.cache" ]] && mkdir -pv "${ZDOTDIR}/.cache/completion"
 
 # Source the configuration files of the `config` directory
 for file in "${ZDOTDIR}/config"/*(^D); do

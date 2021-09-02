@@ -7,23 +7,37 @@
     # Use 'main' as the default branch name
     defaultBranch = main
 [core]
-    # Use `vim` as the default editor
+    # Use 'vim' as the default editor
     editor = vim
+[color]
+    # Always allow colored output by default
+    ui = true
+[commit]
+    # Always show per file changes of the current commit
+	verbose = true
+[diff]
+    # Use `vimdiff` as the diff interface
+    tool = vimdiff
+[difftool]
+    prompt = false
+[merge]
+    # Use vim as the default merge tool
+	tool = vimdiff
+[mergetool]
+    # Never keep .orig files after a merge
+    keepBackup = false
+	prompt = false
 [alias]
     # Display the status of the repository
     st = status
     # Checkout the branches of the repository
     co = checkout
+    # Create a new branch
+    br = branch
     # Display commits with a pretty formatting
     ls = log --all --branches='*' --graph --tags='*'
     # Start a new local repository and perform initial commit
     this = "!git init && git add . && git commit --message='feat(*): Initial commit'"
-[color]
-    # Always allow colored output by default
-    ui = true
-[diff]
-    # Use `vimdiff` as the diff interface
-    tool = vimdiff
 [format]
     # Formatting used as default by the `--format` option
     pretty = format:%C(auto)%h [%D] %C(brightblack)%an%C(reset) %s (%C(blue)%cs%C(reset))
