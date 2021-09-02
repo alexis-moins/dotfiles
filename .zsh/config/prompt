@@ -6,7 +6,7 @@
 setopt promptsubst
 
 # Load the version control function
-autoload vcs_info get_virtualenv
+autoload vcs_info get-virtualenv
 
 # Execute the version control function before each prompt
 precmd_functions+=( vcs_info )
@@ -22,7 +22,7 @@ zstyle ':vcs_info:*' unstagedstr ' %F{1}&%f'
 
 # Single quotes are mandatory for vcs_info to be interpreted correctly
 PROMPT='
-%(#.%F{1}#%f .)%(1j.%j:.)%F{6}%1/%f${vcs_info_msg_0_}%(?..%F{1}*%f) $(get_virtualenv)'
+%(#.%F{1}#%f .)%(1j.%j:.)%F{6}%1/%f${vcs_info_msg_0_}%(?..%F{1}*%f) $(get-virtualenv)'
 
 # Prompt pour le corps des fonctions
 PROMPT2="%F{2}... %f"

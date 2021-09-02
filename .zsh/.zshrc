@@ -21,10 +21,7 @@ path=( "/opt/homebrew/bin" ${path} )
 fpath+=( "${ZDOTDIR}/autoload" )
 
 # Source all configuration files of the 'config' directory
-autoload source-config && source-config
-
-# Add the help aliases to look for zsh builtins in the zsh documentation
-autoload init-help && init-help
+autoload init-env && init-env
 
 # Initialize the completions system without producing a dump file (-D)
 autoload -U compinit && compinit -D

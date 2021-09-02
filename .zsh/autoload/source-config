@@ -1,7 +1,0 @@
-# Author: Alexis Moins
-# Creation: 29 jui 2021
-# vim: ft=zsh syn=zsh
-
-# Source the configuration files of the 'config' directory
-for file in "${ZDOTDIR}/config"/*(^D); do
-    source "${file}"; done

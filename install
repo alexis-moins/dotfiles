@@ -1,9 +1,0 @@
-#!/bin/zsh
-# Author: Alexis Moins
-# Creation: 01 aug 2021
-
-# Create the needed directories for `vim`
-[[ ! -d ".vim/.undo" ]] && mkdir -v ".vim/.undo"
-
-# Create the needed directories for `zsh`
-[[ ! -d ".zsh/cache" ]] && mkdir -pv ".zsh/cache/completion"
