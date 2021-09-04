@@ -12,32 +12,56 @@
 [color]
     # Always allow colored output by default
     ui = true
+[color "branch"]
+    # Current branch is light green
+    current = green bold
+    # Local branches are white
+    local = normal
+    # Remote branches are red
+    remote = red
+    # Worktrees are cyan
+    worktree = cyan
 [commit]
     # Always show per file changes of the current commit
-	verbose = true
+    verbose = true
 [diff]
-    # Use `vimdiff` as the diff interface
+    # Use 'vimdiff' as the diff interface
     tool = vimdiff
 [difftool]
+    # Don't display any prompt
     prompt = false
 [merge]
     # Use vim as the default merge tool
-	tool = vimdiff
+    tool = vimdiff
+    # Display common ancestor to help merging branches
+    conflictstyle = diff3
 [mergetool]
     # Never keep .orig files after a merge
     keepBackup = false
-	prompt = false
+    # Don't display any prompt
+    prompt = false
+[rerere]
+    # Automatically try to resolve merge conflicts based on previous resolutions
+    enabled = 1
 [alias]
+    # Commit faster
+    ci = commit
     # Display the status of the repository
     st = status
     # Checkout the branches of the repository
     co = checkout
     # Create a new branch
-    br = branch
+    br = branch -vv
+    # Faster difftool
+    dt = difftool
+    # Faster mergetool
+    mt = mergetool
+    # Add currently staged files to the last commit without changing its message
+    amend = commit --amend --no-edit
     # Display commits with a pretty formatting
     ls = log --all --branches='*' --graph --tags='*'
     # Start a new local repository and perform initial commit
-    this = "!git init && git add . && git commit --message='feat(*): Initial commit'"
+    this = !git init && git add . && git commit --message='feat(*): Initial commit'
 [format]
     # Formatting used as default by the `--format` option
     pretty = format:%C(auto)%h [%D] %C(brightblack)%an%C(reset) %s (%C(blue)%cs%C(reset))

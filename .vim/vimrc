@@ -47,6 +47,9 @@ set scrolloff=5
 " Never pass beyond 80 characters on a line
 set textwidth=80
 
+" Never display the signcolumn
+set signcolumn=no
+
 " Open vertical splits to the right
 set splitright
 
