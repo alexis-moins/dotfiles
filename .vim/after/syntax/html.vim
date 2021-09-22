@@ -1,4 +1,10 @@
-" Modification de la coloration syntaxique
+" Define missing tags
+syn keyword htmlTagName contained svg path
+
+" Define missing attributes
+syn keyword htmlArg contained viewBox fill d
+
+" +-- Links elements to syntax groups
 hi! link htmlArg 			Todo
 hi! link htmlTag 			Identifier
 hi! link htmlTagName 		Statement
@@ -8,12 +14,8 @@ hi! link htmlValue 			Normal
 hi! link htmlSpecial 		Normal
 hi! link htmlStatement 		Normal
 
-hi! link htmlTitle Normal
-hi! link htmlH1 Normal
-hi! link htmlLink Normal
+hi! link htmlH1     Normal
+hi! link htmlLink   Normal
+hi! link htmlTitle  Normal
 
-" Ajout des balises manquantes
-syn keyword htmlTagName contained svg path
-
-" Ajout des attributs manquants
-syn keyword htmlArg contained viewBox fill d
+" --+

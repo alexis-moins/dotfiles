@@ -1,8 +1,8 @@
-# Author: Alexis Moins
 # Creation: 09 aoû 2021
+# Author: Alexis Moins
 # vim: ft=brew syn=ruby
 
-# {{{ Taps
+# +-- Taps
 
 # Core formulae for the Homebrew package manager
 tap 'homebrew/core'
@@ -16,9 +16,9 @@ tap 'homebrew/bundle'
 # Casks of fonts
 tap 'homebrew/cask-fonts'
 
-# }}}
+# --+
 
-# {{{ Formulae
+# +-- Formulae
 
 # Distributed revision control system
 brew 'git'
@@ -47,9 +47,9 @@ brew 'stow'
 # Development kit for the Java programming language 
 brew 'java'
 
-# }}}
+# --+
 
-# {{{ Casks
+# +-- Casks
 
 # Multimedia player
 cask 'vlc'
@@ -66,4 +66,4 @@ cask 'mattermost'
 # Monospaced font with programming ligatures
 cask 'font-fira-code'
 
-# }}}
+# --+

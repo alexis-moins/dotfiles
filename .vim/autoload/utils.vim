@@ -1,8 +1,5 @@
 func! utils#FoldText()
-    let title = substitute(getline(v:foldstart), "^ *", "", 1)
-    let text = substitute(title, "", "", 1) 
-    let text .= ' }}}'
-    return text
+    return substitute(getline(v:foldstart), "^ *", "", 1)
 endfunc
 
 func! utils#Tabline()

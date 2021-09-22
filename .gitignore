@@ -4,7 +4,7 @@ tags
 .DS_Store
 
 # Zsh
-cache
+.cache
 history
 .zsh_history
 tmux-sessions
@@ -17,4 +17,4 @@ tmux-sessions
 .vim-session
 
 # Brew
-*.lock*
+Brewfile.lock.json

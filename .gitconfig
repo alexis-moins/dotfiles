@@ -50,6 +50,8 @@
     st = status
     # Checkout the branches of the repository
     co = checkout
+    # 
+    sw = stash show -p
     # Create a new branch
     br = branch -vv
     # Faster difftool

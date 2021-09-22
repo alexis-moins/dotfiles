@@ -4,7 +4,7 @@
 
 # Set the credentials for the gitlab account of the IUT.
 #
-config-gitlab-repo() {
+gitlab-config() {
     git config --local user.name  'amoins001'
     git config --local user.email 'alexis.moins@etu.u-bordeaux.fr'
 }

@@ -1,7 +1,7 @@
 # Author: Alexis Moins
 # Creation: 18 juin 2020
 
-# Prevents `Terminal.app` from saving and restoring sessions
+# Prevents 'Terminal.app' from saving and restoring sessions
 SHELL_SESSIONS_DISABLE=1
 
 # Path to the zsh config directory

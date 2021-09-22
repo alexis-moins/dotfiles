@@ -9,7 +9,7 @@ filetype plugin indent on
 syntax enable
 
 " Loads colorscheme sonar
-colorscheme sonar
+colorscheme abyss
 
 " Automatically replace tabulations with spaces
 set expandtab
@@ -60,13 +60,16 @@ set splitbelow
 set laststatus=2
 
 " Set the content of the statusline
-set statusline=%!jev#Normal()
+set statusline=%!sonar#Statusline()
 
 " Set the content of the tabline
 set tabline=%!utils#Tabline()
 
 " Use markers to create folds
 set foldmethod=marker
+
+" Use +-- and --+ to create folds manually
+set foldmarker=+--,--+
 
 " Format the fold's visual
 set foldtext=utils#FoldText()

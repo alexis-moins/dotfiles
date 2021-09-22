@@ -1,27 +1,24 @@
+" +-- Links elements to syntax groups
+
 hi! link vimLet         Constant
-
 hi! link vimGroup       Exception
-
-hi! link vimMapMod      Identifier
-
 hi! link vimHiGroup     PreProc
 
 hi! link vimBracket     Exception
-
 hi! link vimNotation    Exception
 
-hi! default link vimMap     Statement
+hi! link vimCommentTitle Comment
 
-hi! default link vimAbb     Statement
-
+hi! link vimAbb         Statement
+hi! link vimMap         Statement
+hi! link vimMapMod      Identifier
 hi! link vimMapModKey   Exception
 
-hi! default link vimSet Structure
+hi! link vimSet         Structure
+hi! link vimCommand     Conditional
 
-hi! default link vimCommand Conditional
+hi! link vimAugroup     Statement
+hi! link vimAutoCmd     Statement
+hi! link vimAutoEvent   Special
 
-hi! default link vimAutoEvent Special
-
-hi! default link vimAugroup Statement
-
-hi! default link vimAutoCmd Statement
+" --+
