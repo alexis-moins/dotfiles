@@ -8,7 +8,7 @@ nnoremap <Left> <Cmd>previous<CR>
 nnoremap <Down> <Cmd>cnext<CR>
 nnoremap <Up> <Cmd>cprevious<CR>
 
-nnoremap <F1> :silent make <Bar> silent redraw!<CR>
+nnoremap <leader>mk :silent make <Bar> silent redraw!<CR>
 nnoremap <leader>cs :mks! .vim-session<CR>
 nnoremap <leader>ss <Cmd>source .vim-session<CR>
 
