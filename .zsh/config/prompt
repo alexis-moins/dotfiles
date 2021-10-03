@@ -14,7 +14,7 @@ precmd_functions+=( vcs_info )
 # Styles used for both regular and special actions
 zstyle ':vcs_info:*' formats '(%b%u%c)'
 zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' actionformats '(%F{5}%a%f %b%u%c)'
+zstyle ':vcs_info:*' actionformats '(%b %F{5}{%a}%f%u%c)'
 
 # Style used for staged and unstaged files
 zstyle ':vcs_info:*' stagedstr ' %F{1}!%f'

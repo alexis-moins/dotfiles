@@ -5,7 +5,6 @@ tags
 
 # Zsh
 .cache
-history
 .zsh_history
 tmux-sessions
 .zsh_sessions
