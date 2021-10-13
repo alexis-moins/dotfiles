@@ -14,6 +14,15 @@ bindkey -M visual '^A' vi-cmd-mode
 # Loads the zle-keymap-select function as a widget
 autoload zle-keymap-select && zle -N zle-keymap-select
 
+# Loads the zle-command-line function as a widget
+autoload edit-command-line && zle -N edit-command-line
+
+# Edit the current line in vim
+bindkey -M vicmd '^F' edit-command-line
+
+# Edit the current line in vim
+bindkey '^F' edit-command-line
+
 # Changes cursor to blinking underscore
 change_cursor() {
     printf "\e[3 q"
