@@ -2,7 +2,7 @@
 # Creation: 14 mars 2020
 # vim: ft=zsh syn=zsh
 
-# {{{ Files
+# +-- Files
 
 # Edit `.zshrc`
 alias zshrc="vim ${ZDOTDIR}/.zshrc"
@@ -16,9 +16,9 @@ alias vimrc="vim ${VIMDOTDIR}/vimrc"
 # Edit `aliases`
 alias aliasrc="vim ${ZDOTDIR}/config/aliases"
 
-# }}}
+# --+
 
-# {{{ Utilities
+# +-- Utilities
 
 # Display the path in a pretty format
 alias path="echo '${PATH//:/\n}'"
@@ -29,9 +29,18 @@ alias fpath="echo '${FPATH//:/\n}'"
 # Met à jour homebrew et les paquets
 alias daily="brew update; brew upgrade; brew cleanup"
 
-# }}}
+# Copy stuff verbosely (-v) and ask for confirmation (-i)
+alias cp="cp -iv"
 
-# {{{ Commands
+# Rename / move stuff verbosely (-v) and ask for confirmation (-i)
+alias mv="mv -iv"
+
+# Remove stuff verbosely (-v) and ask for confirmation (-i)
+alias rm="rm -iv"
+
+# --+
+
+# +-- Commands
 
 # Liste les éléments non cachés, avec de la couleur (G)
 alias ls='ls -G'
@@ -45,13 +54,13 @@ alias ll='ls -Alh'
 # Utilise la couleur avec grep
 alias grep="grep --colour=auto"
 
-# }}}
+# --+
 
-# Homebrew version of the Java programing language
-alias bottle-java="$(brew --prefix openjdk)/bin/java"
+# Homebrew version of the Java programming language
+# alias bottle-java="$(brew --prefix openjdk)/bin/java"
 
 # Homebrew version of the Javac compiler
-alias bottle-javac="$(brew --prefix openjdk)/bin/javac"
+# alias bottle-javac="$(brew --prefix openjdk)/bin/javac"
 
 #
 alias dotfiles='brew bundle --no-lock --file=".Brewfile"'
