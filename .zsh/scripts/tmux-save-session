@@ -1,0 +1,17 @@
+#!/usr/bin/env zsh
+# Author: Alexis Moins
+# Creation: 17 oct 2021
+# vim: ft=zsh syn=zsh
+
+# Location of the file containing the tmux session
+session_file="${ZDOTDIR}/.cache/tmux-session"
+
+# Save the sessions running on the current tmux server 
+# into the file specified in ${session_file}.
+IFS=$'\t'
+
+# Declares the pattern used to store a session's data
+pattern="#S${IFS}#W${IFS}#{pane_current_path}"
+
+# Stores the retrieved data into the sessions file
+tmux list-windows -a -F "${pattern}" > "${session_file}"

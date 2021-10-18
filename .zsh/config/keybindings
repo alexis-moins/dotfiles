@@ -27,5 +27,8 @@ bindkey '^B' push-line-or-edit
 
 # Resumes the last process sent to the background
 bindkey -s '^Z' 'fg^M'
-# Restores the previously saved tmux sessions
-bindkey -s '^X' 'restore^M'
+
+# Restore the previously saved tmux session
+bindkey -s '^O' 'tmux-restore-session^M'
+# Save the current tmux session
+bindkey -s '^X' 'tmux-save-session^M'

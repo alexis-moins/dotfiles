@@ -2,7 +2,7 @@
 # Creation: 14 mars 2020
 # vim: ft=zsh syn=zsh
 
-# +-- Files
+# +-- files
 
 # Edit `.zshrc`
 alias zshrc="vim ${ZDOTDIR}/.zshrc"
@@ -18,7 +18,7 @@ alias aliasrc="vim ${ZDOTDIR}/config/aliases"
 
 # --+
 
-# +-- Utilities
+# +-- tools
 
 # Display the path in a pretty format
 alias path="echo '${PATH//:/\n}'"
@@ -40,7 +40,7 @@ alias rm="rm -iv"
 
 # --+
 
-# +-- Commands
+# +-- misc
 
 # Liste les éléments non cachés, avec de la couleur (G)
 alias ls='ls -G'
@@ -54,13 +54,8 @@ alias ll='ls -Alh'
 # Utilise la couleur avec grep
 alias grep="grep --colour=auto"
 
+# Attach to the last tmux session
+alias ta='tmux attach-session'
+
 # --+
 
-# Homebrew version of the Java programming language
-# alias bottle-java="$(brew --prefix openjdk)/bin/java"
-
-# Homebrew version of the Javac compiler
-# alias bottle-javac="$(brew --prefix openjdk)/bin/javac"
-
-#
-alias dotfiles='brew bundle --no-lock --file=".Brewfile"'

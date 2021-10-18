@@ -15,7 +15,7 @@ setopt extendedglob
 typeset -U PATH path FPATH fpath
 
 # Add the homebrew bin directory to the path
-path=( "/opt/homebrew/bin" ${path} )
+path=( "/opt/homebrew/bin" ${path} "${ZDOTDIR}/scripts" )
 
 # Add the directory containing functions to import with autoload to 'fpath'
 fpath+=( "${ZDOTDIR}/autoload" )
