@@ -41,11 +41,14 @@ brew 'ctags'
 # Python version management
 brew 'pyenv'
 
-# Organize software neatly under a single directory tree
-brew 'stow'
-
 # Development kit for the Java programming language 
 brew 'java'
+
+# Static analysis and lint tool, for (ba)sh scripts
+brew 'shellcheck'
+
+# Dynamic, general-purpose programming language
+brew 'clojure'
 
 # --+
 
@@ -65,5 +68,8 @@ cask 'mattermost'
 
 # Monospaced font with programming ligatures
 cask 'font-fira-code'
+
+# Compact TeX distribution as alternative to the full TeX Live / MacTeX
+cask 'basictex'
 
 # --+
