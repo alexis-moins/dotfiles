@@ -18,6 +18,8 @@ nnoremap + <Cmd>edit `pwd`<CR><C-L>
 nnoremap <leader>nu <Cmd>setl nu! nornu<CR>
 nnoremap <leader>rnu <Cmd>setl rnu! nonu<CR>
 
+nnoremap <leader>wc <Cmd>setl cul!<CR>
+
 nnoremap <leader>st :setl list!<CR>
 nnoremap <leader>sp :setl spell!<CR>
 

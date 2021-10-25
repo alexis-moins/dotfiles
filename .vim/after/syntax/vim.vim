@@ -1,5 +1,3 @@
-" +-- Links elements to syntax groups
-
 hi! link vimLet         Constant
 hi! link vimGroup       Exception
 hi! link vimHiGroup     PreProc
@@ -15,10 +13,8 @@ hi! link vimMapMod      Identifier
 hi! link vimMapModKey   Exception
 
 hi! link vimSet         Structure
-hi! link vimCommand     Conditional
+hi! link vimCommand     Statement
 
 hi! link vimAugroup     Statement
 hi! link vimAutoCmd     Statement
 hi! link vimAutoEvent   Special
-
-" --+

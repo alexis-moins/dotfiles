@@ -28,12 +28,12 @@ syn keyword _Boolean        True False
 
 hi! def link _Class         Identifier
 hi! def link _ClassVar      Label
-hi! def link _ClassKeyword  Repeat
+hi! def link _ClassKeyword  Statement
 
 hi! def link _Operator      Statement
 hi! def link _FunctionCall  Special
 
-hi! def link _FunctKeyword  Repeat
+hi! def link _FunctKeyword  Statement
 hi! def link pythonFunction Identifier
 
 hi! def link _SpaceError    SpellBad 

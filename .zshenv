@@ -1,3 +1,4 @@
+# Configuration of the environment
 # Author: Alexis Moins
 # Creation: 18 juin 2020
 

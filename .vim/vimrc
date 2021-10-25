@@ -8,8 +8,10 @@ filetype plugin indent on
 " Enables syntax coloration
 syntax enable
 
-" Loads colorscheme sonar
+" Loads colorscheme abyss
 colorscheme abyss
+
+" +-- Config
 
 " Automatically replace tabulations with spaces
 set expandtab
@@ -50,6 +52,9 @@ set textwidth=120
 " Never display the signcolumn
 set signcolumn=no
 
+" Display the matching character when typing
+set showmatch
+
 " Open vertical splits to the right
 set splitright
 
@@ -77,9 +82,6 @@ set foldtext=utils#FoldText()
 " Use the patience algorithm to show differences, don't take whitespaces into
 " account and completely fold identical parts
 set diffopt+=algorithm:patience,iwhiteall,context:0
-
-" Highlight the text line of the cursor
-set cursorline
 
 " Add French to the known languages for spellcheck
 set spelllang+=fr
@@ -112,3 +114,5 @@ set undofile
 
 " Location of the .undo directory
 set undodir=${VIMDOTDIR}/.undo
+
+" --+

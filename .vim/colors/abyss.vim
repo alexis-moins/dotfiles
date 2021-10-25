@@ -11,15 +11,15 @@ let g:colors_name = "abyss"
 " The color palette used globally
 let g:palette = {
             \ 'black':       [0, "#1c1c1c"],
-            \ 'red':         [1, "#ff005f"],
+            \ 'red':         [9, "#ff005f"],
             \ 'green':       [77,  "#5fd700"],
             \ 'yellow':      [186, "#d7d787"],
-            \ 'blue':        [75,  "#5fafff"],
+            \ 'blue':        [4,  "#5fafff"],
             \ 'magenta':     [141, "#af87ff"],
             \ 'cyan':        [6,  "#5fd7ff"],
             \ 'white':       [252, "#dadada"],
             \ 'lightBlack':  [8, "#262626"],
-            \ 'lightRed':    [203, "#af005f"],
+            \ 'lightRed':    [9, "#af005f"],
             \ 'lightGreen':     [121, "#87ffaf"],
             \ 'orange':         [214, "#ffc24b"],
             \ 'lightBlue':      [12, "#b3deef"],
@@ -59,12 +59,13 @@ call Highlight("Normal", g:palette.white, g:palette.black)
 call Highlight("NonText", g:palette.lightBlue, g:palette.black)
 
 call Highlight("Cursor", g:palette.none, g:palette.none)
-call Highlight("CursorLine", g:palette.none, g:palette.none)
-call Highlight("CursorLineNr", g:palette.white, g:palette.none)
+call Highlight("CursorLine", g:palette.none, g:palette.lightBlack)
+call Highlight("CursorLineNr", g:palette.white, g:palette.lightBlack)
 call Highlight("ColorColumn", g:palette.red, g:palette.black)
 
 call Highlight("LineNr", g:palette.grey, g:palette.black)
 call Highlight("EndOfBuffer", g:palette.black, g:palette.black)
+call Highlight("MatchParen", g:palette.red, g:palette.black)
 
 call Highlight("StatusLine", g:palette.lightGrey, g:palette.lightBlack)
 call Highlight("StatusLineNC", g:palette.lightVisual, g:palette.black)
@@ -120,14 +121,14 @@ call Highlight("DiffDelete", g:palette.red, g:palette.none)
 call Highlight("Comment", g:palette.grey, g:palette.black)
 
 call Highlight("Constant", g:palette.magenta, g:palette.black)
-call Highlight("String", g:palette.yellow, g:palette.black)
-call Highlight("Character", g:palette.yellow, g:palette.black)
+call Highlight("String", g:palette.lightBlue, g:palette.black)
+call Highlight("Character", g:palette.lightBlue, g:palette.black)
 call Highlight("Number", g:palette.magenta, g:palette.black)
 call Highlight("Float", g:palette.magenta, g:palette.black)
-call Highlight("Boolean", g:palette.magenta, g:palette.black)
+call Highlight("Boolean", g:palette.orange, g:palette.black)
 
 call Highlight("Identifier", g:palette.white, g:palette.black)
-call Highlight("Function", g:palette.lightBlue, g:palette.black)
+call Highlight("Function", g:palette.magenta, g:palette.black)
 
 call Highlight("Statement", g:palette.red, g:palette.black)
 call Highlight("Conditional", g:palette.lightBlue, g:palette.black)

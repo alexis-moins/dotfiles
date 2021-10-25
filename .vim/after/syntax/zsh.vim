@@ -5,4 +5,5 @@ syntax match _operator "[+;\-\~!%=&\^|?:]"
 highlight! default link _operator      Statement
 highlight! default link zshRepeat      Exception
 highlight! default link zshPreProc     Comment
-highlight! default link zshCommands    Special
+highlight! default link zshCommands    ModeMsg
+highlight! default link zshTypes       ModeMsg
