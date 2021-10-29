@@ -9,7 +9,7 @@ filetype plugin indent on
 syntax enable
 
 " Loads colorscheme abyss
-colorscheme abyss
+colorscheme kraken
 
 " +-- Config
 
@@ -82,6 +82,12 @@ set foldtext=utils#FoldText()
 " Use the patience algorithm to show differences, don't take whitespaces into
 " account and completely fold identical parts
 set diffopt+=algorithm:patience,iwhiteall,context:0
+
+" Display the line number
+set number
+
+" Highlight the text line of the cursor
+set cursorline
 
 " Add French to the known languages for spellcheck
 set spelllang+=fr

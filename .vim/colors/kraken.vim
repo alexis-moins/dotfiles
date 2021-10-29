@@ -4,7 +4,7 @@
 
 highlight clear
 
-let g:colors_name = "abyss"
+let g:colors_name = "kraken"
 
 " +-- Utils
 
@@ -26,7 +26,7 @@ let g:palette = {
             \ 'lightMagenta':   [176, "#d787d7"],
             \ 'visual':         [236, "#262626"],
             \ 'lightVisual':    [240, "#585858"],
-            \ 'grey':           [242, "#444444"],
+            \ 'grey':           [15, "#444444"],
             \ 'lightGrey':      [250, "#444444"],
             \ 'none':           ["NONE", "NONE"]
             \ }
@@ -68,19 +68,19 @@ call Highlight("EndOfBuffer", g:palette.black, g:palette.black)
 call Highlight("MatchParen", g:palette.red, g:palette.black)
 
 call Highlight("StatusLine", g:palette.lightGrey, g:palette.lightBlack)
-call Highlight("StatusLineNC", g:palette.lightVisual, g:palette.black)
+call Highlight("StatusLineNC", g:palette.grey, g:palette.black)
 
 call Highlight("User1", g:palette.blue, g:palette.blue)
 call Highlight('User2', g:palette.red, g:palette.lightBlack)
 call Highlight("User3", g:palette.magenta, g:palette.lightBlack)
 
 call Highlight("StatusLineTerm", g:palette.lightGrey, g:palette.lightBlack)
-call Highlight("StatusLineTermNC", g:palette.lightVisual, g:palette.black)
+call Highlight("StatusLineTermNC", g:palette.grey, g:palette.black)
 call Highlight("QuickFixLine", g:palette.none, g:palette.none)
 call Highlight("qfFileName", g:palette.lightGreen, g:palette.none)
 
 call Highlight("WildMenu", g:palette.black, g:palette.blue)
-call Highlight("TabLine", g:palette.lightVisual, g:palette.none)
+call Highlight("TabLine", g:palette.grey, g:palette.none)
 call Highlight("TabLineSel", g:palette.black, g:palette.lightGreen)
 call Highlight("TabLineFill", g:palette.black, g:palette.none)
 

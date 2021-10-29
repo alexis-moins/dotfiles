@@ -16,3 +16,6 @@ alias venv='python -m venv'
 
 # Activate an existing python virtual environment
 alias activate='source **/bin/activate'
+
+# Display the current virtuel environment
+PROMPT+='$(get-virtualenv)'
