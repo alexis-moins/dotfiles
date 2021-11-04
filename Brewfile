@@ -41,6 +41,9 @@ brew 'ctags'
 # Python version management
 brew 'pyenv'
 
+# Python package management tool
+brew 'poetry'
+
 # Development kit for the Java programming language 
 brew 'java'
 
@@ -49,6 +52,9 @@ brew 'shellcheck'
 
 # Dynamic, general-purpose programming language
 brew 'clojure'
+
+# Build tool for clojure
+brew 'leiningen'
 
 # --+
 

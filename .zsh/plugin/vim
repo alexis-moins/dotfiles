@@ -1,18 +1,17 @@
 # Author: Alexis Moins
 # Creation: 30 juin 2021
-# vim: ft=zsh syn=zsh
+# vim: ft=zsh syn=zsh fdm=marker
 
 # Use vi keybindings
 bindkey -v
 
 # Enters command mode
-bindkey '^A' vi-cmd-mode 
+bindkey '^A' vi-cmd-mode
 
 # Enters command mode (from visual mode)
-bindkey -M visual '^A' vi-cmd-mode 
+bindkey -M visual '^A' vi-cmd-mode
 
-# Loads the zle-keymap-select function as a widget
-autoload zle-keymap-select && zle -N zle-keymap-select
+# +-- Keybindings
 
 # Loads the zle-command-line function as a widget
 autoload edit-command-line && zle -N edit-command-line
@@ -23,13 +22,9 @@ bindkey -M vicmd '^F' edit-command-line
 # Edit the current line in vim
 bindkey '^F' edit-command-line
 
-# Changes cursor to blinking underscore
-change_cursor() {
-    printf "\e[3 q"
-}
+# --+
 
-# Executes the change_cursor function before each prompt
-precmd_functions+=( change_cursor )
+# +-- Menu select
 
 # Loads the completion list module (makes menuselect available)
 zmodload zsh/complist
@@ -45,3 +40,21 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 
 # Selects the completion on the right
 bindkey -M menuselect 'l' vi-forward-char
+
+# --+
+
+# +-- VI mode
+
+# Changes cursor to blinking underscore
+clear_right_prompt() {
+    RPROMPT=""
+}
+
+# Executes the clear_right_prompt function before each prompt
+precmd_functions+=( clear_right_prompt )
+
+# Loads the widget that manages the vi mode indicator
+autoload zle-keymap-select && zle -N zle-keymap-select
+
+# --+
+

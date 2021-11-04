@@ -1,18 +1,16 @@
 # Misc
 TODO
 tags
+.cache
 .DS_Store
 
 # Zsh
-.cache
 .zsh_history
 tmux-sessions
 .zsh_sessions
 
 # Vim
-.undo
 *.swp
-.viminfo
 .vim-session
 
 # Brew

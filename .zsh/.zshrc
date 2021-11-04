@@ -15,10 +15,18 @@ setopt extendedglob
 typeset -U PATH path FPATH fpath
 
 # Add the homebrew bin directory to the path
-path=( "/opt/homebrew/bin" ${path} "${HOME}/.dotfiles/.scripts" )
+path=( "/opt/homebrew/bin" ${path} "${HOME}/.scripts/bin" )
 
 # Add the directory containing functions to import with autoload to 'fpath'
 fpath+=( "${ZDOTDIR}/autoload" )
+
+# Sets the cursor to the underscore shape
+change_cursor_shape() {
+    printf "\e[3 q"
+}
+
+# Executes the change_cursor_shape function before each prompt
+precmd_functions=( change_cursor_shape )
 
 # Source all configuration files of the 'config' directory
 autoload init-env && init-env

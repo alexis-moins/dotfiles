@@ -35,6 +35,8 @@ nnoremap <leader>syn <Cmd>call utils#SyntaxGroup()<CR>
 
 nnoremap <Tab> magg=G`a
 
+nnoremap <Space><Space> /<++><CR><C-L>"_c4l
+
 " Yanks until the end of the line
 nnoremap Y y$
 
@@ -55,3 +57,8 @@ nnoremap <C-S> mp[s1z=`p
 inoremap <C-S> <C-C>[s1z=`]a
 
 iabbrev <expr> tdd strftime("%d %b %Y")
+
+inoremap <buffer> ( ()<left>
+inoremap <buffer> [ []<left>
+inoremap <buffer> { {}<left>
+

@@ -1,10 +1,11 @@
 " Define better operators
-syntax match _Operator "[+\-\~!%=&\^|?:]"
+syntax match _Operator "[\*+\->\~!%=&\^|?:]"
 
-hi! link _Operator      Statement
+syn match _Function "\<\h\w*\>\(\s\|\n\)*("me=e-1 contains=cParen,cCppParen
 
-hi! link cInclude  Constant
-hi! link cIncluded Identifier
+hi! link _Function      Function
 
-hi! link cDefine        Statement
-hi! link cPreCondit     Statement
+hi! link _Operator      Special
+
+hi! link cInclude       Comment
+hi! link cIncluded      Special

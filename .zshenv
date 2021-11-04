@@ -5,6 +5,9 @@
 # Prevents 'Terminal.app' from saving and restoring sessions
 SHELL_SESSIONS_DISABLE=1
 
+# Prevents 'Homebrew' from auto updating
+HOMEBREW_NO_AUTO_UPDATE=1
+
 # Path to the zsh config directory
 export ZDOTDIR="${HOME}/.zsh"
 

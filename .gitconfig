@@ -65,7 +65,7 @@
     # Display commits with a pretty formatting
     ls = log --all --branches='*' --graph --tags='*'
     # Start a new local repository and perform initial commit
-    this = !git init && git add . && git commit --message='feat(*): Initial commit'
+    this = !git init && git add . && git commit --message='feat(*): Initial commit 🎉'
 [format]
     # Formatting used as default by the `--format` option
     pretty = format:%C(auto)%h [%D] %C(brightblack)%an%C(reset) %s (%C(blue)%cs%C(reset))

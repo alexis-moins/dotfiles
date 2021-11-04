@@ -2,15 +2,9 @@
 # Creation: 29 jui 2021
 # vim: ft=zsh syn=zsh
 
-# {{{ zsh
-
-# Create the needed directories for `zsh`
-[[ ! -d "${ZDOTDIR}/.cache" ]] && mkdir -pv "${ZDOTDIR}/.cache/completion"
-
-# Source the configuration files of the `config` directory
-for file in "${ZDOTDIR}/config"/*(^D); do
-    source "${file}"
-done
+# Source the configuration files of the plugin directory
+for file in "${ZDOTDIR}/plugin"/*(^D); do
+    source "${file}"; done
 
 # Check wether the alias run-help is present
 if (( ${+aliases[run-help]} )); then
@@ -20,14 +14,3 @@ if (( ${+aliases[run-help]} )); then
     autoload -Uz run-help && alias help='run-help'
 fi
 
-# }}}
-
-# {{{ vim
-
-# Create the needed directories for `vim`
-[[ ! -d "${VIMDOTDIR}/.undo" ]] && mkdir -v "${VIMDOTDIR}/.undo"
-
-# Delete all undo files that were not modified in the last 30 days
-find ${VIMDOTDIR}/.undo -type f -mtime +30 -delete
-
-# }}}

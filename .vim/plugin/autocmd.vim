@@ -2,6 +2,8 @@ augroup Miscellaneous
     autocmd!
     autocmd VimResized * wincmd =
     autocmd Filetype gitcommit setlocal spell
+    autocmd InsertEnter * let w:last_fdm=&foldmethod | setlocal foldmethod=manual
+    autocmd InsertLeave * let &l:foldmethod=w:last_fdm
 augroup End
 
 augroup Filetype

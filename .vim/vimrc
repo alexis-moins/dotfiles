@@ -1,6 +1,7 @@
 " User configuration for vim
 " Author: Alexis Moins
 " Creation: 18 juin 2020
+" vim: fdm=marker
 
 " Detects filetype, plugin and indentation
 filetype plugin indent on
@@ -70,13 +71,16 @@ set statusline=%!sonar#Statusline()
 " Set the content of the tabline
 set tabline=%!utils#Tabline()
 
-" Use markers to create folds
-set foldmethod=marker
+" Use syntax to create folds
+set foldmethod=syntax
+
+" Only fold 1 time
+set foldnestmax=1
 
 " Use +-- and --+ to create folds manually
 set foldmarker=+--,--+
 
-" Format the fold's visual
+" 
 set foldtext=utils#FoldText()
 
 " Use the patience algorithm to show differences, don't take whitespaces into
@@ -110,7 +114,7 @@ set backspace=start,eol,indent
 set omnifunc=syntaxcomplete#Complete
 
 " Location of the .viminfo file
-set viminfofile=${VIMDOTDIR}/.viminfo
+set viminfofile=${VIMDOTDIR}/.cache/viminfo
 
 " Never use swapfiles
 set noswapfile
@@ -119,6 +123,12 @@ set noswapfile
 set undofile
 
 " Location of the .undo directory
-set undodir=${VIMDOTDIR}/.undo
+set undodir=${VIMDOTDIR}/.cache/undo
+
+"
+set shortmess+=I
+
+" Enables mouse usage in all modes
+set mouse=a
 
 " --+

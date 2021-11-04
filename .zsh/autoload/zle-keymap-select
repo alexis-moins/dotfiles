@@ -3,16 +3,13 @@
 # Creation: 17 janvier 2020
 # vim: ft=zsh syn=zsh
 
-block="\e[1 q"
-underscore="\e[3 q"
-
 case ${KEYMAP} in
-    vicmd) 
-        # Block cursor
-        printf ${block} ;;
-    viins|main) 
-        # Underscore cursor
-        printf ${underscore} ;;
+    (vicmd) 
+        # Command mode
+        RPROMPT="%F{10} -- COMMAND -- %f" ;;
+    (viins|main)
+        # Insert | Normal mode
+        RPROMPT="" ;;
 esac
 
 # Refresh prompt

@@ -1,0 +1,187 @@
+#!/usr/bin/env zsh
+# Author: Alexis Moins
+# Creation: 29 oct 2021
+
+# Directories that must be created before copying
+init_directories=( ".vim/.cache/undo" ".zsh/.cache/completion" "${HOME}/.scripts/bin" "${HOME}/.ssh" )
+
+# Configuration files that must be created
+files=( ".ssh/config" ".gitconfig" ".zshenv" ".tmux.conf" )
+
+# Configuration directories that must be created
+directories=( ".vim" ".zsh" )
+
+# 
+archive_name="config-archive.tar.gz"
+
+# Colors
+purple="\033[0;35m"
+default="\033[0m"
+
+# +-- Functions
+
+function send_message {
+    echo "-> ${purple}${1}${default}"
+}
+
+function init-config {
+	for directory in ${init_directories}; do
+		if [[ ! -d "${directory}" ]]; then
+			\mkdir -p "${directory}"
+            send_message "${directory}"
+		fi
+	done
+}
+
+function export-files {
+    echo "Exporting files"
+	for file in ${files}; do
+		\cp -f "${file}" "${HOME}/${file}"
+        send_message "${file}"
+	done
+}
+
+function export-directories {
+    echo "Exporting directories"
+	for directory in ${directories}; do
+		\cp -Rf "${directory}" "${HOME}"
+        send_message "${directory}"
+	done
+}
+
+function remove-files {
+    echo "Removing files"
+	for file in ${files}; do
+		if [[ -f "${HOME}/${file}" ]]; then
+            \rm "${HOME}/${file}"
+            echo "-> ~/${file}"
+        fi
+	done
+}
+
+function remove-directories {
+    echo "Removing directories"
+	for directory in ${directories}; do
+		if [[ -d "${HOME}/${directory}" ]]; then
+            \rm -rf "${HOME}/${directory}"
+            echo "-> ~/${directory}"
+        fi
+	done
+}
+
+function add-archive {
+    echo "Creating new archive"; pushd
+    tar -czf "${HOME}/${archive_name}" \
+        ${files} ${directories}
+    send_message "~/${archive_name}"; popd
+}
+
+function remove-archive {
+    echo "Removing previous archive" 
+    if [[ -f "${HOME}/${archive_name}" ]]; then
+        \rm "${HOME}/${archive_name}"
+        send_message "~/${archive_name}"
+    fi
+}
+
+function import-files {
+    echo "Importing files"
+	for file in ${files}; do
+		if [[ -f "${HOME}/${file}" ]]; then
+            \cp -f "${HOME}/${file}" "${file}"
+            send_message "~/${file}"
+        fi
+	done
+}
+
+function import-directories {
+    echo "Importing directories"
+	for directory in ${directories}; do
+		if [[ -d "${HOME}/${directory}" ]]; then
+            \cp -Rf "${HOME}/${directory}" .
+            send_message "~/${directory}"
+        fi
+	done
+}
+
+function clean-vim-undo {
+    if [[ -d "${HOME}/.vim/.cache/undo" ]]; then
+        echo ""
+        find "${HOME}/.vim/.cache/undo" -type f -mtime +30 -delete
+    fi
+}
+
+function show-help {
+    echo "${purple}Usage: ${default}config <option>"
+    echo "       (to perform the corresponding action)\n"
+
+    echo "where${purple} [option] ${default}is one of the following :"
+    echo "   help       Show this help message"
+    echo "   install    Install the packages (brewfile) then export the config"
+    echo "   packages   Install the packages in the brewfile"
+    echo "   save       Save the config in an archive\n"
+
+    echo "   import     Copy the general config into the current directory"
+    echo "   export     Copy the config of the current directory to the home directory"
+    echo "   remove     Remove the config found in the home directory"
+    echo "   clean      Remove the config found at ~ and export the files again"
+}
+
+function parse-option {
+	case "${1}" in
+		"install")
+			parse-option "export"
+            echo ""
+			parse-option "packages"
+			;;
+		"export")
+            parse-option "save"
+            echo ""
+			export-files
+            echo ""
+			export-directories
+			;;
+		"packages")
+			echo "Installing brew packages"
+			HOMEBREW_NO_AUTO_UPDATE=1 brew bundle install --no-lock --no-upgrade --file="brewfile"
+			;;
+        "import")
+            clean-vim-undo
+            import-files
+            echo ""
+            import-directories
+            ;;
+        "save")
+            remove-archive
+            echo ""
+            add-archive
+            ;;
+        "remove")
+            remove-files
+            echo ""
+            remove-directories
+            ;;
+        "clean")
+			parse-option "remove"
+            echo ""
+            parse-option "export"
+            ;;
+        *)
+            show-help
+            exit 1
+            ;;
+	esac
+}
+
+# --+
+
+init-config
+
+# Exit with an error if no arguments were passed to the script
+# [[ "${#}" -eq 0 ]] || [[ "${#}" -gt 1 ]] && _send_error "${_NO_RECIPE_NAME}"
+
+parse-option "${1}"
+
+# Cleans the environment
+unset init_directories directories files
+

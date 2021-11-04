@@ -1,6 +1,7 @@
 " Colorscheme definition
 " Author: Alexis Moins
 " Creation: 02 novembre 2020
+" vim: fdm=marker
 
 highlight clear
 
@@ -11,7 +12,7 @@ let g:colors_name = "kraken"
 " The color palette used globally
 let g:palette = {
             \ 'black':       [0, "#1c1c1c"],
-            \ 'red':         [9, "#ff005f"],
+            \ 'red':         [1, "#ff005f"],
             \ 'green':       [77,  "#5fd700"],
             \ 'yellow':      [186, "#d7d787"],
             \ 'blue':        [4,  "#5fafff"],
@@ -23,7 +24,7 @@ let g:palette = {
             \ 'lightGreen':     [121, "#87ffaf"],
             \ 'orange':         [214, "#ffc24b"],
             \ 'lightBlue':      [12, "#b3deef"],
-            \ 'lightMagenta':   [176, "#d787d7"],
+            \ 'lightMagenta':   [13, "#d787d7"],
             \ 'visual':         [236, "#262626"],
             \ 'lightVisual':    [240, "#585858"],
             \ 'grey':           [15, "#444444"],
@@ -56,7 +57,7 @@ endfunc
 " +-- Interface
 
 call Highlight("Normal", g:palette.white, g:palette.black)
-call Highlight("NonText", g:palette.lightBlue, g:palette.black)
+call Highlight("NonText", g:palette.grey, g:palette.black)
 
 call Highlight("Cursor", g:palette.none, g:palette.none)
 call Highlight("CursorLine", g:palette.none, g:palette.lightBlack)
@@ -102,7 +103,7 @@ call Highlight("VertSplit", g:palette.grey, g:palette.none)
 call Highlight("SpellBad", g:palette.white, g:palette.red)
 call Highlight("SignColumn", g:palette.black, g:palette.black)
 
-call Highlight("Folded", g:palette.grey, g:palette.black)
+call Highlight("Folded", g:palette.grey, g:palette.none)
 call Highlight("FoldColumn", g:palette.grey, g:palette.black)
 
 call Highlight("Question", g:palette.lightGreen, g:palette.black)
@@ -119,21 +120,22 @@ call Highlight("DiffDelete", g:palette.red, g:palette.none)
 " +-- Syntax
 
 call Highlight("Comment", g:palette.grey, g:palette.black)
-
 call Highlight("Constant", g:palette.magenta, g:palette.black)
+
 call Highlight("String", g:palette.lightBlue, g:palette.black)
 call Highlight("Character", g:palette.lightBlue, g:palette.black)
-call Highlight("Number", g:palette.magenta, g:palette.black)
-call Highlight("Float", g:palette.magenta, g:palette.black)
-call Highlight("Boolean", g:palette.orange, g:palette.black)
+
+call Highlight("Number", g:palette.lightMagenta, g:palette.black)
+call Highlight("Float", g:palette.lightMagenta, g:palette.black)
+call Highlight("Boolean", g:palette.lightMagenta, g:palette.black)
 
 call Highlight("Identifier", g:palette.white, g:palette.black)
 call Highlight("Function", g:palette.magenta, g:palette.black)
 
 call Highlight("Statement", g:palette.red, g:palette.black)
 call Highlight("Conditional", g:palette.lightBlue, g:palette.black)
-call Highlight("Repeat", g:palette.green, g:palette.black)
-call Highlight("Label", g:palette.orange, g:palette.black)
+call Highlight("Repeat", g:palette.lightGreen, g:palette.black)
+call Highlight("Label", g:palette.lightGreen, g:palette.black)
 call Highlight("Operator", g:palette.red, g:palette.black)
 call Highlight("Keyword", g:palette.red, g:palette.black)
 call Highlight("Exception", g:palette.lightBlue, g:palette.black)
@@ -145,11 +147,11 @@ call Highlight("Macro", g:palette.magenta, g:palette.black)
 call Highlight("PreCondit", g:palette.magenta, g:palette.black)
 
 call Highlight("Type", g:palette.cyan, g:palette.black)
-call Highlight("StorageClass", g:palette.green, g:palette.black)
-call Highlight("Structure", g:palette.green, g:palette.black)
-call Highlight("Typedef", g:palette.green, g:palette.black)
+call Highlight("StorageClass", g:palette.lightGreen, g:palette.black)
+call Highlight("Structure", g:palette.red, g:palette.black)
+call Highlight("Typedef", g:palette.red, g:palette.black)
 
-call Highlight("Special", g:palette.cyan, g:palette.black)
+call Highlight("Special", g:palette.lightRed, g:palette.black)
 call Highlight("SpecialChar", g:palette.red, g:palette.black)
 call Highlight("Tag", g:palette.red, g:palette.black)
 call Highlight("Delimiter", g:palette.white, g:palette.black)
