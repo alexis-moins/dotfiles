@@ -2,14 +2,9 @@ augroup Miscellaneous
     autocmd!
     autocmd VimResized * wincmd =
     autocmd Filetype gitcommit setlocal spell
-    autocmd InsertEnter * let w:last_fdm=&foldmethod | setlocal foldmethod=manual
-    autocmd InsertLeave * let &l:foldmethod=w:last_fdm
+    autocmd InsertEnter * setlocal foldmethod=manual
+    autocmd InsertLeave * setlocal foldmethod=syntax
 augroup End
-
-augroup Filetype
-    autocmd!
-    autocmd BufNewFile,BufRead Brewfile set filetype=brewfile syntax=ruby
-augroup END
 
 augroup Templates
     autocmd!

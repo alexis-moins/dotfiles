@@ -1,6 +1,6 @@
 # Author: Alexis Moins
 # Creation: 14 mars 2020
-# vim: ft=zsh syn=zsh
+# vim: ft=zsh syn=zsh fdm=marker
 
 # +-- files
 
@@ -14,7 +14,7 @@ alias zshenv="vim ${ZDOTDIR}/../.zshenv"
 alias vimrc="vim ${VIMDOTDIR}/vimrc"
 
 # Edit `aliases`
-alias aliasrc="vim ${ZDOTDIR}/config/aliases"
+alias aliasrc="vim ${ZDOTDIR}/plugin/aliases"
 
 # --+
 

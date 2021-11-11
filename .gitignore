@@ -12,6 +12,7 @@ tmux-sessions
 # Vim
 *.swp
 .vim-session
+.viminfo
 
 # Brew
 Brewfile.lock.json

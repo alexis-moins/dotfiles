@@ -1,0 +1,162 @@
+#!/usr/bin/env bash
+# Author: Alexis Moins
+# Creation: 19 oct 2021
+# vim: ft=zsh syn=zsh
+
+_editor="${EDITOR:-vim}"
+_recipe_book="${RECIPE_BOOK:-${HOME}/.recipes}"
+
+# +-- errors
+
+# Define the color codes used for errors
+_PURPLE="\033[0;35m"
+_DEFAULT="\033[0m"
+
+# Define errors
+_NO_RECIPE_NAME="No recipe name was provided. See${_PURPLE} recipe --help${_DEFAULT}"
+_NO_SUCH_RECIPE="No recipe was found with that name. See${_PURPLE} recipe --list${_DEFAULT}"
+_TOO_MANY_OPTIONS="Too many options were given. See${_PURPLE} recipe --help${_DEFAULT}"
+_NO_RECIPES="There are no recipes yet. See${_PURPLE} recipe --new${_DEFAULT}"
+_RECIPE_ALREADY_EXISTS="There is already a recipe with that name. See${_PURPLE} recipe --help${_DEFAULT}"
+
+# Print the given error on screen and exit with the corresponding error code.
+#
+# param {1} the considered error
+#
+function _send_error {
+    echo -e "${1}"
+    exit 1
+}
+
+# --+
+
+# +-- methods
+
+# Create the folder that will contain all the recipes if it does not exists already.
+function _init_recipe {
+    if [[ ! -d "${_recipe_book}" ]]; then
+        echo -e "Created recipe home directory at${_PURPLE} ${_recipe_book} ${_DEFAULT}"
+        \mkdir "${_recipe_book}"
+    fi
+}
+
+# Parse the the first option of the ${_parameters} array and execute the required commands accordingly
+function _parse_options {
+    case ${_parameters[0]} in
+        -l | --list)
+            _list_recipes
+            exit 0
+            ;;
+        -h | --help)
+            _show_help
+            exit 0
+            ;;
+        -e | --edit)
+            _edit_recipe
+            ;;
+        -n | --new)
+            _new_recipe
+            ;;
+        -a | --add)
+            _add_recipe
+            ;;
+        *)
+            _check_recipe
+            ;;
+    esac
+}
+# List all the recipes found in the ${_recipe_book} folder.
+function _list_recipes {
+    [[ "${_parameters_number}" -gt 1 ]] && _send_error "${_TOO_MANY_OPTIONS}"
+    local _recipes=$( ls "${_recipe_book}" )
+    [[ -z "${_recipes}" ]] && _send_error "${_NO_RECIPES}"
+    echo "${_recipes}"
+}
+# Display the help message of the program.
+function _show_help {
+    [[ "${_parameters_number}" -gt 1 ]] && _send_error "${_TOO_MANY_OPTIONS}"
+    echo -e "${_PURPLE}Usage: ${_DEFAULT}recipe <name of the recipe>"
+    echo "       (to prepare a recipe)"
+    echo -e "   or  recipe${_PURPLE} [option] ${_DEFAULT}[name of the recipe]"
+    echo -e "       (to perform an action on a recipe)\n"
+
+    echo -e "where${_PURPLE} [option] ${_DEFAULT}is one of the following :"
+    echo "   -h | --help    Show this help message"
+    echo -e "   -l | --list    List all available recipes\n"
+
+    echo "   -n | --new     <recipe>        Create a new recipe <recipe>"
+    echo "   -e | --edit    <recipe>        Edit the recipe <recipe>"
+    echo "   -a | --add     <name> <file>   Add <file> as a new recipe called <name>"
+}
+
+# Try to edit the recipe given as a parameter of the script.
+function _edit_recipe {
+    # Ensure a recipe name was provided
+    [[ "${_parameters_number}" -eq 1 ]] && _send_error "${_NO_RECIPE_NAME}"
+    #
+    local _recipe="${_recipe_book}/${_parameters[1]}"
+    #
+    [[ ! -f "${_recipe}" ]] && _send_error "${_NO_SUCH_RECIPE}"
+    #
+    ${_editor} "${_recipe}"
+}
+
+# Create a new recipe with the name provided by the user as an argument of the script.
+function _new_recipe {
+    # Ensure a recipe name was provided
+    [[ "${_parameters_number}" -eq 1 ]] && _send_error "${_NO_RECIPE_NAME}"
+    #
+    local _recipe="${_recipe_book}/${_parameters[1]}"
+
+    [[ -f "${_recipe}" ]] && _send_error "${_RECIPE_ALREADY_EXISTS}"
+
+    ${_editor} "${_recipe}"
+}
+
+function _add_recipe {
+    # Ensure a recipe name was provided
+    [[ "${_parameters_number}" -lt 2 ]] && _send_error "${_NO_RECIPE_NAME}"
+    #
+    local _recipe="${_recipe_book}/${_parameters[1]}"
+
+    [[ -f "${_recipe}" ]] && _send_error "${_RECIPE_ALREADY_EXISTS}"
+
+    [[ ! -f ./"${_parameters[2]}" ]] && _send_error "Invalid file name"
+
+    \cp "./${_parameters[2]}" "${_recipe}"
+
+    echo -e "New recipe${_PURPLE} ${_parameters[1]} ${_DEFAULT}added successfully."
+}
+
+# Check wether the given recipe name is valid of not. If it is, prepare that recipe.
+function _check_recipe {
+    [[ "${_parameters_number}" -gt 1 ]] && _send_error "${_TOO_MANY_OPTIONS}"
+
+    local _recipe="${_recipe_book}/${_parameters[0]}"
+
+    [[ ! -f "${_recipe}" ]] && _send_error "${_NO_SUCH_RECIPE}"
+
+    \cp "${_recipe}" ./makefile
+
+    echo -e "Recipe${_PURPLE} ${_parameters[0]} ${_DEFAULT}prepared successfully."
+}
+
+# --+
+
+_init_recipe
+
+# Exit with an error if no arguments were passed to the script
+[[ "${#}" -eq 0 ]] && _send_error "${_NO_RECIPE_NAME}"
+
+_parameters=( "${@}" )
+_parameters_number="${#}"
+
+_parse_options
+
+# TODO
+# Ensure there is not already a makefile
+# -d | --delete <recipe> Delete the given recipe (careful!)
+# --home                 Show the path to the recipe home directory
+#
+# -u | --update <recipe> <file>     Update the content of <recipe> with the content of <file>
+# -r | --rename <recipe> <new name> Rename <recipe> with <new name>
