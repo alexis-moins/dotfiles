@@ -87,9 +87,6 @@ set foldtext=utils#FoldText()
 " account and completely fold identical parts
 set diffopt+=algorithm:patience,iwhiteall,context:0
 
-" Display the line number
-set number
-
 " Highlight the text line of the cursor
 set cursorline
 

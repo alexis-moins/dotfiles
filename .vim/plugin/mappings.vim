@@ -8,7 +8,7 @@ nnoremap <Left> <Cmd>previous<CR>
 nnoremap <Down> <Cmd>cnext<CR>
 nnoremap <Up> <Cmd>cprevious<CR>
 
-nnoremap <leader>mk :silent make <Bar> silent redraw!<CR>
+nnoremap <leader>mk :silent make! <Bar> silent redraw!<CR>
 nnoremap <leader>cs :mks! .vim-session<CR>
 nnoremap <leader>ss <Cmd>source .vim-session<CR>
 
@@ -25,10 +25,11 @@ nnoremap <leader>sp :setl spell!<CR>
 
 nnoremap <leader>cd <Cmd>lcd %:p:h<CR>
 nnoremap <leader>cb <Cmd>lcd -<CR>
-
 " 
 nnoremap <leader>rl :%s/<C-R><C-W>//gce<left><left><left><left>
-nnoremap <leader>rg :argdo! %s/<C-R><C-W>//gce<left><left><left><left>
+nnoremap <leader>rg :bufdo %s/<C-R><C-W>//gce<left><left><left><left>
+
+nnoremap <leader>gs <Cmd>bufdo write<CR>
 
 nnoremap <leader>src :source %<CR>
 nnoremap <leader>syn <Cmd>call utils#SyntaxGroup()<CR>
@@ -56,9 +57,12 @@ nnoremap <leader>l <C-W>l
 nnoremap <C-S> mp[s1z=`p
 inoremap <C-S> <C-C>[s1z=`]a
 
-iabbrev <expr> tdd strftime("%d %b %Y")
+" So useful to code faster
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap < <><left>
+inoremap " ""<left>
 
-inoremap <buffer> ( ()<left>
-inoremap <buffer> [ []<left>
-inoremap <buffer> { {}<left>
+iabbrev <expr> tdd strftime("%d %b %Y")
 
