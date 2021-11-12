@@ -59,7 +59,7 @@
     # Faster mergetool
     mt = mergetool
     # Add currently staged files to the last commit without changing its message
-    amend = !git add . && git commit --amend --no-edit
+    amend = commit --amend --no-edit
     # Apply the .gitignore file to all files in the repo
     ignore = !git rm -r --cached . && git add .
     # Display commits with a pretty formatting

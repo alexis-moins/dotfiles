@@ -57,7 +57,7 @@ endfunc
 " +-- Interface
 
 call Highlight("Normal", g:palette.white, g:palette.black)
-call Highlight("NonText", g:palette.grey, g:palette.black)
+call Highlight("NonText", g:palette.lightBlue, g:palette.black)
 
 call Highlight("Cursor", g:palette.none, g:palette.none)
 call Highlight("CursorLine", g:palette.none, g:palette.lightBlack)
