@@ -32,6 +32,9 @@ brew 'zsh'
 # Terminal multiplexer
 brew 'tmux'
 
+# 
+brew 'stow'
+
 # Display directories as trees (with optional color/HTML output)
 brew 'tree'
 
@@ -41,9 +44,6 @@ brew 'ctags'
 # Python version management
 brew 'pyenv'
 
-# Python package management tool
-brew 'poetry'
-
 # Development kit for the Java programming language 
 brew 'java'
 
@@ -51,10 +51,13 @@ brew 'java'
 brew 'shellcheck'
 
 # Dynamic, general-purpose programming language
-brew 'clojure'
+# brew 'clojure'
 
 # Build tool for clojure
-brew 'leiningen'
+# brew 'leiningen'
+
+# Platform built on V8 to build network applications
+brew 'node'
 
 # --+
 
@@ -76,7 +79,7 @@ cask 'mattermost'
 cask 'font-fira-code'
 
 # Compact TeX distribution as alternative to the full TeX Live / MacTeX
-cask 'basictex'
+# cask 'basictex'
 
 # Move and resize windows using keyboard shortcuts or snap areas
 cask 'rectangle'

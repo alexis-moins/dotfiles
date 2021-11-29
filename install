@@ -1,0 +1,16 @@
+#!/usr/bin/env zsh
+# Author: Alexis Moins
+# Creation: 29 nov 2021
+
+# List of directries that MUST be created
+directories=( "${HOME}/.zsh/.cache" "${HOME}/.zsh/.cache" )
+
+# Create directories
+for directory in ${directories}; do
+    [[ ! -d "${directory}" ]] && \mkdir -pv "${directory}"; done
+
+# Symlink configuration
+stow -R .
+
+# Install formulae / casks
+brew bundle install --no-lock
