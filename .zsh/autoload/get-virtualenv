@@ -6,13 +6,11 @@
 if [ -n "${VIRTUAL_ENV}" ]; then
     # Fetch the virtual env name
     python_env="$(basename "${VIRTUAL_ENV}")"
-fi
 
-# Create the prompt if the ${python_env} is not empty
-if [ -n "${python_env}" ]; then
     # Create the prompt
-    venv_prompt="%F{8}on ${python_env}%f "
+    venv_prompt="%F{11} 📦 ${python_env}%f "
+
+    # Print the value of ${venv_prompt} to standard out.
+    printf "%s" "${venv_prompt}"
 fi
 
-# Print the value of ${venv_prompt} to standard out.
-printf "%s" "${venv_prompt}"

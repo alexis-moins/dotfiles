@@ -1,7 +1,6 @@
 " User configuration for vim
 " Author: Alexis Moins
 " Creation: 18 juin 2020
-" vim: fdm=marker
 
 " Detects filetype, plugin and indentation
 filetype plugin indent on
@@ -9,8 +8,14 @@ filetype plugin indent on
 " Enables syntax coloration
 syntax enable
 
+packadd! onedark.vim
+
+set background=dark
+
 " Loads colorscheme abyss
 colorscheme kraken
+
+
 
 " +-- Config
 
@@ -50,12 +55,6 @@ set scrolloff=5
 " Never pass beyond 120 characters on a line
 set textwidth=120
 
-" Never display the signcolumn
-set signcolumn=no
-
-" Display the matching character when typing
-set showmatch
-
 " Open vertical splits to the right
 set splitright
 
@@ -65,23 +64,25 @@ set splitbelow
 " Always display the statusline
 set laststatus=2
 
+" Set text displayed for closed folds
+set foldtext=functions#fold_text()
+
+set tabline=%!functions#tabline()
+
 " Set the content of the statusline
-set statusline=%!sonar#Statusline()
+set statusline=%1*\ %0*\ \ %t\ \ %2*%m%=%0*\ \ %f%3*\ \ %y\ \ 
 
-" Set the content of the tabline
-set tabline=%!utils#Tabline()
+" Use the general system clipboard
+set clipboard^=unnamed
 
-" Use syntax to create folds
-set foldmethod=syntax
+" Use markers to create folds
+set foldmethod=marker
 
 " Only fold 1 time
 set foldnestmax=1
 
 " Use +-- and --+ to create folds manually
 set foldmarker=+--,--+
-
-" 
-set foldtext=utils#FoldText()
 
 " Use the patience algorithm to show differences, don't take whitespaces into
 " account and completely fold identical parts
@@ -99,6 +100,7 @@ set dictionary=/usr/share/dict/words
 " Don't add anything at the end of the folded line
 set fillchars=fold:\ 
 
+"
 set listchars=eol:¬,extends:>,precedes:<,tab:>\ 
 
 " During search, look inside of the current directory and subdirectories
@@ -122,8 +124,11 @@ set undofile
 " Location of the .undo directory
 set undodir=${VIMDOTDIR}/.cache/undo
 
+
 "
 set shortmess+=I
+
+let g:palenight_terminal_italics=1
 
 " Enables mouse usage in all modes
 set mouse=a

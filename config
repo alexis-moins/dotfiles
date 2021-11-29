@@ -1,31 +1,67 @@
-# Connect to github
-Host github.com
-    # Connect using this specific host
-    Hostname github.com
-    # Use the public key to identify
-    PreferredAuthentications publickey
-    # Link to the public key (ed25519)
-    IdentityFile ~/.ssh/github
+#!/usr/bin/env zsh
+# Author: Alexis Moins
+# Creation: 29 oct 2021
+# vim: fdm=marker
 
-# Connect to the gitlab account provided by the Bdx University
-Host gitlab-ce.iut.u-bordeaux.fr
-    # Connect using this specific host
-    Hostname gitlab-ce.iut.bordeaux.fr
-    # Use the public key to identify
-    PreferredAuthentications publickey
-    # Link to the public key (ed25519)
-    IdentityFile ~/.ssh/gitlab-ce
+# Files and dir to create first
+init=( 
+    ".vim/spell"
+    ".vim/.cache/undo" 
+    ".zsh/.cache/completion" 
+    "${HOME}/.ssh" )
 
-# Connect to Bdx University IT Department 1st server
-Host bombarbe
-    # Username used to connect to the server
-    User amoins001
-    # Connect using this specific host
-    Hostname info-ssh1.iut.u-bordeaux.fr
+# Files and dir that will be exported to ~
+included=( 
+    ".gitconfig"
+    ".ssh/config"
+    ".tmux.conf"
+    ".vim"
+    ".zsh"
+    ".zshenv" )
 
-# Connect to Bdx University IT Department 2nd server
-Host biniou
-    # Username used to connect to the server
-    User amoins001
-    # Connect using this specific host
-    Hostname info-ssh2.iut.u-bordeaux.fr
+# +-- Functions
+
+# 
+function init-config {
+    for item in "${init[@]}"; do
+        [[ ! -d "${item}" ]] && \mkdir -pv "${item}"
+    done
+
+    [[ -d "${HOME}/.vim/.cache/undo" ]] && find "${HOME}/.vim/.cache/undo" -type f -mtime +30 -delete -print
+}
+
+function install-config {
+    echo "Installing config"
+    for item in "${included[@]}"; do
+        if [[ -e "${item}" ]]; then
+            \cp -Ri "${item}" "${HOME}"
+            echo "-> ${item}"
+        fi
+    done
+}
+
+function fetch-config {
+    echo "Fetching config"
+    for item in "${included[@]}"; do
+        if [[ -e "${HOME}/${item}" ]]; then
+            [[ -d "${HOME}/${item}" ]] && \cp -R "${HOME}/${item}" .
+            [[ -f "${HOME}/${item}" ]] && \cp "${HOME}/${item}" "${item}"
+            echo "-> ${item}"
+        fi
+    done
+}
+
+# --+
+
+# 
+init-config
+
+# Fetch user config from home dir
+[[ "${1}" = "fetch" ]] && fetch-config
+
+# Copy config to the home dir
+[[ "${1}" = "install" ]] && install-config
+
+# Cleans the environment
+unset init included
+

@@ -57,12 +57,6 @@ nnoremap <leader>l <C-W>l
 nnoremap <C-S> mp[s1z=`p
 inoremap <C-S> <C-C>[s1z=`]a
 
-" So useful to code faster
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap { {}<left>
-inoremap < <><left>
-inoremap " ""<left>
 
 iabbrev <expr> tdd strftime("%d %b %Y")
 

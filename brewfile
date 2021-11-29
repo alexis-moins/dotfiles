@@ -78,4 +78,7 @@ cask 'font-fira-code'
 # Compact TeX distribution as alternative to the full TeX Live / MacTeX
 cask 'basictex'
 
+# Move and resize windows using keyboard shortcuts or snap areas
+cask 'rectangle'
+
 # --+

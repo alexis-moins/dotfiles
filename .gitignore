@@ -11,6 +11,8 @@ tmux-sessions
 
 # Vim
 *.swp
+pack/
+.spell/
 .vim-session
 .viminfo
 

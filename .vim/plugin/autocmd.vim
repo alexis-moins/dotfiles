@@ -16,4 +16,5 @@ augroup Linting
     autocmd!
     autocmd QuickFixCmdPost * cwindow
     autocmd BufWritePost *.java,*.javascript silent normal! magg=G`a
+    autocmd Filetype c,cpp,java setlocal foldmethod=syntax
 augroup End
