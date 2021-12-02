@@ -17,8 +17,8 @@ zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' actionformats '%F{5} on %b %F{5}{%a}%f%u%c%f'
 
 # Style used for staged and unstaged files
-zstyle ':vcs_info:*' stagedstr ' %F{1}[!]%f'
-zstyle ':vcs_info:*' unstagedstr ' %F{1}[&]%f'
+zstyle ':vcs_info:*' stagedstr ' %F{1}[&]%f'
+zstyle ':vcs_info:*' unstagedstr ' %F{1}[!]%f'
 
 # Single quotes are mandatory for vcs_info to be interpreted correctly
 PROMPT='

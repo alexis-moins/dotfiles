@@ -8,14 +8,34 @@ filetype plugin indent on
 " Enables syntax coloration
 syntax enable
 
-packadd! onedark.vim
-
-set background=dark
-
 " Loads colorscheme abyss
 colorscheme kraken
 
-" +-- Config
+" {{{ Plugins
+
+call plug#begin('~/.vim/plugged')
+
+" Make your Vim/Neovim as smart as VSCode
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+
+" Comment stuff out
+Plug 'tpope/vim-commentary'
+
+call plug#end()
+
+" List of coc extensions installed at first startup
+let g:coc_global_extensions = [ 
+            \ 'coc-pairs', 
+            \ 'coc-pyright', 
+            " \ 'coc-clangd',
+            \ 'coc-java'
+            \ ]
+
+" }}}
+
+" {{{ Config
+
+set number 
 
 " Automatically replace tabulations with spaces
 set expandtab
@@ -70,17 +90,11 @@ set tabline=%!functions#tabline()
 " Set the content of the statusline
 set statusline=%1*\ %0*\ \ %t\ \ %2*%m%=%0*\ \ %f%3*\ \ %y\ \ 
 
-" Use the general system clipboard
-set clipboard^=unnamed
-
 " Use markers to create folds
 set foldmethod=marker
 
 " Only fold 1 time
 set foldnestmax=1
-
-" Use +-- and --+ to create folds manually
-set foldmarker=+--,--+
 
 " Use the patience algorithm to show differences, don't take whitespaces into
 " account and completely fold identical parts
@@ -107,9 +121,6 @@ set path=.,**
 " Expected behaviour of the backspace key
 set backspace=start,eol,indent
 
-" Specifies the method used to autocomplete
-set omnifunc=syntaxcomplete#Complete
-
 " Location of the .viminfo file
 set viminfofile=${VIMDOTDIR}/.cache/viminfo
 
@@ -126,9 +137,10 @@ set undodir=${VIMDOTDIR}/.cache/undo
 set signcolumn=number
 
 "
-set shortmess+=I
+set shortmess+=Ic
 
 " Enables mouse usage in all modes
 set mouse=a
 
-" --+
+" }}}
+

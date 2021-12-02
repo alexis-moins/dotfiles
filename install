@@ -3,14 +3,19 @@
 # Creation: 29 nov 2021
 
 # List of directries that MUST be created
-directories=( "${HOME}/.zsh/.cache" "${HOME}/.zsh/.cache" )
+directories=( 
+    "${HOME}/.zsh/.cache"
+    "${HOME}/.vim/.cache"
+    "${HOME}/.vim/plugged"
+)
 
 # Create directories
 for directory in ${directories}; do
     [[ ! -d "${directory}" ]] && \mkdir -pv "${directory}"; done
 
-# Symlink configuration
-stow -R .
-
 # Install formulae / casks
-brew bundle install --no-lock
+if brew bundle install --no-lock; then
+    # Symlink configuration
+    stow -R .
+fi
+
