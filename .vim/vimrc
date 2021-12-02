@@ -15,8 +15,6 @@ set background=dark
 " Loads colorscheme abyss
 colorscheme kraken
 
-
-
 " +-- Config
 
 " Automatically replace tabulations with spaces
@@ -124,11 +122,11 @@ set undofile
 " Location of the .undo directory
 set undodir=${VIMDOTDIR}/.cache/undo
 
+" Display signs on the number column 
+set signcolumn=number
 
 "
 set shortmess+=I
-
-let g:palenight_terminal_italics=1
 
 " Enables mouse usage in all modes
 set mouse=a

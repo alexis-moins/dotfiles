@@ -22,7 +22,7 @@ zstyle ':vcs_info:*' unstagedstr ' %F{1}[&]%f'
 
 # Single quotes are mandatory for vcs_info to be interpreted correctly
 PROMPT='
-%(#.%F{1}#%f .)%(1j.%j:.)%F{6}%1~%f${vcs_info_msg_0_}$(get-virtualenv)
+%(1j.:%j .)%(#.%F{1}root %f.)%F{6}%1~%f${vcs_info_msg_0_}$(get-virtualenv)
 %(?..%F{1})->%f '
 
 # Prompt pour le corps des fonctions
