@@ -9,33 +9,41 @@ filetype plugin indent on
 syntax enable
 
 " Loads colorscheme abyss
-colorscheme kraken
+colorscheme depths
 
-" {{{ Plugins
+" Plugins {{{
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.vim/bundle')
 
 " Make your Vim/Neovim as smart as VSCode
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
+" A Git wrapper so awesome, it should be illegal
+Plug 'tpope/vim-fugitive'
+
 " Comment stuff out
 Plug 'tpope/vim-commentary'
+
+# Delete / change add parentheses or quotes with ease
+Plug 'tpope/vim-surround'
 
 call plug#end()
 
 " List of coc extensions installed at first startup
+"
 let g:coc_global_extensions = [ 
             \ 'coc-pairs', 
+            \ 'coc-clangd',
             \ 'coc-pyright', 
-            " \ 'coc-clangd',
             \ 'coc-java'
             \ ]
 
 " }}}
 
-" {{{ Config
+" Config {{{
 
-set number 
+" Display line numbers
+set number
 
 " Automatically replace tabulations with spaces
 set expandtab
@@ -83,12 +91,12 @@ set splitbelow
 set laststatus=2
 
 " Set text displayed for closed folds
-set foldtext=functions#fold_text()
+"set foldtext=functions#fold_text()
 
-set tabline=%!functions#tabline()
+" set tabline=%!functions#tabline()
 
 " Set the content of the statusline
-set statusline=%1*\ %0*\ \ %t\ \ %2*%m%=%0*\ \ %f%3*\ \ %y\ \ 
+set statusline=%1*\ %0*\ \ %f\ \ %2*%m%=\ \ %3*%y\ \ 
 
 " Use markers to create folds
 set foldmethod=marker
@@ -113,7 +121,7 @@ set dictionary=/usr/share/dict/words
 set fillchars=fold:\ 
 
 "
-set listchars=eol:¬,extends:>,precedes:<,tab:>\ 
+set listchars=eol:¬,extends:>,precedes:<,tab:->\ ,trail:•
 
 " During search, look inside of the current directory and subdirectories
 set path=.,**

@@ -12,7 +12,7 @@ tmux-sessions
 # Vim
 *.swp
 .spell/
-plugged/
+bundle/
 .viminfo
 .vim-session
 

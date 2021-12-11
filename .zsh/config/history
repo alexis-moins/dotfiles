@@ -22,7 +22,7 @@ setopt histignorespace
 setopt histreduceblanks
 
 # File in which the history will be saved
-HISTFILE="${ZDOTDIR}/.cache/zsh-history"
+HISTFILE="${ZDOTDIR}/.cache/history"
 
 # Maximum number of items saved in the session's history
 HISTSIZE=1000000

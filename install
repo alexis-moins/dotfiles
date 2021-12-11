@@ -2,20 +2,22 @@
 # Author: Alexis Moins
 # Creation: 29 nov 2021
 
-# List of directries that MUST be created
-directories=( 
-    "${HOME}/.zsh/.cache"
-    "${HOME}/.vim/.cache"
-    "${HOME}/.vim/plugged"
-)
+# List of items that must be present
+init=( ".zsh/.cache" ".vim/.cache" ".vim/bundle" )
 
-# Create directories
-for directory in ${directories}; do
-    [[ ! -d "${directory}" ]] && \mkdir -pv "${directory}"; done
+# Create missing items
+for item in ${init}; do
+    [[ ! -d "${item}" ]] && \mkdir -pv "${item}"
+done
 
-# Install formulae / casks
-if brew bundle install --no-lock; then
-    # Symlink configuration
-    stow -R .
+# Regex matching items that should be ignored
+ignored="\.git$|\.gitignore|Brewfile|install"
+
+# Install formulae and casks
+if brew bundle install --no-lock --no-upgrade; then
+    # Link dotfiles
+    stow --restow --ignore="${ignored}" --verbose .
 fi
 
+# Clean useless variables
+unset init ignored

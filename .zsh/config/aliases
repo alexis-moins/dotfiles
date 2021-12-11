@@ -1,8 +1,8 @@
 # Author: Alexis Moins
 # Creation: 14 mars 2020
-# vim: ft=zsh syn=zsh fdm=marker
+# vim: ft=zsh syn=zsh 
 
-# +-- files
+# {{{ files
 
 # Edit `.zshrc`
 alias zshrc="vim ${ZDOTDIR}/.zshrc"
@@ -16,9 +16,9 @@ alias vimrc="vim ${VIMDOTDIR}/vimrc"
 # Edit `aliases`
 alias aliasrc="vim ${ZDOTDIR}/plugin/aliases"
 
-# --+
+# }}}
 
-# +-- tools
+# {{{ tools
 
 # Display the path in a pretty format
 alias path="echo '${PATH//:/\n}'"
@@ -38,9 +38,9 @@ alias mv="mv -iv"
 # Remove stuff verbosely (-v) and ask for confirmation (-i)
 alias rm="rm -iv"
 
-# --+
+# }}}
 
-# +-- misc
+# misc {{{ 
 
 # Liste les éléments non cachés, avec de la couleur (G)
 alias ls='ls -G'
@@ -57,5 +57,5 @@ alias grep="grep --colour=auto"
 # Attach to the last tmux session
 alias ta='tmux attach-session'
 
-# --+
+# }}}
 

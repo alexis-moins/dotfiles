@@ -2,8 +2,6 @@ augroup Miscellaneous
     autocmd!
     autocmd VimResized * wincmd =
     autocmd Filetype gitcommit setlocal spell
-    autocmd InsertEnter * setlocal foldmethod=manual
-    autocmd InsertLeave * setlocal foldmethod=syntax
 augroup End
 
 augroup Templates
@@ -16,5 +14,4 @@ augroup Linting
     autocmd!
     autocmd QuickFixCmdPost * cwindow
     autocmd BufWritePost *.java,*.javascript silent normal! magg=G`a
-    autocmd Filetype c,cpp,java setlocal foldmethod=syntax
 augroup End

@@ -8,6 +8,8 @@ nnoremap <Left> <Cmd>previous<CR>
 nnoremap <Down> <Cmd>cnext<CR>
 nnoremap <Up> <Cmd>cprevious<CR>
 
+map gf <cmd>edit <cfile><cr>
+
 nnoremap <leader>mk :silent make! <Bar> silent redraw!<CR>
 nnoremap <leader>cs :mks! .vim-session<CR>
 nnoremap <leader>ss <Cmd>source .vim-session<CR>
@@ -26,37 +28,47 @@ nnoremap <leader>sp :setl spell!<CR>
 nnoremap <leader>cd <Cmd>lcd %:p:h<CR>
 nnoremap <leader>cb <Cmd>lcd -<CR>
 " 
-nnoremap <leader>rl :%s/<C-R><C-W>//gce<left><left><left><left>
-nnoremap <leader>rg :bufdo %s/<C-R><C-W>//gce<left><left><left><left>
+nmap <leader>rn <Plug>(coc-rename)
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
-nnoremap <leader>gs <Cmd>bufdo write<CR>
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gt <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 nnoremap <leader>src :source %<CR>
 nnoremap <leader>syn <Cmd>call utils#SyntaxGroup()<CR>
 
 nnoremap <Tab> magg=G`a
 
-nnoremap <Space><Space> /<++><CR><C-L>"_c4l
-
 " Yanks until the end of the line
 nnoremap Y y$
+
+" Kepp visual selection when indenting
+vnoremap < <gv
+vnoremap > >gv
 
 " Moves text around
 vnoremap <silent> J :m '>+1<CR>gv=gv
 vnoremap <silent> K :m '<-2<CR>gv=gv
-nnoremap <silent> <C-J> :m .+1<CR>==
-nnoremap <silent> <C-K> :m .-2<CR>==
+nnoremap <silent> <C-j> :m .+1<CR>==
+nnoremap <silent> <C-k> :m .-2<CR>==
+
+" Keep position after visually yanking 
+vnoremap y mpy`p
+vnoremap Y mpY`p
 
 " Navigates between splits more easily
-nnoremap <leader>h <C-W>h
-nnoremap <leader>j <C-W>j
-nnoremap <leader>k <C-W>k
-nnoremap <leader>l <C-W>l
+nmap <silent> <C-h> <C-W>h
+nmap <silent> <C-j> <C-W>j
+nmap <silent> <C-k> <C-W>k
+nmap <silent> <C-l> <C-W>l
 
 " Selects the first match in the spelling list
 nnoremap <C-S> mp[s1z=`p
 inoremap <C-S> <C-C>[s1z=`]a
-
 
 iabbrev <expr> tdd strftime("%d %b %Y")
 

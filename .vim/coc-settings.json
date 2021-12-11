@@ -1,0 +1,10 @@
+{
+  "codeLens.enable": true,
+  "coc.preferences.extensionUpdateCheck": "daily",
+
+  "diagnostic.format": "%message [%source]",
+  "diagnostic.errorSign": "->",
+  "diagnostic.warningSign": "->",
+  "diagnostic.infoSign": "->",
+  "diagnostic.hintSign": "->"
+}

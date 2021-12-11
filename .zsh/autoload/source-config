@@ -1,0 +1,24 @@
+# Author: Alexis Moins
+# Creation: 29 jui 2021
+# vim: ft=zsh syn=zsh
+
+# Source the configuration files of the config directory
+for file in ${ZDOTDIR}/config/*(^D); do
+    source "${file}"; done
+
+# Plugins {{{
+
+# Enable syntax highlighting
+source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
+# Change default highlighting
+typeset -gA ZSH_HIGHLIGHT_STYLES
+
+# Highlight strings
+ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=blue,bold'
+ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=blue,bold'
+
+ZSH_HIGHLIGHT_STYLES[single-quoted-argument-unclosed]='fg=blue,bold'
+ZSH_HIGHLIGHT_STYLES[double-quoted-argument-unclosed]='fg=blue,bold'
+
+# }}}
