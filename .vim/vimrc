@@ -8,10 +8,13 @@ filetype plugin indent on
 " Enables syntax coloration
 syntax enable
 
-" Loads colorscheme abyss
-colorscheme depths
+" For dark version.
+" set background=dark
 
-" Plugins {{{
+" Load colorscheme depths
+colorscheme test
+
+" {{{ Plugins
 
 call plug#begin('~/.vim/bundle')
 
@@ -24,8 +27,11 @@ Plug 'tpope/vim-fugitive'
 " Comment stuff out
 Plug 'tpope/vim-commentary'
 
-# Delete / change add parentheses or quotes with ease
+" Delete / change add parentheses or quotes with ease
 Plug 'tpope/vim-surround'
+
+" 
+Plug 'tpope/vim-projectionist'
 
 call plug#end()
 
@@ -33,17 +39,19 @@ call plug#end()
 "
 let g:coc_global_extensions = [ 
             \ 'coc-pairs', 
-            \ 'coc-clangd',
             \ 'coc-pyright', 
             \ 'coc-java'
             \ ]
 
 " }}}
 
-" Config {{{
+" {{{ Options
 
-" Display line numbers
-set number
+" Time before CursorHold events are triggered
+set updatetime=100
+
+" Display relative line numbers
+set relativenumber
 
 " Automatically replace tabulations with spaces
 set expandtab
@@ -90,13 +98,8 @@ set splitbelow
 " Always display the statusline
 set laststatus=2
 
-" Set text displayed for closed folds
-"set foldtext=functions#fold_text()
-
-" set tabline=%!functions#tabline()
-
 " Set the content of the statusline
-set statusline=%1*\ %0*\ \ %f\ \ %2*%m%=\ \ %3*%y\ \ 
+set statusline=%1*\ %0*\ \ %t\ \ %2*%m%=%0*\ \ %f%3*\ \ %y\ \ 
 
 " Use markers to create folds
 set foldmethod=marker
@@ -121,7 +124,7 @@ set dictionary=/usr/share/dict/words
 set fillchars=fold:\ 
 
 "
-set listchars=eol:¬,extends:>,precedes:<,tab:->\ ,trail:•
+set listchars=eol:¬,extends:>,precedes:<,tab:>\ 
 
 " During search, look inside of the current directory and subdirectories
 set path=.,**
@@ -141,9 +144,6 @@ set undofile
 " Location of the .undo directory
 set undodir=${VIMDOTDIR}/.cache/undo
 
-" Display signs on the number column 
-set signcolumn=number
-
 "
 set shortmess+=Ic
 
@@ -152,3 +152,79 @@ set mouse=a
 
 " }}}
 
+" Mappings {{{
+
+let mapleader = " " 
+
+nnoremap <silent> <leader>ins <Cmd>PlugInstall<cr>
+nnoremap <silent> <leader>clean <Cmd>PlugClean<cr>
+
+" Goes to the next / previous element of the arglist
+nnoremap <Right> <Cmd>next<CR>
+nnoremap <Left> <Cmd>previous<CR>
+
+" Goes to the next / previous element of the quickfix list
+nnoremap <Down> <Cmd>cnext<CR>
+nnoremap <Up> <Cmd>cprevious<CR>
+
+nnoremap - <Cmd>edit %:p:h<CR><C-L>
+nnoremap + <Cmd>edit `pwd`<CR><C-L>
+
+map gf <cmd>edit <cfile><cr>
+
+nnoremap <leader>rl :%s/<C-R><C-W>//gce<left><left><left><left>
+nnoremap <leader>rf :%s/<C-R><C-W>//ge<left><left><left>
+nnoremap <leader>rg :bufdo %s/<C-R><C-W>//gce<left><left><left><<left>
+
+nnoremap <leader>mk :silent make! <Bar> silent redraw!<CR>
+nnoremap <leader>cs :mks! .vim-session<CR>
+nnoremap <leader>ss <Cmd>source .vim-session<CR>
+
+" Toggle options
+nnoremap ;cl <Cmd>setl cul!<CR>
+nnoremap ;nu <Cmd>setl nu! nornu<CR>
+nnoremap ;rnu <Cmd>setl rnu! nonu<CR>
+nnoremap ;st :setl list!<CR>
+nnoremap ;sp :setl spell!<CR>
+
+nnoremap <leader>cd <Cmd>lcd %:p:h<CR>
+nnoremap <leader>cb <Cmd>lcd -<CR>
+ 
+" nmap <leader>rg <Plug>(coc-rename)
+" nmap <leader>rl <Plug>(coc-rename)
+
+nnoremap <leader>src :source %<CR>
+nnoremap <leader>syn <Cmd>call utils#SyntaxGroup()<CR>
+
+nnoremap <Tab> magg=G`a
+
+" Yanks until the end of the line
+nnoremap Y y$
+
+" Kepp visual selection when indenting
+vnoremap > >gv
+vnoremap < <gv
+
+" Moves text around
+vnoremap <silent> <C-j> :m '>+1<CR>gv=gv
+vnoremap <silent> <C-k> :m '<-2<CR>gv=gv
+nnoremap <silent> <C-j> :m .+1<CR>==
+nnoremap <silent> <C-k> :m .-2<CR>==
+
+" Keep position after visually yanking 
+vnoremap y mpy`p
+vnoremap Y mpY`p
+
+" Navigates between splits more easily
+nmap <silent> <leader>h <C-w>h
+nmap <silent> <leader>j <C-w>j
+nmap <silent> <leader>k <C-w>k
+nmap <silent> <leader>l <C-w>l
+
+" Selects the first match in the spelling list
+nnoremap <C-s> mp[s1z=`p
+inoremap <C-s> <C-c>[s1z=`]a
+
+iabbrev <expr> tdd strftime("%d %b %Y")
+
+" }}}

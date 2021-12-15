@@ -38,4 +38,3 @@ fpath+=( "${ZDOTDIR}/autoload" )
 
 # Source all configuration files of the 'config' directory
 autoload source-config && source-config
-

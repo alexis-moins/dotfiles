@@ -13,7 +13,6 @@ hi! link vimMapMod      Identifier
 hi! link vimMapModKey   Exception
 
 hi! link vimSet         Structure
-hi! link vimCommand     Statement
 
 hi! link vimAugroup     Statement
 hi! link vimAutoCmd     Statement
