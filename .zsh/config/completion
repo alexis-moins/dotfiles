@@ -51,10 +51,9 @@ zstyle ':completion:*' cache-path "${ZDOTDIR}/.cache/zcompcache"
 
 autoload -Uz compinit
 
-ZCOMPDUMP=".cache/zcompdump"
+ZCOMPDUMP="${ZDOTDIR}/.cache/zcompdump"
 # Initialize the completions system and check for cache once a day
 if [[ ! -f "${ZCOMPDUMP}"(#qN.m1) ]]; then
-    echo "zcompdump has been checked within the last 24 hours "
     compinit -C -d "${ZCOMPDUMP}"
 else
     echo "Checking zcompdump"

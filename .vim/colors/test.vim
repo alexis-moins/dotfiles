@@ -20,7 +20,6 @@ let g:colors_name = "test"
 
 hi Normal           ctermfg=15          ctermbg=0
 hi EndOfBuffer      ctermfg=0           ctermbg=0               cterm=none
-
 hi LineNr           ctermfg=8           ctermbg=0
 
 hi StatusLine                           ctermbg=7               cterm=none
@@ -30,14 +29,32 @@ hi User1                                ctermbg=11
 hi User2            ctermfg=1           ctermbg=7
 hi User3            ctermfg=11          ctermbg=7
 
+hi ModeMsg          ctermfg=2
+hi DiffText         ctermfg=5
+hi DiffChange       ctermfg=4
+hi DiffDelete       ctermfg=1
 
-hi! link VertSplit           EndOfBuffer
+hi SpellBad         ctermfg=1           ctermbg=none            cterm=underline
+hi SpellCap         ctermfg=6           ctermbg=none            cterm=underline
 
-hi! link Folded              LineNr
+hi TabLine                              ctermbg=7               cterm=none
+hi TabLineSel       ctermfg=15
+hi MatchParen       ctermfg=5           ctermbg=none            cterm=underline
 
-hi! link CursorLine          StatusLine
-hi! link CursorLineNr        StatusLine
-hi! link Visual              StatusLine
+hi Pmenu            ctermfg=15          ctermbg=7
+hi PmenuSel         ctermfg=0           ctermbg=5
+hi PmenuSbar        ctermbg=7
+
+
+hi! link VertSplit      EndOfBuffer
+hi! link TabLineFill    EndOfBuffer
+
+hi! link Folded         LineNr
+hi! link DiffAdd        ModeMsg
+
+hi! link CursorLine     StatusLine
+hi! link CursorLineNr   StatusLine
+hi! link Visual         StatusLine
 
 " }}}
 
@@ -90,14 +107,22 @@ hi! link SpecialComment  Comment
 
 " zsh
 hi! link zshOption      Number
+hi! link zshQuoted      Number
 hi! link zshCommands    Function
 hi! link zshTypes       Function
 hi! link zshSubst       Delimiter
-hi! link zshQuoted      Constant
 
 " vim
 hi! link vimCommentTitle    Delimiter
 hi! link vimOption          Delimiter
+hi! link vimHiGroup         Delimiter
 hi! link vimEnvVar          Function
+hi! link vimHiKeyList       Statement
+hi! link vimHiCtermFgBg     Constant
+hi! link vimHiCTerm         Constant
+hi! link vimHiAttrib        Number
+
+" haskell
+
 
 " }}}

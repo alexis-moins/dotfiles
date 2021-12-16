@@ -8,9 +8,6 @@ filetype plugin indent on
 " Enables syntax coloration
 syntax enable
 
-" For dark version.
-" set background=dark
-
 " Load colorscheme depths
 colorscheme test
 

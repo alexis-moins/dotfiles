@@ -11,12 +11,12 @@ for item in ${init}; do
 done
 
 # Regex matching items that should be ignored
-ignored="\.git$|\.gitignore|Brewfile|install"
+# ignored="\.git$|\.gitignore|Brewfile|install|terminal"
 
 # Install formulae and casks
 if brew bundle install --no-lock --no-upgrade; then
     # Link dotfiles
-    stow --restow --ignore="${ignored}" --verbose .
+    stow --restow --verbose .
 fi
 
 # Clean useless variables
