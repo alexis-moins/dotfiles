@@ -2,8 +2,6 @@
 # Author: Alexis Moins
 # Creation: 18 juin 2020
 
-# Initialization {{{
-
 # Try to correct the spelling of command
 setopt correct
 
@@ -21,20 +19,18 @@ change_cursor_shape() {
 # Executes the change_cursor_shape function before each prompt
 precmd_functions=( change_cursor_shape )
 
-# }}}
-
-# Path {{{
-
 # Ensure the following variables contain unique entries
 typeset -U PATH path FPATH fpath
 
 # Add the homebrew bin directory to the path
-path=( "/opt/homebrew/bin" ${path} "${HOME}/.scripts" )
+path=( "/opt/homebrew/bin" "${HOME}/.pyenv/shims" ${path} "${HOME}/.scripts" )
 
 # Add the directory containing functions to import with autoload to 'fpath'
 fpath+=( "${ZDOTDIR}/autoload" )
 
-# }}}
+# Initialize pyenv
+eval "$(pyenv init -)"
 
-# Source all configuration files of the 'config' directory
-autoload source-config && source-config
+# Source the configuration files of the config directory
+for file in ${ZDOTDIR}/config/*(^D); do
+    source "${file}"; done

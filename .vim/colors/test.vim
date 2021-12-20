@@ -1,6 +1,7 @@
-" Depths color file 
+" Depths syntax file
 " Author: Alexis Moins
 " Creation: 15 dec 2021
+" Last Change: 20 dec 2021
 
 " {{{ Initialization 
 
@@ -18,18 +19,18 @@ let g:colors_name = "test"
 
 " {{{ Highlighting Groups 
 
-hi Normal           ctermfg=15          ctermbg=0
+hi Normal           ctermfg=7          ctermbg=0
 hi EndOfBuffer      ctermfg=0           ctermbg=0               cterm=none
 hi LineNr           ctermfg=8           ctermbg=0
 
-hi StatusLine                           ctermbg=7               cterm=none
+hi StatusLine                           ctermbg=15               cterm=none
 hi StatusLineNC     ctermfg=8           ctermbg=0               cterm=none
 
-hi User1                                ctermbg=11
-hi User2            ctermfg=1           ctermbg=7
-hi User3            ctermfg=11          ctermbg=7
-
+hi User1                                ctermbg=6
+hi User2            ctermfg=1           ctermbg=15
+hi User3            ctermfg=5           ctermbg=15
 hi ModeMsg          ctermfg=2
+
 hi DiffText         ctermfg=5
 hi DiffChange       ctermfg=4
 hi DiffDelete       ctermfg=1
@@ -37,13 +38,14 @@ hi DiffDelete       ctermfg=1
 hi SpellBad         ctermfg=1           ctermbg=none            cterm=underline
 hi SpellCap         ctermfg=6           ctermbg=none            cterm=underline
 
-hi TabLine                              ctermbg=7               cterm=none
-hi TabLineSel       ctermfg=15
+hi TabLine                              ctermbg=15               cterm=none
+hi TabLineSel       ctermfg=7
 hi MatchParen       ctermfg=5           ctermbg=none            cterm=underline
 
-hi Pmenu            ctermfg=15          ctermbg=7
+hi Pmenu            ctermfg=7          ctermbg=15
 hi PmenuSel         ctermfg=0           ctermbg=5
-hi PmenuSbar        ctermbg=7
+
+hi PmenuSbar        ctermbg=15
 
 
 hi! link VertSplit      EndOfBuffer
@@ -64,9 +66,9 @@ hi Type             ctermfg=6
 hi Constant         ctermfg=11
 hi Statement        ctermfg=1
 hi Number           ctermfg=5
-hi String           ctermfg=12
+hi String           ctermfg=4
 hi Function         ctermfg=2
-hi Delimiter        ctermfg=15
+hi Delimiter        ctermfg=7
 hi Comment          ctermfg=8
 
 
@@ -105,24 +107,43 @@ hi! link SpecialComment  Comment
 
 " {{{ Language Specific Highlighting 
 
-" zsh
-hi! link zshOption      Number
-hi! link zshQuoted      Number
-hi! link zshCommands    Function
-hi! link zshTypes       Function
-hi! link zshSubst       Delimiter
-
 " vim
-hi! link vimCommentTitle    Delimiter
 hi! link vimOption          Delimiter
 hi! link vimHiGroup         Delimiter
+hi! link vimCommentTitle    Delimiter
 hi! link vimEnvVar          Function
 hi! link vimHiKeyList       Statement
 hi! link vimHiCtermFgBg     Constant
 hi! link vimHiCTerm         Constant
 hi! link vimHiAttrib        Number
 
-" haskell
+" netrw
+" hi! link netrwExe       Statement
+" hi! link netrwLink      PreProc
+" hi! link netrwSymLink   Constant
+hi! link netrwClassify  EndOfBuffer
 
+" gitcommit
+" hi! link gitcommitBlank           Statement
+" hi! link gitcommitSummary         Statement
+" hi! link gitcommitFirstLine       Statement
+" Check for syntax in old.vim
+
+" zsh
+hi! link zshOption      Number
+hi! link zshQuoted      Number
+hi! link zshTypes       Function
+hi! link zshCommands    Function
+hi! link zshSubst       Delimiter
+
+" haskell
+hi! link haskellType                Type
+hi! link haskellBrackets            Delimiter
+hi! link haskellIdentifier          Constant
+hi! link haskellDecl                Statement
+hi! link haskellWhere               Statement
+hi! link haskellDeriving            Statement
+hi! link haskellDeclKeyword         Statement
+hi! link haskellForeignKeywords     Statement
 
 " }}}

@@ -4,8 +4,10 @@ let g:netrw_banner=0
 " Ouvre les splits à droite
 let g:netrw_altv=1
 
-" Liste en arboréscence
-let g:netrw_liststyle=4
+let g:netrw_winsize=20
+
+" Tree view
+let g:netrw_liststyle=3
 
 " Ouvre les splits dans le même buffer
 let g:netrw_browse_split=0 

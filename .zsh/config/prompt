@@ -6,7 +6,7 @@
 setopt promptsubst
 
 # Load the version control function
-autoload vcs_info get-virtualenv
+autoload vcs_info
 
 # Execute the version control function before each prompt
 precmd_functions+=( vcs_info )
@@ -19,6 +19,21 @@ zstyle ':vcs_info:*' actionformats '%F{5} on %b %F{5}{%a}%f%u%c%f'
 # Style used for staged and unstaged files
 zstyle ':vcs_info:*' stagedstr ' %F{1}[&]%f'
 zstyle ':vcs_info:*' unstagedstr ' %F{1}[!]%f'
+
+# Get the current python virtual env
+function get-virtualenv() {
+    # If we are in a virtal environment
+    if [ -n "${VIRTUAL_ENV}" ]; then
+        # Fetch the virtual env name
+        python_env="$(basename "${VIRTUAL_ENV}")"
+
+        # Create the prompt
+        venv_prompt="%F{3} 📦 ${python_env}%f "
+
+        # Print the value of ${venv_prompt} to standard out.
+        printf "%s" "${venv_prompt}"
+    fi
+}
 
 # Single quotes are mandatory for vcs_info to be interpreted correctly
 PROMPT='

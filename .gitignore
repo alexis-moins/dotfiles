@@ -7,11 +7,11 @@ tags
 # Zsh
 .zsh_history
 tmux-sessions
-.zsh_sessions
+.zsh_sessions/
 
 # Vim
 *.swp
-.spell/
+spell/
 bundle/
 .viminfo
 .vim-session

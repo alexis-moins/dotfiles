@@ -147,9 +147,12 @@ set shortmess+=Ic
 " Enables mouse usage in all modes
 set mouse=a
 
+" Don't save useless session information
+set sessionoptions-=blank sessionoptions-=options sessionoptions-=tabpages
+
 " }}}
 
-" Mappings {{{
+" {{{ Mappings
 
 let mapleader = " " 
 
@@ -164,8 +167,9 @@ nnoremap <Left> <Cmd>previous<CR>
 nnoremap <Down> <Cmd>cnext<CR>
 nnoremap <Up> <Cmd>cprevious<CR>
 
-nnoremap - <Cmd>edit %:p:h<CR><C-L>
-nnoremap + <Cmd>edit `pwd`<CR><C-L>
+nnoremap <silent> <leader>ex :Lex<CR>
+nnoremap - :edit %:p:h<CR><C-l>
+nnoremap + :edit `pwd`<CR><C-l>
 
 map gf <cmd>edit <cfile><cr>
 
@@ -193,7 +197,7 @@ nnoremap <leader>cb <Cmd>lcd -<CR>
 nnoremap <leader>src :source %<CR>
 nnoremap <leader>syn <Cmd>call utils#SyntaxGroup()<CR>
 
-nnoremap <Tab> magg=G`a
+nnoremap <leader>ind magg=G`a
 
 " Yanks until the end of the line
 nnoremap Y y$
