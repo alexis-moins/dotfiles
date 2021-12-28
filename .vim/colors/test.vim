@@ -50,6 +50,7 @@ hi PmenuSbar        ctermbg=15
 
 hi! link VertSplit      EndOfBuffer
 hi! link TabLineFill    EndOfBuffer
+hi! link SignColumn     EndOfBuffer
 
 hi! link Folded         LineNr
 hi! link DiffAdd        ModeMsg
@@ -62,18 +63,19 @@ hi! link Visual         StatusLine
 
 " {{{ Syntax Groups
 
-hi Type             ctermfg=6
-hi Constant         ctermfg=11
 hi Statement        ctermfg=1
-hi Number           ctermfg=5
-hi String           ctermfg=4
 hi Function         ctermfg=2
+hi Constant         ctermfg=3
+hi String           ctermfg=4
+hi Number           ctermfg=5
+hi Type             ctermfg=6
 hi Delimiter        ctermfg=7
 hi Comment          ctermfg=8
 
 
 hi! link Structure       Type
 hi! link StorageClass    Type
+hi! link Directory       Type
 hi! link Todo            Type
 
 hi! link Identifier      Constant
@@ -121,7 +123,14 @@ hi! link vimHiAttrib        Number
 " hi! link netrwExe       Statement
 " hi! link netrwLink      PreProc
 " hi! link netrwSymLink   Constant
-hi! link netrwClassify  EndOfBuffer
+hi! link netrwClassify      Delimiter
+hi! link netrwTreeBar       Delimiter
+
+" coc
+hi! link CocInfoSign        Type
+hi! link CocHintSign        String
+hi! link CocWarningSign     Constant
+hi! link CocErrorSign       Statement
 
 " gitcommit
 " hi! link gitcommitBlank           Statement

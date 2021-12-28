@@ -2,6 +2,15 @@
 # Creation: 30 octobre 2020
 # vim: ft=zsh syn=zsh
 
+# Use vi keybindings
+bindkey -v
+
+# Enters command mode
+bindkey '^A' vi-cmd-mode
+
+# Enters command mode (from visual mode)
+bindkey -M visual '^A' vi-cmd-mode
+
 # {{{ Keybindings
 
 # Cycles through history backward
@@ -35,19 +44,6 @@ bindkey -s '^O' 'tmux-restore-session^M'
 # Save the current tmux session
 bindkey -s '^X' 'tmux-save-session^M'
 
-# }}}
-
-# {{{ vim mode
-
-# Use vi keybindings
-bindkey -v
-
-# Enters command mode
-bindkey '^A' vi-cmd-mode
-
-# Enters command mode (from visual mode)
-bindkey -M visual '^A' vi-cmd-mode
-
 # Loads the zle-command-line function as a widget
 autoload edit-command-line && zle -N edit-command-line
 
@@ -56,6 +52,29 @@ bindkey -M vicmd '^F' edit-command-line
 
 # Edit the current line in vim
 bindkey '^F' edit-command-line
+
+# }}}
+
+# {{{ Completion menu
+
+# Loads the completion list module (makes menuselect available)
+zmodload zsh/complist
+
+# Selects the completion on the left
+bindkey -M menuselect 'h' vi-backward-char
+
+# Selects the completion at the bottom
+bindkey -M menuselect 'j' vi-down-line-or-history
+
+# Selects the completion at the top
+bindkey -M menuselect 'k' vi-up-line-or-history
+
+# Selects the completion on the right
+bindkey -M menuselect 'l' vi-forward-char
+
+# }}}
+
+# {{{ VI mode indicator
 
 # Changes cursor to blinking underscore
 clear_right_prompt() {

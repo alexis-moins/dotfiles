@@ -30,6 +30,8 @@ Plug 'tpope/vim-surround'
 " 
 Plug 'tpope/vim-projectionist'
 
+Plug 'nelsyeung/twig.vim'
+
 call plug#end()
 
 " List of coc extensions installed at first startup
@@ -42,6 +44,25 @@ let g:coc_global_extensions = [
 
 " }}}
 
+" {{{ Netrw
+
+" Cache la bannière
+let g:netrw_banner=0
+"
+" Ouvre les splits à droite
+let g:netrw_altv=1
+
+" Tree view
+let g:netrw_liststyle=3
+
+" Sequence for sorting by name
+let g:netrw_sort_sequence='[\/]$,*'
+
+" Where to save the history file
+let g:netrw_home="${VIMDOTDIR}/.cache/netrwhist"
+
+" }}}
+
 " {{{ Options
 
 " Time before CursorHold events are triggered
@@ -49,6 +70,9 @@ set updatetime=100
 
 " Display relative line numbers
 set relativenumber
+
+" Display signs over the line number
+set signcolumn=number
 
 " Automatically replace tabulations with spaces
 set expandtab
@@ -96,7 +120,7 @@ set splitbelow
 set laststatus=2
 
 " Set the content of the statusline
-set statusline=%1*\ %0*\ \ %t\ \ %2*%m%=%0*\ \ %f%3*\ \ %y\ \ 
+set statusline=%1*\ %0*\ \ %t\ \ %2*%m%=%3*\ \ %y\ \ 
 
 " Use markers to create folds
 set foldmethod=marker
@@ -149,83 +173,5 @@ set mouse=a
 
 " Don't save useless session information
 set sessionoptions-=blank sessionoptions-=options sessionoptions-=tabpages
-
-" }}}
-
-" {{{ Mappings
-
-let mapleader = " " 
-
-nnoremap <silent> <leader>ins <Cmd>PlugInstall<cr>
-nnoremap <silent> <leader>clean <Cmd>PlugClean<cr>
-
-" Goes to the next / previous element of the arglist
-nnoremap <Right> <Cmd>next<CR>
-nnoremap <Left> <Cmd>previous<CR>
-
-" Goes to the next / previous element of the quickfix list
-nnoremap <Down> <Cmd>cnext<CR>
-nnoremap <Up> <Cmd>cprevious<CR>
-
-nnoremap <silent> <leader>ex :Lex<CR>
-nnoremap - :edit %:p:h<CR><C-l>
-nnoremap + :edit `pwd`<CR><C-l>
-
-map gf <cmd>edit <cfile><cr>
-
-nnoremap <leader>rl :%s/<C-R><C-W>//gce<left><left><left><left>
-nnoremap <leader>rf :%s/<C-R><C-W>//ge<left><left><left>
-nnoremap <leader>rg :bufdo %s/<C-R><C-W>//gce<left><left><left><<left>
-
-nnoremap <leader>mk :silent make! <Bar> silent redraw!<CR>
-nnoremap <leader>cs :mks! .vim-session<CR>
-nnoremap <leader>ss <Cmd>source .vim-session<CR>
-
-" Toggle options
-nnoremap ;cl <Cmd>setl cul!<CR>
-nnoremap ;nu <Cmd>setl nu! nornu<CR>
-nnoremap ;rnu <Cmd>setl rnu! nonu<CR>
-nnoremap ;st :setl list!<CR>
-nnoremap ;sp :setl spell!<CR>
-
-nnoremap <leader>cd <Cmd>lcd %:p:h<CR>
-nnoremap <leader>cb <Cmd>lcd -<CR>
- 
-" nmap <leader>rg <Plug>(coc-rename)
-" nmap <leader>rl <Plug>(coc-rename)
-
-nnoremap <leader>src :source %<CR>
-nnoremap <leader>syn <Cmd>call utils#SyntaxGroup()<CR>
-
-nnoremap <leader>ind magg=G`a
-
-" Yanks until the end of the line
-nnoremap Y y$
-
-" Kepp visual selection when indenting
-vnoremap > >gv
-vnoremap < <gv
-
-" Moves text around
-vnoremap <silent> <C-j> :m '>+1<CR>gv=gv
-vnoremap <silent> <C-k> :m '<-2<CR>gv=gv
-nnoremap <silent> <C-j> :m .+1<CR>==
-nnoremap <silent> <C-k> :m .-2<CR>==
-
-" Keep position after visually yanking 
-vnoremap y mpy`p
-vnoremap Y mpY`p
-
-" Navigates between splits more easily
-nmap <silent> <leader>h <C-w>h
-nmap <silent> <leader>j <C-w>j
-nmap <silent> <leader>k <C-w>k
-nmap <silent> <leader>l <C-w>l
-
-" Selects the first match in the spelling list
-nnoremap <C-s> mp[s1z=`p
-inoremap <C-s> <C-c>[s1z=`]a
-
-iabbrev <expr> tdd strftime("%d %b %Y")
 
 " }}}

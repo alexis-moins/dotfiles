@@ -1,8 +1,10 @@
 # Execute code in the background
 {
     # Compile the completion dump to increase startup speed
-    zcompdump="${ZDOTDIR}/.cache/zcompdump"
-    if [[ -s "${zcompdump}" && (! -s "${zcompdump}.zwc" || "${zcompdump}" -nt "${zcompdump}.zwc") ]]; then
-        zcompile "${zcompdump}"
+    if [[ -s "${_dumpfile}" && (! -s "${_dumpfile}.zwc" || "${_dumpfile}" -nt "${_dumpfile}.zwc") ]]; then
+        zcompile "${_dumpfile}"
     fi
+
+    # get rid of unnecessary variables
+    unset _dumpfile
 } &!
