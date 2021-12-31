@@ -25,7 +25,7 @@ brew doctor
 ./install
 ```
 
-The `install` script will create missing directories, install dependencies and symlink the config files into your home directory using GNU stow. After the execution, you might want to force changes to take effect immediately by replacing the current shell by a new one. That can be achieved by typing :
+The `install` script will create missing directories, install dependencies and symlink the config files into your home directory using [GNU stow](https://www.gnu.org/software/stow). After the execution, you might want to force changes to take effect immediately by replacing the current shell by a new one. That can be achieved by typing :
 
 ```bash
 # Config files should be loaded into the environment now!

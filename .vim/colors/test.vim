@@ -23,7 +23,7 @@ hi Normal           ctermfg=7          ctermbg=0
 hi EndOfBuffer      ctermfg=0           ctermbg=0               cterm=none
 hi LineNr           ctermfg=8           ctermbg=0
 
-hi StatusLine                           ctermbg=15               cterm=none
+hi StatusLine                           ctermbg=15              cterm=none
 hi StatusLineNC     ctermfg=8           ctermbg=0               cterm=none
 
 hi User1                                ctermbg=6
@@ -31,14 +31,14 @@ hi User2            ctermfg=1           ctermbg=15
 hi User3            ctermfg=5           ctermbg=15
 hi ModeMsg          ctermfg=2
 
-hi DiffText         ctermfg=5
-hi DiffChange       ctermfg=4
-hi DiffDelete       ctermfg=1
+hi DiffText         ctermfg=5           ctermbg=none
+hi DiffChange       ctermfg=4           ctermbg=none
+hi DiffDelete       ctermfg=1           ctermbg=none
 
 hi SpellBad         ctermfg=1           ctermbg=none            cterm=underline
 hi SpellCap         ctermfg=6           ctermbg=none            cterm=underline
 
-hi TabLine                              ctermbg=15               cterm=none
+hi TabLine                              ctermbg=15              cterm=none
 hi TabLineSel       ctermfg=7
 hi MatchParen       ctermfg=5           ctermbg=none            cterm=underline
 
@@ -120,9 +120,8 @@ hi! link vimHiCTerm         Constant
 hi! link vimHiAttrib        Number
 
 " netrw
-" hi! link netrwExe       Statement
-" hi! link netrwLink      PreProc
-" hi! link netrwSymLink   Constant
+hi! link netrwSymLink       Number
+hi! link netrwLink          Comment
 hi! link netrwClassify      Delimiter
 hi! link netrwTreeBar       Delimiter
 
@@ -133,10 +132,10 @@ hi! link CocWarningSign     Constant
 hi! link CocErrorSign       Statement
 
 " gitcommit
-" hi! link gitcommitBlank           Statement
-" hi! link gitcommitSummary         Statement
-" hi! link gitcommitFirstLine       Statement
-" Check for syntax in old.vim
+hi! link gitcommitBlank           Delimiter
+hi! link gitcommitSummary         Delimiter
+hi! link gitcommitFirstLine       Statement
+hi! link gitcommitHeader          Delimiter
 
 " zsh
 hi! link zshOption      Number
