@@ -18,9 +18,6 @@ call plug#begin('~/.vim/bundle')
 " Make your Vim/Neovim as smart as VSCode
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
-" A Git wrapper so awesome, it should be illegal
-Plug 'tpope/vim-fugitive'
-
 " Comment stuff out
 Plug 'tpope/vim-commentary'
 
@@ -29,8 +26,6 @@ Plug 'tpope/vim-surround'
 
 " 
 Plug 'tpope/vim-projectionist'
-
-Plug 'nelsyeung/twig.vim'
 
 call plug#end()
 
@@ -68,8 +63,8 @@ let g:netrw_home="${VIMDOTDIR}/.cache/netrwhist"
 " Time before CursorHold events are triggered
 set updatetime=100
 
-" Display relative line numbers
-set relativenumber
+" Display line numbers
+set number
 
 " Display signs over the line number
 set signcolumn=number
@@ -116,11 +111,11 @@ set splitright
 " Open horizontal splits below
 set splitbelow
 
-" Always display the statusline
-set laststatus=2
-
 " Set the content of the statusline
 set statusline=%1*\ %0*\ \ %t\ \ %2*%m%=%3*\ \ %y\ \ 
+
+" Always display the statusline
+" set laststatus=2
 
 " Use markers to create folds
 set foldmethod=marker

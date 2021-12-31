@@ -14,9 +14,6 @@ export ZDOTDIR="${HOME}/.zsh"
 # Path to the vim config directory
 export VIMDOTDIR="${HOME}/.vim" 
 
-# Add the symfomy binary to the path
-export PATH="${HOME}/.symfony/bin:${PATH}"
-
 # Sets vim as the default editor
 export EDITOR="vim"              
 
@@ -28,3 +25,4 @@ export LSCOLORS="gxfxDxCxbxEgEdxbxgxcxd"
 
 # LSCOLORS equivalent used by zsh and other commands
 export LS_COLORS="di=36:ln=35:ex=31:su=41:sg=46:tw=42:ow=43"
+

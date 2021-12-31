@@ -4,17 +4,17 @@
 
 # Prevent zsh from appending a symbol at the end of each completion item to
 # differenciate its type i.e. '/' for directories, '*' for symlinks...
-setopt nolisttypes
+setopt NOLISTTYPES
 
 # Place le curseur à la fin du mot lors
 # d'une complétion acceptée
-setopt alwaystoend
+setopt ALWAYSTOEND
 
 # Automatically insert the first element of the completion menu
-setopt menucomplete
+setopt MENUCOMPLETE
 
 # Lance le menu de complétion depuis la position du curseur, même s'il est à l'intérieur d'un mot
-setopt completeinword
+setopt COMPLETEINWORD
 
 # Affiche un menu de séléction pour choisir avec quoi compléter
 zstyle ':completion:*' menu select

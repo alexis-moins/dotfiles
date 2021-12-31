@@ -3,7 +3,7 @@
 # vim: ft=zsh syn=zsh
 
 # Enable variable / function substitution in the prompt
-setopt promptsubst
+setopt PROMPTSUBST
 
 # Load the version control function
 autoload vcs_info

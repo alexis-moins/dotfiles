@@ -4,7 +4,7 @@
 # vim: ft=zsh syn=zsh
 
 # Location of the file containing the tmux session
-session_file="${ZDOTDIR}/.cache/tmux-session"
+session_file="${HOME}/.tmux/tmux-session"
 
 # Save the sessions running on the current tmux server 
 # into the file specified in ${session_file}.

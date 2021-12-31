@@ -3,22 +3,22 @@
 # vim: ft=zsh syn=zsh
 
 # Change de dossier sans avoir à utiliser cd
-setopt autocd       
+setopt AUTOCD       
 
 # N'affiche pas le dossier lors de la navigation
-setopt cdsilent 
+setopt CDSILENT 
 
 # Ajoute automatiquement les dossiers dans la pile de dossiers
-setopt autopushd
+setopt AUTOPUSHD
 
 # Inverse l'utilisation de cd - et cd +
-setopt pushdminus
+setopt PUSHDMINUS
 
 # N'affiche pas les éléments de la pile lors des changements de dossiers
-setopt pushdsilent
+setopt PUSHDSILENT
 
 # N'ajoute pas le dossier s'il est déjà présent dans la pile
-setopt pushdignoredups
+setopt PUSHDIGNOREDUPS
 
 # Maximum size of the dirstack
 DIRSTACKSIZE=9
