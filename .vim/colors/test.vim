@@ -22,13 +22,16 @@ let g:colors_name = "test"
 hi Normal           ctermfg=7          ctermbg=0
 hi EndOfBuffer      ctermfg=0           ctermbg=0               cterm=none
 hi LineNr           ctermfg=8           ctermbg=0
+hi CursorLine                           ctermbg=15              cterm=none
 
-hi StatusLine                           ctermbg=15              cterm=none
-hi StatusLineNC     ctermfg=8           ctermbg=0               cterm=none
+hi StatusLine       ctermfg=1           ctermbg=0               cterm=none
+hi StatusLineNC     ctermfg=0           ctermbg=0               cterm=none
 
 hi User1                                ctermbg=6
-hi User2            ctermfg=1           ctermbg=15
-hi User3            ctermfg=5           ctermbg=15
+hi User2            ctermfg=8           ctermbg=0
+hi User3            ctermfg=1           ctermbg=0
+hi User4            ctermfg=0           ctermbg=0
+hi User5            ctermfg=5           ctermbg=0
 hi ModeMsg          ctermfg=2
 
 hi DiffText         ctermfg=5           ctermbg=none
@@ -42,9 +45,8 @@ hi TabLine                              ctermbg=15              cterm=none
 hi TabLineSel       ctermfg=7
 hi MatchParen       ctermfg=5           ctermbg=none            cterm=underline
 
-hi Pmenu            ctermfg=7          ctermbg=15
+hi Pmenu            ctermfg=7           ctermbg=15
 hi PmenuSel         ctermfg=0           ctermbg=5
-
 hi PmenuSbar        ctermbg=15
 
 
@@ -55,9 +57,8 @@ hi! link SignColumn     EndOfBuffer
 hi! link Folded         LineNr
 hi! link DiffAdd        ModeMsg
 
-hi! link CursorLine     StatusLine
-hi! link CursorLineNr   StatusLine
-hi! link Visual         StatusLine
+hi! link CursorLineNr   CursorLine
+hi! link Visual         CursorLine
 
 " }}}
 

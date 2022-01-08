@@ -10,7 +10,7 @@ Start by cloning the repository to get the files on your machine. Alternatively,
 
 ```bash
 # Clone and enter the downloaded directory
-git clone git@github.com:AlexisMoins/dotfiles.git ~/.dotfiles && cd ~/.dotfiles
+git clone git@github.com:AlexisMoins/dotfiles.git ~/.dotfiles
 ```
 
 ### Setup
@@ -18,6 +18,9 @@ git clone git@github.com:AlexisMoins/dotfiles.git ~/.dotfiles && cd ~/.dotfiles
 **Note:** This repository relies on the [brew](https://brew.sh/index_fr) package manager. If you are not using this particular one, you should consider editing the `install` script to use your package manager instead of brew and install the dependencies of the `Brewfile` file. Then, getting the dotfiles to work is as easy as executing the `install` script.
 
 ```bash
+# Enter the directory
+cd ~/.dotfiles
+
 # Ensure brew is working correctly
 brew doctor
 

@@ -25,4 +25,3 @@ export LSCOLORS="gxfxDxCxbxEgEdxbxgxcxd"
 
 # LSCOLORS equivalent used by zsh and other commands
 export LS_COLORS="di=36:ln=35:ex=31:su=41:sg=46:tw=42:ow=43"
-

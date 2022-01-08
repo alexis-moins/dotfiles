@@ -14,7 +14,7 @@ tmux-sessions
 spell/
 bundle/
 .viminfo
-.vim-session
+Session.vim
 
 # Brew
 Brewfile.lock.json

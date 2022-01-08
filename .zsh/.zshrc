@@ -22,10 +22,12 @@ precmd_functions=( change_cursor_shape )
 # Ensure the PATH variable contains unique entries
 typeset -U PATH path
 
+# pyenv completion
+eval "$(pyenv init -)"
+
 # Add directories to the path
-path=( "/opt/homebrew/bin" "${HOME}/.pyenv/shims" "${HOME}/.symfony/bin" "${HOME}/.scripts" ${path} )
+path=( "/opt/homebrew/bin" "${HOME}/.pyenv/shims" "${HOME}/.scripts" ${path} )
 
 # Source the configuration files of the config directory
 for file in ${ZDOTDIR}/config/*(^D); do
     source "${file}"; done
-

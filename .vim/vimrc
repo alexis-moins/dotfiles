@@ -34,8 +34,9 @@ call plug#end()
 let g:coc_global_extensions = [ 
             \ 'coc-pairs', 
             \ 'coc-pyright', 
-            \ 'coc-java'
+            \ 'coc-clangd'
             \ ]
+" coc-java
 
 " }}}
 
@@ -112,10 +113,10 @@ set splitright
 set splitbelow
 
 " Set the content of the statusline
-set statusline=%1*\ %0*\ \ %t\ \ %2*%m%=%3*\ \ %y\ \ 
+set statusline=%2*\ %t\ %0*[.]\ %3*%m%4*%=\ \ %5*%y\ 
 
 " Always display the statusline
-" set laststatus=2
+set laststatus=2
 
 " Use markers to create folds
 set foldmethod=marker
