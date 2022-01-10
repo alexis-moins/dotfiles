@@ -2,32 +2,22 @@
 # Creation: 14 mars 2020
 # vim: ft=zsh syn=zsh 
 
-# {{{ files
-
-# Edit `.zshrc`
+# Edit '.zshrc'
 alias zshrc="vim ${ZDOTDIR}/.zshrc"
 
-# Edit `.zshenv`
-alias zshenv="vim ${ZDOTDIR}/../.zshenv"
+# Edit '.zshenv'
+alias zprofile="vim ${DOTFILES}/.zprofile"
 
-# Edit `vimrc`
+# Edit 'vimrc'
 alias vimrc="vim ${VIMDOTDIR}/vimrc"
 
-# Edit `aliases`
-alias aliasrc="vim ${ZDOTDIR}/plugin/aliases"
 
-# }}}
-
-# {{{ tools
-
-# Display the path in a pretty format
-alias path="echo '${PATH//:/\n}'"
-
-# Display the fpath in a pretty format
-alias fpath="echo '${FPATH//:/\n}'"
+# Display the PATH
+alias path="echo ${PATH}"
 
 # Met à jour homebrew et les paquets
 alias daily="brew update; brew upgrade; brew cleanup"
+
 
 # Copy stuff verbosely (-v) and ask for confirmation (-i)
 alias cp="cp -iv"
@@ -38,9 +28,6 @@ alias mv="mv -iv"
 # Remove stuff verbosely (-v) and ask for confirmation (-i)
 alias rm="rm -iv"
 
-# }}}
-
-# misc {{{ 
 
 # Liste les éléments non cachés, avec de la couleur (G)
 alias ls='ls -G'

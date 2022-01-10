@@ -15,27 +15,26 @@ colorscheme test
 
 call plug#begin('~/.vim/bundle')
 
-" Make your Vim/Neovim as smart as VSCode
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+" Delete / change add parentheses or quotes with ease
+Plug 'tpope/vim-surround'
 
 " Comment stuff out
 Plug 'tpope/vim-commentary'
 
-" Delete / change add parentheses or quotes with ease
-Plug 'tpope/vim-surround'
-
 " 
 Plug 'tpope/vim-projectionist'
+
+" Make your Vim/Neovim as smart as VSCode
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 call plug#end()
 
 " List of coc extensions installed at first startup
-"
 let g:coc_global_extensions = [ 
             \ 'coc-pairs', 
-            \ 'coc-pyright', 
             \ 'coc-clangd'
             \ ]
+
 " coc-java
 
 " }}}
@@ -61,8 +60,12 @@ let g:netrw_home="${VIMDOTDIR}/.cache/netrwhist"
 
 " {{{ Options
 
+set modelines=5
+
 " Time before CursorHold events are triggered
 set updatetime=100
+
+set wildmenu  
 
 " Display line numbers
 set number
@@ -126,7 +129,7 @@ set foldnestmax=1
 
 " Use the patience algorithm to show differences, don't take whitespaces into
 " account and completely fold identical parts
-set diffopt+=algorithm:patience,iwhiteall,context:0
+set diffopt+=iwhiteall,context:0
 
 " Highlight the text line of the cursor
 set cursorline

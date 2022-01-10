@@ -24,7 +24,7 @@ setopt PUSHDIGNOREDUPS
 DIRSTACKSIZE=9
 
 # Add the zsh & vim config directories to the dirstack
-dirstack+=( "${HOME}/.dotfiles" "${ZDOTDIR}" "${VIMDOTDIR}" )
+dirstack+=( "${DOTFILES}" "${ZDOTDIR}" "${VIMDOTDIR}" )
 
 # Displays the dirstack
 alias dl="dirs -p"

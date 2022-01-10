@@ -19,12 +19,12 @@ let g:colors_name = "test"
 
 " {{{ Highlighting Groups 
 
-hi Normal           ctermfg=7          ctermbg=0
+hi Normal           ctermfg=7           ctermbg=0
 hi EndOfBuffer      ctermfg=0           ctermbg=0               cterm=none
 hi LineNr           ctermfg=8           ctermbg=0
 hi CursorLine                           ctermbg=15              cterm=none
 
-hi StatusLine       ctermfg=1           ctermbg=0               cterm=none
+hi StatusLine       ctermfg=6           ctermbg=0               cterm=none
 hi StatusLineNC     ctermfg=0           ctermbg=0               cterm=none
 
 hi User1                                ctermbg=6
@@ -56,6 +56,7 @@ hi! link SignColumn     EndOfBuffer
 
 hi! link Folded         LineNr
 hi! link DiffAdd        ModeMsg
+hi! link WildMenu       Normal
 
 hi! link CursorLineNr   CursorLine
 hi! link Visual         CursorLine

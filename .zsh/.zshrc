@@ -19,14 +19,11 @@ change_cursor_shape() {
 # Executes the change_cursor_shape function before each prompt
 precmd_functions=( change_cursor_shape )
 
-# Ensure the PATH variable contains unique entries
-typeset -U PATH path
-
 # pyenv completion
 eval "$(pyenv init -)"
 
-# Add directories to the path
-path=( "/opt/homebrew/bin" "${HOME}/.pyenv/shims" "${HOME}/.scripts" ${path} )
+# Ensure the PATH contains unique entries
+typeset -U PATH
 
 # Source the configuration files of the config directory
 for file in ${ZDOTDIR}/config/*(^D); do

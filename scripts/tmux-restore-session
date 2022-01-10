@@ -3,12 +3,9 @@
 # Creation: 17 oct 2021
 # vim: ft=zsh syn=zsh
 
-# Location of the file containing the tmux session
-session_file="${HOME}/.tmux/tmux-session"
-
-if [[ -n "${TMUX}" ]] || [[ ! -f "${session_file}" ]]; then
-    echo "Cannot restore tmux session."
-    echo "Session file ${session_file} missing."
+if [[ -n "${TMUX}" ]] || [[ ! -f "${SESSIONFILE}" ]]; then
+    echo "Unable to restore tmux session"
+    echo "Session file ${SESSIONFILE} missing"
     return 1
 fi
 
@@ -33,6 +30,6 @@ IFS=$'\t'
 
 while read session window dir; do
     [[ -d "${dir}" ]] && deserialize-session "${session}" "${window}" "${dir}"
-done < "${session_file}"
+done < "${SESSIONFILE}"
 
 tmux attach

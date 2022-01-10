@@ -15,32 +15,37 @@ bindkey -M visual '^A' vi-cmd-mode
 
 # Cycles through history backward
 bindkey '^P' up-line-or-search
+
 # Cycles through history forward
 bindkey '^N' down-line-or-search
 
 # Removes the character just before the cursor (backspace)
 bindkey '^?' backward-delete-char
+
 # Removes the word before the cursor
 bindkey '^W' backward-kill-word
 
 # Searches history backward
 bindkey '^R' history-incremental-search-backward
-# Searches history forward
-bindkey '^T' history-incremental-search-forward
 
 # Removes every character before the cursor
 bindkey '^U' backward-kill-line
+
 # Removes every character after the cursor
 bindkey '^K' kill-line
 
 # Pulls the current line, executes a command then push the line back
 bindkey '^B' push-line-or-edit
 
+# Search for file to edit using vim and fzf
+bindkey -s '^K' 'vim $(fzf)^M'
+
 # Resumes the last process sent to the background
 bindkey -s '^Z' 'fg^M'
 
 # Restore the previously saved tmux session
 bindkey -s '^O' 'tmux-restore-session^M'
+
 # Save the current tmux session
 bindkey -s '^X' 'tmux-save-session^M'
 
