@@ -26,6 +26,8 @@ hi CursorLine                           ctermbg=15              cterm=none
 
 hi StatusLine       ctermfg=6           ctermbg=0               cterm=none
 hi StatusLineNC     ctermfg=0           ctermbg=0               cterm=none
+hi StatusLineNC     ctermfg=0           ctermbg=0               cterm=none
+hi StatusLineTerm   ctermfg=6           ctermbg=0               cterm=none
 
 hi User1                                ctermbg=6
 hi User2            ctermfg=8           ctermbg=0
@@ -43,7 +45,7 @@ hi SpellCap         ctermfg=6           ctermbg=none            cterm=underline
 
 hi TabLine                              ctermbg=15              cterm=none
 hi TabLineSel       ctermfg=7
-hi MatchParen       ctermfg=5           ctermbg=none            cterm=underline
+hi MatchParen       ctermfg=7           ctermbg=none            cterm=underline
 
 hi Pmenu            ctermfg=7           ctermbg=15
 hi PmenuSel         ctermfg=0           ctermbg=5

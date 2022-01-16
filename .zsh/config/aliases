@@ -6,14 +6,16 @@
 alias zshrc="vim ${ZDOTDIR}/.zshrc"
 
 # Edit '.zshenv'
-alias zprofile="vim ${DOTFILES}/.zprofile"
+alias zshenv="vim ${DOTFILES}/.zshenv"
 
 # Edit 'vimrc'
 alias vimrc="vim ${VIMDOTDIR}/vimrc"
 
+alias reload="source ${DOTFILES}/.zshenv && source ${ZDOTDIR}/.zshrc"
+
 
 # Display the PATH
-alias path="echo ${PATH}"
+alias path="echo '${PATH//:/\n}'"
 
 # Met à jour homebrew et les paquets
 alias daily="brew update; brew upgrade; brew cleanup"

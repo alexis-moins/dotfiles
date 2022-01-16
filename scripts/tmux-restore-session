@@ -3,9 +3,13 @@
 # Creation: 17 oct 2021
 # vim: ft=zsh syn=zsh
 
-if [[ -n "${TMUX}" ]] || [[ ! -f "${SESSIONFILE}" ]]; then
+if [[ -n "${TMUX}" ]]; then
     echo "Unable to restore tmux session"
-    echo "Session file ${SESSIONFILE} missing"
+    echo "=> Already in a tmux session"
+    return 1
+elif [[ ! -f "${SESSIONFILE}" ]]; then
+    echo "Unable to restore tmux session"
+    echo "=> Session file ${SESSIONFILE} missing"
     return 1
 fi
 

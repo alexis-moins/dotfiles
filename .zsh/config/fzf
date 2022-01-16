@@ -1,0 +1,15 @@
+# Author: Alexis Moins
+# Creation: 16 jan 2022
+# vim: ft=zsh syn=zsh
+
+# Path to the homebrew directory
+BREW="$(brew --prefix)"
+
+# Fuzzy completion for files and directories using **<TAB>
+source "${BREW}/opt/fzf/shell/completion.zsh" 2> /dev/null
+
+# Fuzzy completion for files (CTRL-T) and history (CTRL-R)
+source "${BREW}/opt/fzf/shell/key-bindings.zsh"
+
+# Get rid of the brew variable
+unset BREW

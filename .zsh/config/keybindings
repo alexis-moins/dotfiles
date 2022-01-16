@@ -2,16 +2,11 @@
 # Creation: 30 octobre 2020
 # vim: ft=zsh syn=zsh
 
-# Use vi keybindings
-bindkey -v
-
 # Enters command mode
 bindkey '^A' vi-cmd-mode
 
 # Enters command mode (from visual mode)
 bindkey -M visual '^A' vi-cmd-mode
-
-# {{{ Keybindings
 
 # Cycles through history backward
 bindkey '^P' up-line-or-search
@@ -25,9 +20,6 @@ bindkey '^?' backward-delete-char
 # Removes the word before the cursor
 bindkey '^W' backward-kill-word
 
-# Searches history backward
-bindkey '^R' history-incremental-search-backward
-
 # Removes every character before the cursor
 bindkey '^U' backward-kill-line
 
@@ -37,8 +29,7 @@ bindkey '^K' kill-line
 # Pulls the current line, executes a command then push the line back
 bindkey '^B' push-line-or-edit
 
-# Search for file to edit using vim and fzf
-bindkey -s '^K' 'vim $(fzf)^M'
+# Home-made keybindings
 
 # Resumes the last process sent to the background
 bindkey -s '^Z' 'fg^M'
@@ -58,10 +49,6 @@ bindkey -M vicmd '^F' edit-command-line
 # Edit the current line in vim
 bindkey '^F' edit-command-line
 
-# }}}
-
-# {{{ Completion menu
-
 # Loads the completion list module (makes menuselect available)
 zmodload zsh/complist
 
@@ -76,10 +63,6 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 
 # Selects the completion on the right
 bindkey -M menuselect 'l' vi-forward-char
-
-# }}}
-
-# {{{ VI mode indicator
 
 # Changes cursor to blinking underscore
 clear_right_prompt() {
@@ -106,5 +89,3 @@ function zle-keymap-select() {
 
 # Loads the widget that manages the vi mode indicator
 zle -N zle-keymap-select
-
-# }}}

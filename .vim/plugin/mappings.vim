@@ -1,7 +1,11 @@
 let mapleader = " " 
 
+nnoremap <silent> [a :previous<CR>
+nnoremap <silent> ]a :next<CR>
+
 nnoremap <silent> <leader>ins <Cmd>PlugInstall<cr>
 nnoremap <silent> <leader>clean <Cmd>PlugClean<cr>
+nnoremap <silent> <leader>fin :FZF<CR>
 
 nnoremap <silent> - :15Lex<CR>
 nnoremap <silent> + :15Lex ~<CR>
@@ -23,8 +27,8 @@ nnoremap ;rnu <Cmd>setl rnu! nonu<CR>
 nnoremap ;st :setl list!<CR>
 nnoremap ;sp :setl spell!<CR>
 
-nnoremap <leader>cd <Cmd>lcd %:p:h<CR>
-nnoremap <leader>cb <Cmd>lcd -<CR>
+nnoremap <leader>cd :lcd %:p:h<CR>
+nnoremap <leader>cb :lcd -<CR>
 
 nnoremap <leader>src :source %<CR>
 nnoremap <leader>syn <Cmd>call utils#SyntaxGroup()<CR>

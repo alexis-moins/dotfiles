@@ -21,6 +21,9 @@ Plug 'tpope/vim-surround'
 " Comment stuff out
 Plug 'tpope/vim-commentary'
 
+"
+Plug '/opt/homebrew/opt/fzf'
+
 " 
 Plug 'tpope/vim-projectionist'
 
@@ -59,11 +62,6 @@ let g:netrw_home="${VIMDOTDIR}/.cache/netrwhist"
 " }}}
 
 " {{{ Options
-
-set modelines=5
-
-" Time before CursorHold events are triggered
-set updatetime=100
 
 set wildmenu  
 
@@ -129,7 +127,7 @@ set foldnestmax=1
 
 " Use the patience algorithm to show differences, don't take whitespaces into
 " account and completely fold identical parts
-set diffopt+=iwhiteall,context:0
+set diffopt+=algorithm:patience,iwhiteall,context:0
 
 " Highlight the text line of the cursor
 set cursorline

@@ -2,6 +2,8 @@
 # Author: Alexis Moins
 # Creation: 18 juin 2020
 
+echo "📖 Sourcing .zshenv"
+
 # Prevents 'Terminal.app' from saving and restoring sessions
 export SHELL_SESSIONS_DISABLE=1
 
@@ -21,13 +23,16 @@ export VIMDOTDIR="${HOME}/.vim"
 export SESSIONFILE="${HOME}/.tmux-session"
 
 # Options and highlighting for fzf
-export FZF_DEFAULT_OPTS="--height 40% --reverse 
-    --color 'bg:0,bg+:0'"
+export FZF_DEFAULT_OPTS="--multi --height 40% --layout=reverse 
+    --color 'bg:0,bg+:0,prompt:6,pointer:1,marker:1,fg:8,fg+:7,hl:2,hl+:2,info:5'"
 
-# Where to find binaries and executables
-export PATH="/opt/homebrew/bin:${HOME}/.pyenv/shims:${DOTFILES}/scripts:${PATH}"
+# Command executed by fzf to look for files
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 
-# Defines colors used by the macOS ls command (BSD)
+# Use fzf default command with CTRL-T widget
+export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
+
+ #Defines colors used by the macOS ls command (BSD)
 export LSCOLORS="gxfxDxCxbxEgEdxbxgxcxd" 
 
 # LSCOLORS equivalent used by zsh and other commands
