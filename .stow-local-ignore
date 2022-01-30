@@ -1,7 +1,12 @@
-.git
-.gitignore
-Brewfile*
+\.git
+\.gitignore
+README.md
+
 install
+Brewfile*
+
 scripts
 terminal
-README.md
+
+.*\.swap
+session.vim

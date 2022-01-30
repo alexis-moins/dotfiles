@@ -2,19 +2,39 @@
 # Author: Alexis Moins
 # Creation: 29 nov 2021
 
+# 
+dotfiles="${0:P:h}"
+
 # Install formulae and casks
-if brew bundle install --no-lock --no-upgrade; then
+if brew bundle install --file="${dotfiles}/Brewfile" --no-lock --no-upgrade; then
     # List of items that must be present
-    init=( ".zsh/.cache" ".vim/.cache" ".vim/bundle" )
+    init=( ".zsh/.cache" ".vim/.cache/undo" )
 
     # Create missing items
     for item in ${init}; do
         [[ ! -d "${item}" ]] && \mkdir -pv "${item}"; done
 
     # Link dotfiles
-    stow --restow --verbose .
+    stow --restow . && echo "Dotfiles symlinked"
 
     # Clean useless variables
-    unset init ignored
+    unset init
 fi
 
+# A Git wrapper so awesome, it should be illegal
+command "${dotfiles}/scripts/vim-install-plugin"  'tpope/vim-fugitive'
+
+# 
+command "${dotfiles}/scripts/vim-install-plugin" 'tpope/vim-projectionist'
+
+# 
+command "${dotfiles}/scripts/vim-install-plugin" 'tpope/vim-surround'
+
+# 
+command "${dotfiles}/scripts/vim-install-plugin" '/opt/homebrew/opt/fzf'
+
+# 
+command "${dotfiles}/scripts/vim-install-plugin" 'neoclide/coc.nvim' '--branch' 'release'
+
+
+unset dotfiles

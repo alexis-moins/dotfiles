@@ -6,15 +6,14 @@ tags
 
 # Zsh
 .zsh_history
-tmux-sessions
+.tmux-sessions
 .zsh_sessions/
 
 # Vim
 *.swp
-spell/
-bundle/
+pack/
 .viminfo
-Session.vim
+session.vim
 
 # Brew
 Brewfile.lock.json

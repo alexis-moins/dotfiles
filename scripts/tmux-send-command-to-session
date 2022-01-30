@@ -1,0 +1,15 @@
+#!/usr/bin/env zsh
+# Author: Alexis Moins
+# Creation: 16 jan 2022
+# vim: ft=zsh syn=zsh
+
+if [[ -z "${TMUX}" ]]; then
+    echo "Unable to send command"
+    echo "=> Not in a tmux session"
+    return 1
+fi
+
+for pane in $(tmux list-panes -s -F "#{pane_id} #{pane_current_command}"); do
+	component=(${(@s:/:)pane})
+	[[ component[1] == "zsh" ]] && tmux send-keys -t "${pane}" "${@}" Enter
+done

@@ -2,14 +2,43 @@
 # Creation: 16 jan 2022
 # vim: ft=zsh syn=zsh
 
+# Show fzf in a tmux popup window
+export FZF_TMUX_OPTS="-p85%,70%"
+
+# fzf highlighting
+highlighting='bg:0,bg+:0,prompt:6,border:8,pointer:1,marker:1,fg:8,fg+:7,hl:2,hl+:2,info:5'
+
+# Default options for fzf
+export FZF_DEFAULT_OPTS="--multi --height 40% --layout=reverse --color ${highlighting}"
+
+# Command executed by fzf to look for files
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+
+#
+export FZF_CTRL_T_OPTS="--preview 'bat --style=numbers --theme=base16 --color=always {}'"
+
+# Command executed by fzf to change directory
+export FZF_ALT_C_COMMAND="fd --type d --hidden --follow --exclude .git"
+
+# 
+export FZF_ALT_C_OPTS="--preview 'tree -C {}'"
+
 # Path to the homebrew directory
-BREW="$(brew --prefix)"
+brew="$(brew --prefix)"
 
 # Fuzzy completion for files and directories using **<TAB>
-source "${BREW}/opt/fzf/shell/completion.zsh" 2> /dev/null
+source "${brew}/opt/fzf/shell/completion.zsh" 2> /dev/null
 
 # Fuzzy completion for files (CTRL-T) and history (CTRL-R)
-source "${BREW}/opt/fzf/shell/key-bindings.zsh"
+source "${brew}/opt/fzf/shell/key-bindings.zsh"
 
-# Get rid of the brew variable
-unset BREW
+# Rebind file search to '^Y'
+bindkey -r '^T' && bindkey '^Y' fzf-file-widget
+
+# Rebind history search to '^H'
+bindkey -r '^R' && bindkey '^H' fzf-history-widget
+
+# Rebind directory navigation to '^G'
+bindkey -r '\ec' && bindkey '^G' fzf-cd-widget
+
+unset highlighting brew

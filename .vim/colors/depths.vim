@@ -1,8 +1,11 @@
-" Colorscheme definition
+" Depths syntax file
 " Author: Alexis Moins
-" Creation: 02 novembre 2020
+" Creation: 15 dec 2021
+" Last Change: 20 dec 2021
 
-" {{{ Initialization
+" {{{ Initialization 
+
+set background=dark
 
 highlight clear
 
@@ -10,116 +13,149 @@ if exists("syntax_on")
     syntax reset
 endif
 
-let g:colors_name = "sonokai"
-let s:palette = depths#ColorPalette()
-
-" Private function 
-function! s:Hi(group, style)
-    let s:list = [ "highlight",   a:group,
-                \ "guifg=",     (has_key(a:style, "fg")     ?   a:style.fg[0]   :   "NONE"),
-                \ "ctermfg=",   (has_key(a:style, "fg")     ?   a:style.fg[1]   :   "NONE"),
-                \ "guibg=",     (has_key(a:style, "bg")     ?   a:style.bg[0]   :   "NONE"),
-                \ "ctermbg=",   (has_key(a:style, "bg")     ?   a:style.bg[1]   :   "NONE"),
-                \ "cterm=",     (has_key(a:style, "style")  ?   a:style.style   :   "NONE"),
-                \ "term=",      (has_key(a:style, "style")  ?   a:style.style   :   "NONE"),
-                \ ]
-    execute join(s:list)
-endfunction
-
-" Highlight groups anytime, anywhere
-function! depths#Highlight(group, style)
-    call s:Hi(a:group, a:style)
-endfunction
+let g:colors_name = "test"
 
 " }}}
 
-" {{{ Highlighting Groups
+" {{{ Highlighting Groups 
 
-call s:Hi('Normal',     { "fg": s:palette.white, "bg": s:palette.background })
-call s:Hi('Terminal',   { "fg": s:palette.white, "bg": s:palette.background })
+hi Normal           ctermfg=7           ctermbg=0
+hi EndOfBuffer      ctermfg=0           ctermbg=0               cterm=none
+hi LineNr           ctermfg=8           ctermbg=0
+hi CursorLine                           ctermbg=15              cterm=none
 
-call s:Hi('EndOfBuffer',    { "fg": s:palette.background,   "bg": s:palette.background })
-call s:Hi('Folded',         { "fg": s:palette.grey,         "bg": s:palette.background })
-" call s:Hi('FoldColumn', s:palette.grey_dim, s:palette.none)
+hi StatusLine       ctermfg=6           ctermbg=0               cterm=none
+hi StatusLineNC     ctermfg=0           ctermbg=0               cterm=none
+hi StatusLineNC     ctermfg=0           ctermbg=0               cterm=none
+hi StatusLineTerm   ctermfg=6           ctermbg=0               cterm=none
 
-call s:Hi('SignColumn', { "bg": s:palette.background })
-" call s:Hi('IncSearch', s:palette.bg0, s:palette.bg_red)
-" call s:Hi('Search', s:palette.bg0, s:palette.bg_green)
-" call s:Hi('ColorColumn', s:palette.none, s:palette.bg1)
-" call s:Hi('Conceal', s:palette.grey_dim, s:palette.none)
+hi User1                                ctermbg=6
+hi User2            ctermfg=8           ctermbg=0
+hi User3            ctermfg=1           ctermbg=0
+hi User4            ctermfg=0           ctermbg=0
+hi User5            ctermfg=5           ctermbg=0
+hi ModeMsg          ctermfg=2
 
-call s:Hi('CursorLine',     { "bg": s:palette.visual })
-call s:Hi('CursorColumn',   { "bg": s:palette.visual })
-call s:Hi('LineNr',         { "fg": s:palette.grey })
-call s:Hi('CursorLineNr',   { "fg": s:palette.white,    "bg": s:palette.visual })
+hi DiffText         ctermfg=5           ctermbg=none
+hi DiffChange       ctermfg=4           ctermbg=none
+hi DiffDelete       ctermfg=1           ctermbg=none
 
-call s:Hi("StatusLine",     { "fg": s:palette.white,    "bg": s:palette.visual })
-call s:Hi("StatusLineNC",   { "fg": s:palette.grey,     "bg": s:palette.background })
+hi SpellBad         ctermfg=1           ctermbg=none            cterm=underline
+hi SpellCap         ctermfg=6           ctermbg=none            cterm=underline
 
-call s:Hi("User1",      { "bg": s:palette.yellow })
-call s:Hi('User2',      { "fg": s:palette.red,          "bg": s:palette.visual })
-call s:Hi("User3",      { "fg": s:palette.yellow,       "bg": s:palette.visual })
+hi TabLine                              ctermbg=15              cterm=none
+hi TabLineSel       ctermfg=7
+hi MatchParen       ctermfg=7           ctermbg=none            cterm=underline
+
+hi Pmenu            ctermfg=7           ctermbg=15
+hi PmenuSel         ctermfg=0           ctermbg=5
+hi PmenuSbar        ctermbg=15
+
+
+hi! link VertSplit      EndOfBuffer
+hi! link TabLineFill    EndOfBuffer
+hi! link SignColumn     EndOfBuffer
+
+hi! link Folded         LineNr
+hi! link DiffAdd        ModeMsg
+hi! link WildMenu       Normal
+
+hi! link CursorLineNr   CursorLine
+hi! link Visual         CursorLine
 
 " }}}
 
 " {{{ Syntax Groups
 
-call s:Hi('Type',           { "fg": s:palette.cyan })
-call s:Hi('Structure',      { "fg": s:palette.cyan })
-call s:Hi('StorageClass',   { "fg": s:palette.cyan })
+hi Statement        ctermfg=1
+hi Function         ctermfg=2
+hi Constant         ctermfg=3
+hi String           ctermfg=4
+hi Number           ctermfg=5
+hi Type             ctermfg=6
+hi Delimiter        ctermfg=7
+hi Comment          ctermfg=8
 
-call s:Hi('Identifier',     { "fg": s:palette.orange })
-call s:Hi('Constant',       { "fg": s:palette.orange })
 
-call s:Hi('PreProc',        { "fg": s:palette.red })
-call s:Hi('PreCondit',      { "fg": s:palette.red })
-call s:Hi('Include',        { "fg": s:palette.red })
-call s:Hi('Keyword',        { "fg": s:palette.red })
-call s:Hi('Define',         { "fg": s:palette.red })
-call s:Hi('Typedef',        { "fg": s:palette.red })
-call s:Hi('Exception',      { "fg": s:palette.red })
-call s:Hi('Conditional',    { "fg": s:palette.red })
-call s:Hi('Repeat',         { "fg": s:palette.red })
-call s:Hi('Statement',      { "fg": s:palette.red })
+hi! link Structure       Type
+hi! link StorageClass    Type
+hi! link Directory       Type
+hi! link Todo            Type
 
-call s:Hi('Operator',   { "fg": s:palette.orange })
-call s:Hi('Title',      { "fg": s:palette.red })
-call s:Hi('Error',      { "fg": s:palette.red })
+hi! link Identifier      Constant
+hi! link Tag             Constant
 
-call s:Hi('Macro',          { "fg": s:palette.purple })
-call s:Hi('Label',          { "fg": s:palette.purple })
-call s:Hi('Special',        { "fg": s:palette.purple })
-call s:Hi('SpecialChar',    { "fg": s:palette.purple })
+hi! link PreProc         Statement
+hi! link PreCondit       Statement
+hi! link Include         Statement
+hi! link Keyword         Statement
+hi! link Define          Statement
+hi! link Typedef         Statement
+hi! link Exception       Statement
+hi! link Conditional     Statement
+hi! link Repeat          Statement
+hi! link Error           Statement
+hi! link Operator        Statement
+hi! link Title           Statement
 
-call s:Hi('String',     { "fg": s:palette.blue })
-call s:Hi('Character',  { "fg": s:palette.blue })
+hi! link Float           Number
+hi! link Macro           Number
+hi! link Label           Number
+hi! link Special         Number
+hi! link SpecialChar     Number
+hi! link Boolean         Number
 
-call s:Hi('Number',         { "fg": s:palette.purple })
-call s:Hi('Float',          { "fg": s:palette.purple })
-call s:Hi('Boolean',        { "fg": s:palette.purple })
+hi! link Character       String
 
-call s:Hi('Function',   { "fg": s:palette.green })
-call s:Hi('Tag',        { "fg": s:palette.orange })
-call s:Hi('Delimiter',  { "fg": s:palette.white })
-
-call s:Hi('Comment',            { "fg": s:palette.grey })
-call s:Hi('SpecialComment',     { "fg": s:palette.grey })
-call s:Hi('Todo',               { "fg": s:palette.cyan })
-
-call s:Hi('Ignore',         { "fg": s:palette.grey })
-call s:Hi('Underlined',     { "style": 'underline' })
+hi! link SpecialComment  Comment
 
 " }}}
 
-" {{{ Language Specific Highlighting
+" {{{ Language Specific Highlighting 
 
-" Vim
-call s:Hi("vimCommentTitle",    { "fg": s:palette.white })
-call s:Hi("vimOption",          { "fg": s:palette.white })
-call s:Hi("vimEnvVar",        { "fg": s:palette.green })
-call s:Hi("vimVar",        { "fg": s:palette.white })
-call s:Hi("vimOper",        { "fg": s:palette.red })
+" vim
+hi! link vimOption          Delimiter
+hi! link vimHiGroup         Delimiter
+hi! link vimCommentTitle    Delimiter
+hi! link vimEnvVar          Function
+hi! link vimHiKeyList       Statement
+hi! link vimHiCtermFgBg     Constant
+hi! link vimHiCTerm         Constant
+hi! link vimHiAttrib        Number
+
+" netrw
+hi! link netrwSymLink       Number
+hi! link netrwLink          Comment
+hi! link netrwClassify      Delimiter
+hi! link netrwTreeBar       Delimiter
+
+" coc
+hi! link CocInfoSign        Type
+hi! link CocHintSign        String
+hi! link CocWarningSign     Constant
+hi! link CocErrorSign       Statement
+
+" gitcommit
+hi! link gitcommitBlank           Delimiter
+hi! link gitcommitSummary         Delimiter
+hi! link gitcommitFirstLine       Statement
+hi! link gitcommitHeader          Delimiter
+
+" zsh
+hi! link zshOption      Number
+hi! link zshQuoted      Number
+hi! link zshTypes       Function
+hi! link zshCommands    Function
+hi! link zshSubst       Delimiter
+
+" haskell
+hi! link haskellType                Type
+hi! link haskellBrackets            Delimiter
+hi! link haskellIdentifier          Constant
+hi! link haskellDecl                Statement
+hi! link haskellWhere               Statement
+hi! link haskellDeriving            Statement
+hi! link haskellDeclKeyword         Statement
+hi! link haskellForeignKeywords     Statement
 
 " }}}
-
-set background=dark

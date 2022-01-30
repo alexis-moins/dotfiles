@@ -29,8 +29,6 @@ bindkey '^K' kill-line
 # Pulls the current line, executes a command then push the line back
 bindkey '^B' push-line-or-edit
 
-# Home-made keybindings
-
 # Resumes the last process sent to the background
 bindkey -s '^Z' 'fg^M'
 

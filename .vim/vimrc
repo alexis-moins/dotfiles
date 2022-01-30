@@ -9,57 +9,7 @@ filetype plugin indent on
 syntax enable
 
 " Load colorscheme depths
-colorscheme test
-
-" {{{ Plugins
-
-call plug#begin('~/.vim/bundle')
-
-" Delete / change add parentheses or quotes with ease
-Plug 'tpope/vim-surround'
-
-" Comment stuff out
-Plug 'tpope/vim-commentary'
-
-"
-Plug '/opt/homebrew/opt/fzf'
-
-" 
-Plug 'tpope/vim-projectionist'
-
-" Make your Vim/Neovim as smart as VSCode
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-
-call plug#end()
-
-" List of coc extensions installed at first startup
-let g:coc_global_extensions = [ 
-            \ 'coc-pairs', 
-            \ 'coc-clangd'
-            \ ]
-
-" coc-java
-
-" }}}
-
-" {{{ Netrw
-
-" Cache la bannière
-let g:netrw_banner=0
-"
-" Ouvre les splits à droite
-let g:netrw_altv=1
-
-" Tree view
-let g:netrw_liststyle=3
-
-" Sequence for sorting by name
-let g:netrw_sort_sequence='[\/]$,*'
-
-" Where to save the history file
-let g:netrw_home="${VIMDOTDIR}/.cache/netrwhist"
-
-" }}}
+colorscheme depths
 
 " {{{ Options
 
@@ -172,3 +122,4 @@ set mouse=a
 set sessionoptions-=blank sessionoptions-=options sessionoptions-=tabpages
 
 " }}}
+

@@ -1,8 +1,8 @@
-func! utils#FoldText()
-    return substitute(getline(v:foldstart), "^ *", "", 1)
+func! functions#fold_text()
+    return substitute(getline(v:foldstart), '^ *', '', 'g')
 endfunc
 
-func! utils#Tabline()
+func! functions#tabline()
     let s = ''
     for i in range(tabpagenr('$'))
         let tab = i + 1
@@ -21,7 +21,7 @@ func! utils#Tabline()
     return s
 endfunc
 
-func! utils#SyntaxGroup()
+func! functions#SyntaxGroup()
     if !exists("*synstack")
         return
     endif

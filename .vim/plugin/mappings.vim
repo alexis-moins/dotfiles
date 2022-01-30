@@ -17,8 +17,8 @@ nnoremap <leader>rf :%s/<C-R><C-W>//ge<left><left><left>
 nnoremap <leader>rg :bufdo %s/<C-R><C-W>//gce<left><left><left><<left>
 
 nnoremap <leader>mk :silent make! <Bar> silent redraw!<CR>
-nnoremap <leader>cs :mks!<CR>
-nnoremap <leader>ss <Cmd>source Session.vim<CR>
+nnoremap <leader>cs :mks! .vim-session<CR>
+nnoremap <leader>ss <Cmd>source .vim-session<CR>
 
 " Toggle options
 nnoremap ;cl <Cmd>setl cul!<CR>
@@ -26,13 +26,13 @@ nnoremap ;nu <Cmd>setl nu! nornu<CR>
 nnoremap ;rnu <Cmd>setl rnu! nonu<CR>
 nnoremap ;st :setl list!<CR>
 nnoremap ;sp :setl spell!<CR>
+nnoremap ;pa :set paste!<CR>
 
 nnoremap <leader>cd :lcd %:p:h<CR>
 nnoremap <leader>cb :lcd -<CR>
 
 nnoremap <leader>src :source %<CR>
-nnoremap <leader>syn <Cmd>call utils#SyntaxGroup()<CR>
-
+nnoremap <silent> <leader>syn :echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')<CR>
 nnoremap <leader>ind magg=G`a
 
 " Yanks until the end of the line

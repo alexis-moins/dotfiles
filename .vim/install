@@ -1,0 +1,12 @@
+#!/usr/bin/env zsh
+# Author: Alexis Moins
+# Creation: 18 jan 2022
+
+plugins=( 
+    'tpope/vim-fugitive' 
+    'tpope/vim-projectionist' 
+    'tpope/vim-surround' 
+    'neoclide/coc.nvim' )
+
+for plugin in ${plugins}; do
+    ../scripts/vim-install-plugin "${plugin}"; done

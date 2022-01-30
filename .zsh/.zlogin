@@ -1,3 +1,6 @@
+# To track file sourcing in the terminal
+echo '📖 Sourcing .zlogin'
+
 # Execute code in the background
 {
     # Compile the completion dump to increase startup speed

@@ -22,15 +22,8 @@ export VIMDOTDIR="${HOME}/.vim"
 # Location of the file containing the tmux session
 export SESSIONFILE="${HOME}/.tmux-session"
 
-# Options and highlighting for fzf
-export FZF_DEFAULT_OPTS="--multi --height 40% --layout=reverse 
-    --color 'bg:0,bg+:0,prompt:6,pointer:1,marker:1,fg:8,fg+:7,hl:2,hl+:2,info:5'"
-
-# Command executed by fzf to look for files
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
-
-# Use fzf default command with CTRL-T widget
-export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
+# Uses vim as the default man pager
+export MANPAGER="vim -M +MANPAGER -"
 
  #Defines colors used by the macOS ls command (BSD)
 export LSCOLORS="gxfxDxCxbxEgEdxbxgxcxd" 

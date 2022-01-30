@@ -1,0 +1,23 @@
+#!/usr/bin/env zsh
+# Author: Alexis Moins
+# Creation: 18 jan 2022
+
+# Exit with an error if you receive more than 1 argument
+[[ "${#}" -gt 0 ]] && echo "usage: ${0:t}" && exit 1
+
+# Where are all the plugins installed ?
+directory="${VIMDOTDIR:-${HOME}/.vim}/pack/bundle/start"
+
+# 
+[[ ! -d "${directory}" ]] && echo "No plugins installed" && exit 1
+
+# 
+plugin="$(ls ${directory} | fzf --no-multi)"
+
+# Remove the plugin
+command rm -rf "${directory}/${plugin}"
+
+echo "Plugin removed: ${plugin}"
+
+# Clean the environment
+unset directory plugin
