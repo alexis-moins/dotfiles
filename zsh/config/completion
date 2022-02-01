@@ -47,11 +47,11 @@ zstyle ':completion:*' expand prefix suffix
 zstyle ':completion:*' use-cache on
 
 # Chemin vers le dossier .compcache
-zstyle ':completion:*' cache-path "${ZDOTDIR}/.cache/zcompcache"
+zstyle ':completion:*' cache-path "${ZDOTDIR}/cache/zcompcache"
 
 autoload -Uz compinit
 # Location of the completion dump file
-_dumpfile="${ZDOTDIR}/.cache/zcompdump"
+_dumpfile="${ZDOTDIR}/cache/zcompdump"
 
 # Initialize the completions system and check for cache once a day
 if [[ -n "${_dumpfile}"(#qN.mh+24) ]]; then

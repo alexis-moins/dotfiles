@@ -1,0 +1,25 @@
+- defaults:
+    link:
+      relink: true
+      create: true
+      glob: true
+
+- clean: ['~', '~/.config', '~/.vim', '~/.zsh']
+
+- link:
+    ~/.ssh/config: ssh/config
+    ~/.gitconfig:
+    ~/.tmux.conf:
+    ~/.vim: vim/**
+    ~/.zshenv:
+    ~/.zsh/config: zsh/config
+    ~/.zsh: zsh/.*
+
+- create:
+  - ~/.zsh/cache
+  - ~/.vim/bundle
+  - ~/.vim/undo-history
+
+- shell:
+  - [brew bundle install --no-lock, 🎉 Installing brew packages]
+  - [vim +PlugInstall +qa, 🎉 Installing vim plugins]

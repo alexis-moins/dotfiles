@@ -11,7 +11,23 @@ syntax enable
 " Load colorscheme depths
 colorscheme depths
 
-" {{{ Options
+" {{{ vim-plug
+
+call plug#begin('~/.vim/bundle')
+
+Plug 'tpope/vim-surround'
+
+Plug 'tpope/vim-fugitive'
+
+Plug 'tpope/vim-projectionist'
+
+Plug '/usr/local/opt/fzf'
+
+call plug#end()
+
+" }}}
+
+" {{{ options
 
 set wildmenu  
 
@@ -100,17 +116,17 @@ set path=.,**
 " Expected behaviour of the backspace key
 set backspace=start,eol,indent
 
-" Location of the .viminfo file
-set viminfofile=${VIMDOTDIR}/.cache/viminfo
+" Location of the viminfo file
+set viminfofile=${VIMDOTDIR}/viminfo
 
 " Never use swapfiles
 set noswapfile
 
-" Save the undotree for each file in the .undo directory
+" Save the undotree for each file in the undo-history directory
 set undofile
 
 " Location of the .undo directory
-set undodir=${VIMDOTDIR}/.cache/undo
+set undodir=${VIMDOTDIR}/undo-history
 
 "
 set shortmess+=Ic

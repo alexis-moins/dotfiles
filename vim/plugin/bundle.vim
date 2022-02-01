@@ -1,3 +1,5 @@
+" List of plugins
+
 " List of coc extensions installed at first startup
 let g:coc_global_extensions = [ 
             \ 'coc-pairs', 
@@ -16,13 +18,13 @@ let g:netrw_altv=1
 let g:netrw_liststyle=3
 
 " Where to save the history file
-let g:netrw_home="${VIMDOTDIR}/.cache/netrwhist"
+let g:netrw_home="${VIMDOTDIR}/cache/netrwhist"
 
 " Sequence for sorting by name
 let g:netrw_sort_sequence='[\/]$,*'
 
 if exists('$TMUX')
-  let g:fzf_layout = { 'tmux': '-p85%,70%' }
+    let g:fzf_layout = { 'tmux': '-p85%,70%' }
 else
-  let g:fzf_layout = { 'down': '40%' }
+    let g:fzf_layout = { 'down': '40%' }
 endif
