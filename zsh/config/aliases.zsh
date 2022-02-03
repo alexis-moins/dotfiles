@@ -1,17 +1,17 @@
 # Author: Alexis Moins
 # Creation: 14 mars 2020
-# vim: ft=zsh syn=zsh 
 
 # Edit '.zshrc'
 alias zshrc="vim ${ZDOTDIR}/.zshrc"
 
 # Edit '.zshenv'
-alias zshenv="vim ${DOTFILES}/.zshenv"
+alias zshenv="vim ${DOTFILES}/zshenv"
 
 # Edit 'vimrc'
 alias vimrc="vim ${VIMDOTDIR}/vimrc"
 
-alias reload="source ${DOTFILES}/.zshenv && source ${ZDOTDIR}/.zshrc"
+# 
+alias reload="source ${DOTFILES}/zshenv && source ${ZDOTDIR}/.zshrc"
 
 
 # Display the PATH

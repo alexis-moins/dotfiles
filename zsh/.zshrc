@@ -2,8 +2,6 @@
 # Author: Alexis Moins
 # Creation: 18 juin 2020
 
-echo '📖 Sourcing .zshrc'
-
 # Try to correct the spelling of command
 setopt CORRECT
 
@@ -19,8 +17,11 @@ printf "\e[3 q"
 # Ensure the PATH contains unique entries
 typeset -U PATH
 
+# Location of the brew directory
+BREW="$(brew --prefix)"
+
 # Where to find binaries and executables
-export PATH="/opt/homebrew/bin:${HOME}/.pyenv/shims:${DOTFILES}/scripts:${PATH}"
+export PATH="${BREW}/bin:${HOME}/.pyenv/shims:${DOTFILES}/scripts:${PATH}"
 
 # pyenv completion
 eval "$(pyenv init -)"

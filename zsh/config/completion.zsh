@@ -1,6 +1,5 @@
 # Author: Alexis Moins
 # Creation: 18 juin 2020
-# vim: ft=zsh syn=zsh
 
 # Prevent zsh from appending a symbol at the end of each completion item to
 # differenciate its type i.e. '/' for directories, '*' for symlinks...

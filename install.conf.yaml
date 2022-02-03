@@ -11,6 +11,7 @@
     ~/.gitconfig:
     ~/.tmux.conf:
     ~/.vim: vim/**
+    ~/.config/bat: config/bat
     ~/.zshenv:
     ~/.zsh/config: zsh/config
     ~/.zsh: zsh/.*
@@ -21,5 +22,4 @@
   - ~/.vim/undo-history
 
 - shell:
-  - [brew bundle install --no-lock, 🎉 Installing brew packages]
   - [vim +PlugInstall +qa, 🎉 Installing vim plugins]

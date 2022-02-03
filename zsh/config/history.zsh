@@ -1,6 +1,5 @@
 # Author: Alexis Moins
 # Creation: 03 oct 2021
-# vim: ft=zsh syn=zsh
 
 # Append commands to the history file & import commands from other sessions
 setopt SHAREHISTORY
@@ -22,7 +21,7 @@ setopt HISTIGNORESPACE
 setopt HISTREDUCEBLANKS
 
 # File in which the history will be saved
-HISTFILE="${ZDOTDIR}/cache/history"
+HISTFILE="${ZDOTDIR}/history"
 
 # Maximum number of items saved in the session's history
 HISTSIZE=1000000

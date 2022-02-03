@@ -2,6 +2,8 @@ let mapleader = " "
 
 nnoremap <silent> [a :previous<CR>
 nnoremap <silent> ]a :next<CR>
+nnoremap <silent> [q :cprevious<CR>
+nnoremap <silent> ]q :cnext<CR>
 
 nnoremap <silent> <leader>ins <Cmd>PlugInstall<cr>
 nnoremap <silent> <leader>clean <Cmd>PlugClean<cr>

@@ -1,6 +1,5 @@
 # Author: Alexis Moins
 # Creation: 18 juin 2020
-# vim: ft=zsh syn=zsh
 
 # Enable variable / function substitution in the prompt
 setopt PROMPTSUBST
@@ -20,25 +19,10 @@ zstyle ':vcs_info:*' actionformats '%F{5} on %b %F{3}(%a)%f%u%c%f'
 zstyle ':vcs_info:*' stagedstr ' %F{1}[&]%f'
 zstyle ':vcs_info:*' unstagedstr ' %F{1}[!]%f'
 
-# Get the current python virtual env
-get-virtualenv() {
-    # If we are in a virtal environment
-    if [ -n "${VIRTUAL_ENV}" ]; then
-        # Fetch the virtual env name
-        python_env="$(basename "${VIRTUAL_ENV}")"
-
-        # Create the prompt
-        venv_prompt="%F{3} using ${python_env}%f "
-
-        # Print the value of ${venv_prompt} to standard out.
-        printf "%s" "${venv_prompt}"
-    fi
-}
-
 # Single quotes are mandatory for vcs_info to be interpreted correctly
 PROMPT='
-%(1j.:%j .)%(#.%F{1}root %f.)%F{6}%1~%f${vcs_info_msg_0_}$(get-virtualenv)
-%(?..%F{1})->%f '
+%(1j.:%j .)%(#.%F{1}root %f.)%F{6}%1~%f${vcs_info_msg_0_}$(python-venv)
+->%(?..%F{1}*%f) '
 
 # Prompt pour le corps des fonctions
 PROMPT2="%F{2}... %f"

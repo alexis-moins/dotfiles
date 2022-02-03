@@ -17,11 +17,15 @@ call plug#begin('~/.vim/bundle')
 
 Plug 'tpope/vim-surround'
 
+Plug 'tpope/vim-commentary'
+
 Plug 'tpope/vim-fugitive'
 
 Plug 'tpope/vim-projectionist'
 
-Plug '/usr/local/opt/fzf'
+Plug '/opt/homebrew/opt/fzf'
+
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 call plug#end()
 
@@ -133,6 +137,9 @@ set shortmess+=Ic
 
 " Enables mouse usage in all modes
 set mouse=a
+
+" Smoother mouse mouvements
+set ttymouse=xterm2
 
 " Don't save useless session information
 set sessionoptions-=blank sessionoptions-=options sessionoptions-=tabpages

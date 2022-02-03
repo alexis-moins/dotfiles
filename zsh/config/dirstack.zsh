@@ -1,6 +1,5 @@
 # Author: Alexis Moins
 # Creation: 6 janvier 2021
-# vim: ft=zsh syn=zsh
 
 # Change de dossier sans avoir à utiliser cd
 setopt AUTOCD       

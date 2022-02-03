@@ -1,6 +1,5 @@
 # Author: Alexis Moins
 # Creation: 30 octobre 2020
-# vim: ft=zsh syn=zsh
 
 # Enters command mode
 bindkey '^A' vi-cmd-mode
