@@ -1,3 +1,8 @@
+# Git configuration
+# Author: Alexis Moins
+# Creation: 04 feb 2022
+# vim: ft=gitconfig syn=gitconfig
+
 [user]
     # The default name
     name = AlexisMoins
@@ -65,7 +70,9 @@
     # Display commits with a pretty formatting
     ls = log --all --branches='*' --graph --tags='*'
     # Start a new local repository and perform initial commit
-    this = !git init && git add . && git commit --message='feat(*): Initial commit 🎉'
+    this = !git init && git add . && git commit --message='feat: Initial commit 🎉'
+    #
+    oops = !git stash && git co -b oops && git stash pop
 [format]
     # Formatting used as default by the `--format` option
     pretty = format:%C(auto)%h [%D] %C(brightblack)%an%C(reset) %s (%C(blue)%cs%C(reset))

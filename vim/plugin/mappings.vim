@@ -2,8 +2,12 @@ let mapleader = " "
 
 nnoremap <silent> [a :previous<CR>
 nnoremap <silent> ]a :next<CR>
+nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [q :cprevious<CR>
 nnoremap <silent> ]q :cnext<CR>
+
+nnoremap <leader>git :Git 
 
 nnoremap <silent> <leader>ins <Cmd>PlugInstall<cr>
 nnoremap <silent> <leader>clean <Cmd>PlugClean<cr>

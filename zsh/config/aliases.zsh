@@ -30,6 +30,10 @@ alias mv="mv -iv"
 # Remove stuff verbosely (-v) and ask for confirmation (-i)
 alias rm="rm -iv"
 
+alias tree='tree -I __pycache__'
+
+alias tra='tree -a -I __pycache__ -I .git'
+
 
 # Liste les éléments non cachés, avec de la couleur (G)
 alias ls='ls -G'
