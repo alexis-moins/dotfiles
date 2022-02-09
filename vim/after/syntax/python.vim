@@ -3,7 +3,7 @@ syn keyword _ClassVar       self cls mcs super
 " syn match   _Class          '\%([^[:cntrl:][:space:][:punct:][:digit:]]\|_\)\%([^[:cntrl:][:punct:][:space:]]\|_\)*' display contained
 
 syn match   _Operator       '\V=\|-\|+\|*\|/\|%\|&\||\|^\|~\|<\|>\|!=\|:='
-" syn match   _FunctionCall   '\%([^[:cntrl:][:space:][:punct:][:digit:]]\|_\)\%([^[:cntrl:][:punct:][:space:]]\|_\)*\ze\%(\s*(\)'
+syn match   _FunctionCall   '\%([^[:cntrl:][:space:][:punct:][:digit:]]\|_\)\%([^[:cntrl:][:punct:][:space:]]\|_\)*\ze\%(\s*(\)'
 " syn keyword _FunctKeyword   def nextgroup=pythonFunction skipwhite
 
 " syn match _SpaceError    '\s\+$' display
@@ -19,7 +19,7 @@ hi! def link _ClassVar      Constant
 
 hi! def link PythonBuiltin  Type
 hi! def link _Operator      Statement
-" hi! def link _FunctionCall  Special
+hi! def link _FunctionCall  Function
 
 " hi! def link _FunctKeyword  Statement
 " hi! def link pythonFunction Identifier
@@ -31,6 +31,6 @@ hi! def link _None          Number
 hi! def link _Boolean       Number
 
 " hi! def link pythonEscape           Constant
-" hi! def link pythonDecorator        Constant
-" hi! def link pythonDecoratorName    Constant
+hi! def link pythonDecorator        Number
+hi! def link pythonDecoratorName    Number
 

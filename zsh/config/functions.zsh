@@ -9,7 +9,7 @@ python-venv() {
         python_version="$(python --version)"
 
         # Create the prompt
-        venv_prompt="%F{8} using ${python_version}%f "
+        venv_prompt="%F{8} using 📦 ${python_version}%f "
 
         # Print the value of ${venv_prompt} to standard out.
         printf "%s" "${venv_prompt}"

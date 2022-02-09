@@ -23,7 +23,7 @@ Plug 'tpope/vim-fugitive'
 
 Plug 'tpope/vim-projectionist'
 
-Plug '/opt/homebrew/opt/fzf'
+Plug '/usr/local/opt/fzf'
 
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 

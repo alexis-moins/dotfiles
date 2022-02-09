@@ -21,7 +21,7 @@ zstyle ':vcs_info:*' unstagedstr ' %F{1}[!]%f'
 
 # Single quotes are mandatory for vcs_info to be interpreted correctly
 PROMPT='
-%(1j.:%j .)%(#.%F{1}root %f.)%F{6}%1~%f${vcs_info_msg_0_}$(python-venv)
+%(1j.:%j .)%(#.%F{1}root %f.)%F{6}%2~%f${vcs_info_msg_0_}$(python-venv)
 ->%(?..%F{1}*%f) '
 
 # Prompt pour le corps des fonctions
