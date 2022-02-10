@@ -18,20 +18,19 @@ setopt COMPLETEINWORD
 # Affiche un menu de séléction pour choisir avec quoi compléter
 zstyle ':completion:*' menu select
 
-# Utilise les couleurs de LS_COLORS pour afficher le menu de séléction
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} 'ma=1;32;40'
-
 # Complétion insensible aux majuscules / minuscules
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
-# Display command description in grey
-zstyle ':completion:*:options' list-colors '=(#b)*(-- *)=0=1;30'
+# Display completion in grey, highlight the current match in white
+zstyle ':completion:*:default' list-colors '=*=90' 'ma=0;32;40'
 
-#
-zstyle ':completion:*:*:kill' list-colors '=(#b) #([0-9]#)*( *[a-z])*=37=31=1;30'
+# Show when there are no mactches
+zstyle ':completion:*:*:*:*:warnings' format '%F{1}-- no matches found --%f'
 
 # Autorise seulement 2 erreurs pour la complétion approximative
 zstyle ':completion:*:approximate:*' max-errors 2
+
+zstyle ':completion:*:*:cd:*' tag-order local-directories directory-stack path-directories
 
 # Utilise la completion approximative, une fois que la complétion normale a échouée
 zstyle ':completion:*' completer _extensions _complete _approximate
@@ -49,6 +48,7 @@ zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path "${ZDOTDIR}/cache/zcompcache"
 
 autoload -Uz compinit
+
 # Location of the completion dump file
 _dumpfile="${ZDOTDIR}/cache/zcompdump"
 

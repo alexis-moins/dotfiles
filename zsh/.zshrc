@@ -14,6 +14,9 @@ setopt EXTENDEDGLOB
 # Sets the cursor to the underscore shape
 printf "\e[3 q"
 
+# No highlighting when pasting text
+zle_highlight=( 'paste:none' )
+
 # Ensure the PATH contains unique entries
 typeset -U PATH
 
@@ -29,4 +32,3 @@ eval "$(pyenv init -)"
 # Source the configuration files of the config directory
 for file in ${ZDOTDIR}/config/*(.); do
     source "${file}"; done
-

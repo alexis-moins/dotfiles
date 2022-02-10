@@ -23,7 +23,7 @@ Plug 'tpope/vim-fugitive'
 
 Plug 'tpope/vim-projectionist'
 
-Plug '/usr/local/opt/fzf'
+Plug '/opt/homebrew/opt/fzf'
 
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
@@ -34,9 +34,6 @@ call plug#end()
 " {{{ options
 
 set wildmenu  
-
-" Display line numbers
-set number
 
 " Display signs over the line number
 set signcolumn=number
@@ -145,4 +142,3 @@ set ttymouse=xterm2
 set sessionoptions-=blank sessionoptions-=options sessionoptions-=tabpages
 
 " }}}
-
