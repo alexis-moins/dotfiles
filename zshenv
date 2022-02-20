@@ -15,13 +15,16 @@ export HOMEBREW_BUNDLE_NO_LOCK=1
 export DOTFILES="${HOME}/.dotfiles"
 
 # Path to the zsh config directory
-export ZDOTDIR="${HOME}/.zsh"
+export ZDOTDIR="${HOME}/.config/zsh"
 
-# Path to the vim config directory
-export VIMDOTDIR="${HOME}/.vim" 
+# Path to the (neo)vim config directory
+export VIMDOTDIR="${HOME}/.config/nvim" 
 
 # Location of the file containing the tmux session
 export SESSIONFILE="${HOME}/.tmux-session"
+
+# Default editor
+export EDITOR="nvim"
 
 # Uses vim as the default man pager
 export MANPAGER="vim -M +MANPAGER -"

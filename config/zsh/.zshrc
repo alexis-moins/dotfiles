@@ -12,16 +12,22 @@ setopt GLOBDOTS
 setopt EXTENDEDGLOB
 
 # Sets the cursor to the underscore shape
-printf "\e[3 q"
+# printf "\e[3 q"
 
 # No highlighting when pasting text
-zle_highlight=( 'paste:none' )
+zle_highlight=('paste:none')
 
 # Ensure the PATH contains unique entries
 typeset -U PATH
 
+# Place where data is stored
+ZDATA="${HOME}/.local/share/zsh"
+
+# Create the directory structure if not present
+[[ ! -d "${ZDATA}/cache" ]] && mkdir -p "${ZDATA}/cache"
+
 # Location of the brew directory
-BREW="$(brew --prefix)"
+BREW="/opt/homebrew"
 
 # Where to find binaries and executables
 export PATH="${BREW}/bin:${HOME}/.pyenv/shims:${DOTFILES}/scripts:${PATH}"

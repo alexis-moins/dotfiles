@@ -1,14 +1,17 @@
 # Author: Alexis Moins
 # Creation: 14 mars 2020
 
+
+alias vim='nvim'
+
 # Edit '.zshrc'
-alias zshrc="vim ${ZDOTDIR}/.zshrc"
+alias zshrc="${EDITOR:-vim} ${ZDOTDIR}/.zshrc"
 
 # Edit '.zshenv'
-alias zshenv="vim ${DOTFILES}/zshenv"
+alias zshenv="${EDITOR:-vim} ${DOTFILES}/zshenv"
 
 # Edit 'vimrc'
-alias vimrc="vim ${VIMDOTDIR}/vimrc"
+alias vimrc="${EDITOR:-vim} ${VIMDOTDIR}/init.lua"
 
 # 
 alias reload="source ${DOTFILES}/zshenv && source ${ZDOTDIR}/.zshrc"
@@ -43,6 +46,8 @@ alias la='ls -A'
 
 # Liste en format long (l), en format compréhensible (h)
 alias ll='ls -Alh'
+
+alias l1='ls -A1'
 
 # Utilise la couleur avec grep
 alias grep="grep --colour=auto"

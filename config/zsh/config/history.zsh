@@ -21,7 +21,7 @@ setopt HISTIGNORESPACE
 setopt HISTREDUCEBLANKS
 
 # File in which the history will be saved
-HISTFILE="${ZDOTDIR}/history"
+HISTFILE="${HOME}/.local/share/zsh/history"
 
 # Maximum number of items saved in the session's history
 HISTSIZE=1000000

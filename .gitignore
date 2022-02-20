@@ -1,16 +1,10 @@
-# Misc
-TODO
-tags
-.DS_Store
-
-# Zsh
-.zsh_history
-.tmux-sessions
-.zsh_sessions/
-
-# Vim
+# Files
 *.swp
+.DS_Store
 .vim-session
-
-# Brew
+.zsh_history
 Brewfile.lock.json
+
+# Directories
+plugins/
+.zsh_sessions/

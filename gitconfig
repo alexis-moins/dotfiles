@@ -26,9 +26,6 @@
     remote = red
     # Worktrees are cyan
     worktree = cyan
-[commit]
-    # Always show per file changes of the current commit
-    verbose = true
 [diff]
     # Use 'vimdiff' as the diff interface
     tool = vimdiff
@@ -38,8 +35,6 @@
 [merge]
     # Use vim as the default merge tool
     tool = vimdiff
-    # Display common ancestor to help merging branches
-    conflictstyle = diff3
 [mergetool]
     # Never keep .orig files after a merge
     keepBackup = false
@@ -55,9 +50,7 @@
     st = status
     # Checkout the branches of the repository
     co = checkout
-    # 
-    sw = stash show -p
-    # Create a new branch
+    # Create a new branch / show branches
     br = branch -vv
     # Faster difftool
     dt = difftool
@@ -70,7 +63,7 @@
     # Display commits with a pretty formatting
     ls = log --all --branches='*' --graph --tags='*'
     # Start a new local repository and perform initial commit
-    this = !git init && git add . && git commit --message='feat: Initial commit 🎉'
+    this = !git init && git add . && git commit --message='feat: 🎉 initial commit'
     #
     oops = !git stash && git co -b oops && git stash pop
 [format]

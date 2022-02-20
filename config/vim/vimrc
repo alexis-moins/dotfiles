@@ -1,4 +1,4 @@
-" User configuration for vim
+" User configuration for (neo)vim
 " Author: Alexis Moins
 " Creation: 18 juin 2020
 
@@ -81,7 +81,7 @@ set splitright
 set splitbelow
 
 " Set the content of the statusline
-set statusline=%2*\ %t\ %0*[.]\ %3*%m%4*%=\ \ %5*%y\ 
+set statusline=%2*\ %t\ %0*[.]\ %3*%m%4*%=\ \ %5*%y
 
 " Always display the statusline
 set laststatus=2
@@ -100,7 +100,7 @@ set diffopt+=algorithm:patience,iwhiteall,context:0
 set cursorline
 
 " Add French to the known languages for spellcheck
-set spelllang+=fr
+" set spelllang+=fr
 
 " Location of the system dictionary
 set dictionary=/usr/share/dict/words

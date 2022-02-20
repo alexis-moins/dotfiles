@@ -44,13 +44,4 @@ bindkey -r '^R' && bindkey '^H' fzf-history-widget
 # Rebind directory navigation to '^G'
 bindkey -r '\ec' && bindkey '^G' fzf-cd-widget
 
-_is_in_git_repo() {
-  git rev-parse HEAD > /dev/null 2>&1
-}
-
-_gh() {
-  _is_in_git_repo || return
-  git ls --format="%h [%D] %an %s" | fzf-tmux ${FZF_TMUX_OPTS} --ansi --no-sort | grep -o "[a-f0-9]\{7,\}"
-}
-
 bindkey -s '^K' '$(_gh)^M'

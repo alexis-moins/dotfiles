@@ -21,6 +21,7 @@ let g:colors_name = "test"
 
 hi Normal           ctermfg=7           ctermbg=0
 hi EndOfBuffer      ctermfg=0           ctermbg=0               cterm=none
+hi FoldColumn       ctermfg=6           ctermbg=0               cterm=none          
 hi LineNr           ctermfg=8           ctermbg=0
 hi CursorLine                           ctermbg=15              cterm=none
 
@@ -43,7 +44,7 @@ hi DiffDelete       ctermfg=1           ctermbg=none
 hi SpellBad         ctermfg=1           ctermbg=none            cterm=underline
 hi SpellCap         ctermfg=6           ctermbg=none            cterm=underline
 
-hi TabLine                              ctermbg=15              cterm=none
+hi TabLine          ctermfg=8           ctermbg=0               cterm=none
 hi TabLineSel       ctermfg=7
 hi MatchParen       ctermfg=7           ctermbg=none            cterm=underline
 
@@ -136,10 +137,12 @@ hi! link CocWarningSign     Constant
 hi! link CocErrorSign       Statement
 
 " gitcommit
-hi! link gitcommitBlank           Delimiter
-hi! link gitcommitSummary         Delimiter
-hi! link gitcommitFirstLine       Statement
-hi! link gitcommitHeader          Delimiter
+hi! link gitcommitBlank         Delimiter
+hi! link gitcommitSummary       Delimiter
+hi! link gitcommitFirstLine     Statement
+hi! link gitcommitHeader        Delimiter
+hi! link gitcommitFile          Comment
+hi! link gitcommitType          Comment
 
 " zsh
 hi! link zshOption      Number

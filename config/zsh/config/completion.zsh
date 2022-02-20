@@ -44,20 +44,20 @@ zstyle ':completion:*' expand prefix suffix
 # Utilise le cache pour la complétion
 zstyle ':completion:*' use-cache on
 
-# Chemin vers le dossier .compcache
-zstyle ':completion:*' cache-path "${ZDOTDIR}/cache/zcompcache"
+# Chemin vers le dossier de cache
+zstyle ':completion:*' cache-path "${ZDATA}/cache"
 
 autoload -Uz compinit
 
 # Location of the completion dump file
-_dumpfile="${ZDOTDIR}/cache/zcompdump"
+COMPDUMP="${ZDATA}/cache/zcompdump"
 
 # Initialize the completions system and check for cache once a day
-if [[ -n "${_dumpfile}"(#qN.mh+24) ]]; then
+if [[ -n "${COMPDUMP}"(#qN.mh+24) ]]; then
     # If .zcompdump is older than 24 hours, check for changes (-i)
-    compinit -i -d "${_dumpfile}"
-    touch "${_dumpfile}"
+    compinit -i -d "${COMPDUMP}"
+    touch "${COMPDUMP}"
 else
     # Otherwisem juste read the file (-d) without checking (-C)
-    compinit -C -d "${_dumpfile}"
+    compinit -C -d "${COMPDUMP}"
 fi

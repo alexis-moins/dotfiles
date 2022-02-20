@@ -4,22 +4,15 @@
       create: true
       glob: true
 
-- clean: ['~', '~/.config', '~/.vim', '~/.zsh']
+- clean: ['~', '~/.config']
 
 - link:
-    ~/.ssh/config: ssh/config
+    ~/.ssh/config:
     ~/.gitconfig:
     ~/.tmux.conf:
-    ~/.vim: vim/**
-    ~/.config/bat: config/bat
+    ~/.config: config/*
     ~/.zshenv:
-    ~/.zsh/config: zsh/config
-    ~/.zsh: zsh/.*
-
-- create:
-  - ~/.zsh/cache
-  - ~/.vim/bundle
-  - ~/.vim/undo-history
 
 - shell:
-  - [vim +PlugInstall +qa, 🎉 Installing vim plugins]
+  - cp hyper.js ~/.hyper.js
+  - git submodule update --init --recursive
