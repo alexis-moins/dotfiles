@@ -11,9 +11,6 @@ setopt GLOBDOTS
 # Enable the use of globbing patterns and expansions
 setopt EXTENDEDGLOB
 
-# Sets the cursor to the underscore shape
-# printf "\e[3 q"
-
 # No highlighting when pasting text
 zle_highlight=('paste:none')
 

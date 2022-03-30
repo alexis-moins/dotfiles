@@ -1,14 +1,10 @@
 class Foo:
     """A class representing a foo"""
 
-    def __init__(self, name: str):
-        """cccas"""
-        self._name: str = name
+    def __init__(self, name: str) -> None:
+        """Parameterised constructor creating a new Foo"""
+        self._names: list[str] = [ name ]
 
-    def attack(self) -> int:
-        """Return the attack value of the current """
-        attack = 0
-        for item in self._inventory.equiped_items.values():
-            if 'attack' in item.statistics.keys():
-                attack += item.statistics['attack']
-        return attack
+    def identity(self) -> None:
+        """Display the identity of the current foo"""
+        print(', '.join(self._names))

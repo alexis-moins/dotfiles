@@ -3,6 +3,7 @@
 module.exports = {
 
     config: {
+
         // Default font size
         fontSize: 13,
 

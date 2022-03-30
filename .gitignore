@@ -6,5 +6,5 @@
 Brewfile.lock.json
 
 # Directories
-plugins/
+nvim/plugins/
 .zsh_sessions/

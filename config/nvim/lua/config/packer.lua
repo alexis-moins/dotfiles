@@ -2,7 +2,7 @@
 vim.cmd [[
   augroup Packer
   autocmd!
-  autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+  autocmd BufWritePost packer.lua source <afile> | PackerCompile
   augroup end
 ]] 
 
@@ -42,5 +42,8 @@ require('packer').startup(function()
 
     -- Complete with lsp
     use 'hrsh7th/cmp-nvim-lsp'
+
+    -- 
+    use 'onsails/lspkind-nvim'
 
 end)

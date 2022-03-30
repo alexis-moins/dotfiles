@@ -21,6 +21,9 @@ require('plugins.completion')
 
 -- {{{ options
 
+-- Turn line number on
+vim.opt.number = true
+
 -- Don't change the cursor shape depending on the mode
 vim.opt.guicursor = ''
 

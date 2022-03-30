@@ -98,7 +98,7 @@ hi! link Structure		LightBlue
 hi! link Type			Purple
 hi! link Delimiter		White
 hi! link Boolean		Orange
-hi! link Identifier     Blue
+hi! link Identifier     LightBlue
 hi! link Comment		Grey
 hi! link Keyword        Pink
 hi! link Number         Orange
@@ -121,6 +121,8 @@ hi! link TSKeywordOperator      Orange
 
 hi! link TSParameter		White
 hi! link TSConstructor		Function
+
+hi! link TSField            White
 
 " }}}
 
