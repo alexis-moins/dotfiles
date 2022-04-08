@@ -1,19 +1,16 @@
 # Author: Alexis Moins
 # Creation: 14 mars 2020
 
-
-alias vim='nvim'
-
 # Edit '.zshrc'
-alias zshrc="${EDITOR:-vim} ${ZDOTDIR}/.zshrc"
+alias zshrc="${EDITOR:-nano} ${ZDOTDIR}/.zshrc"
 
 # Edit '.zshenv'
-alias zshenv="${EDITOR:-vim} ${DOTFILES}/zshenv"
+alias zshenv="${EDITOR:-nano} ${DOTFILES}/zshenv"
 
 # Edit 'vimrc'
-alias vimrc="${EDITOR:-vim} ${VIMDOTDIR}/init.lua"
+alias vimrc="${EDITOR:-nano} ${VIMDOTDIR}/init.lua"
 
-# 
+#
 alias reload="source ${DOTFILES}/zshenv && source ${ZDOTDIR}/.zshrc"
 
 

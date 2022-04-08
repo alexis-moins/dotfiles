@@ -18,19 +18,19 @@ export DOTFILES="${HOME}/.dotfiles"
 export ZDOTDIR="${HOME}/.config/zsh"
 
 # Path to the (neo)vim config directory
-export VIMDOTDIR="${HOME}/.config/nvim" 
+export VIMDOTDIR="${HOME}/.config/nvim"
 
 # Location of the file containing the tmux session
 export SESSIONFILE="${HOME}/.tmux-session"
 
 # Default editor
-export EDITOR="nvim"
+export EDITOR="hx"
 
 # Uses vim as the default man pager
 export MANPAGER="vim -M +MANPAGER -"
 
  #Defines colors used by the macOS ls command (BSD)
-export LSCOLORS="gxfxDxCxbxEgEdxbxgxcxd" 
+export LSCOLORS="gxfxDxCxbxEgEdxbxgxcxd"
 
 # LSCOLORS equivalent used by zsh and other commands
 export LS_COLORS="di=36:ln=35:ex=31:su=41:sg=46:tw=42:ow=43"

@@ -14,6 +14,13 @@ setopt EXTENDEDGLOB
 # No highlighting when pasting text
 zle_highlight=('paste:none')
 
+# Beam cursor after every command
+beam_cursor() {
+    echo -ne '\e[5 q'
+}
+
+precmd_functions+=( beam_cursor )
+
 # Ensure the PATH contains unique entries
 typeset -U PATH
 

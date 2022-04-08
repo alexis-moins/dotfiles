@@ -1,87 +1,76 @@
 "use strict";
-
+// Future versions of Hyper may add additional config options,
+// which will not automatically be merged into this file.
+// See https://hyper.is#cfg for all currently supported options.
 module.exports = {
-
     config: {
-
-        // Default font size
+        // choose either `'stable'` for receiving highly polished,
+        // or `'canary'` for less polished but more frequent updates
+        updateChannel: 'stable',
+        // default font size in pixels for all tabs
         fontSize: 13,
-
-        // Font family with optional fallbacks
-        fontFamily: '"Fira Code", Menlo',
-
-        // Font weight for bold characters
+        // font family with optional fallbacks
+        fontFamily: '"Fira Code", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
+        // default font weight: 'normal' or 'bold'
+        fontWeight: 'normal',
+        // font weight for bold characters: 'normal' or 'bold'
         fontWeightBold: 'normal',
-
-        lineHeight: 1.25,
-
+        // line height as a relative unit
+        lineHeight: 1,
+        // letter spacing as a relative unit
+        letterSpacing: 0,
         // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
-        cursorColor: '#D9D9D9',
-
+        cursorColor: '#D7D7D7',
         // terminal text color under BLOCK cursor
         cursorAccentColor: '#000',
-
-        // Define the cursor shape (BEAM, UNDERLINE or BLOCK)
+        // `'BEAM'` for |, `'UNDERLINE'` for _, `'BLOCK'` for █
         cursorShape: 'BEAM',
-
-        // Let the cursor blink
+        // set to `true` (without backticks and without quotes) for blinking cursor
         cursorBlink: true,
-
         // color of the text
-        foregroundColor: '#D9D9D9',
-
+        foregroundColor: '#D7D7D7',
         // terminal background color
         // opacity is only supported on macOS
-        backgroundColor: '#212533',
-
+        backgroundColor: '#1E232F',
         // terminal selection color
-        selectionColor: '#2E3447',
-
+        selectionColor: '#606C87',
         // border color (window, tabs)
-        borderColor: '#212533',
-
+        borderColor: '#1E232F',
         // custom CSS to embed in the main window
         css: '',
-
         // custom CSS to embed in the terminal window
         termCSS: '',
-
         // set custom startup directory (must be an absolute path)
         workingDirectory: '',
-
         // if you're using a Linux setup which show native menus, set to false
         // default: `true` on Linux, `true` on Windows, ignored on macOS
         showHamburgerMenu: '',
-
         // set to `false` (without backticks and without quotes) if you want to hide the minimize, maximize and close buttons
         // additionally, set to `'left'` if you want them on the left, like in Ubuntu
         // default: `true` (without backticks and without quotes) on Windows and Linux, ignored on macOS
         showWindowControls: '',
-
         // custom padding (CSS format, i.e.: `top right bottom left`)
-        padding: '5px 5px',
-
+        padding: '0px 0px 0px 0px',
         // the full list. if you're going to provide the full color palette,
         // including the 6 x 6 color cubes and the grayscale map, just provide
         // an array here instead of a color map object
         colors: {
-            black: '#212533',
-            red: '#FF638D',
-            green: '#65E6B3',
-            yellow: '#FFA986',
-            blue: '#C8E1FF',
-            magenta: '#C3A0FF',
-            cyan: '#7FF1FF',
-            white: '#D9D9D9',
-
-            lightBlack: '#5B667F',
-            lightRed: '#FF638D',
-            lightGreen: '#65E6B3',
-            lightYellow: '#FFA986',
-            lightBlue: '#C8E1FF',
+            black: '#1E232F',
+            red: '#FF6578',
+            green: '#6CF4A8',
+            yellow: '#FF9173',
+            blue: '#9CBEF1',
+            magenta: '#dcb7ff',
+            cyan: '#87d0e2',
+            white: '#D7D7D7',
+            lightBlack: '#606C87',
+            lightRed: '#FF6578',
+            lightGreen: '#6CF4A8',
+            lightYellow: '#FF9173',
+            lightBlue: '#9CBEF1',
             lightMagenta: '#C3A0FF',
-            lightCyan: '#7FF1FF',
-            lightWhite: '#2E3447',
+            lightCyan: '#8ADDFF',
+            lightWhite: '#FFFFFF',
         },
         // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
         // if left empty, your system's login shell will be used by default
@@ -107,10 +96,10 @@ module.exports = {
         shellArgs: ['--login'],
         // for environment variables
         env: {},
-
-        // 
-        bell: false,
-
+        // Supported Options:
+        //  1. 'SOUND' -> Enables the bell as a sound
+        //  2. false: turns off the bell
+        bell: 'SOUND',
         // An absolute file path to a sound file on the machine.
         // bellSoundURL: '/path/to/sound/file',
         // if `true` (without backticks and without quotes), selected text will automatically be copied to the clipboard
@@ -124,25 +113,36 @@ module.exports = {
         // or `'force'`, if you want to force selection regardless of whether the terminal is in mouse events mode
         // (inside tmux or vim with mouse mode enabled for example).
         macOptionSelectionMode: 'vertical',
-
+        // Whether to use the WebGL renderer. Set it to false to use canvas-based
+        // rendering (slower, but supports transparent backgrounds)
+        webGLRenderer: true,
         // keypress required for weblink activation: [ctrl|alt|meta|shift]
         // todo: does not pick up config changes automatically, need to restart terminal :/
         webLinksActivationKey: '',
-
         // if `false` (without backticks and without quotes), Hyper will use ligatures provided by some fonts
         disableLigatures: false,
-
+        // set to true to disable auto updates
+        disableAutoUpdates: false,
         // set to true to enable screen reading apps (like NVDA) to read the contents of the terminal
         screenReaderMode: false,
         // set to true to preserve working directory when creating splits or tabs
         preserveCWD: true,
         // for advanced config flags please refer to https://hyper.is/#cfg
     },
-
-    // List of plugins to fetch and install from npm
+    // a list of plugins to fetch and install from npm
+    // format: [@org/]project[#version]
+    // examples:
+    //   `hyperpower`
+    //   `@company/project`
+    //   `project#1.0.1`
     plugins: [],
-
-    // List of local plugins (under ~/.hyper_plugins/local/)
-    localPlugins: ['hyper-depths'],
-
+    // in development, you can create a directory under
+    // `~/.hyper_plugins/local/` and include it here
+    // to load it and avoid it being `npm install`ed
+    localPlugins: [],
+    keymaps: {
+        // Example
+        // 'window:devtools': 'cmd+alt+o',
+    },
 };
+//# sourceMappingURL=config-default.js.map
