@@ -12,11 +12,7 @@
     ~/.tmux.conf:
     ~/.config: config/*
     ~/.zshenv:
-    ~/.hyper.js:
 
 - shell:
   - brew bundle install
   - git submodule update --init --recursive
-
-# - npm install --global typescript-language-server
-# - cp hyper.js ~/.hyper.js

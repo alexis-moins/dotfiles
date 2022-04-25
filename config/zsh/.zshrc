@@ -34,7 +34,7 @@ ZDATA="${HOME}/.local/share/zsh"
 BREW="/opt/homebrew"
 
 # Where to find binaries and executables
-export PATH="${BREW}/bin:${HOME}/.pyenv/shims:${DOTFILES}/scripts:${PATH}"
+export PATH="${BREW}/bin:${HOME}/.pyenv/shims:${HOME}/.local/bin:${DOTFILES}/scripts:${PATH}"
 
 # pyenv completion
 eval "$(pyenv init -)"

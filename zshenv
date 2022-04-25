@@ -5,11 +5,11 @@
 # Prevents 'Terminal.app' from saving and restoring sessions
 export SHELL_SESSIONS_DISABLE=1
 
+# Create python virtualenvs under local .venv directory
+export PIPENV_VENV_IN_PROJECT=1
+
 # Prevent the python venv module from displaying virtual env in the prompt
 export VIRTUAL_ENV_DISABLE_PROMPT=1
-
-# Don't write a lock file when installing a bundle
-export HOMEBREW_BUNDLE_NO_LOCK=1
 
 # Location of the dotfiles
 export DOTFILES="${HOME}/.dotfiles"

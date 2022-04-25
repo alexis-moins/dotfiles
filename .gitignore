@@ -3,7 +3,6 @@
 .DS_Store
 .vim-session
 .zsh_history
-Brewfile.lock.json
 
 # Directories
 nvim/plugins/
