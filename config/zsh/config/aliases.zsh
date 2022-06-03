@@ -8,7 +8,7 @@ alias zshrc="${EDITOR:-nano} ${ZDOTDIR}/.zshrc"
 alias zshenv="${EDITOR:-nano} ${DOTFILES}/zshenv"
 
 # Edit 'vimrc'
-alias vimrc="${EDITOR:-nano} ${VIMDOTDIR}/init.lua"
+alias vimrc="${EDITOR:-nano} ${VIMDOTDIR}/vimrc"
 
 #
 alias reload="source ${DOTFILES}/zshenv && source ${ZDOTDIR}/.zshrc"
@@ -52,11 +52,8 @@ alias grep="grep --colour=auto"
 # Attach to the last tmux session
 alias ta='tmux attach-session'
 
-# Create a new python virtual environment
-alias venv='python -m venv'
-
-# Activate an existing python virtual environment
-alias activate='source **/bin/activate'
+#
+tt='tmuxinator'
 
 # }}}
 

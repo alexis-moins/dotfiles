@@ -1,18 +1,29 @@
 - defaults:
     link:
-      relink: true
       create: true
-      glob: true
+      relink: true
 
-- clean: ['~', '~/.config']
+- clean:
+    ~/:
+      force: true
+    ~/.config:
+      recursive: true
 
 - link:
-    ~/.ssh/config: ssh/config
     ~/.gitconfig:
+      path: gitconfig
     ~/.tmux.conf:
-    ~/.config: config/*
+      path: tmux.conf
     ~/.zshenv:
+      path: zshenv
+    ~/.vim:
+      path: vim
+    ~/.config/:
+      glob: true
+      path: config/*
+      relink: true
+      exclude: [ config/Code ]
 
 - shell:
-  - brew bundle install
-  - git submodule update --init --recursive
+  - [ brew bundle, Installing packages ]
+  - [ git submodule update --init --recursive, Installing submodules ]

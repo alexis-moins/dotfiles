@@ -36,9 +36,13 @@ BREW="/opt/homebrew"
 # Where to find binaries and executables
 export PATH="${BREW}/bin:${HOME}/.pyenv/shims:${HOME}/.local/bin:${DOTFILES}/scripts:${PATH}"
 
+fpath+=~/.zfunc
+
 # pyenv completion
 eval "$(pyenv init -)"
 
 # Source the configuration files of the config directory
 for file in ${ZDOTDIR}/config/*(.); do
     source "${file}"; done
+
+export PATH="$HOME/.poetry/bin:$PATH"
