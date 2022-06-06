@@ -5,13 +5,13 @@
         "revision": "f93f4a78aa22081ecd313333f35f211cc782ec9b"
       },
       "homebrew/cask": {
-        "revision": "7594783cb43a42c7b85eca226c67764863e6e5d2"
+        "revision": "4cd950245c4f92963ec3f1a5d834615cba1b2422"
       },
       "homebrew/cask-fonts": {
-        "revision": "5bf37767042019a642702ed775012c0e316e3720"
+        "revision": "c9fc957904619acd07ed3e3d8a5dee999d1af3a0"
       },
       "homebrew/core": {
-        "revision": "66dc35732a39e53f4d6160ee9a59615d338c82c2"
+        "revision": "1ee855f7a126df4a455bd885a609dd9f162843ec"
       }
     },
     "brew": {
@@ -732,7 +732,7 @@
         }
       },
       "notion": {
-        "version": "2.0.21",
+        "version": "2.0.22",
         "options": {
           "full_name": "notion"
         }
@@ -772,11 +772,11 @@
   "system": {
     "macos": {
       "monterey": {
-        "HOMEBREW_VERSION": "3.4.11",
-        "HOMEBREW_PREFIX": "/opt/homebrew",
-        "Homebrew/homebrew-core": "66dc35732a39e53f4d6160ee9a59615d338c82c2",
-        "CLT": "13.4.0.0.1.1651278267",
-        "Xcode": "13.3",
+        "HOMEBREW_VERSION": "3.5.0",
+        "HOMEBREW_PREFIX": "/usr/local",
+        "Homebrew/homebrew-core": "1ee855f7a126df4a455bd885a609dd9f162843ec",
+        "CLT": "13.3.1.0.1.1648687083",
+        "Xcode": "13.4",
         "macOS": "12.3.1"
       }
     }

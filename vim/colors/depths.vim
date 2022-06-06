@@ -3,19 +3,11 @@
 " Creation: 15 dec 2021
 " Last Change: 20 dec 2021
 
-" {{{ Initialization 
-
 set background=dark
 
 highlight clear
 
-if exists("syntax_on")
-    syntax reset
-endif
-
-let g:colors_name = "test"
-
-" }}}
+syntax reset
 
 " {{{ Highlighting Groups 
 
@@ -150,15 +142,5 @@ hi! link zshQuoted      Number
 hi! link zshTypes       Function
 hi! link zshCommands    Function
 hi! link zshSubst       Delimiter
-
-" haskell
-hi! link haskellType                Type
-hi! link haskellBrackets            Delimiter
-hi! link haskellIdentifier          Constant
-hi! link haskellDecl                Statement
-hi! link haskellWhere               Statement
-hi! link haskellDeriving            Statement
-hi! link haskellDeclKeyword         Statement
-hi! link haskellForeignKeywords     Statement
 
 " }}}
