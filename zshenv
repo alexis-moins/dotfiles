@@ -24,7 +24,7 @@ export VIMDOTDIR="${HOME}/.config/nvim"
 export SESSIONFILE="${HOME}/.tmux-session"
 
 # Default editor
-export EDITOR="hx"
+export EDITOR="vim"
 
 # Uses vim as the default man pager
 export MANPAGER="vim -M +MANPAGER -"

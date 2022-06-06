@@ -9,7 +9,7 @@ filetype plugin indent on
 syntax enable
 
 " Load colorscheme depths
-colorscheme depths
+" colorscheme depths
 
 " {{{ vim-plug
 
@@ -33,7 +33,7 @@ call plug#end()
 
 " {{{ options
 
-set wildmenu  
+set wildmenu
 
 " Display signs over the line number
 set signcolumn=number
@@ -66,9 +66,9 @@ set smartcase
 set incsearch
 
 " Never wrap lines when they are too long
-set nowrap  
+set nowrap
 
-" Always display the next 8 lines below or above the cursor 
+" Always display the next 8 lines below or above the cursor
 set scrolloff=5
 
 " Never pass beyond 120 characters on a line
@@ -106,10 +106,10 @@ set cursorline
 set dictionary=/usr/share/dict/words
 
 " Don't add anything at the end of the folded line
-set fillchars=fold:\ 
+set fillchars=fold:\
 
 "
-set listchars=eol:¬,extends:>,precedes:<,tab:>\ 
+set listchars=eol:¬,extends:>,precedes:<,tab:>\
 
 " During search, look inside of the current directory and subdirectories
 set path=.,**

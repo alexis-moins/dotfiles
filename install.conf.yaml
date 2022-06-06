@@ -9,6 +9,9 @@
     ~/.config:
       recursive: true
 
+- create:
+    - ~/.vim/undo-history
+
 - link:
     ~/.gitconfig:
       path: gitconfig
@@ -21,8 +24,7 @@
     ~/.config/:
       glob: true
       path: config/*
-      relink: true
-      exclude: [ config/Code ]
+      # exclude: [ config/Code ]
 
 - shell:
   - [ brew bundle, Installing packages ]
