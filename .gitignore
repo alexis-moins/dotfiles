@@ -1,8 +1,11 @@
-# Files
+# vim
 *.swp
-.DS_Store
+viminfo
 .vim-session
-.zsh_history
+undo-history/
+
+# misc
+.DS_Store
 
 # fish:
 # exclude the completions and functions folder as they get
@@ -11,9 +14,9 @@
 **/fish/completions
 **/fish/functions/*
 
-# But still keep these files:
-!**/fish/functions/fish_*
+# But still keep the following functions defined by the user:
+!**/fish/functions/fish_prompt.fish
 
-
-# Directories
+# zsh
+.zsh_history
 .zsh_sessions/

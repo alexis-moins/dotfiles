@@ -4,12 +4,11 @@ function fish_prompt --description="Display the prompt selected by the user"
     printf '\n%s' (prompt_pwd)
 
     set_color magenta
-    printf '%s ' (fish_vcs_prompt)
+    printf '%s' (fish_vcs_prompt)
 
-    # TODO move to right prompt ?
     if set --query VIRTUAL_ENV
         set_color brblack
-        printf 'using 📦 %s' (python --version | string lower)
+        printf ' using 📦 %s' (python --version | string lower)
     end
 
     set_color normal

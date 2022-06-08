@@ -9,10 +9,9 @@
     ~/.config:
       recursive: true
 
-- create:
-    - ~/.vim/undo-history
-
 - link:
+    ~/Documents/wallpapers:
+      path: wallpapers
     ~/.gitconfig:
       path: gitconfig
     ~/.tmux.conf:
@@ -25,6 +24,9 @@
       glob: true
       path: config/*
       # exclude: [ config/Code ]
+
+- create:
+    - ~/.vim/undo-history
 
 - shell:
   - [ brew bundle, Installing packages ]
