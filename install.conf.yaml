@@ -26,6 +26,7 @@
       # exclude: [ config/Code ]
 
 - create:
+    - ~/projects
     - ~/.vim/undo-history
 
 - shell:

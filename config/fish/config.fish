@@ -1,7 +1,6 @@
 # Configuration of the environment
 # Author Alexis Moins
 # Creation: 4 June 2022
-# vim: syn=shell
 
 if ! status is-interactive
     # Don't go any further if this is not an interactive session
@@ -12,12 +11,12 @@ set -U fish_color_normal white
 set -U fish_color_cwd cyan
 
 set -U fish_color_command white
-set -U fish_color_error FF6578
-set -U fish_color_cancel FF6578
+set -U fish_color_error red
+set -U fish_color_cancel red
 set -U fish_color_escape magenta
 
 set -U fish_color_redirection yellow
-set -U fish_color_end FF6578
+set -U fish_color_end red
 set -U fish_color_operator magenta
 
 set -U fish_color_quote blue
@@ -55,6 +54,9 @@ set --global --export PYENV_ROOT $HOME/.pyenv
 # Prepend pyenv shims directory to the PATH
 pyenv init - | source
 
+# Initialize the z jump command
+zoxide init fish | source
+
 
 # Set and export default editor globally
 set --global --export EDITOR 'vim'
@@ -65,25 +67,6 @@ set --global --export PIPENV_VENV_IN_PROJECT 1
 
 set --global --export VIRTUAL_ENV_DISABLE_PROMPT 1
 
-# Copy stuff verbosely (-v) and ask for confirmation (-i)
-abbr --global --add 'cp' 'cp -iv'
-
-# Rename / move stuff verbosely (-v) and ask for confirmation (-i)
-abbr --global --add 'mv' 'mv -iv'
-
-# Remove stuff verbosely (-v) and ask for confirmation (-i)
-abbr --global --add 'rm' 'rm -iv'
-
-abbr --global --add 'gs' 'git status'
-
-abbr --global --add 'ga' 'git add'
-
-abbr --global --add 'gaa' 'git add -A'
-
-# Perform the daily brew checkout
-alias 'daily' 'brew update; brew upgrade; brew cleanup'
-
-alias 'cat' 'bat'
 
 # {{{ git
 
@@ -102,10 +85,10 @@ set __fish_git_prompt_showcolorhints
 
 set __fish_git_prompt_color white
 set __fish_git_prompt_color_branch magenta
-set __fish_git_prompt_color_upstream FF9173 bryellow
+set __fish_git_prompt_color_upstream FF9173 yellow
 
-set __fish_git_prompt_color_flags FF6578
-set __fish_git_prompt_color_stagedstate FF6578
+set __fish_git_prompt_color_flags red
+set __fish_git_prompt_color_stagedstate red
 
 # }}}
 
@@ -122,28 +105,52 @@ end
 
 # {{{ fzf
 
-set --local highlighting 'bg:0,bg+:0,prompt:6,border:7,pointer:1,marker:1,fg:#464A72,fg+:7,hl:2,hl+:2,info:5'
-set --local options '--cycle --multi --height 40% --layout=reverse --preview-window=border-none --marker="*"'
+set --local options --cycle --multi --preview-window=border-none --marker="*"
 
-set --global --export FZF_DEFAULT_OPTS "$options --color $highlighting"
+set --local highlighting 'bg:0,bg+:0,prompt:6,border:7,pointer:1,marker:2,fg:8,fg+:3,hl:1,hl+:7,info:5'
+
+# Default options for fzf
+set --global --export FZF_DEFAULT_OPTS $options --color $highlighting
+
+# Always use fzf-tmux if running in a tmux session
+set --global --export FZF_TMUX 1
+
+# Options passed to fzf-tmux
+set --global --export FZF_TMUX_OPTS -p85%,70%
+
+# Command executed by fzf to look for files
+set --global --export FZF_DEFAULT_COMMAND fd --type f --hidden --follow
+
+set --global --export FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
+
+# Command executed by fzf to change directory
+set --global --export FZF_ALT_C_COMMAND fd --type d --hidden --follow
+
+function fzf-find-files --description 'Find files with fzf'
+
+    set --local _file (fd --type f --hidden --follow | fzf)
+
+    commandline --current-token --append -- $_file
+    commandline --function repaint
+
+    commandline --function end-of-line
+
+end
+
+bind --mode default \cy fzf-find-files
 
 # Redefine keybindings:
 # Ctrl-G to select directories
-fzf_configure_bindings --directory=\cy --history=\ch --git_status=\cs
+# fzf_configure_bindings --directory=\cy --history=\ch --git_status=\cs
 
-# type: type of the filtered elements (f for files)
 # follow:
 # exclude: exclude the given files or directories
 # hidden: display hidden files as well
-set fzf_fd_opts --type f --follow --hidden --exclude=.git --exclude=dotbot  --exclude=__pycache__
+# set fzf_fd_opts --follow --hidden --exclude=.git --exclude=dotbot  --exclude=__pycache__ --exclude=undo-history
 
-function fzf --wraps=fzf --description="Use fzf-tmux if in tmux session"
-  if set --query TMUX
-    fzf-tmux -p85%,70% $argv
-  else
-    command fzf $argv
-  end
-end
+
 
 
 # }}}
+
+# vim: syn=sh

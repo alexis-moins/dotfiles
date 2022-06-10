@@ -1,5 +1,6 @@
 function fish_prompt --description="Display the prompt selected by the user"
 
+    printf '\033[J'
     set_color $fish_color_cwd cyan
     printf '\n%s' (prompt_pwd)
 

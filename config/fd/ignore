@@ -1,0 +1,4 @@
+dotbot/
+__pycache__/
+undo-history/
+.git/

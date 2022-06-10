@@ -10,12 +10,7 @@ undo-history/
 # fish:
 # exclude the completions and functions folder as they get
 # filled by elements from fish plugins
-**/fish/conf.d
 **/fish/completions
-**/fish/functions/*
-
-# But still keep the following functions defined by the user:
-!**/fish/functions/fish_prompt.fish
 
 # zsh
 .zsh_history

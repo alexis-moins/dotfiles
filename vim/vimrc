@@ -9,7 +9,7 @@ filetype plugin indent on
 syntax enable
 
 " Load colorscheme depths
-colorscheme depths
+" colorscheme depths
 
 " Plug 'tpope/vim-surround'
 

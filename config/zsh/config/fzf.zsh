@@ -4,16 +4,16 @@
 # fzf highlighting
 highlighting='bg:0,bg+:0,prompt:6,border:7,pointer:1,marker:1,fg:8,fg+:7,hl:2,hl+:2,info:5'
 
-# {{{ exports 
+# {{{ exports
 
 # Show fzf in a tmux popup window
 export FZF_TMUX_OPTS="-p85%,70%"
 
 # Default options for fzf
-export FZF_DEFAULT_OPTS="--multi --height 40% --layout=reverse --color ${highlighting} --preview-window=border-none"
+export FZF_DEFAULT_OPTS="--multi --height 99% --layout=reverse --color ${highlighting} --preview-window=border-none"
 
 # Command executed by fzf to look for files
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude=.git'
 
 export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
 
