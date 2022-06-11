@@ -1,6 +1,6 @@
 # vim: syn=sh
 
-set --local options --cycle --multi --preview-window=border-none --marker="*"
+set --local options --cycle --multi --preview-window=border-none --marker="*" # TODO add binding to open in $EDITOR
 
 set --local highlighting 'bg:0,bg+:0,prompt:6,border:7,pointer:1,marker:2,fg:8,fg+:3,hl:1,hl+:7,info:5'
 
@@ -20,3 +20,16 @@ set --global --export FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
 
 # Command executed by fzf to change directory
 set --global --export FZF_ALT_C_COMMAND fd --type d --hidden --follow
+
+function fzf-find-files --description 'Find files with fzf'
+
+    set --local _file (fd --type f --hidden --follow | fzf)
+
+    commandline --current-token --append -- $_file
+    commandline --function repaint
+
+    commandline --function end-of-line
+
+end
+
+bind --mode default \cy fzf-find-files

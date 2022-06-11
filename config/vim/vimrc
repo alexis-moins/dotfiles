@@ -9,23 +9,31 @@ filetype plugin indent on
 syntax enable
 
 " Load colorscheme depths
-" colorscheme depths
+" colorscheme embark
 
-" Plug 'tpope/vim-surround'
+" {{{ plugins
 
-" Plug 'tpope/vim-commentary'
+call plug#begin()
 
-" Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
 
-" Plug 'tpope/vim-projectionist'
+Plug 'tpope/vim-commentary'
 
-" Plug '/opt/homebrew/opt/fzf'
+Plug 'tpope/vim-fugitive'
 
-" Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'tpope/vim-projectionist'
+
+Plug '/opt/homebrew/opt/fzf'
+
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+
+call plug#end()
 
 " }}}
 
 " {{{ options
+
+set termguicolors
 
 set wildmenu
 
@@ -75,7 +83,8 @@ set splitright
 set splitbelow
 
 " Set the content of the statusline
-set statusline=%2*\ %t\ %0*[.]\ %3*%m%4*%=\ \ %5*%y
+" set statusline=%2*\ %t\ %0*[.]\ %3*%m%4*%=\ \ %5*%y
+set statusline=%=%3*%m\ %0*[.]%2*\ %t\ %5*%y
 
 " Always display the statusline
 set laststatus=2
@@ -136,3 +145,8 @@ set ttymouse=xterm2
 set sessionoptions-=blank sessionoptions-=options sessionoptions-=tabpages
 
 " }}}
+
+" hi! yamlBlockMappingKey cterm=1
+" hi! yamlBlockMappingKey ctermfg=1
+" hi! link yamlKeyValueDelimiter yamlBlockMappingKey
+" hi! yamlBool ctermfg=5

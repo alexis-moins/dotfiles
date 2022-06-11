@@ -4,6 +4,9 @@ viminfo
 .vim-session
 undo-history/
 
+# Directory used by vim-plug to add plugins
+plugged/
+
 # misc
 .DS_Store
 

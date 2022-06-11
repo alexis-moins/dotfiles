@@ -17,6 +17,8 @@ alias 'daily' 'brew update; brew upgrade; brew cleanup'
 # 
 alias 'cat' 'bat'
 
+alias 'fd' 'fd --color="never"'
+
 #
 abbr --global --add 'gs' 'git status'
 
