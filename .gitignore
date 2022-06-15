@@ -1,11 +1,12 @@
 # vim
 *.swp
-viminfo
+viminfo*
 .vim-session
 undo-history/
 
-# Directory used by vim-plug to add plugins
-plugged/
+# Directories used by (neo)vim package managers
+**/vim/plugged/
+**/nvim/plugin/
 
 # misc
 .DS_Store
@@ -13,7 +14,7 @@ plugged/
 # fish:
 # exclude the completions and functions folder as they get
 # filled by elements from fish plugins
-**/fish/completions
+**/fish/completions/
 
 # zsh
 .zsh_history

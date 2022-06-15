@@ -1,3 +1,2 @@
-autopep8
 pre-commit
-python-language-server
+pyright
