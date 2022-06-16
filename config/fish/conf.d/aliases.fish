@@ -16,11 +16,7 @@ alias 'rm' 'rm -iv'
 alias 'daily' 'brew update; brew upgrade; brew cleanup'
 
 # 
-alias 'cat' 'bat'
-
 alias 'fd' 'fd --color="never"'
-
-abbr --global --add 'tt' 'tmuxinator'
 
 #
 abbr --global --add 'gs' 'git status'
@@ -29,8 +25,7 @@ abbr --global --add 'ga' 'git add'
 
 abbr --global --add 'gA' 'git add -A'
 
-abbr --global --add 'v' 'vim'
-abbr --global --add 'nv' 'nvim'
+abbr --global --add 'e' $EDITOR
 
 abbr --global --add 'vu' vim -u NONE
 

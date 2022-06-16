@@ -2,7 +2,7 @@
 # Author Alexis Moins
 # Creation: 4 June 2022
 
-if ! status is-interactive
+if not status is-interactive
     # Don't go any further if this is not an interactive session
     exit
 end
@@ -59,7 +59,7 @@ zoxide init fish | source
 
 
 # Set and export default editor globally
-set --global --export EDITOR 'vim'
+set --global --export EDITOR 'nvim'
 
 set --global --export VIMDOTDIR "$HOME/.vim"
 
@@ -92,8 +92,6 @@ set __fish_git_prompt_color_stagedstate red
 
 # }}}
 
-# Bind ^Z to
-bind \cz fg\r
 
 function fish_title
     echo ''

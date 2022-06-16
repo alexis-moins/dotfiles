@@ -33,10 +33,11 @@
 
 - shell:
   - [ brew bundle, Installing brew packages ]
-  - [ vim +PlugInstall +qa, Installing vim plugins ]
-  - [ git submodule update --init --recursive, Updating git submodules ]
 
-- pipx:
-    file: requirements-pipx.txt
-    stdout: false
-    stderr: true
+  - [ pipx install pyright, Installing pyright ]
+  - [ pipx install pre-commit, Installing pre-commit ]
+
+  - [ vim -c PlugInstall -c qa, Installing vim plugins ]
+  - [ nvim -c PackerSync -c qa, Installing neovim plugins ]
+
+  - [ git submodule update --init --recursive, Updating git submodules ]

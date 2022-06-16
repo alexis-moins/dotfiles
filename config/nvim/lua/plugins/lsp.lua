@@ -15,7 +15,7 @@ on_attach = function()
     vim.keymap.set("n", "]d", vim.diagnostic.goto_next, {buffer=0})
     vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, {buffer=0})
 
-	-- Telescope
+    -- Telescope
     vim.keymap.set("n", "<leader>/d", "<cmd>Telescope diagnostics<CR>", {buffer=0})
     vim.keymap.set("n", "<leader>/s", "<cmd>Telescope lsp_document_symbols<CR>", {buffer=0})
     vim.keymap.set("n", "<leader>/r", "<cmd>Telescope lsp_references<CR>", {buffer=0})

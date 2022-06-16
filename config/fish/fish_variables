@@ -1,8 +1,12 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export FZF_DEFAULT_OPTS:\x2d\x2dreverse\x1e\x2d\x2dheight\x3d45\x25\x1e\x2d\x2dcycle\x1e\x2d\x2dmulti\x1e\x2d\x2dpreview\x2dwindow\x3dborder\x2dnone\x1e\x2d\x2dcolor\x1ebg\x3a0\x2cbg\x2b\x3a0\x2cprompt\x3a6\x2cborder\x3a7\x2cpointer\x3a1\x2cmarker\x3a2\x2cfg\x3a8\x2cfg\x2b\x3a7\x2chl\x3a2\x2chl\x2b\x3a7\x2cinfo\x3a5
+SETUVAR FZF_TMUX:1
+SETUVAR FZF_TMUX_OPTS:\x2dp85\x25\x2c70\x25
 SETUVAR Z_DATA_DIR:/Users/alexis/\x2elocal/share/z
 SETUVAR __fish_initialized:3400
-SETUVAR _fish_abbr_mux:tmuxinator
+SETUVAR _fish_abbr_ta:tmux\x20attach
+SETUVAR _fish_abbr_ts:tmux\x2dswitch
 SETUVAR fish_color_autosuggestion:brblack
 SETUVAR fish_color_cancel:red
 SETUVAR fish_color_command:white
@@ -40,4 +44,4 @@ SETUVAR fish_pager_color_selected_background:black
 SETUVAR fish_pager_color_selected_completion:white
 SETUVAR fish_pager_color_selected_description:green
 SETUVAR fish_pager_color_selected_prefix:white
-SETUVAR fish_user_paths:/Users/alexis/\x2ecargo/bin\x1e/opt/homebrew/bin\x1e/Users/alexis/\x2elocal/bin\x1e/opt/homebrew/opt/fzf/bin
+SETUVAR fish_user_paths:/Users/alexis/\x2ecargo/bin\x1e/opt/homebrew/bin\x1e/Users/alexis/\x2elocal/bin
