@@ -3,6 +3,11 @@ vim.g.mapleader = ' '
 
 -- Gloabal mappings
 vim.keymap.set('n', '<leader>ins', '<cmd>PackerSync<cr>')
+vim.keymap.set('n', '<leader>so', '<cmd>source %<cr>')
+
+-- Quickfix list
+vim.keymap.set('n', '[q', '<cmd>cprevious<cr>')
+vim.keymap.set('n', ']q', '<cmd>cnext<cr>')
 
 -- Keep visual selection when indenting
 vim.keymap.set('v', '>', '>gv')
@@ -19,5 +24,6 @@ vim.keymap.set('n', '-', '<cmd>15Lex<cr>')
 vim.keymap.set('n', '+', '<cmd>15Lex ~<cr>')
 
 -- Options
-vim.keymap.set('n', ';nu', '<cmd>setl nu!<cr>')
-vim.keymap.set('n', ';rnu', '<cmd>setl rnu!<cr>')
+vim.keymap.set('n', ';ls', '<cmd>setl list!<cr>')
+vim.keymap.set('n', ';nu', '<cmd>setl number!<cr>')
+vim.keymap.set('n', ';rnu', '<cmd>setl relativenumber!<cr>')

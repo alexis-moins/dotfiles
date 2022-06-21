@@ -12,13 +12,13 @@ local packer = require('packer')
 packer.startup(function(use)
 
   -- Packer manages itself
-  use 'wbthomason/packer.nvim'
+  use('wbthomason/packer.nvim')
 
   -- Lsp
-  use 'neovim/nvim-lspconfig'
+  use('neovim/nvim-lspconfig')
   -- Snippets
-  use 'L3MON4D3/LuaSnip'
-  
+  use('L3MON4D3/LuaSnip')
+
   -- Completion
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
@@ -32,15 +32,15 @@ packer.startup(function(use)
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
   -- Editing stuff
-  use "windwp/nvim-autopairs"
-  use 'numToStr/Comment.nvim'
+  use('windwp/nvim-autopairs')
+  use('numToStr/Comment.nvim')
 
   -- Themes
-  use 'embark-theme/vim'
+  use('AlexisMoins/embark')
 
   -- Treesitter
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-  use 'nvim-treesitter/nvim-treesitter-textobjects'
+  use({'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'})
+  use('nvim-treesitter/playground')
 
   -- Automatically set up your configuration after cloning packer.nvim
   if packer_bootstrap then

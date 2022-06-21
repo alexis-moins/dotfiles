@@ -1,4 +1,3 @@
-# Aliases and abbreviations
 # Author: Alexis Moins
 # Creation: 10 June 2022
 # vim: syntax=sh
@@ -15,17 +14,5 @@ alias 'rm' 'rm -iv'
 # Perform the daily brew checkout
 alias 'daily' 'brew update; brew upgrade; brew cleanup'
 
-# 
+# Never display colors
 alias 'fd' 'fd --color="never"'
-
-#
-abbr --global --add 'gs' 'git status'
-
-abbr --global --add 'ga' 'git add'
-
-abbr --global --add 'gA' 'git add -A'
-
-abbr --global --add 'e' $EDITOR
-
-abbr --global --add 'vu' vim -u NONE
-

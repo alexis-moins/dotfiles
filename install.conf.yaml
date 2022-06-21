@@ -23,21 +23,21 @@
     ~/.config/:
       glob: true
       path: config/*
-      exclude: [ config/vim ]
+      exclude: [ config/vim, config/ssh ]
     ~/.vim:
       path: config/vim
+    ~/.ssh/config:
+      path: config/ssh/config
 
 - create:
     - ~/projects
     - ~/.vim/undo-history
+    - ~/git-worktrees
 
 - shell:
   - [ brew bundle, Installing brew packages ]
-
   - [ pipx install pyright, Installing pyright ]
   - [ pipx install pre-commit, Installing pre-commit ]
-
   - [ vim -c PlugInstall -c qa, Installing vim plugins ]
   - [ nvim -c PackerSync -c qa, Installing neovim plugins ]
-
   - [ git submodule update --init --recursive, Updating git submodules ]

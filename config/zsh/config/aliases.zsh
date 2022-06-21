@@ -34,6 +34,8 @@ alias tree='tree -I __pycache__ -I node_modules'
 
 alias tra='tree -a -I .git -I .venv'
 
+alias fd 'fd --strip-cwd-prefix'
+
 
 # Liste les éléments non cachés, avec de la couleur (G)
 alias ls='ls -G'
@@ -46,14 +48,8 @@ alias ll='ls -Alh'
 
 alias l1='ls -A1'
 
-# Utilise la couleur avec grep
-alias grep="grep --colour=auto"
-
 # Attach to the last tmux session
 alias ta='tmux attach-session'
-
-#
-tt='tmuxinator'
 
 # }}}
 

@@ -19,10 +19,13 @@ function fish_user_key_bindings
 
     # Bind ^Z to resume background process
     bind \cz fg\r
-
-    # Bind ^S to saving the current tmux session
-    bind \cs tmux-freeze
+    bind --mode insert \cz fg\r
 
     # Bind ^R to restoring a tmux session
     bind \cr tmux-restore
+    bind --mode insert \cr tmux-restore
+
+    bind --erase --preset \cf
+    bind \ck forward-char
+    bind --mode insert \ck forward-char
 end
