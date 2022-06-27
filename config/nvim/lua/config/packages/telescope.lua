@@ -15,10 +15,14 @@ vim.keymap.set('n', '<leader>eh', '<cmd>Telescope command_history<CR>')
 vim.keymap.set('n', '<C-_>', '<cmd>Telescope current_buffer_fuzzy_find<CR>') -- Mapped to C-/
 
 -- Git
+-- Only search git files
 vim.keymap.set('n', '<leader>eF', '<cmd>Telescope git_files<CR>')
+-- Checkout branches
+vim.keymap.set('n', '<leader>eb', '<cmd>Telescope git_branches<CR>')
+
+-- Commits | Commits from the current branch
 vim.keymap.set('n', '<leader>ec', '<cmd>Telescope git_commits<CR>')
 vim.keymap.set('n', '<leader>eC', '<cmd>Telescope git_bcommits<CR>')
-vim.keymap.set('n', '<leader>eb', '<cmd>Telescope git_branches<CR>')
 
 -- Mappings
 telescope.setup({

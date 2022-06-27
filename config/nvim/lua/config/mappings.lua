@@ -9,6 +9,10 @@ vim.keymap.set('n', '<leader>so', '<cmd>source %<cr>')
 vim.keymap.set('n', '[q', '<cmd>cprevious<cr>')
 vim.keymap.set('n', ']q', '<cmd>cnext<cr>')
 
+-- Buffer
+vim.keymap.set('n', '[b', '<cmd>bprevious<cr>')
+vim.keymap.set('n', ']b', '<cmd>bnext<cr>')
+
 -- Keep visual selection when indenting
 vim.keymap.set('v', '>', '>gv')
 vim.keymap.set('v', '<', '<gv')

@@ -1,5 +1,5 @@
--- keymappings
+-- Keymappings
 require('config.mappings')
 
--- plugins
-require('plugins')
+-- Packages
+require('config.packer')

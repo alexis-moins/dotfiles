@@ -5,7 +5,7 @@ vim.cmd [[colorscheme embark]]
 vim.opt.termguicolors = true
 
 -- Use relative number
-vim.opt.signcolumn = 'number'
+vim.opt.signcolumn = 'yes'
 vim.opt.cursorline = true
 vim.opt.relativenumber = true
 vim.opt.number = true
@@ -25,13 +25,16 @@ vim.opt.swapfile = false
 vim.opt.path = {'.', '**'}
 
 -- Set the content of the statusline
-vim.opt.statusline = '%=%m [.] %t %y'
+vim.opt.statusline = '%=%m %t %y'
 vim.opt.winbar = ' '
 
 -- Just so that it is beautiful
 vim.opt.scrolloff = 5
-vim.opt.foldnestmax = 1
 vim.opt.wrap = false
+
+-- Folds 
+vim.opt.foldmethod = 'marker'
+vim.opt.foldnestmax = 1
 
 -- Tabulation
 vim.opt.tabstop = 4
