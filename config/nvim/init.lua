@@ -7,6 +7,8 @@ vim.opt.termguicolors = true
 -- Use relative number
 vim.opt.signcolumn = 'yes'
 vim.opt.cursorline = true
+
+-- Numbers
 vim.opt.relativenumber = true
 vim.opt.number = true
 
@@ -25,7 +27,7 @@ vim.opt.swapfile = false
 vim.opt.path = {'.', '**'}
 
 -- Set the content of the statusline
-vim.opt.statusline = '%=%m %t %y'
+vim.opt.statusline = '%=%1*%m %0*%t %2*%y'
 vim.opt.winbar = ' '
 
 -- Just so that it is beautiful
@@ -50,6 +52,9 @@ vim.opt.diffopt:append({'algorithm:patience', 'iwhiteall', 'context:0'})
 
 vim.opt.fillchars = { fold = ' ' }
 vim.opt.listchars = { eol = '¬', tab = '<->', trail = '-', extends = '!', precedes = '!' }
+
+-- Don't show commands below the statusline, enable list mode
+vim.opt.showcmd = false
 vim.opt.list = true
 
 -- Initializing config

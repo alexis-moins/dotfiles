@@ -9,19 +9,23 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 end
 -- }}}
 
+-- Package manager
+local packer = require('packer')
+
+-- Package minimal setup function
 local simple_setup = function(plugin)
     require(plugin).setup()
 end
 
 -- {{{ Packages
-require('packer').startup(function(use)
+packer.startup(function(use)
 
   -- Packer manages itself
-  use('wbthomason/packer.nvim')
+  use 'wbthomason/packer.nvim'
 
   -- Lsp
-  use('neovim/nvim-lspconfig')
-  use({ 'L3MON4D3/LuaSnip', requires = { 'saadparwaiz1/cmp_luasnip' } })
+  use 'neovim/nvim-lspconfig'
+  use { 'L3MON4D3/LuaSnip', requires = { 'saadparwaiz1/cmp_luasnip' } }
 
   -- Completion
   use { 'hrsh7th/nvim-cmp', requires = { 'hrsh7th/cmp-nvim-lsp' } }
@@ -33,23 +37,28 @@ require('packer').startup(function(use)
   use { 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim' }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
+  -- Harpoon
+  use { 'ThePrimeagen/harpoon', requires = { 'nvim-lua/plenary.nvim' } }
+
   -- Editing stuff
-  use({ 'numToStr/Comment.nvim', config = simple_setup('Comment') })
-  use({ 'windwp/nvim-autopairs', config = simple_setup('nvim-autopairs') })
+  use { 'numToStr/Comment.nvim', config = simple_setup('Comment') }
+  use { 'windwp/nvim-autopairs', config = simple_setup('nvim-autopairs') }
 
   -- Git
-  use({ 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } })
+  use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
 
   -- Themes
-  use('AlexisMoins/embark')
+  use 'AlexisMoins/embark'
 
   -- Treesitter
-  use({'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'})
-  use('nvim-treesitter/playground')
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+
+  use { 'williamboman/nvim-lsp-installer', requires = { 'neovim/nvim-lspconfig' } }
+
 
   -- Automatically set up your configuration after cloning packer.nvim
   if packer_bootstrap then
-    require('packer').sync()
+    packer.sync()
   end
 
 end)
@@ -71,6 +80,7 @@ end
 
 -- packages configuration
 require('config.packages.lsp')
-require('config.packages.gitsigns')
-require('config.packages.telescope')
 require('config.packages.completion')
+require('config.packages.telescope')
+require('config.packages.gitsigns')
+require('config.packages.harpoon')

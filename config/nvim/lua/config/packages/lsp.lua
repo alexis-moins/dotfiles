@@ -1,11 +1,27 @@
--- neovim Language-Server-Protocol
-local LSP = require('lspconfig')
+-- Language-Server-Protocol
+local lsp = require('lspconfig')
+local lsp_installer = require('nvim-lsp-installer')
 
 -- List of language-servers
-local servers = {'pyright'}
+local servers = { 'pyright', 'sumneko_lua' }
+
+-- Ensure the servers above are installed
+lsp_installer.setup({
+    -- Automatically install the servers mentioned below
+    ensure_installed = servers,
+
+    ui = {
+        -- Redefine server icons
+        icons = {
+            server_installed = "✓",
+            server_pending = "➜",
+            server_uninstalled = "✗"
+        }
+    }
+})
 
 -- Default function to run when attaching a client its LSP server
-on_attach = function()
+local on_attach = function()
     -- Display information about hovered object
     vim.keymap.set("n", "K", vim.lsp.buf.hover, {buffer=0})
 
@@ -33,10 +49,23 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(
     vim.lsp.protocol.make_client_capabilities())
 
 -- Configuring all servers
-for i, server in ipairs(servers) do
-    LSP[server].setup({
+for _, server in ipairs(servers) do
+    lsp[server].setup({
+        -- Execute this when attaching a LSP server to the current buffer
         on_attach = on_attach,
-        capabilities = capabilities -- See nvim-cmp
+
+        -- Inform servers about the capabilities. See nvim-cmp
+        capabilities = capabilities,
+
+        settings = {
+            -- Settings only applied to [lua] filetype
+            Lua = {
+                -- Inject `vim` as a global for diagnostics
+                diagnostics = {
+                    globals = { 'vim' }
+                }
+            }
+        }
     })
 end
 

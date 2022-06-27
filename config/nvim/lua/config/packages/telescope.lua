@@ -2,8 +2,9 @@
 local telescope = require('telescope')
 local actions = require('telescope.actions')
 
--- Loading fzf sorter
+-- Loading extensions
 telescope.load_extension('fzf')
+telescope.load_extension('harpoon')
 
 -- Mappings
 vim.keymap.set('n', '<leader>ek', '<cmd>Telescope keymaps<CR>')

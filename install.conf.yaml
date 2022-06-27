@@ -36,7 +36,6 @@
 
 - shell:
   - [ brew bundle, Installing brew packages ]
-  - [ pipx install pyright, Installing pyright ]
   - [ pipx install pre-commit, Installing pre-commit ]
   - [ vim -c PlugInstall -c qa, Installing vim plugins ]
   - [ nvim -c PackerSync -c qa, Installing neovim plugins ]

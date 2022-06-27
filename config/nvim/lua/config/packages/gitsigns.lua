@@ -2,7 +2,7 @@
 local git_signs = require('gitsigns')
 
 -- Only provide mappings inside of git repositories
-local on_attach = function(bufnr)
+local on_attach = function(_)
     -- Navigate between hunks
     vim.keymap.set('n', '[h', git_signs.prev_hunk)
     vim.keymap.set('n', ']h', git_signs.next_hunk)
@@ -21,7 +21,7 @@ local on_attach = function(bufnr)
     vim.keymap.set({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
 
     -- Display git branch and git status in the statusline
-    vim.opt_local.statusline = '%=%m %{b:gitsigns_status} ↑%{b:gitsigns_head} %t %y'
+    vim.opt_local.statusline = '%=%1*%m %0*%{b:gitsigns_status} %1*%{b:gitsigns_head} %0*%t %2*%y'
 end
 
 -- Global setup
