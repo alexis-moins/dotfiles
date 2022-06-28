@@ -12,71 +12,70 @@ end
 -- Package manager
 local packer = require('packer')
 
--- Package minimal setup function
-local simple_setup = function(plugin)
-    require(plugin).setup()
-end
-
 -- {{{ Packages
 packer.startup(function(use)
 
-  -- Packer manages itself
-  use 'wbthomason/packer.nvim'
+    -- Packer manages itself
+    use 'wbthomason/packer.nvim'
 
-  -- Lsp
-  use 'neovim/nvim-lspconfig'
-  use { 'L3MON4D3/LuaSnip', requires = { 'saadparwaiz1/cmp_luasnip' } }
+    -- Lsp
+    use 'neovim/nvim-lspconfig'
+    use { 'williamboman/nvim-lsp-installer', requires = { 'neovim/nvim-lspconfig' } }
+    use { 'L3MON4D3/LuaSnip', requires = { 'saadparwaiz1/cmp_luasnip' } }
 
-  -- Completion
-  use { 'hrsh7th/nvim-cmp', requires = { 'hrsh7th/cmp-nvim-lsp' } }
-  use 'hrsh7th/cmp-nvim-lua'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
+    -- Completion
+    use { 'hrsh7th/nvim-cmp', requires = { 'hrsh7th/cmp-nvim-lsp' } }
+    use 'hrsh7th/cmp-nvim-lua'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-path'
 
-  -- Telescope
-  use { 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim' }
-  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+    -- Telescope
+    use { 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim' }
+    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
-  -- Harpoon
-  use { 'ThePrimeagen/harpoon', requires = { 'nvim-lua/plenary.nvim' } }
+    -- Harpoon
+    use { 'ThePrimeagen/harpoon', requires = { 'nvim-lua/plenary.nvim' } }
 
-  -- Editing stuff
-  use { 'numToStr/Comment.nvim', config = simple_setup('Comment') }
-  use { 'windwp/nvim-autopairs', config = simple_setup('nvim-autopairs') }
+    -- Editing stuff
+    use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
+    use { 'windwp/nvim-autopairs', config = function() require('nvim-autopairs').setup() end }
 
-  -- Git
-  use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+    -- Git
+    use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
 
-  -- Themes
-  use 'AlexisMoins/embark'
+    -- Themes
+    use { 'AlexisMoins/embark', config = function() vim.cmd [[colorscheme embark]] end }
 
-  -- Treesitter
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+    -- Treesitter
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
-  use { 'williamboman/nvim-lsp-installer', requires = { 'neovim/nvim-lspconfig' } }
-
-
-  -- Automatically set up your configuration after cloning packer.nvim
-  if packer_bootstrap then
-    packer.sync()
-  end
+    -- Automatically set up your configuration after cloning packer.nvim
+    if is_bootstrap then
+        packer.sync()
+    end
 
 end)
 -- }}}
 
 
--- When we are bootstrapping a configuration, it doesn't
--- make sense to execute the rest of the init.lua.
---
--- You'll need to restart nvim, and then it will work.
+-- When we are bootstrapping a configuration, tell
+-- the user that neovim is getting bootstraped
 if is_bootstrap then
     print '=================================='
     print '    Plugins are being installed'
-    print '    Wait until Packer completes,'
-    print '       then restart nvim'
+    print '    Wait until Packer completes'
     print '=================================='
     return
 end
+
+-- Automatically run :PackerCompile whenever this file is changed
+local group = vim.api.nvim_create_augroup('PackerUserGroup', { clear = true })
+vim.api.nvim_create_autocmd('BufWritePost', {
+    group = group,
+    command = 'source <afile> | PackerCompile',
+    pattern = 'packer.lua'
+})
+
 
 -- packages configuration
 require('config.packages.lsp')

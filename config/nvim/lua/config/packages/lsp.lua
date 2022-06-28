@@ -21,27 +21,35 @@ lsp_installer.setup({
 })
 
 -- Default function to run when attaching a client its LSP server
-local on_attach = function()
+local on_attach = function(_, bufnr)
+    -- Default options
+    local opts = { noremap = true, silent = true, buffer = bufnr }
+
     -- Display information about hovered object
-    vim.keymap.set("n", "K", vim.lsp.buf.hover, {buffer=0})
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 
     -- Don't map 'gc' or 'gb' because they are used by Comment.nvim
     -- Goto direct [d]efinition, t[Y]pe definition, [i]mplementation
-    vim.keymap.set("n", "gd", vim.lsp.buf.definition, {buffer=0})
-    vim.keymap.set("n", "gy", vim.lsp.buf.type_definition, {buffer=0})
-    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {buffer=0})
+    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+    vim.keymap.set("n", "gy", vim.lsp.buf.type_definition, opts)
+    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
 
-    -- Rename symbol
-    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {buffer=0})
+    -- Rename symbol and Code actions
+    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+    vim.keymap.set("n", "<leader>qf", vim.diagnostic.setqflist, opts)
 
     -- Navigate between diagnostics
-    vim.keymap.set("n", "]d", vim.diagnostic.goto_next, {buffer=0})
-    vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, {buffer=0})
+    vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+    vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
 
     -- Telescope
-    vim.keymap.set("n", "<leader>ed", "<cmd>Telescope diagnostics<CR>", {buffer=0})
-    vim.keymap.set("n", "<leader>es", "<cmd>Telescope lsp_document_symbols<CR>", {buffer=0})
-    vim.keymap.set("n", "<leader>er", "<cmd>Telescope lsp_references<CR>", {buffer=0})
+    vim.keymap.set("n", "<leader>ed", "<cmd>Telescope diagnostics<CR>", opts)
+    vim.keymap.set("n", "<leader>es", "<cmd>Telescope lsp_document_symbols<CR>", opts)
+    vim.keymap.set("n", "<leader>er", "<cmd>Telescope lsp_references<CR>", opts)
+
+    -- Formatting
+    vim.keymap.set("n", "<leader>ind", vim.lsp.buf.format or vim.lsp.buf.formatting, opts)
 end
 
 -- Capabilities from nvim-cmp
@@ -68,4 +76,3 @@ for _, server in ipairs(servers) do
         }
     })
 end
-

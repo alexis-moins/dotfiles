@@ -11,8 +11,9 @@ vim.keymap.set('n', '<leader>ek', '<cmd>Telescope keymaps<CR>')
 vim.keymap.set('n', '<leader>e:', '<cmd>Telescope commands<CR>')
 vim.keymap.set('n', '<leader>em', '<cmd>Telescope man_pages<CR>')
 vim.keymap.set('n', '<leader>eg', '<cmd>Telescope live_grep<CR>')
+vim.keymap.set('n', '<leader>eh', '<cmd>Telescope help_tags<CR>')
 vim.keymap.set('n', '<leader>ef', '<cmd>Telescope find_files<CR>')
-vim.keymap.set('n', '<leader>eh', '<cmd>Telescope command_history<CR>')
+vim.keymap.set('n', '<leader>eH', '<cmd>Telescope command_history<CR>')
 vim.keymap.set('n', '<C-_>', '<cmd>Telescope current_buffer_fuzzy_find<CR>') -- Mapped to C-/
 
 -- Git

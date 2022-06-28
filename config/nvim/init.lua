@@ -1,6 +1,3 @@
--- Default colorscheme
-vim.cmd [[colorscheme embark]]
-
 -- Use 24-bit colors
 vim.opt.termguicolors = true
 
@@ -24,17 +21,17 @@ vim.opt.splitright = true
 vim.opt.undofile = true
 vim.opt.swapfile = false
 
-vim.opt.path = {'.', '**'}
+vim.opt.path = { '.', '**' }
 
 -- Set the content of the statusline
-vim.opt.statusline = '%=%1*%m %0*%t %2*%y'
+vim.opt.statusline = '%=%1*%m %0*%t %3*%y'
 vim.opt.winbar = ' '
 
 -- Just so that it is beautiful
 vim.opt.scrolloff = 5
 vim.opt.wrap = false
 
--- Folds 
+-- Folds
 vim.opt.foldmethod = 'marker'
 vim.opt.foldnestmax = 1
 
@@ -48,7 +45,7 @@ vim.opt.smartcase = true
 vim.opt.ignorecase = true
 
 vim.opt.shortmess = 'filnxtToOFIc'
-vim.opt.diffopt:append({'algorithm:patience', 'iwhiteall', 'context:0'})
+vim.opt.diffopt:append({ 'algorithm:patience', 'iwhiteall', 'context:0' })
 
 vim.opt.fillchars = { fold = ' ' }
 vim.opt.listchars = { eol = '¬', tab = '<->', trail = '-', extends = '!', precedes = '!' }
