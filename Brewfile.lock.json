@@ -172,7 +172,7 @@
         }
       },
       "neovim": {
-        "version": "HEAD-e15d31b",
+        "version": "HEAD-f2fa117",
         "bottle": {
           "rebuild": 0,
           "root_url": "https://ghcr.io/v2/homebrew/core",
@@ -1029,7 +1029,7 @@
         }
       },
       "notion": {
-        "version": "2.1.0",
+        "version": "2.0.23",
         "options": {
           "full_name": "notion"
         }
@@ -1082,11 +1082,11 @@
     "macos": {
       "monterey": {
         "HOMEBREW_VERSION": "3.5.2",
-        "HOMEBREW_PREFIX": "/opt/homebrew",
+        "HOMEBREW_PREFIX": "/usr/local",
         "Homebrew/homebrew-core": "4319e7edff741787d77f2861310ab11b0e74be08",
         "CLT": "13.4.0.0.1.1651278267",
         "Xcode": "13.4",
-        "macOS": "12.3.1"
+        "macOS": "12.4"
       }
     }
   }

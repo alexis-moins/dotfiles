@@ -1,7 +1,13 @@
-# vim: syntax=sh
 
 function fish_user_key_bindings
     # Activate fzf default key bindings
+
+    if not test -f ~/.config/fish/functions/fzf_key_bindings.fish
+        # Where brew is installing packages
+        set --local prefix (brew --prefix)
+        cp $prefix/opt/fzf/shell/key-bindings.fish ~/.config/fish/functions/fzf_key_bindings.fish
+    end
+
     fzf_key_bindings
 
     # Remapping fzf default bindings

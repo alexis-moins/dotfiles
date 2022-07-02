@@ -25,7 +25,7 @@ vim.opt.path = { '.', '**' }
 
 -- Set the content of the statusline
 vim.opt.statusline = '%=%1*%m %0*%t %3*%y'
-vim.opt.winbar = ' '
+vim.opt.winbar = '%=%1*%m %0*%t'
 
 -- Just so that it is beautiful
 vim.opt.scrolloff = 5
@@ -50,9 +50,8 @@ vim.opt.diffopt:append({ 'algorithm:patience', 'iwhiteall', 'context:0' })
 vim.opt.fillchars = { fold = ' ' }
 vim.opt.listchars = { eol = '¬', tab = '<->', trail = '-', extends = '!', precedes = '!' }
 
--- Don't show commands below the statusline, enable list mode
+-- Don't show commands below the statusline
 vim.opt.showcmd = false
-vim.opt.list = true
 
 -- Initializing config
 require('config')

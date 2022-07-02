@@ -57,7 +57,6 @@ packer.startup(function(use)
 end)
 -- }}}
 
-
 -- When we are bootstrapping a configuration, tell
 -- the user that neovim is getting bootstraped
 if is_bootstrap then
@@ -68,14 +67,15 @@ if is_bootstrap then
     return
 end
 
--- Automatically run :PackerCompile whenever this file is changed
+-- Creating autocommand group for Packer
 local group = vim.api.nvim_create_augroup('PackerUserGroup', { clear = true })
+
+-- Automatically run :PackerCompile whenever this file is changed
 vim.api.nvim_create_autocmd('BufWritePost', {
     group = group,
     command = 'source <afile> | PackerCompile',
     pattern = 'packer.lua'
 })
-
 
 -- packages configuration
 require('config.packages.lsp')

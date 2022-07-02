@@ -1,9 +1,10 @@
 -- Language-Server-Protocol
 local lsp = require('lspconfig')
 local lsp_installer = require('nvim-lsp-installer')
+local telescope_builtin = require('telescope.builtin')
 
 -- List of language-servers
-local servers = { 'pyright', 'sumneko_lua' }
+local servers = { 'pyright', 'sumneko_lua', 'tsserver' }
 
 -- Ensure the servers above are installed
 lsp_installer.setup({
@@ -29,10 +30,15 @@ local on_attach = function(_, bufnr)
     vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 
     -- Don't map 'gc' or 'gb' because they are used by Comment.nvim
-    -- Goto direct [d]efinition, t[Y]pe definition, [i]mplementation
-    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-    vim.keymap.set("n", "gy", vim.lsp.buf.type_definition, opts)
-    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+    -- Goto direct [d]efinitions, t[Y]pe definitions, [i]mplementations
+    vim.keymap.set("n", "gd", telescope_builtin.lsp_definitions, opts)
+    vim.keymap.set("n", "gy", telescope_builtin.lsp_type_definitions, opts)
+    vim.keymap.set("n", "gi", telescope_builtin.lsp_implementations, opts)
+
+    -- Goto [r]eferences, [s]ymbols in the buffer, [S]ymbols in the workspace
+    vim.keymap.set("n", "gr", telescope_builtin.lsp_references, opts)
+    vim.keymap.set("n", "gs", telescope_builtin.lsp_document_symbols, opts)
+    vim.keymap.set("n", "gS", telescope_builtin.lsp_workspace_symbols, opts)
 
     -- Rename symbol and Code actions
     vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
@@ -43,13 +49,9 @@ local on_attach = function(_, bufnr)
     vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
     vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
 
-    -- Telescope
-    vim.keymap.set("n", "<leader>ed", "<cmd>Telescope diagnostics<CR>", opts)
-    vim.keymap.set("n", "<leader>es", "<cmd>Telescope lsp_document_symbols<CR>", opts)
-    vim.keymap.set("n", "<leader>er", "<cmd>Telescope lsp_references<CR>", opts)
-
-    -- Formatting
-    vim.keymap.set("n", "<leader>ind", vim.lsp.buf.format or vim.lsp.buf.formatting, opts)
+    -- Formatting and diagnostic list
+    vim.keymap.set("n", "<leader>ff", vim.lsp.buf.format or vim.lsp.buf.formatting, opts)
+    vim.keymap.set("n", "<leader>ed", telescope_builtin.diagnostics, opts)
 end
 
 -- Capabilities from nvim-cmp
