@@ -3,6 +3,7 @@ vim.g.mapleader = ' '
 
 -- Gloabal mappings
 vim.keymap.set('n', '<leader>ins', '<cmd>PackerSync<cr>')
+vim.keymap.set('n', '<leader>lsp', '<cmd>LspInstallInfo<cr>')
 vim.keymap.set('n', '<leader>so', '<cmd>source %<cr>')
 
 -- Quickfix list

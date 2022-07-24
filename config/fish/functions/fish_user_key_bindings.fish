@@ -1,4 +1,3 @@
-
 function fish_user_key_bindings
     # Activate fzf default key bindings
 
@@ -10,18 +9,25 @@ function fish_user_key_bindings
 
     fzf_key_bindings
 
-    # Remapping fzf default bindings
-    bind \ch fzf-history-widget
-    bind --mode insert \ch fzf-history-widget
-
+    # Erase fzf defaults:
+    # - for file search
+    bind --erase \ct
+    bind --erase --mode insert \ct
+    # - for history search
     bind --erase \cr
     bind --erase --mode insert \cr
 
-    bind \cg fzf-cd-widget
-    bind --mode insert \cg fzf-cd-widget
+    # Bind ^H to history
+    bind \ch fzf-history-widget
+    bind --mode insert \ch fzf-history-widget
 
-    bind --erase \ec
-    bind --erase --mode insert \ec
+    # Bind ^F to fzf cd
+    bind \cf fzf-cd-widget
+    bind --mode insert \cf fzf-cd-widget
+
+    # Bind ^S to fzf file
+    bind \cs fzf-file-widget
+    bind --mode insert \cs fzf-file-widget
 
     # Bind ^Z to resume background process
     bind \cz fg\r
@@ -31,7 +37,7 @@ function fish_user_key_bindings
     bind \cr tmux-restore
     bind --mode insert \cr tmux-restore
 
-    bind --erase --preset \cf
-    bind \ck forward-char
-    bind --mode insert \ck forward-char
+    # Bind ^Y to accept suggestion
+    bind \cy forward-char
+    bind --mode insert \cy forward-char
 end

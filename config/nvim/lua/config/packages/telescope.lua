@@ -5,7 +5,6 @@ local telescope_actions = require('telescope.actions')
 
 -- Loading extensions
 telescope.load_extension('fzf')
-telescope.load_extension('harpoon')
 
 -- Mappings
 vim.keymap.set('n', '<leader>ek', telescope_builtin.keymaps)

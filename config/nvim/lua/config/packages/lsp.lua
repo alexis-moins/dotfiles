@@ -4,7 +4,7 @@ local lsp_installer = require('nvim-lsp-installer')
 local telescope_builtin = require('telescope.builtin')
 
 -- List of language-servers
-local servers = { 'pyright', 'sumneko_lua', 'tsserver' }
+local servers = { 'pyright', 'sumneko_lua', 'gopls' }
 
 -- Ensure the servers above are installed
 lsp_installer.setup({
@@ -52,6 +52,9 @@ local on_attach = function(_, bufnr)
     -- Formatting and diagnostic list
     vim.keymap.set("n", "<leader>ff", vim.lsp.buf.format or vim.lsp.buf.formatting, opts)
     vim.keymap.set("n", "<leader>ed", telescope_builtin.diagnostics, opts)
+
+    -- [re]start neovim LSP client
+    vim.keymap.set("n", '<leader>re', '<cmd>LspRestart<cr>')
 end
 
 -- Capabilities from nvim-cmp

@@ -8,8 +8,11 @@ if not status is-interactive
     exit 0
 end
 
-# Prepend pyenv shims directory to the PATH
-pyenv init - | source
+# Prepend homebrew packages to the user path
+type -f --quiet brew && fish_add_path (brew --prefix)/bin
+
+# Prepend pyenv shims directory to the user path
+type -f --quiet pyenv && pyenv init - | source
 
 # Initialize the z jump command
 zoxide init fish | source

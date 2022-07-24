@@ -12,6 +12,9 @@ vim.opt.number = true
 -- Enable mouse support in all modes
 vim.opt.mouse = 'a'
 
+-- Always use system clipboard
+vim.opt.clipboard:append('unnamedplus')
+
 -- Split panes below and to the right
 vim.opt.splitbelow = true
 vim.opt.splitright = true
@@ -24,8 +27,13 @@ vim.opt.swapfile = false
 vim.opt.path = { '.', '**' }
 
 -- Set the content of the statusline
-vim.opt.statusline = '%=%1*%m %0*%t %3*%y'
+vim.opt.statusline = '%=%3*%y'
+
+-- Set the content of the winbar
 vim.opt.winbar = '%=%1*%m %0*%t'
+
+-- Use a global statusline
+vim.opt.laststatus = 3
 
 -- Just so that it is beautiful
 vim.opt.scrolloff = 5
@@ -48,7 +56,7 @@ vim.opt.shortmess = 'filnxtToOFIc'
 vim.opt.diffopt:append({ 'algorithm:patience', 'iwhiteall', 'context:0' })
 
 vim.opt.fillchars = { fold = ' ' }
-vim.opt.listchars = { eol = '¬', tab = '<->', trail = '-', extends = '!', precedes = '!' }
+vim.opt.listchars = { eol = '¬', tab = '> ', trail = '-', extends = '!', precedes = '!' }
 
 -- Don't show commands below the statusline
 vim.opt.showcmd = false

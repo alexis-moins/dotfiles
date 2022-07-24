@@ -33,9 +33,6 @@ packer.startup(function(use)
     use { 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim' }
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
-    -- Harpoon
-    use { 'ThePrimeagen/harpoon', requires = { 'nvim-lua/plenary.nvim' } }
-
     -- Editing stuff
     use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
     use { 'windwp/nvim-autopairs', config = function() require('nvim-autopairs').setup() end }
@@ -45,6 +42,8 @@ packer.startup(function(use)
 
     -- Themes
     use { 'AlexisMoins/embark', config = function() vim.cmd [[colorscheme embark]] end }
+
+    use { 'seblj/nvim-tabline', config = function() require('tabline').setup() end }
 
     -- Treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
@@ -82,4 +81,3 @@ require('config.packages.lsp')
 require('config.packages.completion')
 require('config.packages.telescope')
 require('config.packages.gitsigns')
-require('config.packages.harpoon')
