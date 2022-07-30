@@ -1,3 +1,5 @@
+# vim: syn=sh
+
 function fish_user_key_bindings
     # Activate fzf default key bindings
 
@@ -17,17 +19,18 @@ function fish_user_key_bindings
     bind --erase \cr
     bind --erase --mode insert \cr
 
-    # Bind ^H to history
+    # Add new bindings:
+    # - ^H for history
     bind \ch fzf-history-widget
     bind --mode insert \ch fzf-history-widget
 
-    # Bind ^F to fzf cd
-    bind \cf fzf-cd-widget
-    bind --mode insert \cf fzf-cd-widget
+    # - ^K for fzf cd
+    bind \ck fzf-cd-widget
+    bind --mode insert \ck fzf-cd-widget
 
-    # Bind ^S to fzf file
-    bind \cs fzf-file-widget
-    bind --mode insert \cs fzf-file-widget
+    # - ^F for fzf file search
+    bind \cf fzf-file-widget
+    bind --mode insert \cf fzf-file-widget
 
     # Bind ^Z to resume background process
     bind \cz fg\r

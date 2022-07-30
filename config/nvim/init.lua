@@ -27,7 +27,7 @@ vim.opt.swapfile = false
 vim.opt.path = { '.', '**' }
 
 -- Set the content of the statusline
-vim.opt.statusline = '%=%3*%y'
+vim.opt.statusline = '%='
 
 -- Set the content of the winbar
 vim.opt.winbar = '%=%1*%m %0*%t'
@@ -55,7 +55,7 @@ vim.opt.ignorecase = true
 vim.opt.shortmess = 'filnxtToOFIc'
 vim.opt.diffopt:append({ 'algorithm:patience', 'iwhiteall', 'context:0' })
 
-vim.opt.fillchars = { fold = ' ' }
+vim.opt.fillchars = { fold = ' ', eob = ' ' }
 vim.opt.listchars = { eol = '¬', tab = '> ', trail = '-', extends = '!', precedes = '!' }
 
 -- Don't show commands below the statusline

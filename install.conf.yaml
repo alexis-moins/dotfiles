@@ -30,9 +30,8 @@
       path: config/ssh/config
 
 - create:
-    - ~/projects
+    - ~/code
     - ~/.vim/undo-history
-    - ~/git-worktrees
 
 - shell:
   - [ brew bundle, Installing brew packages ]

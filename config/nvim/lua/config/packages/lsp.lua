@@ -14,9 +14,9 @@ lsp_installer.setup({
     ui = {
         -- Redefine server icons
         icons = {
-            server_installed = "✓",
-            server_pending = "➜",
-            server_uninstalled = "✗"
+            server_installed = "*",
+            server_pending = "~",
+            server_uninstalled = "-"
         }
     }
 })

@@ -24,7 +24,7 @@ local on_attach = function(_)
     vim.keymap.set('n', '<leader>gd', git_signs.diffthis)
 
     -- Display git branch and git status in the statusline
-    vim.opt_local.statusline = '%=%{b:gitsigns_status} ↑%2*%{b:gitsigns_head} %3*%y'
+    vim.opt_local.statusline = '%=%{b:gitsigns_status} ↑%2*%{b:gitsigns_head}'
 end
 
 -- Global setup

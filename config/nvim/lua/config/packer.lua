@@ -41,12 +41,13 @@ packer.startup(function(use)
     use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
 
     -- Themes
-    use { 'AlexisMoins/embark', config = function() vim.cmd [[colorscheme embark]] end }
+    use { 'AlexisMoins/embark', config = function() vim.cmd.colorscheme [[embark]] end }
 
     use { 'seblj/nvim-tabline', config = function() require('tabline').setup() end }
 
     -- Treesitter
-    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
+        config = function() require('nvim-treesitter.configs').setup({ highlight = { enable = true } }) end }
 
     -- Automatically set up your configuration after cloning packer.nvim
     if is_bootstrap then
