@@ -72,4 +72,4 @@ SETUVAR fish_pager_color_selected_completion:white
 SETUVAR fish_pager_color_selected_description:green
 SETUVAR fish_pager_color_selected_prefix:white
 SETUVAR fish_prompt_pwd_dir_length:0
-SETUVAR fish_user_paths:/opt/homebrew/bin
+SETUVAR fish_user_paths:/usr/local/bin\x1e/opt/homebrew/bin
