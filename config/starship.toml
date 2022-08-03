@@ -1,0 +1,29 @@
+format = """
+$directory$jobs\
+$git_branch$git_state$git_status\
+$python
+$character
+"""
+
+[git_branch]
+format = "\\([$branch]($style)"
+
+[git_status]
+format = "[$ahead_behind$stashed( [$staged$modified$untracked](red))](yellow)\\) "
+
+diverged = "$ahead$behind"
+ahead = "↑$count"
+behind = "↓$count"
+
+stashed = "≡$count"
+staged = "+$count"
+untracked = "…$count"
+modified = "*$count"
+
+[python]
+style = "bold black"
+symbol = "📦 "
+
+[character]
+success_symbol = "➜"
+error_symbol = "[➜](red)"

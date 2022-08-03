@@ -9,6 +9,9 @@ not status is-interactive && exit 0
 # Prepend homebrew packages to the user path
 type -f --quiet brew && fish_add_path (brew --prefix)/bin
 
+# Use starship prompt
+type -f --quiet starship && starship init fish | source
+
 # Prepend pyenv shims directory to the user path
 type -f --quiet pyenv && pyenv init - | source
 
