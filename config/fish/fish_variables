@@ -9,10 +9,13 @@ SETUVAR --export PYENV_ROOT:/Users/alexis/\x2epyenv
 SETUVAR XDG_CONFIG_HOME:/Users/alexis/\x2econfig
 SETUVAR Z_DATA_DIR:/Users/alexis/\x2elocal/share/z
 SETUVAR __fish_initialized:3400
+SETUVAR _fish_abbr_dB:docker\x20compose\x20build
 SETUVAR _fish_abbr_dI:docker\x20images
+SETUVAR _fish_abbr_db:docker\x20build
 SETUVAR _fish_abbr_dd:docker\x20compose\x20down
 SETUVAR _fish_abbr_di:docker\x20image
-SETUVAR _fish_abbr_dp:docker\x20ps
+SETUVAR _fish_abbr_dl:docker\x20logs
+SETUVAR _fish_abbr_dp:docker\x20ps\x20\x2da
 SETUVAR _fish_abbr_du:docker\x20compose\x20up
 SETUVAR _fish_abbr_e:nvim
 SETUVAR _fish_abbr_fr:tmux\x2dfreeze
@@ -24,9 +27,9 @@ SETUVAR _fish_abbr_tree:tree\x20\x2dI\x20__pycache__\x20\x2dI\x20\x2egit
 SETUVAR _fish_abbr_vu:vim\x20\x2du\x20NONE
 SETUVAR fish_color_autosuggestion:brblack
 SETUVAR fish_color_cancel:red
-SETUVAR fish_color_command:white
+SETUVAR fish_color_command:A1EFD3
 SETUVAR fish_color_comment:brblack
-SETUVAR fish_color_cwd:cyan
+SETUVAR fish_color_cwd:91DDFF
 SETUVAR fish_color_cwd_root:red
 SETUVAR fish_color_end:red
 SETUVAR fish_color_error:red
@@ -37,7 +40,7 @@ SETUVAR fish_color_host_remote:yellow
 SETUVAR fish_color_normal:white
 SETUVAR fish_color_operator:magenta
 SETUVAR fish_color_param:white
-SETUVAR fish_color_quote:blue
+SETUVAR fish_color_quote:CBE3E7
 SETUVAR fish_color_redirection:yellow
 SETUVAR fish_color_search_match:green
 SETUVAR fish_color_selection:white\x1e\x2d\x2dbold\x1e\x2d\x2dbackground\x3dbrblack
@@ -60,4 +63,4 @@ SETUVAR fish_pager_color_selected_completion:white
 SETUVAR fish_pager_color_selected_description:green
 SETUVAR fish_pager_color_selected_prefix:white
 SETUVAR fish_prompt_pwd_dir_length:0
-SETUVAR fish_user_paths:/usr/local/bin\x1e/opt/homebrew/bin
+SETUVAR fish_user_paths:/Users/alexis/\x2elocal/bin\x1e/usr/local/bin\x1e/opt/homebrew/bin

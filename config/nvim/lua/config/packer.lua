@@ -44,8 +44,8 @@ packer.startup(function(use)
     use { 'AlexisMoins/embark', config = function() vim.cmd.colorscheme [[embark]] end }
 
     -- Treesitter
-    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
-        config = function() require('nvim-treesitter.configs').setup({ highlight = { enable = true } }) end }
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+    use { 'nvim-treesitter/playground', require = { 'nvim-treesitter/nvim-treesitter' } }
 
     -- Automatically set up your configuration after cloning packer.nvim
     if is_bootstrap then
@@ -54,6 +54,8 @@ packer.startup(function(use)
 
 end)
 -- }}}
+
+vim.g.embark_terminal_italics = 1
 
 -- When we are bootstrapping a configuration, tell
 -- the user that neovim is getting bootstraped
@@ -76,6 +78,7 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 })
 
 -- packages configuration
+require('config.packages.treesitter')
 require('config.packages.lsp')
 require('config.packages.completion')
 require('config.packages.telescope')

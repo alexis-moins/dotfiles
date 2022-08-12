@@ -1,7 +1,6 @@
 # Configuration of the environment
 # Author Alexis Moins
 # Creation: 4 June 2022
-# vim: syn=sh
 
 # Don't go any further if this is not an interactive session
 not status is-interactive && exit 0
@@ -21,3 +20,6 @@ type -f --quiet zoxide && zoxide init fish | source
 function fish_user_cursor --on-event fish_prompt
     echo -ne '\e[5 q'
 end
+
+# Created by `pipx` on 2022-08-06 07:48:52
+set PATH $PATH /Users/alexis/.local/bin

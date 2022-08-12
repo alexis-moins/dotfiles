@@ -35,7 +35,11 @@
 
 - shell:
   - [ brew bundle, Installing brew packages ]
+
   - [ pipx install pre-commit, Installing pre-commit ]
+  - [ yarn global add @vue/cli, Installing Vue CLI ]
+
   - [ vim -c PlugInstall -c qa, Installing vim plugins ]
   - [ nvim -c PackerSync -c qa, Installing neovim plugins ]
+
   - [ git submodule update --init --recursive, Updating git submodules ]

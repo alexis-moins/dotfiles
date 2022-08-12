@@ -5,3 +5,5 @@ undo-history/
 .cache/
 node_modules/
 .vscode/
+.venv/
+.database/

@@ -1,15 +1,21 @@
 format = """
 $directory$jobs\
 $git_branch$git_state$git_status\
-$python
+$python$nodejs
 $character
 """
+
+[jobs]
+format = "[$symbol$number]($style) "
+symbol = "^"
+number_threshold = 1
+style = ""
 
 [git_branch]
 format = "\\([$branch]($style)"
 
 [git_status]
-format = "[$ahead_behind$stashed( [$staged$modified$untracked](red))](yellow)\\) "
+format = "[$ahead_behind$stashed( [$staged$modified$untracked](#F48FB1))](#F2B482)\\) "
 
 diverged = "$ahead$behind"
 ahead = "↑$count"
@@ -22,8 +28,10 @@ modified = "*$count"
 
 [python]
 style = "bold black"
-symbol = "📦 "
+# symbol = "📦 "
 
 [character]
-success_symbol = "➜"
-error_symbol = "[➜](red)"
+success_symbol = "❯"
+error_symbol = "[❯](#F48FB1)"
+
+# ❯ or ➜

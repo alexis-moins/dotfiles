@@ -30,7 +30,7 @@ vim.opt.path = { '.', '**' }
 vim.opt.statusline = '%='
 
 -- Set the content of the winbar
-vim.opt.winbar = '%=%1*%m %0*%t'
+vim.opt.winbar = '%=%1*%m %0*%f'
 
 -- Use a global statusline
 vim.opt.laststatus = 3

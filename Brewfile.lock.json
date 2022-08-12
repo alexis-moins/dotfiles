@@ -5,13 +5,13 @@
         "revision": "4756e4c4cf95485c5ea4da27375946c1dac2c71d"
       },
       "homebrew/cask": {
-        "revision": "44b7d9343b7fd1a737a97ae2cea69229eb45e372"
+        "revision": "8de35f47d1a46de55e199b7a8489abd368e4e168"
       },
       "homebrew/cask-fonts": {
-        "revision": "dd4beb679500183cd4c36b7eb800f265994026d4"
+        "revision": "2b65f9e328c2cb5787910d5353dd63cb296f4c09"
       },
       "homebrew/core": {
-        "revision": "b8c900e967aff20677f13ed0161f0330b2006a09"
+        "revision": "7c1ba4c38e0c974804427ce153ad47b966d336b6"
       }
     },
     "brew": {
@@ -1044,7 +1044,7 @@
         }
       },
       "dropbox": {
-        "version": "153.4.3932",
+        "version": "154.4.5363",
         "options": {
           "full_name": "dropbox"
         }
@@ -1086,7 +1086,7 @@
         }
       },
       "visual-studio-code": {
-        "version": "1.69.2",
+        "version": "1.70.0",
         "options": {
           "full_name": "visual-studio-code"
         }
@@ -1122,7 +1122,7 @@
         }
       },
       "docker": {
-        "version": "4.11.0,83626",
+        "version": "4.11.1,84025",
         "options": {
           "full_name": "docker"
         }
@@ -1138,9 +1138,9 @@
   "system": {
     "macos": {
       "monterey": {
-        "HOMEBREW_VERSION": "3.5.7",
+        "HOMEBREW_VERSION": "3.5.8",
         "HOMEBREW_PREFIX": "/opt/homebrew",
-        "Homebrew/homebrew-core": "b8c900e967aff20677f13ed0161f0330b2006a09",
+        "Homebrew/homebrew-core": "7c1ba4c38e0c974804427ce153ad47b966d336b6",
         "CLT": "13.4.0.0.1.1651278267",
         "Xcode": "13.4",
         "macOS": "12.4"
