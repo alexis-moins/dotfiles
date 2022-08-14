@@ -7,7 +7,7 @@ $character
 
 [jobs]
 format = "[$symbol$number]($style) "
-symbol = "^"
+symbol = "🚀"
 number_threshold = 1
 style = ""
 
@@ -24,11 +24,11 @@ behind = "↓$count"
 stashed = "≡$count"
 staged = "+$count"
 untracked = "…$count"
-modified = "*$count"
+modified = "~$count"
 
 [python]
 style = "bold black"
-# symbol = "📦 "
+symbol = "📦 "
 
 [character]
 success_symbol = "❯"
