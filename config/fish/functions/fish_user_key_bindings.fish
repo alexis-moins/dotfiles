@@ -11,7 +11,8 @@ function fish_user_key_bindings
 
     fzf_key_bindings
 
-    # Erase fzf defaults:
+    # {{{ Erase fzf defaults:
+
     # - for file search
     bind --erase \ct
     bind --erase --mode insert \ct
@@ -19,18 +20,21 @@ function fish_user_key_bindings
     bind --erase \cr
     bind --erase --mode insert \cr
 
-    # Add new bindings:
+    # }}}
+
+    # {{{ Add new bindings:
+
     # - ^H for history
     bind \ch fzf-history-widget
     bind --mode insert \ch fzf-history-widget
 
-    # - ^K for fzf cd
-    bind \ck fzf-cd-widget
-    bind --mode insert \ck fzf-cd-widget
+    # - ^G for fzf cd
+    bind \cg fzf-cd-widget
+    bind --mode insert \cg fzf-cd-widget
 
-    # - ^F for fzf file search
-    bind \cf fzf-file-widget
-    bind --mode insert \cf fzf-file-widget
+    # - ^B for fzf file search
+    bind \cb fzf-file-widget
+    bind --mode insert \cb fzf-file-widget
 
     # Bind ^Z to resume background process
     bind \cz fg\r
@@ -43,4 +47,6 @@ function fish_user_key_bindings
     # Bind ^Y to accept suggestion
     bind \cy forward-char
     bind --mode insert \cy forward-char
+
+    # }}}
 end
