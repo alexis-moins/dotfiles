@@ -12,8 +12,8 @@
     # Use 'main' as the default branch name
     defaultBranch = main
 [core]
-    # Use 'vim' as the default editor
-    editor = vim
+    # Use neovim as the default editor
+    editor = nvim
 [color]
     # Always allow colored output by default
     ui = true

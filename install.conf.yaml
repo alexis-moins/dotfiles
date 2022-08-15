@@ -37,6 +37,7 @@
   - [ brew bundle, Installing brew packages ]
 
   - [ pipx install pre-commit, Installing pre-commit ]
+  - [ pipx install ggshield, Installing GitGuardian CLI ]
   - [ yarn global add @vue/cli, Installing Vue CLI ]
 
   - [ vim -c PlugInstall -c qa, Installing vim plugins ]
