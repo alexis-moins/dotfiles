@@ -27,7 +27,7 @@ diverged = "$ahead$behind"
 ahead = "↑$count"
 behind = "↓$count"
 
-stashed = "!$count"
+stashed = "≡$count"
 staged = "+$count"
 untracked = "…$count"
 modified = "~$count"
