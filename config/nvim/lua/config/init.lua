@@ -2,4 +2,4 @@
 require('config.mappings')
 
 -- Packages
-require('config.packer')
+require('config.packages')

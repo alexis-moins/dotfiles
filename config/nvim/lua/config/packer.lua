@@ -5,12 +5,12 @@ local is_bootstrap = false
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
     is_bootstrap = true
     vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
-    vim.cmd [[packadd packer.nvim]]
+    vim.cmd.packadd [[packer.nvim]]
 end
 -- }}}
 
 -- Package manager
-local packer = require('packer')
+local packer = require 'packer'
 
 -- {{{ Packages
 packer.startup(function(use)
@@ -41,11 +41,13 @@ packer.startup(function(use)
     use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
 
     -- Themes
-    use { 'AlexisMoins/embark', config = function() vim.cmd.colorscheme [[embark]] end }
+    use { 'AlexisMoins/embark', config = function() vim.cmd.colorscheme 'embark' end }
 
     -- Treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-    use { 'nvim-treesitter/playground', require = { 'nvim-treesitter/nvim-treesitter' } }
+
+    -- Project tree
+    use 'kyazdani42/nvim-tree.lua'
 
     -- Automatically set up your configuration after cloning packer.nvim
     if is_bootstrap then
@@ -54,18 +56,6 @@ packer.startup(function(use)
 
 end)
 -- }}}
-
-vim.g.embark_terminal_italics = 1
-
--- When we are bootstrapping a configuration, tell
--- the user that neovim is getting bootstraped
-if is_bootstrap then
-    print '=================================='
-    print '    Plugins are being installed'
-    print '    Wait until Packer completes'
-    print '=================================='
-    return
-end
 
 -- Creating autocommand group for Packer
 local group = vim.api.nvim_create_augroup('PackerUserGroup', { clear = true })
@@ -76,10 +66,3 @@ vim.api.nvim_create_autocmd('BufWritePost', {
     command = 'source <afile> | PackerCompile',
     pattern = 'packer.lua'
 })
-
--- packages configuration
-require('config.packages.treesitter')
-require('config.packages.lsp')
-require('config.packages.completion')
-require('config.packages.telescope')
-require('config.packages.gitsigns')

@@ -5,6 +5,9 @@ $python$nodejs
 $character
 """
 
+[directory]
+style = "#87DFEB"
+
 [jobs]
 format = "[$symbol$number]($style) "
 symbol = "🚀"
@@ -13,25 +16,31 @@ style = ""
 
 [git_branch]
 format = "\\([$branch]($style)"
+style = "#E0BCFF"
 
 [git_status]
-format = "[$ahead_behind$stashed( [$staged$modified$untracked](#F48FB1))](#F2B482)\\) "
+format = """
+[$ahead_behind$stashed( \
+[$staged$modified$untracked](#F48FB1))](#FFE6B3)\\) """
 
 diverged = "$ahead$behind"
 ahead = "↑$count"
 behind = "↓$count"
 
-stashed = "≡$count"
+stashed = "!$count"
 staged = "+$count"
 untracked = "…$count"
 modified = "~$count"
 
 [python]
-style = "bold black"
-symbol = "📦 "
+symbol = "\\[py\\] "
+style = "#8A889D"
+
+[nodejs]
+symbol = "\\[js\\] "
+style = "#8A889D"
 
 [character]
 success_symbol = "❯"
 error_symbol = "[❯](#F48FB1)"
-
 # ❯ or ➜

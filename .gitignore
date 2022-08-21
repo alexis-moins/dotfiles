@@ -1,8 +1,9 @@
 # vim
 *.swp
 viminfo*
-.vim-session
-undo-history/
+
+# Brew lock
+Brewfile.lock.json
 
 # Directories used by (neo)vim package managers
 **/vim/plugged/

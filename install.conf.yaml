@@ -10,37 +10,34 @@
       recursive: true
 
 - link:
-    ~/Documents/wallpapers:
+    ~/wallpapers:
       path: wallpapers
+
+    ~/.hyper.js:
+      path: hyper.js
+
     ~/.gitconfig:
       path: gitconfig
+
     ~/.tmux.conf:
       path: tmux.conf
-    ~/.zshenv:
-      path: zshenv
-    ~/.vim:
-      path: vim
+
+    # ~/.zshenv:
+    #   path: zshenv
+
     ~/.config/:
       glob: true
       path: config/*
-      exclude: [ config/vim, config/ssh ]
-    ~/.vim:
-      path: config/vim
+      exclude: [ config/ssh ]
+
     ~/.ssh/config:
       path: config/ssh/config
 
 - create:
     - ~/code
-    - ~/.vim/undo-history
 
 - shell:
   - [ brew bundle, Installing brew packages ]
+  - [ git submodule update --init --recursive, Updating git submodules ]
 
   - [ pipx install pre-commit, Installing pre-commit ]
-  - [ pipx install ggshield, Installing GitGuardian CLI ]
-  - [ yarn global add @vue/cli, Installing Vue CLI ]
-
-  - [ vim -c PlugInstall -c qa, Installing vim plugins ]
-  - [ nvim -c PackerSync -c qa, Installing neovim plugins ]
-
-  - [ git submodule update --init --recursive, Updating git submodules ]

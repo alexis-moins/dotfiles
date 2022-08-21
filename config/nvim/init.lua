@@ -26,14 +26,12 @@ vim.opt.swapfile = false
 
 vim.opt.path = { '.', '**' }
 
--- Set the content of the statusline
-vim.opt.statusline = '%='
-
 -- Set the content of the winbar
-vim.opt.winbar = '%=%1*%m %0*%f'
+vim.opt.winbar = '%=%1*%m %0*%t'
 
--- Use a global statusline
-vim.opt.laststatus = 3
+-- Never display the statusline
+vim.opt.laststatus = 0
+vim.opt.ruler = false
 
 -- Just so that it is beautiful
 vim.opt.scrolloff = 5

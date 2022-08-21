@@ -1,15 +1,11 @@
-# vim: syntax=sh
-
 function tmux-switch --description 'Use fzf to switch to another open tmux session'
-    # TODO check if tmux is running
-    set --local window (tmux list-windows -a -F '#S: #{window_index}|#W' | fzf-tmux -p85%,70%)
+    set --local window (tmux list-sessions -F '#S: #{session_windows}' | fzf-tmux -p85%,70%)
 
     test -z $window && return 0
     set --local parts (string split ': ' $window)
-    set --local window_name (string split --fields 2 '|' $parts[2])
 
     set --query TMUX
         and tmux switch-client -t $parts[1]
-        and tmux select-window -t $window_name
+        and tmux select-window -t $parts[2]
         or tmux attach -t $parts[1]:$window_name
 end

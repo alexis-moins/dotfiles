@@ -19,8 +19,6 @@ alias fd 'fd --color="never"'
 
 alias mkdir 'mkdir -p'
 
-alias tree 'tree -I .git -I __pycache__'
-
 if type -f --quiet exa
     
     alias ls 'exa'
@@ -28,5 +26,7 @@ if type -f --quiet exa
     alias la 'exa --all'
 
     alias ll 'exa --long --git'
+
+    alias tree 'exa --tree --git-ignore'
 
 end

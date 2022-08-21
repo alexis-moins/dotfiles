@@ -4,7 +4,12 @@ local lsp_installer = require('nvim-lsp-installer')
 local telescope_builtin = require('telescope.builtin')
 
 -- List of language-servers
-local servers = { 'pyright', 'sumneko_lua', 'gopls', 'tailwindcss' }
+local servers = {
+    'pyright', -- python
+    'sumneko_lua', -- lua
+    'tsserver', -- js, typescript
+    'volar', -- VueJS
+}
 
 -- Ensure the servers above are installed
 lsp_installer.setup({

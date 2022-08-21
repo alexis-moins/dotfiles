@@ -1,40 +1,16 @@
-# vim: syn=sh
-
 function fish_user_key_bindings
-    # Activate fzf default key bindings
 
-    if not test -f ~/.config/fish/functions/fzf_key_bindings.fish
-        # Where brew is installing packages
-        set --local prefix (brew --prefix)
-        cp $prefix/opt/fzf/shell/key-bindings.fish ~/.config/fish/functions/fzf_key_bindings.fish
-    end
+    # Bind ^H to history searching via fzf
+    bind \ch fzf-history
+    bind --mode insert \ch fzf-history
 
-    fzf_key_bindings
+    # ^G for fzf cd
+    bind \cg fzf-git-branch
+    bind --mode insert \cg fzf-git-branch
 
-    # {{{ Erase fzf defaults:
-
-    # - for file search
-    bind --erase \ct
-    bind --erase --mode insert \ct
-    # - for history search
-    bind --erase \cr
-    bind --erase --mode insert \cr
-
-    # }}}
-
-    # {{{ Add new bindings:
-
-    # - ^H for history
-    bind \ch fzf-history-widget
-    bind --mode insert \ch fzf-history-widget
-
-    # - ^G for fzf cd
-    bind \cg fzf-cd-widget
-    bind --mode insert \cg fzf-cd-widget
-
-    # - ^B for fzf file search
-    bind \cb fzf-file-widget
-    bind --mode insert \cb fzf-file-widget
+    # Bind ^B to find file with fzf
+    bind \cb fzf-find-file
+    bind --mode insert \cb fzf-find-file
 
     # Bind ^Z to resume background process
     bind \cz fg\r
@@ -48,5 +24,4 @@ function fish_user_key_bindings
     bind \cy forward-char
     bind --mode insert \cy forward-char
 
-    # }}}
 end
