@@ -42,6 +42,7 @@ packer.startup(function(use)
 
     -- Themes
     use { 'AlexisMoins/embark', config = function() vim.cmd.colorscheme 'embark' end }
+    use 'sainnhe/gruvbox-material'
 
     -- Treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }

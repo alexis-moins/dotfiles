@@ -9,6 +9,7 @@ local servers = {
     'sumneko_lua', -- lua
     'tsserver', -- js, typescript
     'volar', -- VueJS
+    'emmet_ls', -- html
 }
 
 -- Ensure the servers above are installed

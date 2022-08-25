@@ -10,7 +10,7 @@ style = "#87DFEB"
 
 [jobs]
 format = "[$symbol$number]($style) "
-symbol = "🚀"
+symbol = "*"
 number_threshold = 1
 style = ""
 
@@ -33,11 +33,11 @@ untracked = "…$count"
 modified = "~$count"
 
 [python]
-symbol = "\\[py\\] "
+# symbol = "\\[py\\] "
 style = "#8A889D"
 
 [nodejs]
-symbol = "\\[js\\] "
+symbol = "javascript "
 style = "#8A889D"
 
 [character]

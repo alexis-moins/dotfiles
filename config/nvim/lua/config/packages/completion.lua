@@ -32,7 +32,7 @@ cmp.setup({
     formatting = {
         format = function(entry, vim_item)
             local menu = {
-                nvim_lua = '[api]',
+                nvim_lua = '[lua]',
                 nvim_lsp = '[LSP]',
                 luasnip = '[snippet]',
                 buffer = '[buffer]',
