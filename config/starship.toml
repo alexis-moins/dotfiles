@@ -9,20 +9,15 @@ $character
 style = "#87DFEB"
 
 [jobs]
-format = "[$symbol$number]($style) "
+format = "[$symbol]($style)$number "
 symbol = "*"
 number_threshold = 1
 style = ""
 
 [git_branch]
-format = "\\([$branch]($style)"
 style = "#E0BCFF"
 
 [git_status]
-format = """
-[$ahead_behind$stashed( \
-[$staged$modified$untracked](#F48FB1))](#FFE6B3)\\) """
-
 diverged = "$ahead$behind"
 ahead = "↑$count"
 behind = "↓$count"
@@ -32,8 +27,11 @@ staged = "+$count"
 untracked = "…$count"
 modified = "~$count"
 
+deleted = ""
+renamed = ""
+
 [python]
-# symbol = "\\[py\\] "
+symbol = "python "
 style = "#8A889D"
 
 [nodejs]

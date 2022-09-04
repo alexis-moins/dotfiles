@@ -13,9 +13,6 @@
     ~/wallpapers:
       path: wallpapers
 
-    ~/.hyper.js:
-      path: hyper.js
-
     ~/.gitconfig:
       path: gitconfig
 
