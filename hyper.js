@@ -10,7 +10,7 @@ module.exports = {
         fontSize: 13,
 
         // font family with optional fallbacks
-        fontFamily: '"Fira Code Nerd Font", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
+        fontFamily: '"FiraCode Nerd Font", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
 
         // font weight for bold characters: 'normal' or 'bold'
         fontWeightBold: 'normal',
@@ -58,11 +58,11 @@ module.exports = {
         colors: {
             black: '#1e1c31',
             red: '#F48FB1',
-            green: '#62D196',
-            yellow: '#C7C329',
-            blue: '#0A2FC4',
-            magenta: '#C839C5',
-            cyan: '#20C5C6',
+            green: '#A1EFD3',
+            yellow: '#FFE6B3',
+            blue: '#91DDFF',
+            magenta: '#D4BFFF',
+            cyan: '#87DFEB',
             white: '#CBE3E7',
 
             lightBlack: '#686868',

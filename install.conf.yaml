@@ -34,8 +34,10 @@
     - ~/code
 
 - shell:
-  - [cp -f hyper.js ~/.hyper.js, Setting up Hyper]
   - [ brew bundle, Installing brew packages ]
-  - [ git submodule update --init --recursive, Updating git submodules ]
+  - [rm -f ~/.hyper.js && cp hyper.js ~/.hyper.js, Setting up Hyper]
 
   - [ pipx install pre-commit, Installing pre-commit ]
+  - [ pipx install httpx, Installing httpx ]
+
+  - [ git submodule update --init --recursive, Updating git submodules ]
