@@ -41,7 +41,7 @@ packer.startup(function(use)
     use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
 
     -- Themes
-    use { 'AlexisMoins/embark', config = function() vim.cmd.colorscheme 'embark' end }
+    use { 'AlexisMoins/embark', config = function() vim.cmd 'colorscheme embark' end }
     use 'sainnhe/gruvbox-material'
 
     -- Treesitter
