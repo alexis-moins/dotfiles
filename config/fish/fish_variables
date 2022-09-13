@@ -41,7 +41,7 @@ SETUVAR fish_color_status:F48FB1
 SETUVAR fish_color_user:brgreen
 SETUVAR fish_color_valid_path:white
 SETUVAR fish_greeting:
-SETUVAR fish_key_bindings:fish_default_key_bindings
+SETUVAR fish_key_bindings:fish_vi_key_bindings
 SETUVAR fish_pager_color_background:\x1d
 SETUVAR fish_pager_color_completion:brblack
 SETUVAR fish_pager_color_description:brblack
