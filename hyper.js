@@ -17,9 +17,10 @@ module.exports = {
 
         // line height as a relative unit
         lineHeight: 1.20,
+        lineWidth: 1.20,
 
         // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
-        cursorColor: '#d8d8d8',
+        cursorColor: '#CBE3E7',
 
         // terminal text color under BLOCK cursor
         cursorAccentColor: '#000',
@@ -38,7 +39,7 @@ module.exports = {
         backgroundColor: '#1e1c31',
 
         // terminal selection color
-        selectionColor: 'rgba(248,28,229,0.3)',
+        selectionColor: '#2D2B40',
 
         // border color (window, tabs)
         borderColor: '#1e1c31',
@@ -65,33 +66,19 @@ module.exports = {
             cyan: '#87DFEB',
             white: '#CBE3E7',
 
-            lightBlack: '#686868',
+            lightBlack: '#585273',
             lightRed: '#F48FB1',
-            lightGreen: '#67F86F',
-            lightYellow: '#FFFA72',
-            lightBlue: '#6A76FB',
-            lightMagenta: '#FD7CFC',
-            lightCyan: '#68FDFE',
+            lightGreen: '#A1EFD3',
+            lightYellow: '#FFE6B3',
+            lightBlue: '#91DDFF',
+            lightMagenta: '#D4BFFF',
+            lightCyan: '#87DFEB',
             lightWhite: '#CBE3E7',
-            limeGreen: '#32CD32',
-            lightCoral: '#F08080',
         },
         
-        // for environment variables
-        env: {},
-
-        // Supported Options:
-        //  1. 'SOUND' -> Enables the bell as a sound
-        //  2. false: turns off the bell
         bell: false,
 
-        // Whether to use the WebGL renderer. Set it to false to use canvas-based
-        // rendering (slower, but supports transparent backgrounds)
         webGLRenderer: true,
-
-        // keypress required for weblink activation: [ctrl|alt|meta|shift]
-        // todo: does not pick up config changes automatically, need to restart terminal :/
-        webLinksActivationKey: '',
 
         // if `false` (without backticks and without quotes), Hyper will use ligatures provided by some fonts
         disableLigatures: false,
@@ -100,23 +87,9 @@ module.exports = {
         disableAutoUpdates: false,
     },
 
-    // a list of plugins to fetch and install from npm
-    // format: [@org/]project[#version]
-    // examples:
-    //   `hyperpower`
-    //   `@company/project`
-    //   `project#1.0.1`
     plugins: [],
 
-    // in development, you can create a directory under
-    // `~/.hyper_plugins/local/` and include it here
-    // to load it and avoid it being `npm install`ed
     localPlugins: [],
-
-    keymaps: {
-    // Example
-    // 'window:devtools': 'cmd+alt+o',
-    },
 };
 
 //# sourceMappingURL=config-default.js.map

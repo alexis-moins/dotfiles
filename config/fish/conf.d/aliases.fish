@@ -19,14 +19,12 @@ alias fd 'fd --color="never"'
 
 alias mkdir 'mkdir -p'
 
-if type -f --quiet exa
+type -f --quiet exa || return 0
     
-    alias ls 'exa'
+alias ls 'exa'
 
-    alias la 'exa --all'
+alias la 'exa --all'
 
-    alias ll 'exa --long --git'
+alias ll 'exa --long --git'
 
-    alias tree 'exa --tree --git-ignore'
-
-end
+alias tree 'exa --tree --git-ignore'

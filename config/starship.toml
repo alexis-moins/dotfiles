@@ -46,5 +46,5 @@ style = "#8A889D"
 
 [character]
 # ❯ or ➜
-success_symbol = "[❯](#CBE3E7)"
-error_symbol = "[❯](#F48FB1)"
+success_symbol = "[➜](#CBE3E7)"
+error_symbol = "[➜](#F48FB1)"
