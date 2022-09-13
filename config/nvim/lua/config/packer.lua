@@ -41,7 +41,7 @@ packer.startup(function(use)
     use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
 
     -- Themes
-    use { 'AlexisMoins/embark', config = function() vim.cmd 'colorscheme embark' end }
+    use 'AlexisMoins/embark'
     use 'sainnhe/gruvbox-material'
 
     -- Treesitter
@@ -54,6 +54,9 @@ packer.startup(function(use)
 
 end)
 -- }}}
+
+vim.cmd 'colorscheme embark'
+-- vim.opt.background = 'light'
 
 -- Creating autocommand group for Packer
 local group = vim.api.nvim_create_augroup('PackerUserGroup', { clear = true })

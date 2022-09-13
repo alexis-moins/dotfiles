@@ -64,8 +64,8 @@ local on_attach = function(_, bufnr)
 end
 
 -- Capabilities from nvim-cmp
-local capabilities = require('cmp_nvim_lsp').update_capabilities(
-    vim.lsp.protocol.make_client_capabilities())
+local client_capabilities = vim.lsp.protocol.make_client_capabilities()
+local capabilities = require('cmp_nvim_lsp').update_capabilities(client_capabilities)
 
 -- Configuring all servers
 for _, server in ipairs(servers) do
