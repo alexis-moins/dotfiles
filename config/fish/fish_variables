@@ -13,6 +13,7 @@ SETUVAR Z_DATA_DIR:/Users/alexis/\x2elocal/share/z
 SETUVAR __fish_initialized:3400
 SETUVAR _fish_abbr_fr:tmux\x2dfreeze
 SETUVAR _fish_abbr_gA:git\x20add\x20\x2dA
+SETUVAR _fish_abbr_gp:git\x20pull
 SETUVAR _fish_abbr_gs:git\x20status
 SETUVAR _fish_abbr_nu:nvim\x20\x2du\x20NONE
 SETUVAR _fish_abbr_pt:push_that
