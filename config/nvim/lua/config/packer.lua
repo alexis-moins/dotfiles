@@ -19,11 +19,13 @@ packer.startup(function(use)
     use 'wbthomason/packer.nvim'
 
     -- Lsp
-    use 'neovim/nvim-lspconfig'
     use { 'L3MON4D3/LuaSnip', requires = { 'saadparwaiz1/cmp_luasnip' } }
 
-    use "williamboman/mason.nvim"
-    use "williamboman/mason-lspconfig.nvim"
+    use {
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
+        "neovim/nvim-lspconfig"
+    }
 
     -- Completion
     use { 'hrsh7th/nvim-cmp', requires = { 'hrsh7th/cmp-nvim-lsp' } }

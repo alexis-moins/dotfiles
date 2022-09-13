@@ -6,7 +6,6 @@ vim.keymap.set('n', '<leader>ins', '<cmd>PackerSync<cr>')
 vim.keymap.set('n', '<leader>pack', '<cmd>Mason<cr>')
 vim.keymap.set('n', '<leader>lsp', '<cmd>LspInfo<cr>')
 vim.keymap.set('n', '<leader>so', '<cmd>source %<cr>')
-vim.keymap.set('i', 'jk', '<C-c>')
 
 -- Quickfix list
 vim.keymap.set('n', '[q', '<cmd>cprevious<cr>')

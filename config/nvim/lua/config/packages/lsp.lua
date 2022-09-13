@@ -1,16 +1,16 @@
--- Language-Server-Protocol
 local mason = require('mason')
 local mason_config = require('mason-lspconfig')
 
 local lsp = require('lspconfig')
 local telescope_builtin = require('telescope.builtin')
 
-
+-- Servers to install on start-up
 local servers = {
     'pyright', 'sumneko_lua',
     'tsserver', 'volar', 'emmet_ls',
 }
 
+-- Changing mason's UI
 mason.setup {
     ui = {
         icons = {
@@ -25,7 +25,6 @@ mason_config.setup {
     -- Automatically install the servers mentioned below
     ensure_installed = servers
 }
-
 
 -- Default function to run when attaching a client its LSP server
 local on_attach = function(_, bufnr)
@@ -49,7 +48,7 @@ local on_attach = function(_, bufnr)
     -- Rename symbol and Code actions
     vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
     vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-    vim.keymap.set("n", "<leader>qf", vim.diagnostic.setqflist, opts)
+    vim.keymap.set("n", "<leader>qq", vim.diagnostic.setqflist, opts)
 
     -- Navigate between diagnostics
     vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
@@ -77,7 +76,7 @@ for _, server in ipairs(servers) do
         capabilities = capabilities,
 
         settings = {
-            -- Settings only applied to [lua] filetype
+            -- Settings only applied to lua filetype
             Lua = {
                 -- Inject `vim` as a global for diagnostics
                 diagnostics = {

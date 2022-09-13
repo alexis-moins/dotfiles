@@ -23,7 +23,7 @@ function fish_user_key_bindings
         end
     end
 
-    bind -M insert jk vi-normal-mode
+    bind -M insert \cc vi-normal-mode
 
     bind -M insert \cy forward-char  # accepts suggestion
     bind -M insert \ck kill-line
