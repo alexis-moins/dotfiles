@@ -1,31 +1,31 @@
 -- Language-Server-Protocol
+local mason = require('mason')
+local mason_config = require('mason-lspconfig')
+
 local lsp = require('lspconfig')
-local lsp_installer = require('nvim-lsp-installer')
 local telescope_builtin = require('telescope.builtin')
 
--- List of language-servers
+
 local servers = {
-    'pyright', -- python
-    'sumneko_lua', -- lua
-    'tsserver', -- js, typescript
-    'volar', -- VueJS
-    'emmet_ls', -- html
+    'pyright', 'sumneko_lua',
+    'tsserver', 'volar', 'emmet_ls',
 }
 
--- Ensure the servers above are installed
-lsp_installer.setup({
-    -- Automatically install the servers mentioned below
-    ensure_installed = servers,
-
+mason.setup {
     ui = {
-        -- Redefine server icons
         icons = {
-            server_installed = "*",
-            server_pending = "~",
-            server_uninstalled = "-"
+            package_installed = "*",
+            package_pending = "~",
+            package_uninstalled = "-"
         }
     }
-})
+}
+
+mason_config.setup {
+    -- Automatically install the servers mentioned below
+    ensure_installed = servers
+}
+
 
 -- Default function to run when attaching a client its LSP server
 local on_attach = function(_, bufnr)

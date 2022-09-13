@@ -20,8 +20,10 @@ packer.startup(function(use)
 
     -- Lsp
     use 'neovim/nvim-lspconfig'
-    use { 'williamboman/nvim-lsp-installer', requires = { 'neovim/nvim-lspconfig' } }
     use { 'L3MON4D3/LuaSnip', requires = { 'saadparwaiz1/cmp_luasnip' } }
+
+    use "williamboman/mason.nvim"
+    use "williamboman/mason-lspconfig.nvim"
 
     -- Completion
     use { 'hrsh7th/nvim-cmp', requires = { 'hrsh7th/cmp-nvim-lsp' } }
@@ -42,7 +44,6 @@ packer.startup(function(use)
 
     -- Themes
     use 'AlexisMoins/embark'
-    use 'sainnhe/gruvbox-material'
 
     -- Treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
@@ -67,3 +68,12 @@ vim.api.nvim_create_autocmd('BufWritePost', {
     command = 'source <afile> | PackerCompile',
     pattern = 'packer.lua'
 })
+
+-- packages configuration
+require 'config.packages.treesitter'
+require 'config.packages.lsp'
+
+require 'config.packages.completion'
+require 'config.packages.telescope'
+
+require 'config.packages.gitsigns'
