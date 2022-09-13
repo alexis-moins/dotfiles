@@ -48,3 +48,4 @@ style = "#8A889D"
 # ❯ or ➜
 success_symbol = "[❯](#CBE3E7)"
 error_symbol = "[❯](#F48FB1)"
+vimcmd_symbol = "[❮](#CBE3E7)"
