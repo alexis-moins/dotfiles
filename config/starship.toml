@@ -1,8 +1,7 @@
 format = """
 $directory\
 $git_branch$git_state$git_status\
-$python$nodejs
-$character
+$python$nodejs$character
 """
 
 right_format = """
@@ -10,19 +9,19 @@ $jobs
 """
 
 [directory]
-style = "cyan"
+style = "#87DFEB"
 
 [jobs]
-format = "[$symbol]($style)$number "
-symbol = "*"
+format = "[$symbol$number]($style) "
 number_threshold = 1
-style = ""
+symbol = "*"
+style = "#CBE3E7"
 
 [git_branch]
-style = "purple"
+style = "#D4BFFF"
 
 [git_status]
-style = "red"
+style = "#F48FB1"
 
 diverged = "$ahead$behind"
 ahead = "↑$count"
@@ -46,6 +45,6 @@ detect_extensions = []
 style = "#8A889D"
 
 [character]
-success_symbol = "❯"
-error_symbol = "[❯](red)"
 # ❯ or ➜
+success_symbol = "[❯](#CBE3E7)"
+error_symbol = "[❯](#F48FB1)"
