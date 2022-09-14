@@ -1,14 +1,3 @@
--- {{{ Packer installer
-local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
-local is_bootstrap = false
-
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-    is_bootstrap = true
-    vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
-    vim.cmd.packadd [[packer.nvim]]
-end
--- }}}
-
 -- Package manager
 local packer = require 'packer'
 
@@ -22,10 +11,12 @@ packer.startup(function(use)
     use { 'L3MON4D3/LuaSnip', requires = { 'saadparwaiz1/cmp_luasnip' } }
 
     use {
+        "neovim/nvim-lspconfig",
         "williamboman/mason.nvim",
-        "williamboman/mason-lspconfig.nvim",
-        "neovim/nvim-lspconfig"
+        "williamboman/mason-lspconfig.nvim"
     }
+
+    use { 'jose-elias-alvarez/null-ls.nvim', requires = 'nvim-lua/plenary.nvim' }
 
     -- Completion
     use { 'hrsh7th/nvim-cmp', requires = { 'hrsh7th/cmp-nvim-lsp' } }
@@ -49,33 +40,17 @@ packer.startup(function(use)
 
     -- Treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-
-    -- Automatically set up your configuration after cloning packer.nvim
-    if is_bootstrap then
-        packer.sync()
-    end
+    use { 'nvim-treesitter/playground' }
 
 end)
 -- }}}
 
 vim.cmd 'colorscheme embark'
--- vim.opt.background = 'light'
-
--- Creating autocommand group for Packer
-local group = vim.api.nvim_create_augroup('PackerUserGroup', { clear = true })
-
--- Automatically run :PackerCompile whenever this file is changed
-vim.api.nvim_create_autocmd('BufWritePost', {
-    group = group,
-    command = 'source <afile> | PackerCompile',
-    pattern = 'packer.lua'
-})
 
 -- packages configuration
 require 'config.packages.treesitter'
+
 require 'config.packages.lsp'
 
 require 'config.packages.completion'
 require 'config.packages.telescope'
-
-require 'config.packages.gitsigns'

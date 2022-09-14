@@ -1,8 +1,6 @@
+-- {{{ mason.nvim
 local mason = require('mason')
 local mason_config = require('mason-lspconfig')
-
-local lsp = require('lspconfig')
-local telescope_builtin = require('telescope.builtin')
 
 -- Servers to install on start-up
 local servers = {
@@ -25,6 +23,27 @@ mason_config.setup {
     -- Automatically install the servers mentioned below
     ensure_installed = servers
 }
+-- }}}
+
+-- {{{ null-ls.nvim
+local null_ls = require("null-ls")
+
+-- Sources to register
+local sources = {
+    null_ls.builtins.formatting.autopep8,
+
+    null_ls.builtins.formatting.prettier.with {
+        extra_args = { "--no-config", "--tab-width", "4" }
+    },
+}
+
+null_ls.setup { sources = sources }
+-- }}}
+
+-- {{{ nvim-lspconfig
+
+local lsp = require('lspconfig')
+local telescope_builtin = require('telescope.builtin')
 
 -- Default function to run when attaching a client its LSP server
 local on_attach = function(_, bufnr)
@@ -86,3 +105,4 @@ for _, server in ipairs(servers) do
         }
     })
 end
+-- }}}

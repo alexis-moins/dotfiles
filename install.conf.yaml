@@ -35,7 +35,8 @@
 
 - shell:
   - [ brew bundle, Installing brew packages ]
-  - [rm -f ~/.hyper.js && cp hyper.js ~/.hyper.js, Setting up Hyper]
+  - [ fish utils/packer-install, Installer Packer]
+  - [ rm -f ~/.hyper.js && cp hyper.js ~/.hyper.js, Setting up Hyper]
 
   - [ pipx install pre-commit, Installing pre-commit ]
   - [ pipx install httpx, Installing httpx ]
