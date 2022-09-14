@@ -1,0 +1,9 @@
+dotbot/
+__pycache__/
+undo-history/
+.git/
+.cache/
+node_modules/
+.vscode/
+.venv/
+.database/

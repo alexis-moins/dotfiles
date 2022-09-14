@@ -1,0 +1,71 @@
+# Git configuration
+# Author: Alexis Moins
+# Creation: 04 feb 2022
+# vim: ft=gitconfig syn=gitconfig
+
+[user]
+    # The default name
+    name = AlexisMoins
+    # The default email
+    email = moinsalexis@gmail.com
+[init]
+    # Use 'main' as the default branch name
+    defaultBranch = main
+[core]
+    # Use neovim as the default editor
+    editor = nvim
+[color]
+    # Always allow colored output by default
+    ui = true
+[color "branch"]
+    # Current branch is light green
+    current = green bold
+    # Local branches are white
+    local = normal
+    # Remote branches are red
+    remote = red
+    # Worktrees are cyan
+    worktree = cyan
+[diff]
+    # Use 'vimdiff' as the diff interface
+    tool = vimdiff
+[difftool]
+    # Don't display any prompt
+    prompt = false
+[merge]
+    # Use vim as the default merge tool
+    tool = vimdiff
+[mergetool]
+    # Never keep .orig files after a merge
+    keepBackup = false
+    # Don't display any prompt
+    prompt = false
+[rerere]
+    # Automatically try to resolve merge conflicts based on previous resolutions
+    enabled = 1
+[alias]
+    # Commit faster
+    ci = commit -m 
+    # Display the status of the repository
+    st = status
+    # Checkout the branches of the repository
+    co = checkout
+    # Create a new branch / show branches
+    br = branch -vv
+    # Faster difftool
+    dt = difftool
+    # Faster mergetool
+    mt = mergetool
+    # Add currently staged files to the last commit without changing its message
+    amend = commit --amend --no-edit
+    # Apply the .gitignore file to all files in the repo
+    ignore = !git rm -r --cached . && git add .
+    # Display commits with a pretty formatting
+    ls = log --all --branches='*' --graph --tags='*'
+    # Start a new local repository and perform initial commit
+    this = !git init && git add -A && git ci 'feat: 🎉 initial commit'
+    #
+    oops = !git stash && git co -b oops && git stash pop
+[format]
+    # Formatting used as default by the `--format` option
+    pretty = format:%C(auto)%h [%D] %C(brightblack)%an%C(reset) %s (%C(blue)%cs%C(reset))

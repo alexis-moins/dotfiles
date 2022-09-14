@@ -2,14 +2,14 @@
 
 set -e
 
-CONFIG="install.conf.yaml"
-DOTBOT_DIR="dotbot"
+[[ ! -d "${HOME}/.config" ]] && mkdir -v "${HOME}/.config"
+[[ ! -d "${HOME}/projects" ]] && mkdir -v "${HOME}/projects"
 
-DOTBOT_BIN="bin/dotbot"
-BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+brew bundle install
 
-cd "${BASEDIR}"
-git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
-git submodule update --init --recursive "${DOTBOT_DIR}"
+fish utils/packer-install
 
-"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" --plugin-dir "dotbot-pip" -c "${CONFIG}" "${@}"
+stow --delete . && stow --stow --verbose .
+
+pipx install httpx
+pipx install pre-commit

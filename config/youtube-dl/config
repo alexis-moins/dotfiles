@@ -1,6 +1,0 @@
-# Save all videos under the Download directory
---output '~/Downloads/%(title)s.%(ext)s'
-
-# Download best mp4 format available or any other best if no mp4 available
-# (requires ffmpeg installed)
---format 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'

@@ -12,11 +12,6 @@ Brewfile.lock.json
 # misc
 .DS_Store
 
-# fish:
-# exclude the completions and functions folder as they get
-# filled by elements from fish plugins
-**/fish/completions/
-
 # zsh
 .zsh_history
 .zsh_sessions/

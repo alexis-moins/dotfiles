@@ -1,0 +1,9 @@
+Brewfile.*
+utils
+wallpapers
+
+install.*
+README.*
+
+\.git
+\.gitignore
