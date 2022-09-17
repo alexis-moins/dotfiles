@@ -4,19 +4,17 @@ local packer = require 'packer'
 -- {{{ Packages
 packer.startup(function(use)
 
-    -- Packer manages itself
+    use 'nvim-lua/plenary.nvim'
     use 'wbthomason/packer.nvim'
 
     -- Lsp
     use { 'L3MON4D3/LuaSnip', requires = { 'saadparwaiz1/cmp_luasnip' } }
 
-    use {
-        "neovim/nvim-lspconfig",
-        "williamboman/mason.nvim",
-        "williamboman/mason-lspconfig.nvim"
-    }
+    use "neovim/nvim-lspconfig"
+    use 'jose-elias-alvarez/null-ls.nvim'
 
-    use { 'jose-elias-alvarez/null-ls.nvim', requires = 'nvim-lua/plenary.nvim' }
+    use "williamboman/mason.nvim"
+    use 'WhoIsSethDaniel/mason-tool-installer.nvim'
 
     -- Completion
     use { 'hrsh7th/nvim-cmp', requires = { 'hrsh7th/cmp-nvim-lsp' } }
@@ -25,7 +23,7 @@ packer.startup(function(use)
     use 'hrsh7th/cmp-path'
 
     -- Telescope
-    use { 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim' }
+    use 'nvim-telescope/telescope.nvim'
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
     -- Editing stuff
@@ -36,11 +34,11 @@ packer.startup(function(use)
     use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
 
     -- Themes
-    use 'AlexisMoins/embark'
+    use 'alexis-moins/embark'
 
     -- Treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-    use { 'nvim-treesitter/playground' }
+    use 'nvim-treesitter/playground'
 
 end)
 -- }}}

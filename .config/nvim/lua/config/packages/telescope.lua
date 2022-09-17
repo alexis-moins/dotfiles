@@ -7,7 +7,7 @@ local telescope_actions = require('telescope.actions')
 telescope.load_extension('fzf')
 
 -- Mappings
-vim.keymap.set('n', '<leader>ek', telescope_builtin.keymaps)
+vim.keymap.set('n', '<leader>eb', telescope_builtin.buffers)
 vim.keymap.set('n', '<leader>em', telescope_builtin.man_pages)
 vim.keymap.set('n', '<leader>eg', telescope_builtin.live_grep)
 vim.keymap.set('n', '<leader>eh', telescope_builtin.help_tags)
@@ -16,7 +16,7 @@ vim.keymap.set('n', '<leader>ee', telescope_builtin.command_history)
 
 -- Git
 -- Checkout branches
-vim.keymap.set('n', '<leader>eb', telescope_builtin.git_branches)
+vim.keymap.set('n', '<leader>eB', telescope_builtin.git_branches)
 -- Commits | Commits from the current branch
 vim.keymap.set('n', '<leader>ec', telescope_builtin.git_commits)
 vim.keymap.set('n', '<leader>eC', telescope_builtin.git_bcommits)

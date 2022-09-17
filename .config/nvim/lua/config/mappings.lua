@@ -20,6 +20,10 @@ vim.keymap.set('x', '<leader>p', '"_dP')
 vim.keymap.set('n', '[q', '<cmd>cprevious<cr>')
 vim.keymap.set('n', ']q', '<cmd>cnext<cr>')
 
+-- Tabs
+vim.keymap.set('n', '[t', '<cmd>tabprevious<cr>')
+vim.keymap.set('n', ']t', '<cmd>tabnext<cr>')
+
 -- Keep visual selection when indenting
 vim.keymap.set('v', '>', '>gv')
 vim.keymap.set('v', '<', '<gv')

@@ -1,11 +1,26 @@
 -- {{{ mason.nvim
 local mason = require('mason')
-local mason_config = require('mason-lspconfig')
+-- local mason_lsp = require('mason-lspconfig').setup()
+local mason_installer = require('mason-tool-installer')
 
--- Servers to install on start-up
 local servers = {
-    'pyright', 'sumneko_lua',
-    'tsserver', 'volar', 'emmet_ls',
+    -- LSP
+    'pyright',
+    'emmet_ls',
+    'tsserver',
+    'sumneko_lua',
+}
+
+local packages = {
+    -- LSP
+    'pyright',
+    'emmet-ls',
+    'typescript-language-server',
+    'lua-language-server',
+
+    -- Formatters
+    'autopep8',
+    'prettier',
 }
 
 -- Changing mason's UI
@@ -19,9 +34,9 @@ mason.setup {
     }
 }
 
-mason_config.setup {
-    -- Automatically install the servers mentioned below
-    ensure_installed = servers
+mason_installer.setup {
+    -- Automatically install the following tools
+    ensure_installed = packages
 }
 -- }}}
 
