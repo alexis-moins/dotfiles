@@ -8,6 +8,14 @@ vim.keymap.set('n', '<leader>lsp', '<cmd>LspInfo<cr>')
 vim.keymap.set('n', '<leader>so', '<cmd>source %<cr>')
 vim.keymap.set('i', 'jk', '<C-c>')
 
+-- Increase, decrease and select all
+vim.keymap.set('n', '+', '<C-a>')
+vim.keymap.set('n', '-', '<C-x>')
+vim.keymap.set('n', '<leader>a', 'gg<S-v>G')
+
+-- Paste and x without yanking text
+vim.keymap.set('x', '<leader>p', '"_dP')
+
 -- Quickfix list
 vim.keymap.set('n', '[q', '<cmd>cprevious<cr>')
 vim.keymap.set('n', ']q', '<cmd>cnext<cr>')

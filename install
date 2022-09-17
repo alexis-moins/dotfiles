@@ -3,7 +3,7 @@
 set -e
 
 [[ ! -d "${HOME}/.config" ]] && mkdir -v "${HOME}/.config"
-[[ ! -d "${HOME}/projects" ]] && mkdir -v "${HOME}/projects"
+[[ ! -d "${HOME}/code" ]] && mkdir -v "${HOME}/code"
 
 brew bundle install
 
