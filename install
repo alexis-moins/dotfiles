@@ -11,5 +11,7 @@ fish utils/packer-install
 
 stow --delete . && stow --stow --verbose .
 
+cp -vf .hyper.js ~/.hyper.js
+
 pipx install httpx
 pipx install pre-commit

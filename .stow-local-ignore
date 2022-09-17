@@ -1,9 +1,11 @@
-Brewfile.*
 utils
 wallpapers
 
-install.*
 README.*
+Brewfile.*
+
+install
+\.hyper\.js
 
 \.git
 \.gitignore
