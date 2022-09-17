@@ -5,6 +5,10 @@ set -e
 [[ ! -d "${HOME}/.config" ]] && mkdir -v "${HOME}/.config"
 [[ ! -d "${HOME}/code" ]] && mkdir -v "${HOME}/code"
 
+echo `pwd`
+
+ln -sf "$(pwd)/wallpapers" ~/Documents/wallpapers
+
 brew bundle install
 
 fish utils/packer-install
