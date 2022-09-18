@@ -89,7 +89,7 @@ local on_attach = function(_, bufnr)
     vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
 
     -- Formatting and diagnostic list
-    vim.keymap.set("n", "<leader>ff", vim.lsp.buf.format or vim.lsp.buf.formatting, opts)
+    vim.keymap.set("n", "<leader>ff", vim.lsp.buf.format, opts)
     vim.keymap.set("n", "<leader>ed", telescope_builtin.diagnostics, opts)
 
     -- [re]start neovim LSP client

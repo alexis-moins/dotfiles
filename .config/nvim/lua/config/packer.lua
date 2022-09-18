@@ -30,11 +30,8 @@ packer.startup(function(use)
     use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
     use { 'windwp/nvim-autopairs', config = function() require('nvim-autopairs').setup() end }
 
-    -- Git
-    use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
-
     -- Themes
-    use 'alexis-moins/embark'
+    use { 'alexis-moins/embark', config = function() vim.cmd [[colorscheme embark]] end }
 
     -- Treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
@@ -43,12 +40,9 @@ packer.startup(function(use)
 end)
 -- }}}
 
-vim.cmd 'colorscheme embark'
-
 -- packages configuration
-require 'config.packages.treesitter'
-
 require 'config.packages.lsp'
+require 'config.packages.telescope'
 
 require 'config.packages.completion'
-require 'config.packages.telescope'
+require 'config.packages.treesitter'
