@@ -7,6 +7,8 @@ packer.startup(function(use)
     use 'nvim-lua/plenary.nvim'
     use 'wbthomason/packer.nvim'
 
+    use 'ThePrimeagen/vim-be-good'
+
     -- Lsp
     use { 'L3MON4D3/LuaSnip', requires = { 'saadparwaiz1/cmp_luasnip' } }
 
@@ -27,22 +29,28 @@ packer.startup(function(use)
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
     -- Editing stuff
+    use 'kylechui/nvim-surround'
+    use 'windwp/nvim-autopairs'
+
     use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
-    use { 'windwp/nvim-autopairs', config = function() require('nvim-autopairs').setup() end }
 
     -- Themes
     use { 'alexis-moins/embark', config = function() vim.cmd [[colorscheme embark]] end }
 
     -- Treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+    use 'nvim-treesitter/nvim-treesitter-textobjects'
     use 'nvim-treesitter/playground'
 
 end)
 -- }}}
 
 -- packages configuration
-require 'config.packages.lsp'
-require 'config.packages.telescope'
+require'config.packages.lsp'
+require'config.packages.telescope'
 
-require 'config.packages.completion'
-require 'config.packages.treesitter'
+require'config.packages.completion'
+require'config.packages.treesitter'
+
+require('nvim-surround').setup()
+require('nvim-autopairs').setup()
