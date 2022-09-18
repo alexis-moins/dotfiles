@@ -1,8 +1,20 @@
--- Package manager
-local packer = require 'packer'
+-- {{{ Bootstrapping
+local ensure_packer = function()
+  local fn = vim.fn
+  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    vim.cmd [[packadd packer.nvim]]
+    return true
+  end
+  return false
+end
 
--- {{{ Packages
-packer.startup(function(use)
+local packer_bootstrap = ensure_packer()
+-- }}}
+
+-- Packages
+require('packer').startup(function(use)
 
     use 'nvim-lua/plenary.nvim'
     use 'wbthomason/packer.nvim'
@@ -10,7 +22,8 @@ packer.startup(function(use)
     use 'ThePrimeagen/vim-be-good'
 
     -- Lsp
-    use { 'L3MON4D3/LuaSnip', requires = { 'saadparwaiz1/cmp_luasnip' } }
+    use 'L3MON4D3/LuaSnip'
+    use 'saadparwaiz1/cmp_luasnip'
 
     use "neovim/nvim-lspconfig"
     use 'jose-elias-alvarez/null-ls.nvim'
@@ -28,6 +41,8 @@ packer.startup(function(use)
     use 'nvim-telescope/telescope.nvim'
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
+    use 'ThePrimeagen/harpoon'
+
     -- Editing stuff
     use 'kylechui/nvim-surround'
     use 'windwp/nvim-autopairs'
@@ -42,15 +57,8 @@ packer.startup(function(use)
     use 'nvim-treesitter/nvim-treesitter-textobjects'
     use 'nvim-treesitter/playground'
 
+    if packer_bootstrap then
+        require('packer').sync()
+    end
+
 end)
--- }}}
-
--- packages configuration
-require'config.packages.lsp'
-require'config.packages.telescope'
-
-require'config.packages.completion'
-require'config.packages.treesitter'
-
-require('nvim-surround').setup()
-require('nvim-autopairs').setup()

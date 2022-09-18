@@ -3,7 +3,7 @@ local telescope = require('telescope')
 local telescope_builtin = require('telescope.builtin')
 local telescope_actions = require('telescope.actions')
 
--- Loading extensions
+-- Extensions
 telescope.load_extension('fzf')
 
 -- Mappings

@@ -1,5 +1,17 @@
 -- Keymappings
-require('config.mappings')
+require 'config.mappings'
 
--- Packages
-require('config.packer')
+-- Package manager
+require 'config.packer'
+
+-- packages configuration
+require 'config.packages.lsp'
+require 'config.packages.completion'
+
+require 'config.packages.telescope'
+require 'config.packages.harpoon'
+
+require 'config.packages.treesitter'
+
+require 'nvim-surround'.setup()
+require 'nvim-autopairs'.setup()
