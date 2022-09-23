@@ -9,6 +9,7 @@ local servers = {
     'emmet_ls',
     'tsserver',
     'sumneko_lua',
+    'phpactor',
 }
 
 local packages = {
@@ -17,6 +18,7 @@ local packages = {
     'emmet-ls',
     'typescript-language-server',
     'lua-language-server',
+    'vue-language-server',
 
     -- Formatters
     'autopep8',
@@ -50,9 +52,26 @@ local sources = {
     null_ls.builtins.formatting.prettier.with {
         extra_args = { "--no-config", "--tab-width", "4" }
     },
+
+    null_ls.builtins.formatting.phpcsfixer,
 }
 
-null_ls.setup { sources = sources }
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
+
+null_ls.setup { sources = sources,
+    on_attach = function(client, bufnr)
+        if client.supports_method("textDocument/formatting") then
+            vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+            vim.api.nvim_create_autocmd("BufWritePre", {
+                group = augroup,
+                buffer = bufnr,
+                callback = function()
+                    vim.lsp.buf.format({ bufnr = bufnr })
+                end,
+            })
+        end
+    end, }
 -- }}}
 
 -- {{{ nvim-lspconfig
@@ -120,4 +139,16 @@ for _, server in ipairs(servers) do
         }
     })
 end
+
+lsp['volar'].setup({
+    on_attach = on_attach,
+
+    capabilities = capabilities,
+
+    init_options = {
+        typescript = {
+            serverPath = '/usr/local/lib/node_modules/typescript/lib/tsserverlibrary.js'
+        }
+    }
+})
 -- }}}

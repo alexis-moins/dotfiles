@@ -1,7 +1,8 @@
 format = """
 $directory\
 $git_branch$git_state$git_status\
-$python$nodejs$character
+$python$nodejs$lua$php\
+$character
 """
 
 right_format = """
@@ -9,7 +10,7 @@ $jobs
 """
 
 [directory]
-style = "#87DFEB"
+# style = "#87DFEB"
 
 [jobs]
 format = "[$symbol$number]($style) "
@@ -43,6 +44,14 @@ style = "#8A889D"
 symbol = "javascript "
 detect_extensions = []
 style = "#8A889D"
+
+[lua]
+symbol = "lua "
+style = "#8A889D"
+
+[php]
+# symbol = "php "
+# style = "#8A889D"
 
 [character]
 # ❯ or ➜

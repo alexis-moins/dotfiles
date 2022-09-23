@@ -6,6 +6,11 @@ vim.keymap.set('n', '<leader>ins', '<cmd>PackerSync<cr>')
 vim.keymap.set('n', '<leader>pack', '<cmd>Mason<cr>')
 vim.keymap.set('n', '<leader>lsp', '<cmd>LspInfo<cr>')
 vim.keymap.set('n', '<leader>so', '<cmd>source %<cr>')
+
+vim.keymap.set('n', '<leader>h', '<C-w>h')
+vim.keymap.set('n', '<leader>j', '<C-w>j')
+vim.keymap.set('n', '<leader>k', '<C-w>k')
+vim.keymap.set('n', '<leader>l', '<C-w>l')
 vim.keymap.set('i', 'jk', '<C-c>')
 
 -- Increase, decrease and select all

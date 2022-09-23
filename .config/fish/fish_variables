@@ -20,7 +20,7 @@ SETUVAR _fish_abbr_ta:tmux\x20attach
 SETUVAR _fish_abbr_vu:vim\x20\x2du\x20NONE
 SETUVAR fish_color_autosuggestion:8A889D
 SETUVAR fish_color_cancel:F48FB1
-SETUVAR fish_color_command:A1EFD3
+SETUVAR fish_color_command:green
 SETUVAR fish_color_comment:8A889D
 SETUVAR fish_color_cwd:9CEFFF
 SETUVAR fish_color_cwd_root:red

@@ -6,7 +6,7 @@ config.setup {
         -- scripting
         'fish',
         -- back-end developpment
-        'python', 'lua', 'go',
+        'python', 'lua', 'go', 'php',
         -- front-end developpment
         'html', 'javascript', 'css', 'vue',
     },
@@ -14,6 +14,10 @@ config.setup {
     highlight = {
         -- `false` will disable the whole extension
         enable = true,
+    },
+
+    indent = {
+        enable = true
     },
 
     textobjects = {
