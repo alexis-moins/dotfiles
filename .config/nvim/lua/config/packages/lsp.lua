@@ -9,7 +9,10 @@ local servers = {
     'emmet_ls',
     'tsserver',
     'sumneko_lua',
-    'phpactor',
+    'intelephense',
+    'jdtls'
+
+    -- volar is setup at the bottom
 }
 
 local packages = {
@@ -19,6 +22,8 @@ local packages = {
     'typescript-language-server',
     'lua-language-server',
     'vue-language-server',
+    'intelephense',
+    'jdtls',
 
     -- Formatters
     'autopep8',
@@ -151,4 +156,5 @@ lsp['volar'].setup({
         }
     }
 })
+
 -- }}}
