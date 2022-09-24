@@ -11,6 +11,7 @@ $jobs
 
 [directory]
 # style = "#87DFEB"
+style = "bold blue"
 
 [jobs]
 format = "[$symbol$number]($style) "
@@ -19,10 +20,13 @@ symbol = "*"
 style = "#CBE3E7"
 
 [git_branch]
-style = "#D4BFFF"
+style = "purple"
+# style = "#CCB3FF"
+# style = "#D4BFFF"
 
 [git_status]
-style = "#F48FB1"
+# style = "#f6a2be"
+style = "#8FBCBB"
 
 diverged = "$ahead$behind"
 ahead = "↑$count"
@@ -47,7 +51,7 @@ style = "#8A889D"
 
 [lua]
 symbol = "lua "
-style = "#8A889D"
+style = "bold black"
 
 [php]
 # symbol = "php "

@@ -14,13 +14,12 @@ local packer_bootstrap = ensure_packer()
 -- }}}
 
 -- Packages
-require('packer').startup(function(use)
+require('packer').startup({ function(use)
 
     use 'nvim-lua/plenary.nvim'
     use 'wbthomason/packer.nvim'
 
     use 'ThePrimeagen/vim-be-good'
-    use '/Users/alexis/code/validator.nvim'
 
     -- Lsp
     use 'L3MON4D3/LuaSnip'
@@ -43,17 +42,18 @@ require('packer').startup(function(use)
     use 'nvim-telescope/telescope.nvim'
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
-    use 'ThePrimeagen/harpoon'
-
     -- Editing stuff
     use 'kylechui/nvim-surround'
     use 'windwp/nvim-autopairs'
 
     use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
 
+    use { 'rcarriga/nvim-notify', config = function() vim.notify = require("notify") end }
+
     -- Themes
     use 'alexis-moins/embark'
     use { 'alexis-moins/nord-vim', config = function() vim.cmd [[colorscheme nord]] end }
+    use { "catppuccin/nvim", as = "catppuccin" }
 
     -- Treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
@@ -64,4 +64,12 @@ require('packer').startup(function(use)
         require('packer').sync()
     end
 
-end)
+end,
+    config = {
+        display = {
+            open_fn = function()
+                return require('packer.util').float({ border = 'rounded' })
+            end
+        }
+    }
+})
