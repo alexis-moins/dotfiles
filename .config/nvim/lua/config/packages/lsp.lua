@@ -9,8 +9,10 @@ local servers = {
     'emmet_ls',
     'tsserver',
     'sumneko_lua',
+    'phpactor',
     'intelephense',
-    'jdtls'
+    'jdtls',
+    'gopls',
 
     -- volar is setup at the bottom
 }
@@ -23,11 +25,14 @@ local packages = {
     'lua-language-server',
     'vue-language-server',
     'intelephense',
+    'phpactor',
     'jdtls',
+    'gopls',
 
     -- Formatters
     'autopep8',
     'prettier',
+    -- 'php-cs-fixer',
 }
 
 -- Changing mason's UI
@@ -57,26 +62,9 @@ local sources = {
     null_ls.builtins.formatting.prettier.with {
         extra_args = { "--no-config", "--tab-width", "4" }
     },
-
-    null_ls.builtins.formatting.phpcsfixer,
 }
 
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-
-
-null_ls.setup { sources = sources,
-    on_attach = function(client, bufnr)
-        if client.supports_method("textDocument/formatting") then
-            vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-            vim.api.nvim_create_autocmd("BufWritePre", {
-                group = augroup,
-                buffer = bufnr,
-                callback = function()
-                    vim.lsp.buf.format({ bufnr = bufnr })
-                end,
-            })
-        end
-    end, }
+null_ls.setup { sources = sources }
 -- }}}
 
 -- {{{ nvim-lspconfig

@@ -52,7 +52,7 @@ require('packer').startup({ function(use)
 
     -- Themes
     use 'alexis-moins/embark'
-    use { 'alexis-moins/nord-vim', config = function() vim.cmd [[colorscheme nord]] end }
+    use { 'alexis-moins/nord-vim', config = function() vim.cmd [[colorscheme catppuccin]] end }
     use { "catppuccin/nvim", as = "catppuccin" }
 
     -- Treesitter
