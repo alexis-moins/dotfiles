@@ -58,6 +58,7 @@ vim.opt.listchars = { eol = '¬', tab = '> ', trail = '-', extends = '!', preced
 
 -- Don't show commands below the statusline
 vim.opt.showcmd = false
+vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
 
 -- Initializing config
 require('config')

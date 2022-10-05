@@ -45,7 +45,7 @@
     enabled = 1
 [alias]
     # Commit faster
-    ci = commit -m 
+    ci = !ci 
     # Display the status of the repository
     st = status
     # Checkout the branches of the repository

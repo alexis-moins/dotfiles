@@ -10,6 +10,14 @@ cmp.setup({
         end,
     },
 
+    window = {
+        completion = cmp.config.window.bordered()
+    },
+
+    view = {
+        entries = "custom"
+    },
+
     -- Mappings
     mapping = {
         ['<C-k>'] = cmp.mapping.select_prev_item(),
@@ -44,9 +52,5 @@ cmp.setup({
             return vim_item
         end
     },
-
-   view = {
-        entries = "native"
-    }
 
 })
