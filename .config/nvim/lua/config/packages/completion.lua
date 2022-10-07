@@ -1,4 +1,3 @@
--- Configuring cmp
 local cmp = require('cmp')
 
 cmp.setup({

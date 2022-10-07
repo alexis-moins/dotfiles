@@ -10,23 +10,19 @@ $jobs
 """
 
 [directory]
-# style = "#87DFEB"
-style = "bold blue"
+style = "cyan"
 
 [jobs]
 format = "[$symbol$number]($style) "
 number_threshold = 1
 symbol = "*"
-style = "#CBE3E7"
+style = "green"
 
 [git_branch]
 style = "purple"
-# style = "#CCB3FF"
-# style = "#D4BFFF"
 
 [git_status]
-# style = "#f6a2be"
-style = "#8FBCBB"
+style = "red"
 
 diverged = "$ahead$behind"
 ahead = "↑$count"
@@ -45,9 +41,7 @@ symbol = "python "
 style = "#8A889D"
 
 [nodejs]
-symbol = "javascript "
 detect_extensions = []
-style = "#8A889D"
 
 [lua]
 symbol = "lua "
@@ -60,5 +54,5 @@ style = "bold black"
 [character]
 # ❯ or ➜
 success_symbol = "[❯](#CBE3E7)"
-error_symbol = "[❯](#F48FB1)"
+error_symbol = "[❯](yellow)"
 vimcmd_symbol = "[❮](#CBE3E7)"

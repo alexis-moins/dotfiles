@@ -27,7 +27,7 @@ vim.opt.swapfile = false
 vim.opt.path = { '.', '**' }
 
 -- Set the content of the winbar
-vim.opt.winbar = '%=%1*%m %0*%t'
+vim.opt.winbar = '%=%#Title#%m %0*%t'
 
 -- Never display the statusline
 vim.opt.laststatus = 0
@@ -59,6 +59,11 @@ vim.opt.listchars = { eol = '¬', tab = '> ', trail = '-', extends = '!', preced
 -- Don't show commands below the statusline
 vim.opt.showcmd = false
 vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
+
+-- Nord options
+vim.g.nord_italic = false
+vim.g.nord_borders = true
+vim.g.nord_contrast = true
 
 -- Initializing config
 require('config')

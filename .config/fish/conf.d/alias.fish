@@ -21,6 +21,6 @@ alias ls 'exa'
 
 alias la 'exa --all'
 
-alias ll 'exa --long --git'
+alias ll 'exa --long --all --git'
 
 alias tree 'exa --tree --git-ignore'

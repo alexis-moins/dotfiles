@@ -14,12 +14,13 @@ local packer_bootstrap = ensure_packer()
 -- }}}
 
 -- Packages
-require('packer').startup({ function(use)
+require('packer').startup(function(use)
 
     use 'nvim-lua/plenary.nvim'
     use 'wbthomason/packer.nvim'
 
     use 'ThePrimeagen/vim-be-good'
+    use { 'norcalli/nvim-colorizer.lua', config = { function() require('colorizer').setup() end } }
 
     -- Lsp
     use 'L3MON4D3/LuaSnip'
@@ -52,7 +53,7 @@ require('packer').startup({ function(use)
 
     -- Themes
     use 'alexis-moins/embark'
-    use { 'alexis-moins/nord-vim', config = function() vim.cmd [[colorscheme catppuccin]] end }
+    use { "shaunsingh/nord.nvim", config = function() vim.cmd [[colorscheme nord]] end }
     use { "catppuccin/nvim", as = "catppuccin" }
 
     -- Treesitter
@@ -64,12 +65,4 @@ require('packer').startup({ function(use)
         require('packer').sync()
     end
 
-end,
-    config = {
-        display = {
-            open_fn = function()
-                return require('packer.util').float({ border = 'rounded' })
-            end
-        }
-    }
-})
+end)
