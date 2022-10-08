@@ -38,7 +38,7 @@ renamed = ""
 
 [python]
 symbol = "python "
-style = "#8A889D"
+# style = "#8A889D"
 
 [nodejs]
 detect_extensions = []
@@ -47,12 +47,6 @@ detect_extensions = []
 symbol = "lua "
 style = "bold black"
 
-[php]
-# symbol = "php "
-# style = "#8A889D"
-
 [character]
 # ❯ or ➜
-success_symbol = "[❯](#CBE3E7)"
-error_symbol = "[❯](yellow)"
-vimcmd_symbol = "[❮](#CBE3E7)"
+success_symbol = "[❯](white)"
