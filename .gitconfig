@@ -45,7 +45,7 @@
     enabled = 1
 [alias]
     # Commit faster
-    ci = !ci 
+    ci = commit
     # Display the status of the repository
     st = status
     # Checkout the branches of the repository
@@ -59,13 +59,13 @@
     # Add currently staged files to the last commit without changing its message
     amend = commit --amend --no-edit
     # Apply the .gitignore file to all files in the repo
-    ignore = !git rm -r --cached . && git add .
+    ignore = !git rm -r --cached . && git add -A
     # Display commits with a pretty formatting
-    ls = log --all --branches='*' --graph --tags='*'
+    ls = log --all
     # Start a new local repository and perform initial commit
     this = !git init && git add -A && git ci 'feat: 🎉 initial commit'
     #
     oops = !git stash && git co -b oops && git stash pop
 [format]
     # Formatting used as default by the `--format` option
-    pretty = format:%C(auto)%h [%D] %C(brightblack)%an%C(reset) %s (%C(blue)%cs%C(reset))
+    pretty = format:%C(auto)%h [%D] %C(brightblue)%an%C(reset) %s (%C(cyan)%cr%C(reset))
