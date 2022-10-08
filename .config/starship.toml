@@ -16,7 +16,7 @@ style = "cyan"
 format = "[$symbol$number]($style) "
 number_threshold = 1
 symbol = "*"
-style = "green"
+style = "bold yellow"
 
 [git_branch]
 style = "purple"

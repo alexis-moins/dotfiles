@@ -52,4 +52,13 @@ cmp.setup({
         end
     },
 
+
+
+})
+
+cmp.setup.cmdline({ '/', '?' }, {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+        { name = 'buffer' }
+    }
 })
