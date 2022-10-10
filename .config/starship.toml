@@ -34,8 +34,8 @@ staged = "+$count"
 untracked = "…$count"
 modified = "~$count"
 
-deleted = ""
-renamed = ""
+deleted = "-$count"
+renamed = "$count"
 
 [python]
 symbol = "python "
