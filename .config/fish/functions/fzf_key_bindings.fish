@@ -53,7 +53,7 @@ function fzf_key_bindings
   function fzf-history-widget -d "Show command history"
     test -n "$FZF_TMUX_HEIGHT"; or set FZF_TMUX_HEIGHT 40%
     begin
-      set -lx FZF_DEFAULT_OPTS "--height $FZF_TMUX_HEIGHT $FZF_DEFAULT_OPTS --scheme=history --bind=ctrl-r:toggle-sort,ctrl-z:ignore $FZF_CTRL_R_OPTS +m"
+      set -lx FZF_DEFAULT_OPTS "--height $FZF_TMUX_HEIGHT $FZF_DEFAULT_OPTS --scheme=history --bind=ctrl-h:toggle-sort,ctrl-z:ignore $FZF_CTRL_R_OPTS +m"
 
       set -l FISH_MAJOR (echo $version | cut -f1 -d.)
       set -l FISH_MINOR (echo $version | cut -f2 -d.)
@@ -112,12 +112,12 @@ function fzf_key_bindings
 
   bind \cb fzf-file-widget
   bind \ch fzf-history-widget
-  bind \cf fzf-cd-widget
+  bind \cs fzf-cd-widget
 
   if bind -M insert > /dev/null 2>&1
     bind -M insert \cb fzf-file-widget
     bind -M insert \ch fzf-history-widget
-    bind -M insert \cf fzf-cd-widget
+    bind -M insert \cs fzf-cd-widget
   end
 
   function __fzf_parse_commandline -d 'Parse the current command line token and return split of existing filepath, fzf query, and optional -option= prefix'

@@ -11,6 +11,7 @@ Brewfile.lock.json
 
 # misc
 .DS_Store
+.config/gh/hosts*
 
 # zsh
 .zsh_history
