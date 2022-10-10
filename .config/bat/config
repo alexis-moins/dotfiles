@@ -5,14 +5,12 @@
 # Show line numbers, Git modifications (but no file header or grid)
 --style="changes"
 
+
 # Specify desired highlighting theme (e.g. "TwoDark"). Run `bat --list-themes`
 # for a list of all available themes
 --theme="Nord"
+--color=always
 
 # Enable this to use italic text on the terminal. This is not supported on all
 # terminal emulators (like tmux, by default):
 --italic-text=always
-
-# Syntax mappings: map a certain filename pattern to a language.
-#   Example 1: use the C++ syntax for Arduino .ino files
---map-syntax ".ignore:Git Ignore"
