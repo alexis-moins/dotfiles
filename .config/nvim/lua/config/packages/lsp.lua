@@ -75,37 +75,38 @@ local telescope_builtin = require('telescope.builtin')
 -- Default function to run when attaching a client its LSP server
 local on_attach = function(_, bufnr)
     -- Default options
-    local opts = { noremap = true, silent = true, buffer = bufnr }
+    local get_opts_with_desc = function(description)
+        return { noremap = true, silent = true, buffer = bufnr, desc = description }
+    end
 
     -- Display information about hovered object
-    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, get_opts_with_desc("Show information"))
 
     -- Don't map 'gc' or 'gb' because they are used by Comment.nvim
     -- Goto direct [d]efinitions, t[Y]pe definitions, [i]mplementations
-    vim.keymap.set("n", "gd", telescope_builtin.lsp_definitions, opts)
-    vim.keymap.set("n", "gy", telescope_builtin.lsp_type_definitions, opts)
-    vim.keymap.set("n", "gi", telescope_builtin.lsp_implementations, opts)
+    vim.keymap.set("n", "gd", telescope_builtin.lsp_definitions, get_opts_with_desc("Go to definition"))
+    vim.keymap.set("n", "gy", telescope_builtin.lsp_type_definitions, get_opts_with_desc("Go to type definition"))
+    vim.keymap.set("n", "gi", telescope_builtin.lsp_implementations, get_opts_with_desc("Go to implementations"))
 
     -- Goto [r]eferences, [s]ymbols in the buffer, [S]ymbols in the workspace
-    vim.keymap.set("n", "gr", telescope_builtin.lsp_references, opts)
-    vim.keymap.set("n", "gs", telescope_builtin.lsp_document_symbols, opts)
-    vim.keymap.set("n", "gS", telescope_builtin.lsp_workspace_symbols, opts)
+    vim.keymap.set("n", "gr", telescope_builtin.lsp_references, get_opts_with_desc("Show references"))
+    vim.keymap.set("n", "gs", telescope_builtin.lsp_document_symbols, get_opts_with_desc("Show symbols"))
+    vim.keymap.set("n", "gS", telescope_builtin.lsp_workspace_symbols, get_opts_with_desc("Show workspace symbols"))
 
     -- Rename symbol and Code actions
-    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-    vim.keymap.set("n", "<leader>qq", vim.diagnostic.setqflist, opts)
+    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, get_opts_with_desc("Rename"))
+    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, get_opts_with_desc("Code actions"))
 
     -- Navigate between diagnostics
-    vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
-    vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
+    vim.keymap.set("n", "]d", vim.diagnostic.goto_next, get_opts_with_desc("Next diagnostic"))
+    vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, get_opts_with_desc("Previous diagnostic"))
 
     -- Formatting and diagnostic list
-    vim.keymap.set("n", "<leader>ff", vim.lsp.buf.format, opts)
-    vim.keymap.set("n", "<leader>ed", telescope_builtin.diagnostics, opts)
+    vim.keymap.set("n", "<leader>=", vim.lsp.buf.format, get_opts_with_desc("Format file"))
+    vim.keymap.set("n", "<leader>fd", telescope_builtin.diagnostics, get_opts_with_desc("Open diagnostics"))
 
     -- [re]start neovim LSP client
-    vim.keymap.set("n", '<leader>re', '<cmd>LspRestart<cr>')
+    vim.keymap.set("n", '<leader>lr', '<cmd>LspRestart<cr>', get_opts_with_desc("Restart LSP server"))
 end
 
 -- Capabilities from nvim-cmp

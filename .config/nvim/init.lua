@@ -60,6 +60,9 @@ vim.opt.listchars = { eol = '¬', tab = '> ', trail = '-', extends = '!', preced
 vim.opt.showcmd = false
 vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
 
+-- Show which-key menu faster
+vim.opt.timeoutlen = 500
+
 -- Nord options
 vim.g.nord_italic = false
 vim.g.nord_borders = true

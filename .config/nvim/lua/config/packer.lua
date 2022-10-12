@@ -19,6 +19,13 @@ require('packer').startup(function(use)
     use 'nvim-lua/plenary.nvim'
     use 'wbthomason/packer.nvim'
 
+    use { "folke/which-key.nvim", config = function() require("which-key").setup {
+            window = {
+                border = "single", -- none, single, double, shadow
+            },
+        }
+    end }
+
     use 'ThePrimeagen/vim-be-good'
     use { 'norcalli/nvim-colorizer.lua', config = { function() require('colorizer').setup() end } }
 

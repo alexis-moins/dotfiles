@@ -19,7 +19,6 @@ symbol = "*"
 style = "bold yellow"
 
 [git_branch]
-only_attached = true
 style = "purple"
 
 [git_status]
