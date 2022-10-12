@@ -1,27 +1,11 @@
 -- Telescope
 local telescope = require('telescope')
+local extensions = telescope.extensions
+
 local telescope_builtin = require('telescope.builtin')
 local telescope_actions = require('telescope.actions')
 
--- Extensions
-telescope.load_extension('fzf')
-
--- Mappings
-vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers, { desc = "Find buffers" })
-vim.keymap.set('n', '<leader>fm', telescope_builtin.man_pages, { desc = "Find man pages" })
-vim.keymap.set('n', '<leader>fg', telescope_builtin.live_grep, { desc = "Grep files" })
-vim.keymap.set('n', '<leader>fh', telescope_builtin.help_tags, { desc = "Find help pages"})
-vim.keymap.set('n', '<leader>ff', telescope_builtin.find_files, { desc = "Find files"})
-vim.keymap.set('n', '<leader>fe', telescope_builtin.command_history, { desc = "Find commands (history)"})
-
--- Git
--- Checkout branches
-vim.keymap.set('n', '<leader>fB', telescope_builtin.git_branches, {desc = "Find git branches"})
--- Commits | Commits from the current branch
-vim.keymap.set('n', '<leader>fc', telescope_builtin.git_commits, { desc = "Find git commits"})
-vim.keymap.set('n', '<leader>fC', telescope_builtin.git_bcommits)
-
--- Mappings
+-- Setup
 telescope.setup({
     defaults = {
         mappings = {
@@ -48,5 +32,38 @@ telescope.setup({
             theme = 'dropdown',
             previewer = false,
         },
+    },
+
+    extensions = {
+        file_browser = {
+            theme = "ivy",
+            hijack_netrw = true,
+
+            hidden = true,
+            respect_gitignore = true,
+
+        },
     }
 })
+
+-- Extensions
+telescope.load_extension('fzf')
+telescope.load_extension('file_browser')
+
+-- Mappings
+vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers, { desc = "Find buffers" })
+vim.keymap.set('n', '<leader>fm', telescope_builtin.man_pages, { desc = "Find man pages" })
+vim.keymap.set('n', '<leader>fg', telescope_builtin.live_grep, { desc = "Grep files" })
+vim.keymap.set('n', '<leader>fh', telescope_builtin.help_tags, { desc = "Find help pages" })
+vim.keymap.set('n', '<leader>ff', telescope_builtin.find_files, { desc = "Find files" })
+vim.keymap.set('n', '<leader>fe', telescope_builtin.command_history, { desc = "Find commands (history)" })
+
+-- Git
+-- Checkout branches
+vim.keymap.set('n', '<leader>fB', telescope_builtin.git_branches, { desc = "Find git branches" })
+-- Commits | Commits from the current branch
+vim.keymap.set('n', '<leader>fc', telescope_builtin.git_commits, { desc = "Find git commits" })
+vim.keymap.set('n', '<leader>fC', telescope_builtin.git_bcommits)
+
+-- File browser extension
+vim.keymap.set('n', '<leader>f.', extensions.file_browser.file_browser, { desc = "Browse files" })

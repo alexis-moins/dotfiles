@@ -13,6 +13,7 @@ local servers = {
     'intelephense',
     'jdtls',
     'gopls',
+    'svelte',
 
     -- volar is setup at the bottom
 }
@@ -28,6 +29,7 @@ local packages = {
     'phpactor',
     'jdtls',
     'gopls',
+    'svelte-language-server',
 
     -- Formatters
     'autopep8',
