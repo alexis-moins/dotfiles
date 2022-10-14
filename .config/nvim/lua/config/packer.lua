@@ -26,6 +26,8 @@ require('packer').startup(function(use)
         }
     end }
 
+
+
     use 'ThePrimeagen/vim-be-good'
     use { 'norcalli/nvim-colorizer.lua', config = { function() require('colorizer').setup() end } }
 
@@ -69,15 +71,20 @@ require('packer').startup(function(use)
     use 'nvim-treesitter/nvim-treesitter-textobjects'
     use 'nvim-treesitter/playground'
 
+    use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+
     if packer_bootstrap then
         require('packer').sync()
     end
 
 end)
 
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost packer.lua source <afile> | PackerCompile
-  augroup end
-]])
+-- Creating autocommand group for Packer
+local group = vim.api.nvim_create_augroup('PackerUserGroup', { clear = true })
+
+-- Automatically run :PackerCompile whenever this file is changed
+vim.api.nvim_create_autocmd('BufWritePost', {
+    group = group,
+    command = 'source <afile> | PackerCompile',
+    pattern = 'packer.lua'
+})
