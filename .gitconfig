@@ -46,6 +46,7 @@
 [alias]
     # Commit faster
     ci = commit
+    cim = commit -m
     # Display the status of the repository
     st = status
     # Checkout the branches of the repository
