@@ -27,7 +27,7 @@ vim.opt.swapfile = false
 vim.opt.path = { '.', '**' }
 
 -- Set the content of the winbar
-vim.opt.winbar = '%=%#Title#%m %0*%t'
+vim.opt.winbar = '%=%#Float#%m %0*%t'
 
 -- Never display the statusline
 vim.opt.laststatus = 0
