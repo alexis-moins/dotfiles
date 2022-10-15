@@ -6,9 +6,9 @@ config.setup {
         -- scripting
         'fish',
         -- back-end developpment
-        'python', 'lua', 'go', 'php',
+        'python', 'lua', 'go',
         -- front-end developpment
-        'html', 'javascript', 'css', 'vue',
+        'html', 'javascript', 'css',
     },
 
     auto_install = true,
@@ -19,7 +19,8 @@ config.setup {
     },
 
     indent = {
-        enable = true
+        enable = true,
+        disable = { "python" },
     },
 
     textobjects = {

@@ -20,6 +20,7 @@ telescope.setup({
         file_browser = {
             theme = "ivy",
             path = "%:p:h",
+            quiet = true,
 
             hidden = true,
             hijack_netrw = true,
