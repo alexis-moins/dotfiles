@@ -19,26 +19,39 @@ require('packer').startup(function(use)
     use 'nvim-lua/plenary.nvim'
     use 'wbthomason/packer.nvim'
 
-    use { "folke/which-key.nvim", config = function() require("which-key").setup {
+    use { 'folke/which-key.nvim', config = function() require('which-key').setup {
             window = {
-                border = "single", -- none, single, double, shadow
+                border = 'single',
             },
         }
     end }
 
+    use {
+        'nvim-neorg/neorg',
+        tag = '*',
+        ft = 'norg',
+        -- after = { 'nvim-treesitter', 'telescope.nvim' },
+        config = function()
+            require('neorg').setup {
+                load = {
+                    ["core.defaults"] = {},
+                    ["core.norg.concealer"] = {},
+                }
+            }
+        end,
+        requires = 'nvim-lua/plenary.nvim'
+    }
 
-
-    use 'ThePrimeagen/vim-be-good'
     use { 'norcalli/nvim-colorizer.lua', config = { function() require('colorizer').setup() end } }
 
     -- Lsp
     use 'L3MON4D3/LuaSnip'
     use 'saadparwaiz1/cmp_luasnip'
 
-    use "neovim/nvim-lspconfig"
+    use 'neovim/nvim-lspconfig'
     use 'jose-elias-alvarez/null-ls.nvim'
 
-    use "williamboman/mason.nvim"
+    use 'williamboman/mason.nvim'
     use 'WhoIsSethDaniel/mason-tool-installer.nvim'
 
     -- Completion
@@ -51,7 +64,7 @@ require('packer').startup(function(use)
     -- Telescope
     use 'nvim-telescope/telescope.nvim'
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-    use { "nvim-telescope/telescope-file-browser.nvim" }
+    use { 'nvim-telescope/telescope-file-browser.nvim' }
 
     -- Editing stuff
     use 'kylechui/nvim-surround'
@@ -59,12 +72,11 @@ require('packer').startup(function(use)
 
     use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
 
-    use { 'rcarriga/nvim-notify', config = function() vim.notify = require("notify") end }
+    use { 'rcarriga/nvim-notify', config = function() vim.notify = require('notify') end }
 
     -- Themes
-    use 'alexis-moins/embark'
-    use { "shaunsingh/nord.nvim", config = function() vim.cmd [[colorscheme nord]] end }
-    use { "catppuccin/nvim", as = "catppuccin" }
+    use { 'shaunsingh/nord.nvim', config = function() vim.cmd [[colorscheme nord]] end }
+    use { 'catppuccin/nvim', as = 'catppuccin' }
 
     -- Treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }

@@ -19,8 +19,6 @@ local on_attach = function(_)
 
     -- Custom text-object for hunks
     vim.keymap.set({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>', { desc = "inner git hunk" })
-
-    vim.opt_local.winbar = '%=%#Float#%{b:gitsigns_status} %#Type#%m %0*%t'
 end
 
 -- Global setup

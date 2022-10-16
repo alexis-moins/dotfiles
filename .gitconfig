@@ -64,7 +64,7 @@
     # Display commits with a pretty formatting
     ls = log --all
     # Start a new local repository and perform initial commit
-    this = !git init && git add -A && git ci 'feat: 🎉 initial commit'
+    this = !git init && git add -A && git commit -m 'feat: 🎉 initial commit'
     #
     oops = !git stash && git co -b oops && git stash pop
 [format]

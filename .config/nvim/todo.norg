@@ -1,0 +1,18 @@
+@document.meta
+    title: todo
+    description: 
+    authors: alexis
+    categories: 
+    created: 2022-10-16
+    updated: 2022-10-16
+    version: 0.0.15
+@end
+
+* Norg file format specification
+  This is a headr
+
+
+** This is a level 2 header
+
+- [] Buy bread
+- [x]
