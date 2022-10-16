@@ -28,7 +28,6 @@ require('packer').startup(function(use)
 
     use {
         'nvim-neorg/neorg',
-        tag = '*',
         ft = 'norg',
         -- after = { 'nvim-treesitter', 'telescope.nvim' },
         config = function()
@@ -36,6 +35,12 @@ require('packer').startup(function(use)
                 load = {
                     ["core.defaults"] = {},
                     ["core.norg.concealer"] = {},
+                    ["core.integrations.nvim-cmp"] = {},
+                    ["core.norg.completion"] = {
+                        config = {
+                            engine = 'nvim-cmp',
+                        }
+                    },
                 }
             }
         end,

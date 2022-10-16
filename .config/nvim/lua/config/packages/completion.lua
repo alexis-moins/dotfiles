@@ -32,6 +32,7 @@ cmp.setup({
         { name = 'nvim_lua' },
         { name = 'nvim_lsp' },
         { name = 'nvim_lsp_signature_help' },
+        { name = "neorg" },
         { name = 'luasnip' },
         { name = 'buffer', keyword_length = 2 },
         { name = 'path' },
