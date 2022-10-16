@@ -14,10 +14,9 @@
 
 ** This is a level 2 header
 
-- [x] Buy bread
-- [!] Make keyboard
-- [+] testin
+    - [x] Buy bread
+    - [!] Make keyboard
+    - [+] testin
 
-** Testing
-
-
+*** This is a level 3 header
+    _echo_[github.com/alexis-moins/dotfiles](my dotfiles)
