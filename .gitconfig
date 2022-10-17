@@ -70,3 +70,5 @@
 [format]
     # Formatting used as default by the `--format` option
     pretty = format:%C(auto)%h [%D] %C(brightblue)%an%C(reset) %s (%C(cyan)%cr%C(reset))
+[push]
+	autoSetupRemote = true
