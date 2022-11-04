@@ -1,13 +1,13 @@
 -- Use 24-bit colors
 vim.opt.termguicolors = true
 
--- Use relative number
-vim.opt.signcolumn = 'yes'
+-- Never display sig,s
+vim.opt.signcolumn = 'no'
 vim.opt.cursorline = true
 
 -- Numbers
-vim.opt.relativenumber = true
-vim.opt.number = true
+-- vim.opt.relativenumber = true
+-- vim.opt.number = true
 
 -- Enable mouse support in all modes
 vim.opt.mouse = 'a'

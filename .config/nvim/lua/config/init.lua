@@ -9,9 +9,7 @@ require 'config.packages.lsp'
 require 'config.packages.completion'
 
 require 'config.packages.telescope'
-
 require 'config.packages.treesitter'
-require 'config.packages.gitsigns'
 
 require 'nvim-surround'.setup()
 require 'nvim-autopairs'.setup()

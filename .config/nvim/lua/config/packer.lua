@@ -26,6 +26,20 @@ require('packer').startup(function(use)
         }
     end }
 
+    use { 'ggandor/leap.nvim', config = function() require('leap').add_default_mappings() end }
+
+    use({
+        'alexis-moins/nvim-tabline',
+        config = function()
+            require('tabline').setup({
+                show_index = false, -- show tab index
+                show_modify = true, -- show buffer modification indicator
+                modify_indicator = '[+]', -- modify indicator
+                no_name = '[No name]', -- no name buffer name
+            })
+        end,
+    })
+
     use {
         'nvim-neorg/neorg',
         ft = 'norg',
@@ -87,8 +101,6 @@ require('packer').startup(function(use)
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use 'nvim-treesitter/nvim-treesitter-textobjects'
     use 'nvim-treesitter/playground'
-
-    use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
 
     if packer_bootstrap then
         require('packer').sync()
