@@ -40,29 +40,6 @@ require('packer').startup(function(use)
         end,
     })
 
-    use {
-        'nvim-neorg/neorg',
-        ft = 'norg',
-        after = { 'nvim-treesitter', 'telescope.nvim' },
-        config = function()
-            require('neorg').setup {
-                load = {
-                    ["core.defaults"] = {},
-                    ["core.norg.concealer"] = {},
-                    ["core.integrations.nvim-cmp"] = {},
-                    ["core.norg.completion"] = {
-                        config = {
-                            engine = 'nvim-cmp',
-                        }
-                    },
-                }
-            }
-        end,
-        requires = 'nvim-lua/plenary.nvim'
-    }
-
-    use { 'norcalli/nvim-colorizer.lua', config = { function() require('colorizer').setup() end } }
-
     -- Lsp
     use 'L3MON4D3/LuaSnip'
     use 'saadparwaiz1/cmp_luasnip'
