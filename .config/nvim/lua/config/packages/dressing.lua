@@ -6,7 +6,7 @@ dressing.setup({
         -- No transparency
         winblend = 0,
 
-        winhighlight = "NormalFloat:Normal,FloatBorder:Normal",
+        winhighlight = "NormalFloat:Normal,FloatBorder:Directory",
     }
 
 })

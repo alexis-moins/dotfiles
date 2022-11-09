@@ -11,6 +11,7 @@ require 'config.packages.snippets'
 
 require 'config.packages.telescope'
 require 'config.packages.treesitter'
+require 'config.packages.dressing'
 
 require 'nvim-surround'.setup()
 require 'nvim-autopairs'.setup()
