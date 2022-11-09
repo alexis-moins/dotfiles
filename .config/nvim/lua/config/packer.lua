@@ -26,6 +26,8 @@ require('packer').startup(function(use)
         }
     end }
 
+    use 'stevearc/dressing.nvim'
+
     use { 'ggandor/leap.nvim', config = function() require('leap').add_default_mappings() end }
 
     use({
@@ -39,29 +41,6 @@ require('packer').startup(function(use)
             })
         end,
     })
-
-    use {
-        'nvim-neorg/neorg',
-        ft = 'norg',
-        after = { 'nvim-treesitter', 'telescope.nvim' },
-        config = function()
-            require('neorg').setup {
-                load = {
-                    ["core.defaults"] = {},
-                    ["core.norg.concealer"] = {},
-                    ["core.integrations.nvim-cmp"] = {},
-                    ["core.norg.completion"] = {
-                        config = {
-                            engine = 'nvim-cmp',
-                        }
-                    },
-                }
-            }
-        end,
-        requires = 'nvim-lua/plenary.nvim'
-    }
-
-    use { 'norcalli/nvim-colorizer.lua', config = { function() require('colorizer').setup() end } }
 
     -- Lsp
     use 'L3MON4D3/LuaSnip'
@@ -90,8 +69,6 @@ require('packer').startup(function(use)
     use 'windwp/nvim-autopairs'
 
     use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
-
-    use { 'rcarriga/nvim-notify', config = function() vim.notify = require('notify') end }
 
     -- Themes
     use { 'shaunsingh/nord.nvim', config = function() vim.cmd [[colorscheme nord]] end }

@@ -7,3 +7,5 @@ require 'config.packages.lsp'
 
 require 'config.packages.completion'
 require 'config.packages.telescope'
+
+require 'config.packages.dressing'

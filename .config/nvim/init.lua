@@ -27,7 +27,7 @@ vim.opt.swapfile = false
 vim.opt.path = { '.', '**' }
 
 -- Set the content of the winbar
-vim.opt.winbar = '%=%#Float#%m %0*%t'
+vim.opt.winbar = '%=%#Directory#%m %0*%t'
 
 -- Never display the statusline
 vim.opt.laststatus = 0
@@ -67,9 +67,6 @@ vim.opt.timeoutlen = 500
 vim.g.nord_italic = false
 vim.g.nord_borders = true
 vim.g.nord_contrast = true
-
--- Catppuccin
-vim.g.catppuccin_flavour = 'latte'
 
 -- Initializing config
 require('config')

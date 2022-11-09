@@ -95,10 +95,6 @@ local on_attach = function(_, bufnr)
     vim.keymap.set("n", "gs", telescope_builtin.lsp_document_symbols, get_opts_with_desc("Show symbols"))
     vim.keymap.set("n", "gS", telescope_builtin.lsp_workspace_symbols, get_opts_with_desc("Show workspace symbols"))
 
-    -- Rename symbol and Code actions
-    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, get_opts_with_desc("Rename"))
-    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, get_opts_with_desc("Code actions"))
-
     -- Navigate between diagnostics
     vim.keymap.set("n", "]d", vim.diagnostic.goto_next, get_opts_with_desc("Next diagnostic"))
     vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, get_opts_with_desc("Previous diagnostic"))
@@ -107,8 +103,12 @@ local on_attach = function(_, bufnr)
     vim.keymap.set("n", "<leader>=", vim.lsp.buf.format, get_opts_with_desc("Format file"))
     vim.keymap.set("n", "<leader>fd", telescope_builtin.diagnostics, get_opts_with_desc("Open diagnostics"))
 
-    -- [re]start neovim LSP client
-    vim.keymap.set("n", '<leader>lr', '<cmd>LspRestart<cr>', get_opts_with_desc("Restart LSP server"))
+    -- [r]ename symbol and code [a]ctions
+    vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, get_opts_with_desc("Rename symbol under the cursor"))
+    vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, get_opts_with_desc("Code actions"))
+
+    -- [R]estart neovim LSP client
+    vim.keymap.set("n", '<leader>lR', '<cmd>LspRestart<cr>', get_opts_with_desc("Restart LSP server"))
 end
 
 -- Capabilities from nvim-cmp
