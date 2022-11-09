@@ -68,8 +68,6 @@ require('packer').startup(function(use)
 
     use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
 
-    use { 'rcarriga/nvim-notify', config = function() vim.notify = require('notify') end }
-
     -- Themes
     use { 'shaunsingh/nord.nvim', config = function() vim.cmd [[colorscheme nord]] end }
     use { 'catppuccin/nvim', as = 'catppuccin' }

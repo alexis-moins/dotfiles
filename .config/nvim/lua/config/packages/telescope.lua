@@ -21,6 +21,7 @@ telescope.setup({
             theme = "ivy",
             path = "%:p:h",
             quiet = true,
+            display_stat = false,
 
             hidden = true,
             hijack_netrw = true,
