@@ -71,7 +71,7 @@ require('packer').startup(function(use)
     use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
 
     -- Themes
-    use { 'shaunsingh/nord.nvim', config = function() vim.cmd [[colorscheme nord]] end }
+    use { 'shaunsingh/nord.nvim', config = function() vim.cmd [[colorscheme catppuccin-macchiato]] end }
     use { 'catppuccin/nvim', as = 'catppuccin' }
 
     -- Treesitter

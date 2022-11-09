@@ -5,10 +5,6 @@ vim.opt.termguicolors = true
 vim.opt.signcolumn = 'no'
 vim.opt.cursorline = true
 
--- Numbers
--- vim.opt.relativenumber = true
--- vim.opt.number = true
-
 -- Enable mouse support in all modes
 vim.opt.mouse = 'a'
 
