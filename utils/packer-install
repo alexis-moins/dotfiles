@@ -1,7 +1,0 @@
-#!/usr/bin/env fish
-set -l xdg_data_home "$HOME/.local/share"
-set -l install_path "$xdg_data_home//nvim/site/pack/packer/start/packer.nvim"
-
-test -d $install_path && echo 'packer already installed!' && exit 0
-
-git clone https://github.com/wbthomason/packer.nvim $install_path

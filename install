@@ -9,10 +9,6 @@ echo `pwd`
 
 ln -sf "$(pwd)/wallpapers" ~/Documents/wallpapers
 
-brew bundle install
-
-fish utils/packer-install
-
 stow --delete . && stow --stow --verbose .
 
 cp -vf .hyper.js ~/.hyper.js

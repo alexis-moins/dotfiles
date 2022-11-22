@@ -1,6 +1,7 @@
 utils
+colors
 wallpapers
-.DS_Store
+\.DS_Store
 
 README.*
 Brewfile.*

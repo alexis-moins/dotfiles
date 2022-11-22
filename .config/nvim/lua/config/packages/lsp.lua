@@ -9,11 +9,7 @@ local servers = {
     'emmet_ls',
     'tsserver',
     'sumneko_lua',
-    'phpactor',
-    'intelephense',
-    'jdtls',
     'gopls',
-    'svelte',
 
     -- volar is setup at the bottom
 }
@@ -25,16 +21,11 @@ local packages = {
     'typescript-language-server',
     'lua-language-server',
     'vue-language-server',
-    'intelephense',
-    'phpactor',
-    'jdtls',
     'gopls',
-    'svelte-language-server',
 
     -- Formatters
     'autopep8',
     'prettier',
-    -- 'php-cs-fixer',
 }
 
 -- Changing mason's UI
@@ -64,6 +55,11 @@ local sources = {
     null_ls.builtins.formatting.prettier.with {
         extra_args = { "--no-config", "--tab-width", "4" }
     },
+
+    null_ls.builtins.formatting.reorder_python_imports,
+
+    null_ls.builtins.formatting.yamlfmt,
+    null_ls.builtins.diagnostics.yamllint,
 }
 
 null_ls.setup { sources = sources }
@@ -100,8 +96,12 @@ local on_attach = function(_, bufnr)
     vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, get_opts_with_desc("Previous diagnostic"))
 
     -- Formatting and diagnostic list
-    vim.keymap.set("n", "<leader>=", vim.lsp.buf.format, get_opts_with_desc("Format file"))
-    vim.keymap.set("n", "<leader>fd", telescope_builtin.diagnostics, get_opts_with_desc("Open diagnostics"))
+    vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, get_opts_with_desc("Format file"))
+
+    -- Diagnostics
+    vim.keymap.set("n", "<leader>lD", telescope_builtin.diagnostics, get_opts_with_desc("Show diagnostics (workspace)"))
+    vim.keymap.set("n", "<leader>ld", ':Telescope diagnostics bufnr=0<CR>',
+        get_opts_with_desc("Show diagnostics (buffer)"))
 
     -- [r]ename symbol and code [a]ctions
     vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, get_opts_with_desc("Rename symbol under the cursor"))

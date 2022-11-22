@@ -4,45 +4,58 @@
 # vim: ft=gitconfig syn=gitconfig
 
 [user]
-    # The default name
     name = alexis-moins
-    # The default email
     email = moinsalexis@gmail.com
+
 [init]
-    # Use 'main' as the default branch name
     defaultBranch = main
+
 [core]
-    # Use neovim as the default editor
     editor = nvim
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
 [color]
-    # Always allow colored output by default
     ui = true
+
 [color "branch"]
-    # Current branch is light green
-    current = green bold
-    # Local branches are white
-    local = normal
-    # Remote branches are red
     remote = red
-    # Worktrees are cyan
+    local = normal
     worktree = cyan
+    current = green bold
+
+[delta]
+    navigate = true
+    side-by-side = true
+
+    syntax-theme = Nord
+    line-numbers-minus-style      = red
+    line-numbers-zero-style       = black bold
+    line-numbers-plus-style       = green
+    line-numbers-left-style       = blue
+    line-numbers-right-style      = blue
+
+    file-modified-label           = ""
+
+
 [diff]
-    # Use 'vimdiff' as the diff interface
-    tool = vimdiff
+    colorMoved = default
+
 [difftool]
-    # Don't display any prompt
     prompt = false
+
 [merge]
-    # Use vim as the default merge tool
-    tool = vimdiff
+    conflictstyle = diff3
+
 [mergetool]
-    # Never keep .orig files after a merge
-    keepBackup = false
-    # Don't display any prompt
     prompt = false
+    keepBackup = false
+
 [rerere]
-    # Automatically try to resolve merge conflicts based on previous resolutions
     enabled = 1
+
 [alias]
     # Commit faster
     ci = commit

@@ -2,11 +2,14 @@
 vim.opt.termguicolors = true
 
 -- Never display sig,s
-vim.opt.signcolumn = 'no'
+vim.opt.signcolumn = 'number'
 vim.opt.cursorline = true
 
 -- Enable mouse support in all modes
 vim.opt.mouse = 'a'
+
+-- Add line number
+vim.opt.number = true
 
 -- Always use system clipboard
 vim.opt.clipboard:append('unnamedplus')

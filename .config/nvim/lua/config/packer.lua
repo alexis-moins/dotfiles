@@ -1,19 +1,3 @@
--- {{{ Bootstrapping
-local ensure_packer = function()
-    local fn = vim.fn
-    local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-    if fn.empty(fn.glob(install_path)) > 0 then
-        fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
-        vim.cmd [[packadd packer.nvim]]
-        return true
-    end
-    return false
-end
-
-local packer_bootstrap = ensure_packer()
--- }}}
-
--- Packages
 require('packer').startup(function(use)
 
     use 'nvim-lua/plenary.nvim'
@@ -71,18 +55,13 @@ require('packer').startup(function(use)
     use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
 
     -- Themes
-    use { 'shaunsingh/nord.nvim', config = function() vim.cmd [[colorscheme catppuccin-macchiato]] end }
+    use { 'shaunsingh/nord.nvim', config = function() vim.cmd [[colorscheme nord]] end }
     use { 'catppuccin/nvim', as = 'catppuccin' }
 
     -- Treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use 'nvim-treesitter/nvim-treesitter-textobjects'
     use 'nvim-treesitter/playground'
-
-    if packer_bootstrap then
-        require('packer').sync()
-    end
-
 end)
 
 -- Creating autocommand group for Packer

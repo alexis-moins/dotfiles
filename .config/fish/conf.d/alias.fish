@@ -1,6 +1,13 @@
 alias nvimrc 'nvim $HOME/.config/nvim/init.lua'
+
 # Copy stuff verbosely (-v) and ask for confirmation (-i)
 alias cp 'cp -iv'
+
+# Active a python virtual env
+alias activate 'source (fd activate.fish .venv)'
+
+# Create a new python venv
+alias venv 'python -m venv'
 
 # Rename / move stuff verbosely (-v) and ask for confirmation (-i)
 alias mv 'mv -iv'
