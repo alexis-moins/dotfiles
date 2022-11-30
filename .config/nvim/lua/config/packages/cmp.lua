@@ -1,5 +1,7 @@
 local cmp = require('cmp')
 
+vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
+
 cmp.setup({
 
     -- Integrating snippet engine
@@ -9,23 +11,22 @@ cmp.setup({
         end,
     },
 
-    window = {
-        completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered(),
-    },
-
-    view = {
-        entries = "custom"
-    },
-
-    -- Mappings
     mapping = {
-        ['<C-k>'] = cmp.mapping.select_prev_item(),
-        ['<C-j>'] = cmp.mapping.select_next_item(),
         ['<C-b>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
+
+        ['<C-k>'] = cmp.mapping.select_prev_item(),
+        ['<C-j>'] = cmp.mapping.select_next_item(),
+
         ['<C-n>'] = cmp.mapping.complete(),
-        ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+
+        ['<C-y>'] = function()
+            if cmp.get_selected_entry() == nil then
+                cmp.abort()
+            else
+                cmp.confirm()
+            end
+        end,
     },
 
     -- Where the cmp is taken from
@@ -33,10 +34,10 @@ cmp.setup({
         { name = 'nvim_lua' },
         { name = 'nvim_lsp' },
         { name = 'nvim_lsp_signature_help' },
-        { name = "neorg" },
         { name = 'luasnip' },
-        { name = 'buffer', keyword_length = 2 },
         { name = 'path' },
+    }, {
+        { name = 'buffer', keyword_length = 2 },
     }),
 
     formatting = {
@@ -54,13 +55,4 @@ cmp.setup({
         end
     },
 
-
-
-})
-
-cmp.setup.cmdline({ '/', '?' }, {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = {
-        { name = 'buffer' }
-    }
 })

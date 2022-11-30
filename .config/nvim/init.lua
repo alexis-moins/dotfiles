@@ -57,15 +57,19 @@ vim.opt.listchars = { eol = '¬', tab = '> ', trail = '-', extends = '!', preced
 
 -- Don't show commands below the statusline
 vim.opt.showcmd = false
-vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
 
 -- Show which-key menu faster
 vim.opt.timeoutlen = 500
+vim.opt.updatetime = 200
 
 -- Nord options
 vim.g.nord_italic = false
 vim.g.nord_borders = true
 vim.g.nord_contrast = true
+
+vim.cmd.colorscheme 'nord'
+
+vim.cmd 'hi Normal guibg=NONE ctermbg=NONE'
 
 -- Initializing config
 require('config')

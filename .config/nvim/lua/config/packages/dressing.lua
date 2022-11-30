@@ -7,8 +7,6 @@ dressing.setup({
         winblend = 0,
 
         winhighlight = "NormalFloat:Normal,FloatBorder:Directory",
-
-        -- relative = "editor",
     }
 
 })

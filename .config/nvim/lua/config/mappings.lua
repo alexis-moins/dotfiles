@@ -1,9 +1,13 @@
 -- Leader key
 vim.g.mapleader = ' '
 
+local keymap = function(modes, keys, command, desc)
+    vim.keymap.set(modes, keys, command, { silent = true, desc = desc })
+end
+
 -- Gloabal mappings
 vim.keymap.set('n', '<leader>ins', '<cmd>PackerSync<cr>')
-vim.keymap.set('n', '<leader>pack', '<cmd>Mason<cr>')
+vim.keymap.set('n', '<leader>lm', '<cmd>Mason<cr>', { desc = "Open Mason popup" })
 vim.keymap.set("n", '<leader>li', '<cmd>LspInfo<cr>', { desc = "Show LSP client information" })
 vim.keymap.set('n', '<leader>so', '<cmd>source %<cr>')
 
@@ -12,6 +16,7 @@ vim.keymap.set('i', 'jk', '<C-c>')
 -- Increase, decrease and select all
 vim.keymap.set('n', '+', '<C-a>', { desc = "Increase number" })
 vim.keymap.set('n', '-', '<C-x>', { desc = "Decrease number" })
+
 vim.keymap.set('n', '<leader>a', 'gg<S-v>G', { desc = "Select all buffer" })
 
 -- Paste and x without yanking text
@@ -37,3 +42,6 @@ vim.keymap.set('v', '<C-j>', ":m '>+1<cr>gv=gv")
 vim.keymap.set('v', '<C-k>', ":m '<-2<cr>gv=gv")
 vim.keymap.set('n', '<C-j>', '<cmd>m .+1<cr>==')
 vim.keymap.set('n', '<C-k>', '<cmd>m .-2<cr>==')
+
+keymap('n', 'n', 'nzz')
+keymap('n', 'N', 'Nzz')

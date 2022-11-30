@@ -1,35 +1,5 @@
--- {{{ mason.nvim
-local mason = require('mason')
--- local mason_lsp = require('mason-lspconfig').setup()
-local mason_installer = require('mason-tool-installer')
-
-local servers = {
-    -- LSP
-    'pyright',
-    'emmet_ls',
-    'tsserver',
-    'sumneko_lua',
-    'gopls',
-
-    -- volar is setup at the bottom
-}
-
-local packages = {
-    -- LSP
-    'pyright',
-    'emmet-ls',
-    'typescript-language-server',
-    'lua-language-server',
-    'vue-language-server',
-    'gopls',
-
-    -- Formatters
-    'autopep8',
-    'prettier',
-}
-
 -- Changing mason's UI
-mason.setup {
+require('mason').setup {
     ui = {
         icons = {
             package_installed = "*",
@@ -39,39 +9,19 @@ mason.setup {
     }
 }
 
-mason_installer.setup {
-    -- Automatically install the following tools
-    ensure_installed = packages
+require('mason-lspconfig').setup {
+    ensure_installed = {
+        'pyright',
+        'emmet_ls',
+        'tsserver',
+        'sumneko_lua',
+    }
 }
--- }}}
-
--- {{{ null-ls.nvim
-local null_ls = require("null-ls")
-
--- Sources to register
-local sources = {
-    null_ls.builtins.formatting.autopep8,
-
-    null_ls.builtins.formatting.prettier.with {
-        extra_args = { "--no-config", "--tab-width", "4" }
-    },
-
-    null_ls.builtins.formatting.reorder_python_imports,
-
-    null_ls.builtins.formatting.yamlfmt,
-    null_ls.builtins.diagnostics.yamllint,
-}
-
-null_ls.setup { sources = sources }
--- }}}
-
--- {{{ nvim-lspconfig
-
-local lsp = require('lspconfig')
-local telescope_builtin = require('telescope.builtin')
 
 -- Default function to run when attaching a client its LSP server
 local on_attach = function(_, bufnr)
+    local telescope_builtin = require('telescope.builtin')
+
     -- Default options
     local get_opts_with_desc = function(description)
         return { noremap = true, silent = true, buffer = bufnr, desc = description }
@@ -115,37 +65,41 @@ end
 local client_capabilities = vim.lsp.protocol.make_client_capabilities()
 local capabilities = require('cmp_nvim_lsp').default_capabilities(client_capabilities)
 
--- Configuring all servers
-for _, server in ipairs(servers) do
-    lsp[server].setup({
-        -- Execute this when attaching a LSP server to the current buffer
-        on_attach = on_attach,
+require('mason-lspconfig').setup_handlers {
 
-        -- Inform servers about the capabilities. See nvim-cmp
-        capabilities = capabilities,
+    -- Default handler called for each server installed with mason
+    function(server_name)
+        require('lspconfig')[server_name].setup {
+            capabilities = capabilities,
+            on_attach = on_attach,
+        }
+    end,
 
-        settings = {
-            -- Settings only applied to lua filetype
-            Lua = {
-                -- Inject `vim` as a global for diagnostics
-                diagnostics = {
-                    globals = { 'vim' }
+    -- Server-specific config below
+    ['sumneko_lua'] = function()
+        require('lspconfig').sumneko_lua.setup {
+            capabilities = capabilities,
+            on_attach = on_attach,
+
+            settings = {
+                Lua = {
+                    diagnostics = {
+                        globals = { 'vim' }
+                    }
                 }
             }
         }
-    })
-end
+    end
+}
 
-lsp['volar'].setup({
-    on_attach = on_attach,
+local null_ls = require("null-ls")
 
-    capabilities = capabilities,
+require("null-ls").setup {
+    sources = {
+        null_ls.builtins.formatting.autopep8,
 
-    init_options = {
-        typescript = {
-            serverPath = '/usr/local/lib/node_modules/typescript/lib/tsserverlibrary.js'
-        }
+        null_ls.builtins.formatting.prettier.with {
+            extra_args = { "--no-config", "--tab-width", "4" }
+        },
     }
-})
-
--- }}}
+}
