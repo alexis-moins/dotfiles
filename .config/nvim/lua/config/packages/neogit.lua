@@ -7,4 +7,8 @@ require('neogit').setup {
 
     -- No more hideous context highlighting
     disable_context_highlighting = true,
+
+    disable_commit_confirmation = true,
+
+    disable_builtin_notifications = true,
 }
