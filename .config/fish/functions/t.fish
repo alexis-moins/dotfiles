@@ -11,14 +11,15 @@ function t -a directory
 
     if test -z $TMUX
         # Outside of tmux
-        test -z $window
+        test -z "$window"
         and tmux new-session -c $match -s $session_name
         and return
  
         or tmux attach -t (string split -f 1 '|' $window)
     else
         # Inside of tmux
-        test -z $window
+        echo $window
+        test -z "$window"
         and tmux new-session -c $match -d -s $session_name
         and tmux switch-client -t $session_name
 
