@@ -71,5 +71,8 @@ vim.cmd.colorscheme 'nord'
 
 vim.cmd 'hi Normal guibg=NONE ctermbg=NONE'
 
+vim.cmd 'hi! link NeogitDiffAdd String'
+vim.cmd 'hi! link NeogitDiffDelete Debug'
+
 -- Initializing config
 require('config')

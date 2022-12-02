@@ -38,14 +38,15 @@ renamed = "$count"
 
 [python]
 symbol = "python "
-# style = "#8A889D"
 
 [nodejs]
 detect_extensions = []
+symbol = "node "
+style = "yellow"
 
 [lua]
 symbol = "lua "
-style = "bold black"
+style = "yellow"
 
 [character]
 # ❯ or ➜

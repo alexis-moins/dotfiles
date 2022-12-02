@@ -12,33 +12,15 @@
 
 [core]
     editor = nvim
-    pager = delta
-
-[interactive]
-    diffFilter = delta --color-only
 
 [color]
     ui = true
 
 [color "branch"]
-    remote = red
+    remote = blue
     local = normal
     worktree = cyan
-    current = green bold
-
-[delta]
-    navigate = true
-    side-by-side = true
-
-    syntax-theme = Nord
-    line-numbers-minus-style      = red
-    line-numbers-zero-style       = black bold
-    line-numbers-plus-style       = green
-    line-numbers-left-style       = blue
-    line-numbers-right-style      = blue
-
-    file-modified-label           = ""
-
+    current = green
 
 [diff]
     colorMoved = default
@@ -57,31 +39,24 @@
     enabled = 1
 
 [alias]
-    # Commit faster
     ci = commit
     cim = commit -m
-    # Display the status of the repository
     st = status
-    # Checkout the branches of the repository
     co = checkout
-    # Create a new branch / show branches
-    br = branch -vv
-    # Faster difftool
+    br = branch -va
     dt = difftool
-    # Faster mergetool
     mt = mergetool
-    # Add currently staged files to the last commit without changing its message
     amend = commit --amend --no-edit
-    # Apply the .gitignore file to all files in the repo
     ignore = !git rm -r --cached . && git add -A
-    # Display commits with a pretty formatting
     ls = log --all
-    # Start a new local repository and perform initial commit
     this = !git init && git add -A && git commit -m 'feat: 🎉 initial commit'
-    #
     oops = !git stash && git co -b oops && git stash pop
+
 [format]
-    # Formatting used as default by the `--format` option
     pretty = format:%C(auto)%h [%D] %C(brightblue)%an%C(reset) %s (%C(cyan)%cr%C(reset))
+
 [push]
 	autoSetupRemote = true
+
+[remote "origin"]
+	prune = true
