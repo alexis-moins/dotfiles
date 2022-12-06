@@ -45,3 +45,6 @@ vim.keymap.set('n', '<C-k>', '<cmd>m .-2<cr>==')
 
 keymap('n', 'n', 'nzz')
 keymap('n', 'N', 'Nzz')
+
+vim.keymap.set('n', '<leader>ss', '<cmd>mksession!<cr>')
+vim.keymap.set('n', '<leader>sr', '<cmd>source Session.vim<cr>')

@@ -49,7 +49,6 @@ local on_attach = function(_, bufnr)
     vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, get_opts_with_desc("Format file"))
 
     -- Diagnostics
-    vim.keymap.set("n", "<leader>lD", telescope_builtin.diagnostics, get_opts_with_desc("Show diagnostics (workspace)"))
     vim.keymap.set("n", "<leader>ld", ':Telescope diagnostics bufnr=0<CR>',
         get_opts_with_desc("Show diagnostics (buffer)"))
 

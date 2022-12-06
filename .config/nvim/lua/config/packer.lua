@@ -33,18 +33,22 @@ require('packer').startup(function(use)
     use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
 
     -- lsp and tools
-    use({
+    use {
         'neovim/nvim-lspconfig',
         'williamboman/mason.nvim',
 
         'jose-elias-alvarez/null-ls.nvim',
         'williamboman/mason-lspconfig.nvim',
-    })
+
+        'jayp0521/mason-nvim-dap.nvim',
+    }
 
     -- Debugger
-    use({
-        'mfussenegger/nvim-dap'
-    })
+    use {
+        'mfussenegger/nvim-dap',
+        'rcarriga/nvim-dap-ui',
+        'mfussenegger/nvim-dap-python',
+    }
 
     -- Completion
     use { 'hrsh7th/nvim-cmp', requires = { 'hrsh7th/cmp-nvim-lsp' } }

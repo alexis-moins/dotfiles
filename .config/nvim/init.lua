@@ -62,6 +62,9 @@ vim.opt.showcmd = false
 vim.opt.timeoutlen = 500
 vim.opt.updatetime = 200
 
+-- Treat - as part of a word
+vim.opt.iskeyword:append({ '-' })
+
 -- Nord options
 vim.g.nord_italic = false
 vim.g.nord_borders = true
@@ -70,6 +73,7 @@ vim.g.nord_contrast = true
 vim.cmd.colorscheme 'nord'
 
 vim.cmd 'hi Normal guibg=NONE ctermbg=NONE'
+vim.cmd 'hi! link ModeMsg String'
 
 vim.cmd 'hi! link NeogitDiffAdd String'
 vim.cmd 'hi! link NeogitDiffDelete Debug'

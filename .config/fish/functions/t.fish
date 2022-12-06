@@ -18,7 +18,6 @@ function t -a directory
         or tmux attach -t (string split -f 1 '|' $window)
     else
         # Inside of tmux
-        echo $window
         test -z "$window"
         and tmux new-session -c $match -d -s $session_name
         and tmux switch-client -t $session_name

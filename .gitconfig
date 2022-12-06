@@ -41,14 +41,19 @@
 [alias]
     ci = commit
     cim = commit -m
+
     st = status
     co = checkout
-    br = branch -va
+    br = branch
+
     dt = difftool
     mt = mergetool
+
+    ls = log --all
+    bl = branch -va
+
     amend = commit --amend --no-edit
     ignore = !git rm -r --cached . && git add -A
-    ls = log --all
     this = !git init && git add -A && git commit -m 'feat: 🎉 initial commit'
     oops = !git stash && git co -b oops && git stash pop
 
