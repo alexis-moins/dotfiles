@@ -13,14 +13,14 @@ vim.keymap.set('n', '<leader>so', '<cmd>source %<cr>')
 
 vim.keymap.set('i', 'jk', '<C-c>')
 
--- Increase, decrease and select all
-vim.keymap.set('n', '+', '<C-a>', { desc = "Increase number" })
-vim.keymap.set('n', '-', '<C-x>', { desc = "Decrease number" })
-
 vim.keymap.set('n', '<leader>a', 'gg<S-v>G', { desc = "Select all buffer" })
 
 -- Paste and x without yanking text
 vim.keymap.set('x', '<leader>p', '"_dP', { desc = "Paste text without yanking" })
+vim.keymap.set('n', '<leader>x', '"_x')
+
+vim.keymap.set('n', '<C-U>', '<C-U>zz')
+vim.keymap.set('n', '<C-D>', '<C-D>zz')
 
 -- Quickfix list
 vim.keymap.set('n', '[q', '<cmd>cprevious<cr>', { desc = "Previous quickfix item" })
