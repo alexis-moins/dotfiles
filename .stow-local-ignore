@@ -1,13 +1,11 @@
 utils
 colors
-wallpapers
 \.DS_Store
 
 README.*
 Brewfile.*
 
 install
-\.hyper\.js
 
 \.git
 \.gitignore

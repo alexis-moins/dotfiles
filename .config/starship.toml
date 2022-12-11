@@ -1,7 +1,7 @@
 format = """
 $directory\
 $git_branch$git_state$git_status\
-$python$nodejs$lua$php\
+$python$nodejs$lua\
 $character
 """
 

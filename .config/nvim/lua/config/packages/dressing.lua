@@ -3,10 +3,13 @@ local dressing = require('dressing')
 dressing.setup({
 
     input = {
-        -- No transparency
-        winblend = 0,
 
-        winhighlight = "NormalFloat:Normal,FloatBorder:Directory",
+        win_options = {
+            -- No transparency
+            winblend = 0,
+
+            winhighlight = "NormalFloat:Normal,FloatBorder:Directory",
+        }
     }
 
 })

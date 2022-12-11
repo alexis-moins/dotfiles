@@ -1,6 +1,6 @@
 local cmp = require('cmp')
 
-vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 
 cmp.setup({
 
@@ -9,6 +9,10 @@ cmp.setup({
         expand = function(args)
             require('luasnip').lsp_expand(args.body)
         end,
+    },
+
+    experimental = {
+        ghost_text = true
     },
 
     mapping = {

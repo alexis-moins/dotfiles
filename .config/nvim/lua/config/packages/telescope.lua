@@ -31,6 +31,11 @@ telescope.setup({
             previewer = false,
         },
 
+        git_files = {
+            theme = 'dropdown',
+            previewer = false,
+        },
+
         oldfiles = _ivy,
         live_grep = _ivy,
         diagnostics = _ivy,
@@ -67,7 +72,10 @@ vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers, { desc = "Find buff
 vim.keymap.set('n', '<leader>fm', telescope_builtin.man_pages, { desc = "Find man pages" })
 vim.keymap.set('n', '<leader>fg', telescope_builtin.live_grep, { desc = "Grep files" })
 vim.keymap.set('n', '<leader>fh', telescope_builtin.help_tags, { desc = "Find help pages" })
-vim.keymap.set('n', '<leader>ff', telescope_builtin.find_files, { desc = "Find files" })
+
+vim.keymap.set('n', '<leader>ff', telescope_builtin.git_files, { desc = "Find files (git)" })
+vim.keymap.set('n', '<leader>fF', telescope_builtin.find_files, { desc = "Find files" })
+
 vim.keymap.set('n', '<leader>fe', telescope_builtin.command_history, { desc = "Find commands (history)" })
 vim.keymap.set('n', '<leader>fr', telescope_builtin.oldfiles, { desc = "Find recent files" })
 vim.keymap.set('n', '<leader>fk', telescope_builtin.keymaps, { desc = "Find keymaps" })

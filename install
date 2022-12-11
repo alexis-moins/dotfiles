@@ -2,8 +2,6 @@
 set -e
 
 [[ ! -d "${HOME}/.config" ]] && mkdir -v "${HOME}/.config"
-[[ ! -d "${HOME}/code" ]] && mkdir -v "${HOME}/code"
-
-ln -sf "$(pwd)/wallpapers" ~/wallpapers
+[[ ! -d "${HOME}/dev" ]] && mkdir -v "${HOME}/dev"
 
 stow --delete . && stow --stow --verbose .

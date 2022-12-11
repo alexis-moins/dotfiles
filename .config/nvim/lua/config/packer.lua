@@ -31,6 +31,7 @@ require('packer').startup(function(use)
     use 'saadparwaiz1/cmp_luasnip'
 
     use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
+    use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
 
     -- lsp and tools
     use {
@@ -77,6 +78,7 @@ require('packer').startup(function(use)
     -- Treesitter
     use {
         { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },
+        'nvim-treesitter/nvim-treesitter-textobjects',
         'nvim-treesitter/playground',
     }
 
