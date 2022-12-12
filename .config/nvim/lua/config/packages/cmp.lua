@@ -22,19 +22,20 @@ cmp.setup({
         ['<C-k>'] = cmp.mapping.select_prev_item(),
         ['<C-j>'] = cmp.mapping.select_next_item(),
 
-        ['<C-n>'] = cmp.mapping.complete(),
-
-        ['<C-y>'] = function()
-            if cmp.get_selected_entry() == nil then
+        ['<C-n>'] = function()
+            if cmp.visible() then
                 cmp.abort()
             else
-                cmp.confirm()
+                cmp.complete()
             end
         end,
+
+        ['<C-y>'] = cmp.mapping.confirm({ select = true })
     },
 
     -- Where the cmp is taken from
     sources = cmp.config.sources({
+        { name = 'copilot' },
         { name = 'nvim_lua' },
         { name = 'nvim_lsp' },
         { name = 'nvim_lsp_signature_help' },
@@ -47,6 +48,7 @@ cmp.setup({
     formatting = {
         format = function(entry, vim_item)
             local menu = {
+                copilot = '[copilot]',
                 nvim_lua = '[lua]',
                 nvim_lsp = '[LSP]',
                 luasnip = '[snippet]',
@@ -56,7 +58,8 @@ cmp.setup({
 
             vim_item.menu = menu[entry.source.name]
             return vim_item
-        end
+
+        end,
     },
 
 })

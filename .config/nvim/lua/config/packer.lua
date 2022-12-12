@@ -14,18 +14,6 @@ require('packer').startup(function(use)
 
     use { 'ggandor/leap.nvim', config = function() require('leap').add_default_mappings() end }
 
-    use({
-        'alexis-moins/nvim-tabline',
-        config = function()
-            require('tabline').setup({
-                show_index = false, -- show tab index
-                show_modify = true, -- show buffer modification indicator
-                modify_indicator = '[+]', -- modify indicator
-                no_name = '[No name]', -- no name buffer name
-            })
-        end,
-    })
-
     -- Lsp
     use 'L3MON4D3/LuaSnip'
     use 'saadparwaiz1/cmp_luasnip'
@@ -56,6 +44,9 @@ require('packer').startup(function(use)
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-nvim-lsp-signature-help'
+
+    use 'feline-nvim/feline.nvim'
+    use 'nvim-lualine/lualine.nvim'
 
     -- Telescope
     use 'nvim-telescope/telescope.nvim'

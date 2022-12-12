@@ -14,8 +14,6 @@ local on_attach = function(_)
     -- Stage entire buffer
     vim.keymap.set('n', '<leader>ga', git_signs.stage_buffer, { desc = "Stage buffer" })
     vim.keymap.set('n', '<leader>gS', git_signs.reset_buffer, { desc = "Reset buffer" })
-
-    vim.opt_local.winbar = '%=%#Directory#%{b:gitsigns_status} %#Type#%m %0*%t'
 end
 
 -- Global setup
