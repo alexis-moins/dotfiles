@@ -6,18 +6,27 @@ local nord_theme = {
         b = 'Normal',
         c = 'Normal',
     },
-    inactive = {},
+    inactive = {
+        a = 'Normal',
+        b = 'Normal',
+        c = 'Normal',
+    },
 }
 
-local git_branch = {
-    'branch',
-    color = 'Float'
-}
+-- local git_branch = {
+--     'branch',
+--     color = 'Boolean',
+--     icons_enabled = false,
+-- }
 
-local filename = {
-    'filename',
-    color = 'Normal',
-    file_status = false,
+local tabs = {
+    'tabs',
+    mode = 1,
+
+    tabs_color = {
+        active = 'Normal',
+        inactive = 'Comment',
+    },
 }
 
 
@@ -31,7 +40,7 @@ local diagnostics = {
 
 
 local winbar = {
-    lualine_z = { '%#Directory#%m', diagnostics, filename }
+    lualine_z = { '%#Directory#%m', 'diff', diagnostics, tabs }
 }
 
 local statusline = {
@@ -41,14 +50,14 @@ local statusline = {
 
     lualine_x = {},
     lualine_y = {},
-    lualine_z = { 'diff', git_branch },
+    lualine_z = {},
 }
 
 lualine.setup({
     options = {
         theme = nord_theme,
-        section_separators = { left = ' ', right = ''},
-        component_separators = { left = ' ', right = ''},
+        section_separators = { left = ' ', right = '' },
+        component_separators = { left = ' ', right = '' },
 
         refresh = {
             winbar = 200,
@@ -60,19 +69,4 @@ lualine.setup({
 
     winbar = winbar,
     inactive_winbar = winbar,
-
-    tabline = {
-        lualine_a = { 'buffers' },
-        lualine_z = {
-            {
-                'tabs',
-                tabs_color = {
-                    active = 'IncSearch',
-                    inactive = 'Normal'
-                }
-            }
-        }
-    }
 })
-
-vim.opt.showtabline = 1

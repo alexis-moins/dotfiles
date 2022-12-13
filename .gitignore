@@ -1,6 +1,7 @@
 # vim
 *.swp
 viminfo*
+**/nvim/spell/
 
 # Brew lock
 Brewfile.lock.json
