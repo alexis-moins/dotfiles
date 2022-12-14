@@ -30,12 +30,12 @@ vim.opt.path = { '.', '**' }
 vim.opt.laststatus = 0
 vim.opt.ruler = false
 
--- Never display tabline
-vim.opt.showtabline = 0
-
 -- Just so that it is beautiful
 vim.opt.scrolloff = 5
+vim.opt.wrap = false
+
 vim.opt.linebreak = true
+vim.opt.spelllang = { 'en', 'fr' }
 
 -- Folds
 vim.opt.foldmethod = 'marker'

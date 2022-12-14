@@ -1,10 +1,13 @@
+-- Optimize up startup time
+require 'impatient'
+
+-- Standard config
 require 'config.options'
 require 'config.mappings'
 
--- Package manager
-require 'config.packer'
+require 'config.filetype'
 
--- packages configuration
+-- Packages config
 require 'config.packages.lualine'
 
 require 'config.packages.lsp'

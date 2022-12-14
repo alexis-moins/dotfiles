@@ -10,6 +10,7 @@ require('packer').startup(function(use)
         }
     end }
 
+    use 'lewis6991/impatient.nvim'
     use 'stevearc/dressing.nvim'
 
     use { 'ggandor/leap.nvim', config = function() require('leap').add_default_mappings() end }

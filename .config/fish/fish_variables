@@ -20,6 +20,7 @@ SETUVAR _fish_abbr_fr:tmux\x2dfreeze
 SETUVAR _fish_abbr_gS:git\x20stash
 SETUVAR _fish_abbr_ga:git\x20add\x20\x2dA
 SETUVAR _fish_abbr_gg:git\x20switch\x20\x2dc
+SETUVAR _fish_abbr_gl:git\x20ls\x20\x2d20
 SETUVAR _fish_abbr_gs:git\x20status
 SETUVAR _fish_abbr_nu:nvim\x20\x2du\x20NONE
 SETUVAR _fish_abbr_pt:push_that
