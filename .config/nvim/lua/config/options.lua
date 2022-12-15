@@ -10,7 +10,6 @@ vim.opt.mouse = 'a'
 
 -- Add line number
 vim.opt.number = true
-vim.opt.relativenumber = true
 
 -- Always use system clipboard
 vim.opt.clipboard:append('unnamedplus')
