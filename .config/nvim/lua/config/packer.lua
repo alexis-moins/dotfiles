@@ -1,6 +1,4 @@
 require('packer').startup(function(use)
-
-    use 'nvim-lua/plenary.nvim'
     use 'wbthomason/packer.nvim'
 
     use { 'folke/which-key.nvim', config = function() require('which-key').setup {
@@ -13,7 +11,20 @@ require('packer').startup(function(use)
     use 'lewis6991/impatient.nvim'
     use 'stevearc/dressing.nvim'
 
-    use { 'ggandor/leap.nvim', config = function() require('leap').add_default_mappings() end }
+    use {
+        {
+            'ggandor/leap.nvim',
+            config = function()
+                require('leap').add_default_mappings()
+            end
+        },
+        {
+            '~/dev/nvim/leap-spooky.nvim',
+            config = function()
+                require('leap-spooky').setup()
+            end
+        }
+    }
 
     -- Lsp
     use 'L3MON4D3/LuaSnip'
@@ -21,16 +32,17 @@ require('packer').startup(function(use)
 
     use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
 
-    -- lsp and tools
-    use {
+    use { -- LSP and tools
         'neovim/nvim-lspconfig',
-        'williamboman/mason.nvim',
+        requires = {
+            'williamboman/mason.nvim',
+            'williamboman/mason-lspconfig.nvim',
 
-        'jose-elias-alvarez/null-ls.nvim',
-        'williamboman/mason-lspconfig.nvim',
-
-        'jayp0521/mason-nvim-dap.nvim',
+            'j-hui/fidget.nvim'
+        }
     }
+
+    use 'jose-elias-alvarez/null-ls.nvim'
 
     -- Debugger
     use {
@@ -39,18 +51,22 @@ require('packer').startup(function(use)
         'mfussenegger/nvim-dap-python',
     }
 
-    -- Completion
-    use { 'hrsh7th/nvim-cmp', requires = { 'hrsh7th/cmp-nvim-lsp' } }
-    use 'hrsh7th/cmp-nvim-lua'
-    use 'hrsh7th/cmp-buffer'
-    use 'hrsh7th/cmp-path'
-    use 'hrsh7th/cmp-nvim-lsp-signature-help'
+    use { -- Completion
+        'hrsh7th/nvim-cmp',
+        requires = {
+            'hrsh7th/cmp-path',
+            'hrsh7th/cmp-buffer',
+            'hrsh7th/cmp-nvim-lua',
+            'hrsh7th/cmp-nvim-lsp',
+            'hrsh7th/cmp-nvim-lsp-signature-help',
+        }
+    }
 
-    use 'feline-nvim/feline.nvim'
     use 'nvim-lualine/lualine.nvim'
 
     -- Telescope
     use 'nvim-telescope/telescope.nvim'
+
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     use { 'nvim-telescope/telescope-file-browser.nvim' }
 
@@ -61,18 +77,21 @@ require('packer').startup(function(use)
     use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
 
     -- Themes
-    use {
-        'shaunsingh/nord.nvim',
-        'catppuccin/nvim', as = 'catppuccin'
+    use 'shaunsingh/nord.nvim'
+
+    use { -- Highlight, edit, and navigate code
+        'nvim-treesitter/nvim-treesitter',
+        run = function()
+            pcall(require('nvim-treesitter.install').update { with_sync = true })
+        end,
     }
 
-    -- Treesitter
-    use {
-        { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },
+    use { -- Additional text objects via treesitter
         'nvim-treesitter/nvim-treesitter-textobjects',
-        'nvim-treesitter/playground',
+        after = 'nvim-treesitter',
     }
 
+    use { 'nvim-treesitter/playground', after = 'nvim-treesitter' }
 end)
 
 -- Creating autocommand group for Packer

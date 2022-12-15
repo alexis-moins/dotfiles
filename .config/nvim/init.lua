@@ -8,6 +8,7 @@ require 'config.mappings'
 require 'config.filetype'
 
 -- Packages config
+require 'config.packer'
 require 'config.packages.lualine'
 
 require 'config.packages.lsp'
