@@ -1,27 +1,27 @@
 -- Optimize up startup time
 require 'impatient'
 
--- Standard config
-require 'config.options'
-require 'config.mappings'
+-- Default configuration
+require 'alexis.options'
+require 'alexis.mappings'
 
-require 'config.filetype'
+-- Plugin configuration
+require 'alexis.packer'
+require 'alexis.plugin.lualine'
 
--- Packages config
-require 'config.packer'
-require 'config.packages.lualine'
+require 'alexis.plugin.lsp'
+require 'alexis.plugin.debug'
 
-require 'config.packages.lsp'
-require 'config.packages.debug'
+require 'alexis.plugin.cmp'
+require 'alexis.plugin.snippets'
 
-require 'config.packages.cmp'
-require 'config.packages.snippets'
+require 'alexis.plugin.telescope'
+require 'alexis.plugin.treesitter'
 
-require 'config.packages.telescope'
-require 'config.packages.treesitter'
+require 'alexis.plugin.dressing'
+require 'alexis.plugin.gitsigns'
 
-require 'config.packages.dressing'
-require 'config.packages.gitsigns'
+require 'alexis.plugin.which-key'
+require 'alexis.plugin.surround'
 
-require 'config.packages.surround'
 require 'nvim-autopairs'.setup()

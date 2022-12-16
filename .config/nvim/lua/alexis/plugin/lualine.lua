@@ -14,8 +14,8 @@ local nord_theme = {
 }
 
 local git_branch = {
-    'branch',
     color = 'Comment',
+    'branch',
 }
 
 local tabs = {

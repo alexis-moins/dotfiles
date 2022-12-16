@@ -1,7 +1,7 @@
 -- Use 24-bit colors
 vim.opt.termguicolors = true
 
--- Never display sig,s
+-- Never display signs
 vim.opt.signcolumn = 'number'
 vim.opt.cursorline = true
 
@@ -18,7 +18,7 @@ vim.opt.clipboard:append('unnamedplus')
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
--- Prefere a general persistent undo history
+-- Prefer a general persistent undo history
 -- over the use of local swap files
 vim.opt.undofile = true
 vim.opt.swapfile = false
@@ -57,6 +57,7 @@ vim.opt.listchars = { eol = '¬', tab = '> ', trail = '-', extends = '!', preced
 
 -- Don't show commands below the statusline
 vim.opt.showcmd = false
+vim.opt.showtabline = 1
 
 -- Show which-key menu faster
 vim.opt.timeoutlen = 500
@@ -70,7 +71,7 @@ vim.g.nord_italic = false
 vim.g.nord_borders = true
 vim.g.nord_contrast = true
 
-vim.cmd.colorscheme 'nord'
+vim.g.netrw_banner = 0
 
 vim.cmd 'hi Normal guibg=NONE ctermbg=NONE'
 vim.cmd 'hi! link ModeMsg String'

@@ -19,6 +19,7 @@ SETUVAR _fish_abbr_de:dot\x2dedit
 SETUVAR _fish_abbr_fr:tmux\x2dfreeze
 SETUVAR _fish_abbr_gS:git\x20stash
 SETUVAR _fish_abbr_ga:git\x20add\x20\x2dA
+SETUVAR _fish_abbr_gd:git\x20diff
 SETUVAR _fish_abbr_gg:git\x20switch\x20\x2dc
 SETUVAR _fish_abbr_gl:git\x20ls\x20\x2d20
 SETUVAR _fish_abbr_gs:git\x20status

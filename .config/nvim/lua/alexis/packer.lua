@@ -1,14 +1,9 @@
 require('packer').startup(function(use)
+
     use 'wbthomason/packer.nvim'
-
-    use { 'folke/which-key.nvim', config = function() require('which-key').setup {
-            window = {
-                border = 'single',
-            },
-        }
-    end }
-
     use 'lewis6991/impatient.nvim'
+
+    use 'folke/which-key.nvim'
     use 'stevearc/dressing.nvim'
 
     use {
@@ -66,9 +61,7 @@ require('packer').startup(function(use)
 
     -- Telescope
     use 'nvim-telescope/telescope.nvim'
-
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-    use { 'nvim-telescope/telescope-file-browser.nvim' }
 
     -- Editing stuff
     use 'kylechui/nvim-surround'
@@ -77,7 +70,9 @@ require('packer').startup(function(use)
     use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
 
     -- Themes
-    use 'shaunsingh/nord.nvim'
+    use { 'shaunsingh/nord.nvim', config = function()
+        vim.cmd.colorscheme('nord')
+    end }
 
     use { -- Highlight, edit, and navigate code
         'nvim-treesitter/nvim-treesitter',
@@ -92,14 +87,5 @@ require('packer').startup(function(use)
     }
 
     use { 'nvim-treesitter/playground', after = 'nvim-treesitter' }
+
 end)
-
--- Creating autocommand group for Packer
-local group = vim.api.nvim_create_augroup('PackerUserGroup', { clear = true })
-
--- Automatically run :PackerCompile whenever this file is changed
-vim.api.nvim_create_autocmd('BufWritePost', {
-    group = group,
-    command = 'source <afile> | PackerCompile',
-    pattern = 'packer.lua'
-})

@@ -36,10 +36,8 @@ local on_attach = function(_, bufnr)
     vim.keymap.set("n", "gy", telescope_builtin.lsp_type_definitions, get_opts_with_desc("Go to type definition"))
     vim.keymap.set("n", "gi", telescope_builtin.lsp_implementations, get_opts_with_desc("Go to implementations"))
 
-    -- Goto [r]eferences, [s]ymbols in the buffer, [S]ymbols in the workspace
+    -- Goto [r]eferences
     vim.keymap.set("n", "gr", telescope_builtin.lsp_references, get_opts_with_desc("Show references"))
-    vim.keymap.set("n", "gs", telescope_builtin.lsp_document_symbols, get_opts_with_desc("Show symbols"))
-    vim.keymap.set("n", "gS", telescope_builtin.lsp_workspace_symbols, get_opts_with_desc("Show workspace symbols"))
 
     -- Navigate between diagnostics
     vim.keymap.set("n", "]d", vim.diagnostic.goto_next, get_opts_with_desc("Next diagnostic"))

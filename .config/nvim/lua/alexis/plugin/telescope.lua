@@ -1,6 +1,4 @@
--- Telescope
 local telescope = require('telescope')
-local extensions = telescope.extensions
 
 local _dropdown = {
     theme = 'dropdown',
@@ -62,7 +60,6 @@ telescope.setup({
 
 -- Extensions
 telescope.load_extension('fzf')
-telescope.load_extension('file_browser')
 
 -- Mappings
 vim.keymap.set('n', '<leader>fb', require('telescope.builtin').buffers, { desc = "Find buffers" })
@@ -84,6 +81,3 @@ vim.keymap.set('n', '<leader>fB', require('telescope.builtin').git_branches, { d
 -- Commits | Commits from the current branch
 vim.keymap.set('n', '<leader>fc', require('telescope.builtin').git_commits, { desc = "Find git commits" })
 vim.keymap.set('n', '<leader>fC', require('telescope.builtin').git_bcommits, { desc = "Find current branch's commits" })
-
--- File browser extension
-vim.keymap.set('n', '<leader>f.', extensions.file_browser.file_browser, { desc = "Browse files" })
