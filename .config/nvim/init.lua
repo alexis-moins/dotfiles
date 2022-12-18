@@ -5,6 +5,5 @@ require 'impatient'
 require 'alexis.options'
 require 'alexis.mappings'
 
--- Plugin configuration
+-- Package manager
 require 'alexis.packer'
-require 'nvim-autopairs'.setup()

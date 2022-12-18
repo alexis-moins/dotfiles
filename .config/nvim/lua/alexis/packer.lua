@@ -59,13 +59,24 @@ require('packer').startup(function(use)
 
     use 'nvim-lualine/lualine.nvim'
 
+    use { 'lukas-reineke/indent-blankline.nvim', config = function()
+        require('indent_blankline').setup({
+            -- use_treesitter = true,
+            -- use_treesitter_scope = true,
+            show_first_indent_level = false,
+        })
+    end }
+
     -- Telescope
     use 'nvim-telescope/telescope.nvim'
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
     -- Editing stuff
     use 'kylechui/nvim-surround'
-    use 'windwp/nvim-autopairs'
+
+    use { 'windwp/nvim-autopairs', config = function()
+        require('nvim-autopairs').setup()
+    end }
 
     use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
 

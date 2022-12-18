@@ -75,6 +75,7 @@ vim.g.netrw_banner = 0
 
 vim.cmd 'hi Normal guibg=NONE ctermbg=NONE'
 vim.cmd 'hi! link ModeMsg String'
+vim.cmd 'hi! link FloatNormal Normal'
 
 vim.cmd 'hi! link DiffAdd String'
 vim.cmd 'hi! link DiffDelete Debug'

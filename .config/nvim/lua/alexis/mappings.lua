@@ -6,7 +6,9 @@ vim.keymap.set('n', '<leader>lm', vim.cmd.Mason, { desc = "Open Mason popup" })
 vim.keymap.set("n", '<leader>li', vim.cmd.LspInfo, { desc = "Show LSP client information" })
 
 vim.keymap.set('n', '<leader>so', vim.cmd.source)
-vim.keymap.set('n', '<leader>f.', vim.cmd.Explore, { desc = "Browse files" })
+vim.keymap.set('n', '-', vim.cmd.Explore, { desc = "Browse files" })
+
+vim.keymap.set({ 'i', 'v' }, '<C-C>', '<Esc>')
 
 vim.keymap.set('i', 'jk', '<C-c>')
 vim.keymap.set('n', '<leader>sp', '<cmd>setlocal spell!<cr>', { desc = 'Toggle spell checking' })

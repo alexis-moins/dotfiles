@@ -1,5 +1,3 @@
-local telescope = require('telescope')
-
 local _dropdown = {
     theme = 'dropdown',
     previewer = false,
@@ -9,16 +7,7 @@ local _ivy = {
     theme = 'ivy',
 }
 
--- Setup
-telescope.setup({
-    defaults = {
-        layout_config = {
-            bottom_pane = {
-                height = 15,
-            },
-        },
-    },
-
+require('telescope').setup({
     pickers = {
         find_files = {
             find_command = { "fd", "--type", "f", "--strip-cwd-prefix", "--hidden" },
@@ -59,7 +48,7 @@ telescope.setup({
 })
 
 -- Extensions
-telescope.load_extension('fzf')
+require('telescope').load_extension('fzf')
 
 -- Mappings
 vim.keymap.set('n', '<leader>fb', require('telescope.builtin').buffers, { desc = "Find buffers" })
@@ -74,10 +63,6 @@ vim.keymap.set('n', '<leader>fe', require('telescope.builtin').command_history, 
 vim.keymap.set('n', '<leader>fr', require('telescope.builtin').oldfiles, { desc = "Find recent files" })
 vim.keymap.set('n', '<leader>fk', require('telescope.builtin').keymaps, { desc = "Find keymaps" })
 
--- Git
--- Checkout branches
 vim.keymap.set('n', '<leader>fB', require('telescope.builtin').git_branches, { desc = "Find git branches" })
-
--- Commits | Commits from the current branch
 vim.keymap.set('n', '<leader>fc', require('telescope.builtin').git_commits, { desc = "Find git commits" })
 vim.keymap.set('n', '<leader>fC', require('telescope.builtin').git_bcommits, { desc = "Find current branch's commits" })
