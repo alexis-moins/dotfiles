@@ -26,8 +26,9 @@ vim.opt.swapfile = false
 vim.opt.path = { '.', '**' }
 
 -- Never display the statusline
-vim.opt.laststatus = 0
 vim.opt.ruler = false
+vim.opt.laststatus = 0
+vim.opt.showmode = false
 
 -- Just so that it is beautiful
 vim.opt.scrolloff = 5
@@ -57,10 +58,10 @@ vim.opt.listchars = { eol = '¬', tab = '> ', trail = '-', extends = '!', preced
 
 -- Don't show commands below the statusline
 vim.opt.showcmd = false
-vim.opt.showtabline = 1
+vim.opt.showtabline = 0
 
 -- Show which-key menu faster
-vim.opt.timeoutlen = 500
+vim.opt.timeoutlen = 200
 vim.opt.updatetime = 200
 
 -- Treat - as part of a word
@@ -70,8 +71,6 @@ vim.opt.iskeyword:append({ '-' })
 vim.g.nord_italic = false
 vim.g.nord_borders = true
 vim.g.nord_contrast = true
-
-vim.g.netrw_banner = 0
 
 vim.cmd 'hi Normal guibg=NONE ctermbg=NONE'
 vim.cmd 'hi! link ModeMsg String'

@@ -1,0 +1,15 @@
+-- require 'incline'.setup({
+--     window = {
+--         margin = {
+--             horizontal = 0,
+--             vertical = 0
+--         },
+--     },
+--
+--     highlight = {
+--         groups = {
+--             InclineNormal = "Normal",
+--             InclineNormalNC = "Normal"
+--         }
+--     },
+-- })

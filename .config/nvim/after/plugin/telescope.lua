@@ -1,34 +1,10 @@
-local _dropdown = {
-    theme = 'dropdown',
-    previewer = false,
-}
-
-local _ivy = {
-    theme = 'ivy',
-}
-
-require('telescope').setup({
+local options = {
     pickers = {
         find_files = {
             find_command = { "fd", "--type", "f", "--strip-cwd-prefix", "--hidden" },
             theme = 'dropdown',
             previewer = false,
         },
-
-        git_files = {
-            theme = 'dropdown',
-            previewer = false,
-        },
-
-        oldfiles = _ivy,
-        live_grep = _ivy,
-        diagnostics = _ivy,
-        lsp_references = _ivy,
-
-        buffers = _dropdown,
-        help_tags = _dropdown,
-        man_pages = _dropdown,
-
     },
 
     extensions = {
@@ -45,10 +21,39 @@ require('telescope').setup({
             respect_gitignore = true,
         },
     }
-})
+}
+
+local dropdown_pickers = {
+    'buffers',
+    'help_tags',
+    'man_pages',
+    'git_files'
+}
+
+for _, picker in ipairs(dropdown_pickers) do
+    options.pickers[picker] = {
+        theme = 'dropdown',
+        previewer = false,
+    }
+end
+
+local ivy_pickers = {
+    'oldfiles',
+    'live_grep',
+    'diagnostics',
+    'lsp_references',
+}
+
+for _, picker in ipairs(ivy_pickers) do
+    options.pickers[picker] = { theme = 'ivy' }
+end
+
+local telescope = require('telescope')
+telescope.setup(options)
 
 -- Extensions
-require('telescope').load_extension('fzf')
+telescope.load_extension('fzf')
+telescope.load_extension('file_browser')
 
 -- Mappings
 vim.keymap.set('n', '<leader>fb', require('telescope.builtin').buffers, { desc = "Find buffers" })
@@ -66,3 +71,5 @@ vim.keymap.set('n', '<leader>fk', require('telescope.builtin').keymaps, { desc =
 vim.keymap.set('n', '<leader>fB', require('telescope.builtin').git_branches, { desc = "Find git branches" })
 vim.keymap.set('n', '<leader>fc', require('telescope.builtin').git_commits, { desc = "Find git commits" })
 vim.keymap.set('n', '<leader>fC', require('telescope.builtin').git_bcommits, { desc = "Find current branch's commits" })
+
+vim.keymap.set('n', '-', require('telescope').extensions.file_browser.file_browser, { desc = "Browse files" })

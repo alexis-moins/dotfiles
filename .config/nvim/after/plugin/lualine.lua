@@ -14,8 +14,8 @@ local nord_theme = {
 }
 
 local git_branch = {
-    color = 'Comment',
     'branch',
+    color = 'Comment',
 }
 
 local tabs = {
@@ -57,22 +57,15 @@ local diagnostics = {
     update_in_insert = true,
 }
 
-local filename = {
-    'filename',
-    file_status = false
-}
-
-
-local winbar = {
-    lualine_x = { '%#Directory#%m' },
-    lualine_y = { diagnostics },
-    lualine_z = { filename },
+local mode = {
+    'mode',
+    color = 'DiffAdd'
 }
 
 local statusline = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_c = {},
+    lualine_a = { mode, tabs },
+    lualine_b = { diagnostics },
+    lualine_c = { '%#Directory#%m' },
 
     lualine_x = {},
     lualine_y = { git_diff },
@@ -85,6 +78,8 @@ lualine.setup({
         section_separators = '',
         component_separators = '',
 
+        globalstatus = true,
+
         refresh = {
             statusline = 200,
             winbar = 200,
@@ -94,13 +89,4 @@ lualine.setup({
 
     sections = statusline,
     inactive_sections = statusline,
-
-    winbar = winbar,
-    inactive_winbar = winbar,
-
-    tabline = {
-        lualine_a = { tabs }
-    }
 })
-
-vim.opt.showtabline = 1

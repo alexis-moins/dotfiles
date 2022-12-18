@@ -1,13 +1,10 @@
 vim.g.mapleader = ' '
 
--- Gloabal mappings
 vim.keymap.set('n', '<leader>ins', vim.cmd.PackerSync)
 vim.keymap.set('n', '<leader>lm', vim.cmd.Mason, { desc = "Open Mason popup" })
 vim.keymap.set("n", '<leader>li', vim.cmd.LspInfo, { desc = "Show LSP client information" })
 
 vim.keymap.set('n', '<leader>so', vim.cmd.source)
-vim.keymap.set('n', '-', vim.cmd.Explore, { desc = "Browse files" })
-
 vim.keymap.set({ 'i', 'v' }, '<C-C>', '<Esc>')
 
 vim.keymap.set('i', 'jk', '<C-c>')
@@ -19,6 +16,8 @@ vim.keymap.set('n', '<leader>a', 'gg<S-v>G', { desc = "Select all buffer" })
 vim.keymap.set('x', '<leader>p', '"_dP', { desc = "Paste text without yanking" })
 vim.keymap.set('n', '<leader>x', '"_x')
 
+-- Stay in place
+vim.keymap.set('n', 'J', 'mzJ`z')
 vim.keymap.set('n', '<C-U>', '<C-U>zz')
 vim.keymap.set('n', '<C-D>', '<C-D>zz')
 

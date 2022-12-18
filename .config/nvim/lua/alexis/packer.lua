@@ -6,20 +6,13 @@ require('packer').startup(function(use)
     use 'folke/which-key.nvim'
     use 'stevearc/dressing.nvim'
 
-    use {
-        {
-            'ggandor/leap.nvim',
-            config = function()
-                require('leap').add_default_mappings()
-            end
-        },
-        {
-            '~/dev/nvim/leap-spooky.nvim',
-            config = function()
-                require('leap-spooky').setup()
-            end
-        }
-    }
+    use { 'ggandor/leap.nvim', config = function()
+        require('leap').add_default_mappings()
+    end }
+
+    use { '~/dev/nvim/leap-spooky.nvim', config = function()
+        require('leap-spooky').setup()
+    end }
 
     -- Lsp
     use 'L3MON4D3/LuaSnip'
@@ -57,19 +50,25 @@ require('packer').startup(function(use)
         }
     }
 
+    use 'b0o/incline.nvim'
     use 'nvim-lualine/lualine.nvim'
 
     use { 'lukas-reineke/indent-blankline.nvim', config = function()
         require('indent_blankline').setup({
-            -- use_treesitter = true,
-            -- use_treesitter_scope = true,
+            use_treesitter = true,
+            char_blankline = '│',
             show_first_indent_level = false,
         })
     end }
 
     -- Telescope
     use 'nvim-telescope/telescope.nvim'
-    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+    use 'nvim-telescope/telescope-file-browser.nvim'
+
+    use {
+        'nvim-telescope/telescope-fzf-native.nvim', cond = vim.fn.executable('make') == 1,
+        run = 'make'
+    }
 
     -- Editing stuff
     use 'kylechui/nvim-surround'
@@ -78,21 +77,23 @@ require('packer').startup(function(use)
         require('nvim-autopairs').setup()
     end }
 
-    use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
+    use { 'numToStr/Comment.nvim', config = function()
+        require('Comment').setup()
+    end }
 
     -- Themes
     use { 'shaunsingh/nord.nvim', config = function()
         vim.cmd.colorscheme('nord')
     end }
 
-    use { -- Highlight, edit, and navigate code
+    use {
         'nvim-treesitter/nvim-treesitter',
         run = function()
-            pcall(require('nvim-treesitter.install').update { with_sync = true })
+            require('nvim-treesitter.install').update { with_sync = true }
         end,
     }
 
-    use { -- Additional text objects via treesitter
+    use {
         'nvim-treesitter/nvim-treesitter-textobjects',
         after = 'nvim-treesitter',
     }
@@ -100,3 +101,14 @@ require('packer').startup(function(use)
     use { 'nvim-treesitter/playground', after = 'nvim-treesitter' }
 
 end)
+
+-- Create a new autogroup
+local packer = vim.api.nvim_create_augroup('Packer', {})
+
+-- Automatically source this file
+vim.api.nvim_create_autocmd('BufWritePost', {
+    group = packer,
+
+    pattern = 'packer.lua',
+    command = 'source <afile> | PackerCompile'
+})
