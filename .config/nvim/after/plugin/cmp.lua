@@ -1,10 +1,9 @@
 local cmp = require('cmp')
 
-vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
+vim.opt.completeopt = { 'menuone', 'noselect' }
 
 cmp.setup({
 
-    -- Integrating snippet engine
     snippet = {
         expand = function(args)
             require('luasnip').lsp_expand(args.body)

@@ -1,9 +1,6 @@
--- Optimize up startup time
-require 'impatient'
-
 -- Default configuration
-require 'alexis.options'
-require 'alexis.mappings'
+require 'config.options'
+require 'config.mappings'
 
 -- Package manager
-require 'alexis.packer'
+require 'config.lazy'

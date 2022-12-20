@@ -112,3 +112,8 @@ require("null-ls").setup {
         },
     }
 }
+
+-- Mappings
+vim.keymap.set('n', '<leader>lm', vim.cmd.Mason, { desc = "Open Mason popup" })
+vim.keymap.set("n", '<leader>li', vim.cmd.LspInfo, { desc = "Show LSP client information" })
+

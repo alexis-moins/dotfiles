@@ -1,11 +1,4 @@
-vim.g.mapleader = ' '
-
-vim.keymap.set('n', '<leader>ins', vim.cmd.PackerSync)
-vim.keymap.set('n', '<leader>lm', vim.cmd.Mason, { desc = "Open Mason popup" })
-vim.keymap.set("n", '<leader>li', vim.cmd.LspInfo, { desc = "Show LSP client information" })
-
 vim.keymap.set('n', '<leader>so', vim.cmd.source)
-vim.keymap.set({ 'i', 'v' }, '<C-C>', '<Esc>')
 
 vim.keymap.set('i', 'jk', '<C-c>')
 vim.keymap.set('n', '<leader>sp', '<cmd>setlocal spell!<cr>', { desc = 'Toggle spell checking' })
@@ -22,12 +15,12 @@ vim.keymap.set('n', '<C-U>', '<C-U>zz')
 vim.keymap.set('n', '<C-D>', '<C-D>zz')
 
 -- Quickfix list
-vim.keymap.set('n', '[q', '<cmd>cprevious<cr>', { desc = "Previous quickfix item" })
-vim.keymap.set('n', ']q', '<cmd>cnext<cr>', { desc = "Next quickfix item" })
+vim.keymap.set('n', '[q', vim.cmd.cprevious, { desc = "Previous quickfix item" })
+vim.keymap.set('n', ']q', vim.cmd.cnext, { desc = "Next quickfix item" })
 
 -- Tabs
-vim.keymap.set('n', '[t', '<cmd>tabprevious<cr>', { desc = "Previous tab" })
-vim.keymap.set('n', ']t', '<cmd>tabnext<cr>', { desc = "Next tab" })
+vim.keymap.set('n', '[t', vim.cmd.tabprevious, { desc = "Previous tab" })
+vim.keymap.set('n', ']t', vim.cmd.tabnext, { desc = "Next tab" })
 
 -- Keep visual selection when indenting
 vim.keymap.set('v', '>', '>gv')
@@ -45,5 +38,5 @@ vim.keymap.set('n', '<C-k>', '<cmd>m .-2<cr>==')
 vim.keymap.set('n', 'n', 'nzz')
 vim.keymap.set('n', 'N', 'Nzz')
 
-vim.keymap.set('n', '<leader>ss', '<cmd>mksession!<cr>')
-vim.keymap.set('n', '<leader>sr', '<cmd>source Session.vim<cr>')
+vim.keymap.set('n', '<leader>ss', '<cmd>mksession!<cr>', { desc = 'Save session' })
+vim.keymap.set('n', '<leader>sr', '<cmd>source Session.vim<cr>', { desc = 'Restore session' })

@@ -31,7 +31,7 @@ vim.opt.laststatus = 0
 vim.opt.showmode = false
 
 -- Just so that it is beautiful
-vim.opt.scrolloff = 5
+vim.opt.scrolloff = 8
 vim.opt.wrap = false
 
 vim.opt.linebreak = true
@@ -60,6 +60,8 @@ vim.opt.listchars = { eol = '¬', tab = '> ', trail = '-', extends = '!', preced
 vim.opt.showcmd = false
 vim.opt.showtabline = 0
 
+vim.opt.winbar = '%=%#Directory#%m %0*%t'
+
 -- Show which-key menu faster
 vim.opt.timeoutlen = 200
 vim.opt.updatetime = 200
@@ -68,15 +70,10 @@ vim.opt.updatetime = 200
 vim.opt.iskeyword:append({ '-' })
 
 -- Nord options
-vim.g.nord_italic = false
+-- vim.g.nord_italic = false
 vim.g.nord_borders = true
 vim.g.nord_contrast = true
 
-vim.cmd 'hi Normal guibg=NONE ctermbg=NONE'
-vim.cmd 'hi! link ModeMsg String'
-vim.cmd 'hi! link FloatNormal Normal'
+-- Leading for mappings
+vim.g.mapleader = ' '
 
-vim.cmd 'hi! link DiffAdd String'
-vim.cmd 'hi! link DiffDelete Debug'
-vim.cmd 'hi! link DiffChange SpecialChar'
-vim.cmd 'hi! link DiffText Number'

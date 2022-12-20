@@ -1,6 +1,6 @@
 local lualine = require('lualine')
 
-local nord_theme = {
+local custom_nord = {
     normal = {
         a = 'Normal',
         b = 'Normal',
@@ -11,11 +11,6 @@ local nord_theme = {
         b = 'Normal',
         c = 'Normal',
     },
-}
-
-local git_branch = {
-    'branch',
-    color = 'Comment',
 }
 
 local tabs = {
@@ -62,19 +57,28 @@ local mode = {
     color = 'DiffAdd'
 }
 
+local filename = {
+    'filename',
+    file_status = false,
+}
+
 local statusline = {
-    lualine_a = { mode, tabs },
-    lualine_b = { diagnostics },
-    lualine_c = { '%#Directory#%m' },
+    lualine_a = { mode },
+    lualine_b = { filename, '%#Directory#%m' },
+    lualine_c = { diagnostics },
 
     lualine_x = {},
-    lualine_y = { git_diff },
-    lualine_z = { git_branch },
+    lualine_y = {},
+    lualine_z = { git_diff },
+}
+
+local tabline = {
+    lualine_a = { tabs }
 }
 
 lualine.setup({
     options = {
-        theme = nord_theme,
+        theme = custom_nord,
         section_separators = '',
         component_separators = '',
 
@@ -88,5 +92,7 @@ lualine.setup({
     },
 
     sections = statusline,
-    inactive_sections = statusline,
+    tabline = tabline,
 })
+
+vim.opt.showtabline = 1
