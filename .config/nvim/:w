@@ -13,7 +13,13 @@ return {
     {
         'folke/trouble.nvim',
         cmd = 'TroubleToggle',
-        config = function() require 'config.plugins.trouble' end
+
+        config = function()
+            require('trouble').setup {
+                icons = false,
+                use_diagnostic_signs = true
+            }
+        end
     },
 
     {

@@ -25,12 +25,8 @@ local options = {
     },
 
     install = {
-        colorscheme = { 'nord', 'habamax' }
+        colorscheme = { 'nord', 'habamax' },
     },
-
-    default = {
-        lazy = true
-    }
 }
 
 require('lazy').setup(plugins, options)

@@ -10,6 +10,6 @@ vim.keymap.set('n', '<leader>do', dap.step_over, { desc = 'Step over' })
 vim.keymap.set('n', '<leader>dr', dap.repl.open, { desc = 'Open REPL' })
 vim.keymap.set('n', '<leader>dc', dap.continue, { desc = 'Resume debug session' })
 
-require('dap-python').setup('~/.pyenv/shims/python')
+-- require('dap-python').setup('~/.pyenv/shims/python')
 
 require('dapui').setup()

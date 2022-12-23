@@ -23,7 +23,7 @@ local tabs = {
     end,
 
     tabs_color = {
-        active = 'Normal',
+        active = 'DiffAdd',
         inactive = 'Comment',
     },
 }
@@ -64,7 +64,7 @@ local filename = {
 
 local statusline = {
     lualine_a = { mode },
-    lualine_b = { filename, '%#Directory#%m' },
+    lualine_b = { filename },
     lualine_c = { diagnostics },
 
     lualine_x = {},
@@ -74,6 +74,11 @@ local statusline = {
 
 local tabline = {
     lualine_a = { tabs }
+}
+
+local winbar = {
+    lualine_y = { '%#Directory#%m' },
+    lualine_z = { filename },
 }
 
 lualine.setup({
@@ -93,6 +98,9 @@ lualine.setup({
 
     sections = statusline,
     tabline = tabline,
+
+    winbar = winbar,
+    inactive_winbar = winbar,
 })
 
 vim.opt.showtabline = 1

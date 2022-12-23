@@ -20,6 +20,10 @@ local options = {
             hijack_netrw = true,
             respect_gitignore = true,
         },
+
+        undo = {
+            theme = 'ivy'
+        }
     }
 }
 
@@ -53,6 +57,7 @@ telescope.setup(options)
 
 -- Extensions
 telescope.load_extension('fzf')
+telescope.load_extension('undo')
 telescope.load_extension('file_browser')
 
 -- Mappings
@@ -72,4 +77,6 @@ vim.keymap.set('n', '<leader>fB', require('telescope.builtin').git_branches, { d
 vim.keymap.set('n', '<leader>fc', require('telescope.builtin').git_commits, { desc = "Find git commits" })
 vim.keymap.set('n', '<leader>fC', require('telescope.builtin').git_bcommits, { desc = "Find current branch's commits" })
 
+-- Extensions
 vim.keymap.set('n', '-', require('telescope').extensions.file_browser.file_browser, { desc = "Browse files" })
+vim.keymap.set('n', '<leader>fu', require('telescope').extensions.undo.undo, { desc = "Browse undo tree" })
