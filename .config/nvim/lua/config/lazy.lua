@@ -13,8 +13,7 @@ end
 
 vim.opt.runtimepath:prepend(lazypath)
 
-local plugins = require('config.plugins')
-local options = {
+require('lazy').setup('config.plugins', {
     dev = {
         path = '~/dev/nvim',
         patterns = { 'alexis' },
@@ -27,9 +26,7 @@ local options = {
     install = {
         colorscheme = { 'nord', 'habamax' },
     },
-}
+})
 
-require('lazy').setup(plugins, options)
-
--- Mappings
+-- [I]nstall plugins
 vim.keymap.set('n', '<leader>I', require("lazy").sync, { desc = 'Install, clean and update plugins' })

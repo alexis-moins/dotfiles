@@ -1,6 +1,19 @@
-local M = {}
+local plugin = {
+    'folke/trouble.nvim',
+    cmd = 'TroubleToggle'
+}
 
-function M.config()
+function plugin.init()
+    vim.keymap.set('n', '<leader>t', vim.cmd.TroubleToggle, { desc = 'Open or close Trouble window' })
+
+    -- -- Quickfix list
+    -- vim.keymap.set('n', '[q', vim.cmd.cprevious, { desc = "Previous quickfix item" })
+
+    vim.keymap.set('n', ']q', function() require("trouble").next({ skip_groups = true, jump = true }) end,
+        { desc = "Next Trouble item" })
+end
+
+function plugin.config()
     require('trouble').setup {
         icons = false,
         auto_close = true,
@@ -9,15 +22,4 @@ function M.config()
     }
 end
 
-function M.init()
-    vim.keymap.set('n', '<leader>t', vim.cmd.TroubleToggle, { desc = 'Open or close Trouble window' })
-
-    -- -- Quickfix list
-    -- vim.keymap.set('n', '[q', vim.cmd.cprevious, { desc = "Previous quickfix item" })
-
-    vim.keymap.set('n', ']q', function() require("trouble").next({ skip_groups = true, jump = true }) end,
-        { desc = "Next Trouble item" })
-
-end
-
-return M
+return plugin

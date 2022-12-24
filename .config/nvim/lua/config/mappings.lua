@@ -14,10 +14,6 @@ vim.keymap.set('n', 'J', 'mzJ`z')
 vim.keymap.set('n', '<C-U>', '<C-U>zz')
 vim.keymap.set('n', '<C-D>', '<C-D>zz')
 
--- Quickfix list
-vim.keymap.set('n', '[q', vim.cmd.cprevious, { desc = "Previous quickfix item" })
-vim.keymap.set('n', ']q', vim.cmd.cnext, { desc = "Next quickfix item" })
-
 -- Tabs
 vim.keymap.set('n', '[t', vim.cmd.tabprevious, { desc = "Previous tab" })
 vim.keymap.set('n', ']t', vim.cmd.tabnext, { desc = "Next tab" })
