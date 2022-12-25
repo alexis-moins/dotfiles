@@ -4,7 +4,7 @@ return {
 
     {
         'lukas-reineke/indent-blankline.nvim',
-        event = 'BufReadPre',
+        event = 'BufEnter',
 
         config = function()
             require('indent_blankline').setup({
@@ -15,7 +15,17 @@ return {
         end
     },
 
-    { 'folke/which-key.nvim', lazy = true },
+    {
+        'nvim-neorg/neorg',
+        ft = 'norg',
+
+        build = ':Neorg sync-parsers',
+        config = {
+            load = {
+                ["core.defaults"] = {}
+            }
+        }
+    },
 
     -- UI
     {
@@ -33,7 +43,6 @@ return {
             }
         end
     },
-    { 'nvim-lualine/lualine.nvim', event = 'VeryLazy' },
 
     { 'jose-elias-alvarez/null-ls.nvim' },
 
@@ -71,12 +80,10 @@ return {
 
     {
         'cvigilv/esqueleto.nvim',
-        config = function()
-            require('esqueleto').setup({
-                directory = '~/.config/nvim/skeletons/',
-                patterns = { 'README.md', 'python', 'LICENSE' }
-            })
-        end
+        config = {
+            directory = '~/.config/nvim/skeletons/',
+            patterns = { 'README.md', 'python', 'LICENSE', 'lua' }
+        }
     },
 
     {
@@ -88,23 +95,22 @@ return {
     },
 
     -- Editing stuff
-    'kylechui/nvim-surround',
+    {
+        'kylechui/nvim-surround',
+        config = true
+    },
+
+    {
+        'numToStr/Comment.nvim',
+        config = true
+    },
 
     {
         'windwp/nvim-autopairs',
         event = 'InsertEnter',
 
-        config = function()
-            require('nvim-autopairs').setup()
-        end
+        config = true
     },
 
-    {
-        'numToStr/Comment.nvim',
-        config = function()
-            require('Comment').setup()
-        end
-    },
 
 }
-

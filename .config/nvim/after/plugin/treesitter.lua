@@ -1,11 +1,11 @@
 local config = require('nvim-treesitter.configs')
 
 config.setup {
-    -- List of parsers to install, type `TSInstallInfo` for a list of parsers
     ensure_installed = {
-        'fish',
-        'python',
-        'lua',
+        -- For neovim
+        'lua', 'vim',
+
+        'fish', 'python',
     },
 
     auto_install = true,

@@ -1,7 +1,7 @@
 return {
     -- Language servers
     'neovim/nvim-lspconfig',
-    event = 'BufReadPre',
+    event = 'BufWinEnter',
 
     dependencies = {
         'williamboman/mason.nvim',
