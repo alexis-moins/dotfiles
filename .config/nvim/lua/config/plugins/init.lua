@@ -22,7 +22,15 @@ return {
         build = ':Neorg sync-parsers',
         config = {
             load = {
-                ["core.defaults"] = {}
+                ['core.defaults'] = {},
+                ['core.norg.dirman'] = {
+                    config = {
+                        workspaces = {
+                            work = '~/notes/work',
+                            school = '~/notes/school',
+                        }
+                    }
+                }
             }
         }
     },
@@ -83,7 +91,7 @@ return {
         config = {
             directory = '~/.config/nvim/skeletons/',
             patterns = { 'README.md', 'python', 'LICENSE', 'lua' }
-        }
+        },
     },
 
     {

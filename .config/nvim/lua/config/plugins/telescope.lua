@@ -84,6 +84,6 @@ return {
         vim.cmd [[hi! link TelescopePromptTitle String]]
         vim.cmd [[hi! link TelescopePromptNormal Constant]]
 
-        vim.cmd [[hi! link TelescopeBorder Debug]]
+        vim.cmd [[hi! link TelescopeBorder SpellBad]]
     end
 }
