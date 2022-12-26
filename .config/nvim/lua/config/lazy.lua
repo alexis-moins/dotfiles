@@ -28,5 +28,8 @@ require('lazy').setup('config.plugins', {
     },
 })
 
+local mapping = require('utils').map
+
 -- [I]nstall plugins
-vim.keymap.set('n', '<leader>I', require("lazy").sync, { desc = 'Install, clean and update plugins' })
+mapping('n', '<leader>pi', require("lazy").sync, 'Install, clean and update plugins')
+mapping('n', '<leader>ph', require("lazy").home, 'Open lazy popup')

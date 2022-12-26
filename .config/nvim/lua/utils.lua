@@ -21,14 +21,24 @@ function utils.convert_opts(description, buffer)
 end
 
 ---Wrapper around the nvim keymap api
----@param mode string the mode of the mapping
+---@param mode string|table the mode of the mapping
 ---@param keys string the keys used to trigger the mapping
 ---@param action function|string string or lua function to execute
----@param description string description of the mapping
+---@param description? string description of the mapping
 ---@param buffer? number the number of the buffer to apply the mapping to
-function utils.mapping(mode, keys, action, description, buffer)
+function utils.map(mode, keys, action, description, buffer)
     vim.keymap.set(mode, keys, action,
         utils.convert_opts(description, buffer))
+end
+
+---Wrapper around the 'highlight! link' neovim command
+---@param group_a string
+---@param group_b string
+function utils.link(group_a, group_b)
+    vim.cmd.highlight {
+        args = { 'link', group_a, group_b },
+        bang = true
+    }
 end
 
 return utils

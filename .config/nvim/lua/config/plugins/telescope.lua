@@ -12,7 +12,7 @@ return {
     },
 
     init = function()
-        local mapping = require('utils').mapping
+        local mapping = require('utils').map
 
         mapping('n', '<leader><leader>', function() require('telescope.builtin').find_files() end, 'Find files')
 
@@ -41,8 +41,8 @@ return {
 
             extensions = {
                 file_browser = {
-                    theme = "ivy",
-                    path = "%:p:h",
+                    theme = 'ivy',
+                    path = '%:p:h',
                     quiet = true,
 
                     display_stat = false,
@@ -51,7 +51,7 @@ return {
                     hidden = true,
                     hijack_netrw = true,
                     respect_gitignore = true,
-                },
+                }
             }
         }
 
@@ -59,13 +59,22 @@ return {
             live_grep = true,
             git_files = false,
             help_tags = false,
+
+            lsp_definitions = true,
+            lsp_type_definitions = true,
+            lsp_implementations = true,
+            lsp_references = true,
+            lsp_document_symbols = true
         }
 
         for picker, previewer in pairs(pickers) do
             options.pickers[picker] = {
                 theme = 'ivy',
-                previewer = previewer
             }
+
+            if not previewer then
+                options.pickers[picker].previewer = false
+            end
         end
 
         telescope.setup(options)
@@ -75,15 +84,16 @@ return {
         telescope.load_extension('file_browser')
 
         -- Highlighting
-        vim.cmd [[hi! link TelescopeMatching None]]
-        vim.cmd [[hi! link TelescopeSelectionCaret Debug]]
+        local utils = require('utils')
 
-        vim.cmd [[hi! link TelescopeNormal Comment]]
-        vim.cmd [[hi! link TelescopeSelection Constant]]
+        utils.link('TelescopeMatching', 'None')
+        utils.link('TelescopeSelectionCaret', 'Debug')
 
-        vim.cmd [[hi! link TelescopePromptTitle String]]
-        vim.cmd [[hi! link TelescopePromptNormal Constant]]
+        utils.link('TelescopeNormal', 'Comment')
+        utils.link('TelescopeSelection', 'Constant')
 
-        vim.cmd [[hi! link TelescopeBorder SpellBad]]
+        utils.link('TelescopePromptTitle', 'String')
+        utils.link('TelescopePromptNormal', 'Constant')
+        utils.link('TelescopeBorder', 'Constant')
     end
 }

@@ -1,5 +1,6 @@
 local plugin = {
     'folke/which-key.nvim',
+    event = 'VeryLazy'
 }
 
 plugin.config = function()
@@ -15,9 +16,11 @@ plugin.config = function()
         }
     }
 
-    vim.cmd([[hi! link WhichKeyDesc String]])
-    vim.cmd([[hi! link WhichKeyFloat Normal]])
-    vim.cmd([[hi! link WhichKeyBorder Normal]])
+    local link = require('utils').link
+
+    link('WhichKeyDesc', 'String')
+    link('WhichKeyFloat', 'Normal')
+    link('WhichKeyBorder', 'Normal')
 end
 
 return plugin

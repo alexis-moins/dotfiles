@@ -1,18 +1,15 @@
 return {
-
     { 'nvim-lua/plenary.nvim', lazy = true },
 
     {
         'lukas-reineke/indent-blankline.nvim',
-        event = 'BufEnter',
+        event = 'BufWinEnter',
 
-        config = function()
-            require('indent_blankline').setup({
-                char_blankline = '│',
-                use_treesitter = true,
-                show_first_indent_level = false,
-            })
-        end
+        config = {
+            char_blankline = '│',
+            use_treesitter = true,
+            show_first_indent_level = false,
+        }
     },
 
     {
@@ -23,6 +20,7 @@ return {
         config = {
             load = {
                 ['core.defaults'] = {},
+                ["core.norg.concealer"] = {},
                 ['core.norg.dirman'] = {
                     config = {
                         workspaces = {
@@ -40,16 +38,14 @@ return {
         'stevearc/dressing.nvim',
         event = 'VeryLazy',
 
-        config = function()
-            require('dressing').setup {
-                input = {
-                    win_options = {
-                        winblend = 0,
-                        winhighlight = "NormalFloat:Normal,FloatBorder:Directory",
-                    }
+        config = {
+            input = {
+                win_options = {
+                    winblend = 0,
+                    winhighlight = "NormalFloat:Normal,FloatBorder:Directory",
                 }
             }
-        end
+        }
     },
 
     { 'jose-elias-alvarez/null-ls.nvim' },
@@ -61,28 +57,6 @@ return {
         dependencies = {
             'rcarriga/nvim-dap-ui',
             'jay-babu/mason-nvim-dap.nvim',
-        }
-    },
-
-    {
-        -- Quick navigation
-        'ggandor/leap.nvim',
-        event = 'VeryLazy',
-
-        dependencies = {
-            'ggandor/flit.nvim',
-            { 'alexis/leap-spooky', dev = true }
-        }
-    },
-
-    {
-        -- Language parser
-        'nvim-treesitter/nvim-treesitter',
-        build = vim.cmd.TSUpdateSync,
-
-        dependencies = {
-            { 'nvim-treesitter/nvim-treesitter-textobjects' },
-            { 'nvim-treesitter/playground' },
         }
     },
 
@@ -105,12 +79,18 @@ return {
     -- Editing stuff
     {
         'kylechui/nvim-surround',
-        config = true
+        keys = {
+            'ys', 'ds', 'cs',
+            { 'S', mode = 'v' }
+        },
+
+        config = true,
     },
 
     {
         'numToStr/Comment.nvim',
-        config = true
+        keys = { { 'gc', mode = 'v' }, 'gcc', 'gbc' },
+        config = true,
     },
 
     {
@@ -119,6 +99,4 @@ return {
 
         config = true
     },
-
-
 }

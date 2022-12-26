@@ -67,6 +67,14 @@ plugin.config = function()
         file_status = false,
     }
 
+    local marker = {
+        '%#DiffAdd# ',
+
+        padding = {
+            right = 0
+        }
+    }
+
     require 'lualine'.setup {
         options = {
             theme = custom_nord,
@@ -89,11 +97,12 @@ plugin.config = function()
 
             lualine_x = {},
             lualine_y = { git_diff },
-            lualine_z = { { '%#DiffAdd# ', padding = { right = 0 } } },
+            lualine_z = { marker },
         },
 
         tabline = {
-            lualine_a = { tabs }
+            lualine_a = { tabs },
+            lualine_z = { marker },
         },
     }
 

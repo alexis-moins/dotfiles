@@ -1,7 +1,7 @@
 return {
     -- Language servers
     'neovim/nvim-lspconfig',
-    event = {'BufReadPre', 'BufNewFile'},
+    event = { 'BufReadPre', 'BufNewFile' },
 
     dependencies = {
         'williamboman/mason.nvim',
@@ -11,7 +11,8 @@ return {
     },
 
     init = function()
-        local mapping = require 'utils'.mapping
+        local mapping = require 'utils'.map
+
         mapping('n', '<leader>lm', vim.cmd.Mason, 'Open Mason popup')
         mapping('n', '<leader>li', vim.cmd.LspInfo, 'Show LSP client information')
     end,
@@ -50,46 +51,41 @@ return {
         -- Default function to run when attaching a client its LSP server
         local on_attach = function(_, buffer)
             -- Default options
-            local opts = function(description)
-                return { silent = true, buffer = buffer, desc = description }
+            local mapping = require('utils').map
+            local map = function(mode, keys, action, desc)
+                return mapping(mode, keys, action, desc, buffer)
             end
 
+
             -- Display information about hovered object
-            vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts('Show information'))
+            map('n', 'K', vim.lsp.buf.hover, 'Show information')
 
             -- Don't map 'gc' or 'gb' because they are used by Comment.nvim
             -- Goto direct [d]efinitions, t[Y]pe definitions, [i]mplementations
-            vim.keymap.set('n', 'gd', function() require('telescope.builtin').lsp_definitions() end,
-                opts('Go to definition'))
-
-            vim.keymap.set('n', 'gy', function() require('telescope.builtin').lsp_type_definitions() end,
-                opts('Go to type definition'))
-
-            vim.keymap.set('n', 'gi', function() require('telescope.builtin').lsp_implementations() end,
-                opts('Go to implementations'))
+            map('n', 'gd', function() require('telescope.builtin').lsp_definitions() end, 'Go to definition')
+            map('n', 'gy', function() require('telescope.builtin').lsp_type_definitions() end, 'Go to type definition')
+            map('n', 'gi', function() require('telescope.builtin').lsp_implementations() end, 'Go to implementations')
 
             -- Goto [r]eferences
-            vim.keymap.set('n', 'gr', function() require('telescope.builtin').lsp_references() end,
-                opts('Show references'))
+            map('n', 'gr', function() require('telescope.builtin').lsp_references() end, 'Show references')
 
             -- Navigate between diagnostics
-            vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts('Next diagnostic'))
-            vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts('Previous diagnostic'))
+            map('n', ']d', vim.diagnostic.goto_next, 'Next diagnostic')
+            map('n', '[d', vim.diagnostic.goto_prev, 'Previous diagnostic')
 
             -- Formatting and diagnostic list
-            vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format, opts('Format file'))
-            vim.keymap.set('n', '<leader>fs', function() require('telescope.builtin').lsp_document_symbols() end,
-                opts('Buffer symbols'))
+            map('n', '<leader>lf', vim.lsp.buf.format, 'Format file')
+            map('n', '<leader>fs', function() require('telescope.builtin').lsp_document_symbols() end, 'Buffer symbols')
 
             -- Diagnostics
-            -- vim.keymap.set('n', '<leader>ld', ':Telescope diagnostics bufnr=0<CR>', opts('Show diagnostics (buffer)'))
+            -- mapping('n', '<leader>ld', ':Telescope diagnostics bufnr=0<CR>', opts('Show diagnostics (buffer)'))
 
             -- [r]ename symbol and code [a]ctions
-            vim.keymap.set('n', '<leader>lr', vim.lsp.buf.rename, opts('Rename symbol under the cursor'))
-            vim.keymap.set('n', '<leader>la', vim.lsp.buf.code_action, opts('Code actions'))
+            map('n', '<leader>lr', vim.lsp.buf.rename, 'Rename symbol under the cursor')
+            map('n', '<leader>la', vim.lsp.buf.code_action, 'Code actions')
 
             -- [R]estart neovim LSP client
-            vim.keymap.set('n', '<leader>lR', '<cmd>LspRestart<cr>', opts('Restart LSP server'))
+            map('n', '<leader>lR', '<cmd>LspRestart<cr>', 'Restart LSP server')
         end
 
         -- Capabilities from nvim-cmp

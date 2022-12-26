@@ -3,23 +3,22 @@ local plugin = {
     cmd = 'TroubleToggle'
 }
 
-function plugin.init()
-    vim.keymap.set('n', '<leader>t', vim.cmd.TroubleToggle, { desc = 'Open or close Trouble window' })
+plugin.init = function()
+    local mapping = require('utils').map
+    mapping('n', '<leader>t', vim.cmd.TroubleToggle, 'Open or close Trouble window')
 
     -- -- Quickfix list
-    -- vim.keymap.set('n', '[q', vim.cmd.cprevious, { desc = "Previous quickfix item" })
+    local opts = { skip_groups = true, jump = true }
 
-    vim.keymap.set('n', ']q', function() require("trouble").next({ skip_groups = true, jump = true }) end,
-        { desc = "Next Trouble item" })
+    mapping('n', ']q', function() require("trouble").next(opts) end, 'Next Trouble item')
+    mapping('n', '[q', function() require("trouble").previous(opts) end, 'Previous Trouble item')
 end
 
-function plugin.config()
-    require('trouble').setup {
-        icons = false,
-        auto_close = true,
+plugin.config = {
+    icons = false,
+    auto_close = true,
 
-        use_diagnostic_signs = true
-    }
-end
+    use_diagnostic_signs = true
+}
 
 return plugin
