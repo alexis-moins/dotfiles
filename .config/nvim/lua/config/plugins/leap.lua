@@ -2,9 +2,13 @@ local plugin = {
     -- Quick navigation
     'ggandor/leap.nvim',
     keys = {
-        's', 'gs',
+        -- leap
+        's', 'S', 'gs',
         { 'x', mode = 'v' },
-        { 'X', mode = 'v' }
+        { 'X', mode = 'v' },
+
+        -- Flit
+        'f', 'F'
     },
 
     dependencies = {

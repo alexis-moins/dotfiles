@@ -29,14 +29,24 @@ return {
 
     config = function()
         local telescope = require('telescope')
+        local actions = require('telescope.actions')
 
         local options = {
             pickers = {
                 find_files = {
                     find_command = { "fd", "--type", "f", "--strip-cwd-prefix", "--hidden" },
-                    theme = 'ivy',
-                    previewer = false,
                 },
+
+                command_history = {
+                    mappings = {
+                        i = {
+                            ['<C-e>'] = actions.edit_command_line
+                        },
+                        n = {
+                            ['e'] = actions.edit_command_line
+                        },
+                    }
+                }
             },
 
             extensions = {
@@ -56,9 +66,11 @@ return {
         }
 
         local pickers = {
+            find_files = false,
             live_grep = true,
             git_files = false,
             help_tags = false,
+            command_history = false,
 
             lsp_definitions = true,
             lsp_type_definitions = true,
@@ -68,9 +80,11 @@ return {
         }
 
         for picker, previewer in pairs(pickers) do
-            options.pickers[picker] = {
-                theme = 'ivy',
-            }
+            if type(options.pickers[picker]) == "nil" then
+                options.pickers[picker] = {}
+            end
+
+            options.pickers[picker].theme = 'ivy'
 
             if not previewer then
                 options.pickers[picker].previewer = false
