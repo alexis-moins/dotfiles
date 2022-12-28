@@ -85,6 +85,9 @@ return {
         'shaunsingh/nord.nvim',
         config = function()
             vim.cmd.colorscheme('nord')
+
+            -- Transparent background
+            vim.cmd.highlight('Normal ctermbg=none guibg=none')
         end
     },
 
