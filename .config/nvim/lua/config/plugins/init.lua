@@ -86,8 +86,21 @@ return {
         config = function()
             vim.cmd.colorscheme('nord')
 
+            -- Customization
+            local utils = require('utils')
+
             -- Transparent background
             vim.cmd.highlight('Normal ctermbg=none guibg=none')
+
+            utils.link('TelescopeMatching', 'None')
+            utils.link('TelescopeSelectionCaret', 'Debug')
+
+            utils.link('TelescopeNormal', 'Comment')
+            utils.link('TelescopeSelection', 'Constant')
+
+            utils.link('TelescopePromptTitle', 'String')
+            utils.link('TelescopePromptNormal', 'Constant')
+            utils.link('TelescopeBorder', 'Constant')
         end
     },
 

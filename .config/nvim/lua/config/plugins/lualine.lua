@@ -18,6 +18,16 @@ plugin.config = function()
         },
     }
 
+    local disabled_filetypes = function()
+        local filetpes = { 'TelescopePrompt', 'mason', 'lazy' }
+        for _, filetype in ipairs(filetpes) do
+            if filetype == vim.bo.filetype then
+                return false
+            end
+        end
+        return true
+    end
+
     local tabs = {
         'tabs',
         mode = 1,
@@ -51,7 +61,7 @@ plugin.config = function()
 
     local diagnostics = {
         'diagnostics',
-        -- color = 'StatusLineNC',
+        cond = disabled_filetypes,
 
         symbols = { error = 'E', warn = 'W', info = 'I', hint = 'H' },
         update_in_insert = true,
@@ -65,6 +75,8 @@ plugin.config = function()
     local filename = {
         'filename',
         file_status = false,
+
+        cond = disabled_filetypes
     }
 
     local marker = {

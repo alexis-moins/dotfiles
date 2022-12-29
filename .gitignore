@@ -1,15 +1,10 @@
-# vim
-*.swp
-viminfo*
+# neovim
 **/nvim/spell/
 Session.vim
+.luarc.json
 
 # Brew lock
 Brewfile.lock.json
-
-# Directories used by (neo)vim package managers
-**/vim/plugged/
-**/nvim/plugin/
 
 # misc
 .DS_Store
