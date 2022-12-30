@@ -60,6 +60,14 @@ return {
         }
     },
 
+    {
+        'sindrets/diffview.nvim',
+        config = {
+            use_icons = false,
+            -- enhanced_diff_hl = true,
+        }
+    },
+
     { 'jose-elias-alvarez/null-ls.nvim' },
 
     {
