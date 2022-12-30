@@ -1,10 +1,9 @@
 return {
     -- Fuzzy finder
     'nvim-telescope/telescope.nvim',
-    -- cmd = 'Telescope',
+    cmd = 'Telescope',
 
     dependencies = {
-        'nvim-telescope/telescope-ui-select.nvim',
         'nvim-telescope/telescope-file-browser.nvim',
         {
             'nvim-telescope/telescope-fzf-native.nvim',
@@ -25,7 +24,8 @@ return {
             'Find commands (history)')
 
         -- Extensions
-        mapping('n', '-', function() require('telescope').extensions.file_browser.file_browser() end, 'Browse files')
+        mapping('n', '<leader>f.', function() require('telescope').extensions.file_browser.file_browser() end,
+            'Browse files')
     end,
 
     config = function()
@@ -47,10 +47,6 @@ return {
                             ['e'] = actions.edit_command_line
                         },
                     }
-                },
-
-                ['ui-select'] = {
-                    require('telescope.themes').get_ivy({}),
                 },
             },
 
@@ -82,7 +78,6 @@ return {
             lsp_implementations = true,
             lsp_references = true,
             lsp_document_symbols = true,
-            command_history = false
         }
 
         for picker, previewer in pairs(pickers) do
@@ -102,5 +97,19 @@ return {
         -- Extensions
         telescope.load_extension('fzf')
         telescope.load_extension('file_browser')
+
+        -- Customization
+        local utils = require('utils')
+
+
+        utils.link('TelescopeMatching', 'None')
+        utils.link('TelescopeSelectionCaret', 'Debug')
+
+        utils.link('TelescopeNormal', 'Comment')
+        utils.link('TelescopeSelection', 'Constant')
+
+        utils.link('TelescopePromptTitle', 'String')
+        utils.link('TelescopePromptNormal', 'Constant')
+        utils.link('TelescopeBorder', 'Constant')
     end
 }

@@ -12,16 +12,18 @@ local plugin = {
 plugin.config = function()
     require('nvim-treesitter.configs').setup {
         ensure_installed = {
-            -- For neovim
-            'lua', 'vim',
+            'lua',
+            'vim',
+            'gitcommit',
+            'gitignore',
 
-            'fish', 'python',
+            'fish',
+            'python',
         },
 
         auto_install = true,
 
         highlight = {
-            -- `false` will disable the whole extension
             enable = true,
         },
 
