@@ -10,8 +10,6 @@ return {
             'folke/neodev.nvim',
             config = true
         },
-
-        'j-hui/fidget.nvim'
     },
 
     init = function()
@@ -122,18 +120,6 @@ return {
                 }
             end
         }
-
-        require('fidget').setup({
-            window = {
-                blend = 0
-            },
-
-            align = {
-                bottom = false
-            }
-        })
-
-        vim.cmd([[hi! link FidgetTask Comment]])
 
         local null_ls = require('null-ls')
 

@@ -2,7 +2,7 @@
 vim.opt.termguicolors = true
 
 -- Never display signs
-vim.opt.signcolumn = 'number'
+vim.opt.signcolumn = 'yes'
 vim.opt.cursorline = true
 
 -- Enable mouse support in all modes

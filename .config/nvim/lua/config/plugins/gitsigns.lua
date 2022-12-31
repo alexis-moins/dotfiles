@@ -25,11 +25,11 @@ plugin.config = function()
 
     git_signs.setup {
         signs = {
-            add = { text = '+' },
-            change = { text = '~' },
-            delete = { text = '_' },
-            topdelete = { text = '‾' },
-            changedelete = { text = '~' },
+            add = { text = '▍' },
+            change = { text = '▍' },
+            delete = { text = '▍' },
+            topdelete = { text = '▍' },
+            changedelete = { text = '▍' },
             untracked = { text = '' },
         },
 

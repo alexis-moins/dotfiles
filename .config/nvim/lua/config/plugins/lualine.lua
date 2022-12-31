@@ -45,6 +45,7 @@ plugin.config = function()
 
     local git_diff = {
         'diff',
+        symbols = { added = ' ', modified = '柳', removed = ' ' },
 
         -- Use gitsigns as source
         source = function()
@@ -63,13 +64,14 @@ plugin.config = function()
         'diagnostics',
         cond = disabled_filetypes,
 
+        -- symbols = { error = ' ', warn = ' ', info = ' ' },
         symbols = { error = 'E', warn = 'W', info = 'I', hint = 'H' },
         update_in_insert = true,
     }
 
     local mode = {
         'mode',
-        color = 'DiffAdd'
+        color = 'String'
     }
 
     local filename = {
@@ -80,7 +82,10 @@ plugin.config = function()
     }
 
     local marker = {
-        '%#DiffAdd# ',
+        function()
+            return '▊'
+        end,
+        color = 'String',
 
         padding = {
             right = 0
@@ -103,7 +108,7 @@ plugin.config = function()
         },
 
         sections = {
-            lualine_a = { mode },
+            lualine_a = { marker, mode },
             lualine_b = { filename },
             lualine_c = { diagnostics },
 

@@ -6,7 +6,7 @@ vim.keymap.set('n', '<leader>sp', '<cmd>setlocal spell!<cr>', { desc = 'Toggle s
 vim.keymap.set('n', '<leader>a', 'gg<S-v>G', { desc = "Select all buffer" })
 
 -- Paste and x without yanking text
-vim.keymap.set('n', 'p', '"_dP', { desc = "Paste text without yanking" })
+-- vim.keymap.set('n', 'p', '"_dP', { desc = "Paste text without yanking" })
 vim.keymap.set('n', '<leader>x', '"_x')
 
 -- Stay in place

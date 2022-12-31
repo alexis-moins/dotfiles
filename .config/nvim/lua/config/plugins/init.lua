@@ -8,6 +8,8 @@ return {
         config = {
             char_blankline = '│',
             use_treesitter = true,
+
+            show_current_context = true,
             show_first_indent_level = false,
         }
     },
@@ -62,10 +64,22 @@ return {
 
     {
         'sindrets/diffview.nvim',
-        config = {
-            use_icons = false,
-            -- enhanced_diff_hl = true,
-        }
+        cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles" },
+
+        config= function()
+
+            require('diffview').setup {
+                use_icons = false,
+                enhanced_diff_hl = true,
+            }
+
+            -- local link = require 'utils'.link
+
+            -- link('DiffAdd', 'String')
+            -- link('DiffDelete', 'Debug')
+            -- link('DiffChange', 'Float')
+            -- link('DiffText', 'Todo')
+        end
     },
 
     { 'jose-elias-alvarez/null-ls.nvim' },
