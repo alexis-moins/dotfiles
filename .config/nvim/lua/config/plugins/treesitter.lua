@@ -14,6 +14,8 @@ plugin.config = function()
         ensure_installed = {
             'lua',
             'vim',
+            'help',
+
             'gitcommit',
             'gitignore',
 

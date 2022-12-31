@@ -66,19 +66,19 @@ return {
         'sindrets/diffview.nvim',
         cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles" },
 
-        config= function()
+        config = function()
 
             require('diffview').setup {
                 use_icons = false,
                 enhanced_diff_hl = true,
             }
 
-            -- local link = require 'utils'.link
+            local link = require 'utils'.link
 
-            -- link('DiffAdd', 'String')
-            -- link('DiffDelete', 'Debug')
-            -- link('DiffChange', 'Float')
-            -- link('DiffText', 'Todo')
+            link('DiffAdd', 'String')
+            link('DiffDelete', 'Debug')
+            link('DiffChange', 'Float')
+            link('DiffText', 'Todo')
         end
     },
 
@@ -106,13 +106,33 @@ return {
         -- Colorscheme
         'shaunsingh/nord.nvim',
         priority = 1000,
-
         config = function()
             vim.cmd.colorscheme 'nord'
 
             -- Transparent background
             vim.cmd.highlight('Normal ctermbg=none guibg=none')
+
+            local link = require 'utils'.link
+
+            link('SignColumn', 'Normal')
+            link('NormalFloat', 'Normal')
+            link('FloatBorder', 'Normal')
         end
+    },
+
+    {
+        'catppuccin/nvim',
+        name = 'catppuccin',
+        priority = 1000,
+
+        -- config = function()
+        --     require 'catppuccin'.setup {
+        --         -- flavour = 'macchiato',
+        --         transparent_background = true,
+        --     }
+        --
+        --     vim.cmd.colorscheme 'catppuccin'
+        -- end
     },
 
     -- Editing stuff

@@ -1,21 +1,16 @@
 local plugin = {
     'nvim-lualine/lualine.nvim',
-    event = 'BufWinEnter'
+    event = 'VeryLazy'
 }
 
 plugin.config = function()
 
     local custom_nord = {
         normal = {
-            a = 'StatusLineNC',
-            b = 'StatusLineNC',
-            c = 'StatusLineNC',
-        },
-        inactive = {
-            a = 'Normal',
-            b = 'Normal',
-            c = 'Normal',
-        },
+            a = 'ColorColumn',
+            b = 'ColorColumn',
+            c = 'ColorColumn',
+        }
     }
 
     local disabled_filetypes = function()
@@ -60,18 +55,26 @@ plugin.config = function()
         end
     }
 
+    local git_branch = {
+        'branch',
+        -- icon = '',
+        color = { fg = '#b48ead'}
+    }
+
     local diagnostics = {
         'diagnostics',
         cond = disabled_filetypes,
 
-        -- symbols = { error = ' ', warn = ' ', info = ' ' },
         symbols = { error = 'E', warn = 'W', info = 'I', hint = 'H' },
         update_in_insert = true,
     }
 
     local mode = {
         'mode',
-        color = 'String'
+        color = { fg = '#81a1c1' },
+        separator = {
+            right = ''
+        }
     }
 
     local filename = {
@@ -85,7 +88,7 @@ plugin.config = function()
         function()
             return '▊'
         end,
-        color = 'String',
+        color = 'Label',
 
         padding = {
             right = 0
@@ -114,7 +117,7 @@ plugin.config = function()
 
             lualine_x = {},
             lualine_y = { git_diff },
-            lualine_z = { marker },
+            lualine_z = { git_branch, marker },
         },
 
         tabline = {

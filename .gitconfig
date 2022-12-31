@@ -1,7 +1,4 @@
-# Git configuration
-# Author: Alexis Moins
-# Creation: 04 feb 2022
-# vim: ft=gitconfig syn=gitconfig
+; vim: ft=gitconfig syn=gitconfig
 
 [user]
     name = alexis-moins
