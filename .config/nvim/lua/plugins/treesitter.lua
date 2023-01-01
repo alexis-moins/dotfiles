@@ -1,7 +1,7 @@
 local plugin = {
     -- Language parser
     'nvim-treesitter/nvim-treesitter',
-    build = vim.cmd.TSUpdateSync,
+    build = vim.cmd.TSUpdate,
 
     dependencies = {
         'nvim-treesitter/nvim-treesitter-textobjects',
@@ -16,6 +16,9 @@ plugin.config = function()
             'vim',
             'help',
 
+            'markdown',
+            'markdown_inline',
+
             'gitcommit',
             'gitignore',
 
@@ -24,6 +27,7 @@ plugin.config = function()
         },
 
         auto_install = true,
+        sync_install = false,
 
         highlight = {
             enable = true,

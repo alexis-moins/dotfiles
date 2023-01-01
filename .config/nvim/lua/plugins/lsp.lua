@@ -6,6 +6,11 @@ return {
     dependencies = {
         'williamboman/mason.nvim',
         'williamboman/mason-lspconfig.nvim',
+
+        -- {
+        --     'lewis6991/hover.nvim',
+        --     config =
+        -- },
         {
             'folke/neodev.nvim',
             config = true

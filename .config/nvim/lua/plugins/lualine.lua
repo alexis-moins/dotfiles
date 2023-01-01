@@ -40,7 +40,7 @@ plugin.config = function()
 
     local git_diff = {
         'diff',
-        symbols = { added = ' ', modified = '柳', removed = ' ' },
+        -- symbols = { added = ' ', modified = '柳', removed = ' ' },
 
         -- Use gitsigns as source
         source = function()
@@ -58,7 +58,7 @@ plugin.config = function()
     local git_branch = {
         'branch',
         -- icon = '',
-        color = { fg = '#b48ead'}
+        color = { fg = '#616e88'}
     }
 
     local diagnostics = {
@@ -71,10 +71,7 @@ plugin.config = function()
 
     local mode = {
         'mode',
-        color = { fg = '#81a1c1' },
-        separator = {
-            right = ''
-        }
+        color = { fg = '#a3be8c' },
     }
 
     local filename = {
@@ -88,7 +85,7 @@ plugin.config = function()
         function()
             return '▊'
         end,
-        color = 'Label',
+        color = { fg = '#a3be8c', bg = '#3b4252'},
 
         padding = {
             right = 0

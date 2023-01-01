@@ -15,6 +15,15 @@ return {
     },
 
     {
+        "rcarriga/nvim-notify",
+        event = 'VeryLazy',
+
+        init = function()
+            vim.notify = require("notify")
+        end,
+    },
+
+    {
         "folke/zen-mode.nvim",
         cmd = 'ZenMode',
         config = true
@@ -106,6 +115,7 @@ return {
         -- Colorscheme
         'shaunsingh/nord.nvim',
         priority = 1000,
+
         config = function()
             vim.cmd.colorscheme 'nord'
 
@@ -115,8 +125,8 @@ return {
             local link = require 'utils'.link
 
             link('SignColumn', 'Normal')
-            link('NormalFloat', 'Normal')
-            link('FloatBorder', 'Normal')
+            -- link('NormalFloat', 'Normal')
+            -- link('FloatBorder', 'Normal')
         end
     },
 
@@ -127,8 +137,7 @@ return {
 
         -- config = function()
         --     require 'catppuccin'.setup {
-        --         -- flavour = 'macchiato',
-        --         transparent_background = true,
+        --         flavour = 'macchiato',
         --     }
         --
         --     vim.cmd.colorscheme 'catppuccin'

@@ -9,7 +9,7 @@ end
 
 vim.opt.runtimepath:prepend(lazypath)
 
-require('lazy').setup('config.plugins', {
+require('lazy').setup('plugins', {
     dev = {
         path = '~/dev/nvim',
         patterns = { 'alexis' },
