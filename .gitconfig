@@ -1,8 +1,8 @@
 ; vim: ft=gitconfig syn=gitconfig
 
 [user]
-    name = alexis-moins
-    email = moinsalexis@gmail.com
+	name = alexis-unifox
+	email = a.moins@unifox.ai
 
 [init]
     defaultBranch = main

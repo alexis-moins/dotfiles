@@ -20,3 +20,6 @@ type -qf zoxide && zoxide init fish | source
 function fish_user_cursor --on-event fish_prompt
     echo -ne '\e[5 q'
 end
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/alexis/google-cloud-sdk/path.fish.inc' ]; . '/Users/alexis/google-cloud-sdk/path.fish.inc'; end

@@ -2,6 +2,7 @@
 **/nvim/spell/
 Session.vim
 .luarc.json
+*.backup
 
 # Brew lock
 Brewfile.lock.json
