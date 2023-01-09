@@ -22,7 +22,7 @@ style = "bold yellow"
 style = "purple"
 
 [git_status]
-style = "green"
+style = "red"
 
 diverged = "$ahead$behind"
 ahead = "↑$count"

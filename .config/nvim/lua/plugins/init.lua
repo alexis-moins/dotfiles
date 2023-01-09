@@ -15,15 +15,6 @@ return {
     },
 
     {
-        "rcarriga/nvim-notify",
-        event = 'VeryLazy',
-
-        init = function()
-            vim.notify = require("notify")
-        end,
-    },
-
-    {
         "folke/zen-mode.nvim",
         cmd = 'ZenMode',
         config = true
@@ -116,18 +107,18 @@ return {
         'shaunsingh/nord.nvim',
         priority = 1000,
 
-        config = function()
-            vim.cmd.colorscheme 'nord'
-
-            -- Transparent background
-            vim.cmd.highlight('Normal ctermbg=none guibg=none')
-
-            local link = require 'utils'.link
-
-            link('SignColumn', 'Normal')
-            -- link('NormalFloat', 'Normal')
-            -- link('FloatBorder', 'Normal')
-        end
+        -- config = function()
+        --     vim.cmd.colorscheme 'nord'
+        --
+        --     -- Transparent background
+        --     vim.cmd.highlight('Normal ctermbg=none guibg=none')
+        --
+        --     local link = require 'utils'.link
+        --
+        --     link('SignColumn', 'Normal')
+        --     -- link('NormalFloat', 'Normal')
+        --     -- link('FloatBorder', 'Normal')
+        -- end
     },
 
     {
@@ -135,13 +126,31 @@ return {
         name = 'catppuccin',
         priority = 1000,
 
-        -- config = function()
-        --     require 'catppuccin'.setup {
-        --         flavour = 'macchiato',
-        --     }
-        --
-        --     vim.cmd.colorscheme 'catppuccin'
-        -- end
+        config = function()
+            require 'catppuccin'.setup {
+                flavour = 'macchiato',
+
+                integrations = {
+                    native_lsp = {
+                        enabled = true,
+                        virtual_text = {
+                            errors = { "italic" },
+                            hints = { "italic" },
+                            warnings = { "italic" },
+                            information = { "italic" },
+                        },
+                        underlines = {
+                            errors = { "underline" },
+                            hints = { "underline" },
+                            warnings = { "underline" },
+                            information = { "underline" },
+                        },
+                    },
+                }
+            }
+
+            vim.cmd.colorscheme 'catppuccin'
+        end
     },
 
     -- Editing stuff
