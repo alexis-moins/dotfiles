@@ -38,8 +38,10 @@ vim.opt.linebreak = true
 vim.opt.spelllang = { 'en', 'fr' }
 
 -- Folds
-vim.opt.foldmethod = 'marker'
-vim.opt.foldnestmax = 1
+vim.opt.foldlevel = 2
+vim.opt.foldnestmax = 10
+vim.opt.foldmethod = 'indent'
+vim.opt.foldenable = false
 
 -- Tabulation
 vim.opt.tabstop = 4
@@ -54,13 +56,14 @@ vim.opt.shortmess = 'filnxtToOFIc'
 vim.opt.diffopt:append({ 'algorithm:patience', 'iwhiteall', 'context:0' })
 
 vim.opt.fillchars = { fold = ' ', eob = ' ' }
-vim.opt.listchars = { eol = '¬', tab = '> ', trail = '-', extends = '!', precedes = '!' }
+vim.opt.listchars = { tab = '>.', trail = '-', extends = '>', precedes = '<' }
+vim.opt.list = true
 
 -- Don't show commands below the statusline
 vim.opt.showcmd = false
 vim.opt.showtabline = 0
 
-vim.opt.winbar = '%=%#Directory#%m %0*%t'
+vim.opt.winbar = '%=%#Error#%m %#Conceal#%f'
 
 -- Show which-key menu faster
 vim.opt.timeoutlen = 200

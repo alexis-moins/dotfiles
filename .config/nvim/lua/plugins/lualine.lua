@@ -11,21 +11,11 @@ plugin.config = function()
             b = { fg = '#6e738d', bg = '#303347' },
             c = 'CursorLine',
 
-            x = { bg = '#303347' },
-            y = { fg = '#1e2030', bg = '#ed8796' },
-            z = { fg = '#1e2030', bg = '#f5bde6' },
+            x = { fg = '#6e738d', bg = '#303347' },
+            y = { fg = '#ed8796', bg = '#303347' },
+            z = { fg = '#1e2030', bg = '#ed8796' },
         },
     }
-
-    local disabled_filetypes = function()
-        local filetpes = { 'TelescopePrompt', 'mason', 'lazy' }
-        for _, filetype in ipairs(filetpes) do
-            if filetype == vim.bo.filetype then
-                return false
-            end
-        end
-        return true
-    end
 
     local tabs = {
         'tabs',
@@ -56,14 +46,20 @@ plugin.config = function()
                     removed = gitsigns.removed
                 }
             end
-        end
+        end,
+
+        padding = { right = 2 }
     }
 
     local git_branch = {
         'branch',
+        separator = { left = '' },
         -- icon = ' ',
         -- color = { fg = '#1e2030', bg = '#f5bde6' },
-        separator = { left = '' }
+        -- separator = { left = '' }
+        padding = {
+            right = 2
+        }
     }
 
     local diagnostics = {
@@ -77,15 +73,15 @@ plugin.config = function()
 
     local mode = {
         'mode',
-        -- color = { fg = '#a3be8c' },
-        separator = { right = '' }
+        -- separator = { right = '' }
+        separator = { right = '' }
     }
 
     local filename = {
         'filename',
         file_status = false,
-        separator = { left = '' },
-        cond = disabled_filetypes
+        -- separator = { left = '' },
+        separator = { left = '' },
     }
 
     local marker = {
@@ -119,14 +115,9 @@ plugin.config = function()
             lualine_c = { diagnostics },
 
             lualine_x = { git_diff },
-            lualine_y = { git_branch, },
+            lualine_y = { git_branch },
             lualine_z = { filename },
         },
-        --
-        -- tabline = {
-        --     lualine_a = { tabs },
-        --     lualine_z = { marker },
-        -- },
     }
 
     vim.opt.showtabline = 1

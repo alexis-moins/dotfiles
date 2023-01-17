@@ -1,8 +1,6 @@
-; vim: ft=gitconfig syn=gitconfig
-
 [user]
-	name = alexis-unifox
-	email = a.moins@unifox.ai
+    name = alexis-moins
+    email = sinus.nacre0v@icloud.com
 
 [init]
     defaultBranch = main
@@ -59,7 +57,7 @@
     pretty = format:%C(auto)%h [%D] %C(brightblue)%an%C(reset) %s (%C(cyan)%cr%C(reset))
 
 [push]
-	autoSetupRemote = true
+    autoSetupRemote = true
 
 [remote "origin"]
-	prune = true
+    prune = true

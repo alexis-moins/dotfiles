@@ -19,6 +19,9 @@ plugin.config = function()
             'markdown',
             'markdown_inline',
 
+            'html',
+            'javascript',
+
             'gitcommit',
             'gitignore',
 
@@ -42,8 +45,6 @@ plugin.config = function()
         textobjects = {
             select = {
                 enable = true,
-
-                -- Automatically jump forward to textobj, similar to targets.vim
                 lookahead = true,
 
                 keymaps = {
@@ -53,8 +54,11 @@ plugin.config = function()
                     ["aP"] = { query = '@parameter.outer', desc = 'a parameter' },
                     ["iP"] = { query = '@parameter.inner', desc = 'inner parameter' },
 
-                    ["ac"] = { query = "@class.inner", desc = "a class" },
+                    ["ac"] = { query = "@class.outer", desc = "a class" },
                     ["ic"] = { query = "@class.inner", desc = "inner class" },
+
+                    ["aa"] = { query = "@attribute.outer", desc = "an attribute" },
+                    ["ia"] = { query = "@attribute.inner", desc = "inner attribute" },
                 },
             },
 
@@ -85,6 +89,7 @@ plugin.config = function()
                     ["[m"] = "@function.outer",
                     ["[p"] = { query = '@parameter.inner', desc = 'Previous parameter start' },
                 },
+
                 goto_previous_end = {
                     ["[M"] = "@function.outer",
                     ["[P"] = { query = '@parameter.inner', desc = 'Previous parameter end' },

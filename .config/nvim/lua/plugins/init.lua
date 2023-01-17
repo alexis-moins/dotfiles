@@ -1,5 +1,8 @@
 return {
-    { 'nvim-lua/plenary.nvim', lazy = true },
+    {
+        'nvim-lua/plenary.nvim',
+        lazy = true
+    },
 
     {
         'lukas-reineke/indent-blankline.nvim',
@@ -12,6 +15,31 @@ return {
             show_current_context = true,
             show_first_indent_level = false,
         }
+    },
+
+    {
+        'lewis6991/hover.nvim',
+        opts = {
+            init = function()
+                require('hover.providers.man')
+                require('hover.providers.lsp')
+                require('hover.providers.dictionary')
+            end,
+
+            preview_opts = {
+                border = 'rounded'
+            },
+
+            title = false
+        }
+    },
+
+    {
+        "danymat/neogen",
+        dependencies = "nvim-treesitter/nvim-treesitter",
+        opts = {
+            snippet_engine = "luasnip"
+        },
     },
 
     {
@@ -63,28 +91,6 @@ return {
     },
 
     {
-        'sindrets/diffview.nvim',
-        cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles" },
-
-        config = function()
-
-            require('diffview').setup {
-                use_icons = false,
-                enhanced_diff_hl = true,
-            }
-
-            local link = require 'utils'.link
-
-            link('DiffAdd', 'String')
-            link('DiffDelete', 'Debug')
-            link('DiffChange', 'Float')
-            link('DiffText', 'Todo')
-        end
-    },
-
-    { 'jose-elias-alvarez/null-ls.nvim' },
-
-    {
         -- Debugger
         'mfussenegger/nvim-dap',
 
@@ -122,34 +128,15 @@ return {
     },
 
     {
-        'catppuccin/nvim',
-        name = 'catppuccin',
-        priority = 1000,
+        "CKolkey/ts-node-action",
+        dependencies = { 'nvim-treesitter' },
 
-        config = function()
-            require 'catppuccin'.setup {
-                flavour = 'macchiato',
+        config = true,
 
-                integrations = {
-                    native_lsp = {
-                        enabled = true,
-                        virtual_text = {
-                            errors = { "italic" },
-                            hints = { "italic" },
-                            warnings = { "italic" },
-                            information = { "italic" },
-                        },
-                        underlines = {
-                            errors = { "underline" },
-                            hints = { "underline" },
-                            warnings = { "underline" },
-                            information = { "underline" },
-                        },
-                    },
-                }
-            }
-
-            vim.cmd.colorscheme 'catppuccin'
+        init = function()
+            vim.keymap.set('n', 'L', function()
+                require 'ts-node-action'.node_action()
+            end, { desc = "Trigger Node Action" })
         end
     },
 
@@ -173,7 +160,6 @@ return {
     {
         'windwp/nvim-autopairs',
         event = 'InsertEnter',
-
         config = true
     },
 }

@@ -7,6 +7,8 @@ return {
         'williamboman/mason.nvim',
         'williamboman/mason-lspconfig.nvim',
 
+        'jose-elias-alvarez/null-ls.nvim',
+
         -- {
         --     'lewis6991/hover.nvim',
         --     config =
@@ -56,16 +58,15 @@ return {
         })
 
         -- Default function to run when attaching a client its LSP server
-        local on_attach = function(_, buffer)
+        local on_attach = function(client, buffer)
             -- Default options
             local mapping = require('utils').map
             local map = function(mode, keys, action, desc)
                 return mapping(mode, keys, action, desc, buffer)
             end
 
-
             -- Display information about hovered object
-            map('n', 'K', vim.lsp.buf.hover, 'Show information')
+            map('n', 'K', function() require('hover').hover() end, 'Show information')
 
             -- Don't map 'gc' or 'gb' because they are used by Comment.nvim
             -- Goto direct [d]efinitions, t[Y]pe definitions, [i]mplementations

@@ -31,10 +31,15 @@ return {
                 ghost_text = true
             },
 
-            -- window = {
-            --     completion = cmp.config.window.bordered(),
-            --     documentation = cmp.config.window.bordered(),
-            -- },
+            window = {
+                completion = cmp.config.window.bordered({
+                    winhighlight = "Normal:Normal,FloatBorder:CmpBorder,Search:None"
+                }),
+
+                documentation = cmp.config.window.bordered({
+                    winhighlight = "Normal:Normal,FloatBorder:CmpBorder"
+                }),
+            },
 
             mapping = {
                 ['<C-b>'] = cmp.mapping.scroll_docs(-4),
@@ -51,7 +56,7 @@ return {
                     end
                 end,
 
-                ['<C-y>'] = cmp.mapping.confirm({ select = true })
+                ['<C-y>'] = cmp.mapping.confirm({ select = false })
             },
 
             sources = cmp.config.sources({
@@ -63,22 +68,6 @@ return {
             }, {
                 { name = 'buffer', keyword_length = 2 },
             }),
-
-            formatting = {
-                format = function(entry, vim_item)
-                    local menu = {
-                        nvim_lua = '[lua]',
-                        nvim_lsp = '[LSP]',
-                        luasnip = '[snippet]',
-                        buffer = '[buffer]',
-                        path = '[path]',
-                    }
-
-                    vim_item.menu = menu[entry.source.name]
-                    return vim_item
-
-                end,
-            },
 
         })
     end

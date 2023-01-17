@@ -20,7 +20,7 @@ require('lazy').setup('plugins', {
     },
 
     install = {
-        colorscheme = { 'nord', 'habamax' },
+        colorscheme = { 'catppuccin', 'habamax' },
     },
 })
 
