@@ -9,6 +9,9 @@ vim.keymap.set('n', '<leader>a', 'gg<S-v>G', { desc = "Select all buffer" })
 -- vim.keymap.set('n', 'p', '"_dP', { desc = "Paste text without yanking" })
 vim.keymap.set('n', '<leader>x', '"_x')
 
+vim.keymap.set({'n', 'v'}, 'j', 'gj')
+vim.keymap.set({'n', 'v'}, 'k', 'gk')
+
 -- Stay in place
 vim.keymap.set('n', 'J', 'mzJ`z')
 

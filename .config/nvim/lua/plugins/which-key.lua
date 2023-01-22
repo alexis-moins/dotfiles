@@ -12,7 +12,7 @@ plugin.config = function()
         },
 
         window = {
-            border = 'single'
+            border = 'rounded'
         }
     }
 

@@ -21,7 +21,10 @@ return {
 
                     TelescopeSelectionCaret = { fg = colors.red },
                     TelescopePromptTitle = { fg = colors.green },
-                    TelescopePromptPrefix = { fg = colors.blue }
+                    TelescopePromptPrefix = { fg = colors.blue },
+
+                    -- Not working
+                    WhichKeyBorder = { fg = colors.blue },
                 }
             end,
 

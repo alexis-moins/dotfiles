@@ -1,6 +1,7 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR --export CC:gcc\x2d12
+SETUVAR --export CC:gcc
+SETUVAR --export CPPFLAGS:\x2dI/opt/homebrew/opt/tcl\x2dtk/include
 SETUVAR --export EDITOR:nvim
 SETUVAR --export FZF_ALT_C_COMMAND:fd\x1e\x2d\x2dstrip\x2dcwd\x2dprefix\x1e\x2d\x2dhidden\x1e\x2d\x2dfollow\x1e\x2d\x2dtype\x20d
 SETUVAR --export FZF_CTRL_T_COMMAND:fd\x1e\x2d\x2dstrip\x2dcwd\x2dprefix\x1e\x2d\x2dhidden\x1e\x2d\x2dfollow\x1e\x2d\x2dtype\x20f
@@ -21,7 +22,7 @@ SETUVAR _fish_abbr_gS:git\x20stash
 SETUVAR _fish_abbr_ga:git\x20add\x20\x2dA
 SETUVAR _fish_abbr_gd:git\x20diff
 SETUVAR _fish_abbr_gg:git\x20switch\x20\x2dc
-SETUVAR _fish_abbr_gl:git-log
+SETUVAR _fish_abbr_gl:git\x2dlog
 SETUVAR _fish_abbr_gs:git\x20status
 SETUVAR _fish_abbr_nu:nvim\x20\x2du\x20NONE
 SETUVAR _fish_abbr_pt:push_that

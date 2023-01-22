@@ -23,16 +23,15 @@ vim.opt.splitright = true
 vim.opt.undofile = true
 vim.opt.swapfile = false
 
-vim.opt.path = { '.', '**' }
-
 -- Never display the statusline
 vim.opt.ruler = false
 vim.opt.laststatus = 0
 vim.opt.showmode = false
 
 -- Just so that it is beautiful
-vim.opt.scrolloff = 8
 vim.opt.wrap = false
+vim.opt.scrolloff = 8
+vim.opt.sidescrolloff = 8
 
 vim.opt.linebreak = true
 vim.opt.spelllang = { 'en', 'fr' }
@@ -74,8 +73,8 @@ vim.opt.iskeyword:append({ '-' })
 
 -- Nord options
 -- vim.g.nord_italic = false
-vim.g.nord_borders = true
-vim.g.nord_contrast = true
+-- vim.g.nord_borders = true
+-- vim.g.nord_contrast = true
 
 -- Leading for mappings
 vim.g.mapleader = ' '

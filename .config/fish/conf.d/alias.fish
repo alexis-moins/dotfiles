@@ -21,7 +21,7 @@ alias fd 'fd --color="never"'
 alias mkdir 'mkdir -p'
 
 type -f --quiet exa || return 0
-    
+
 alias ls 'exa'
 
 alias la 'exa --all'

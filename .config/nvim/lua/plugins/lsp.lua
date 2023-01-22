@@ -58,7 +58,7 @@ return {
         })
 
         -- Default function to run when attaching a client its LSP server
-        local on_attach = function(client, buffer)
+        local on_attach = function(_, buffer)
             -- Default options
             local mapping = require('utils').map
             local map = function(mode, keys, action, desc)

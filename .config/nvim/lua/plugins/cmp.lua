@@ -10,6 +10,9 @@ return {
         'hrsh7th/cmp-nvim-lsp',
         'hrsh7th/cmp-nvim-lsp-signature-help',
 
+        'hrsh7th/cmp-calc',
+        'hrsh7th/cmp-cmdline',
+
         'L3MON4D3/LuaSnip',
         'saadparwaiz1/cmp_luasnip',
     },
@@ -56,7 +59,7 @@ return {
                     end
                 end,
 
-                ['<C-y>'] = cmp.mapping.confirm({ select = false })
+                ['<C-y>'] = cmp.mapping.confirm({ select = true })
             },
 
             sources = cmp.config.sources({
@@ -65,10 +68,42 @@ return {
                 { name = 'nvim_lsp_signature_help' },
                 { name = 'luasnip' },
                 { name = 'path' },
-            }, {
+                { name = 'calc' },
                 { name = 'buffer', keyword_length = 2 },
             }),
 
+            formatting = {
+                format = function(entry, vim_item)
+                    local menu = {
+                        nvim_lua = 'API',
+                        nvim_lsp = 'LSP',
+                        luasnip = 'Snippet',
+                        buffer = 'Buffer',
+                        path = 'Path',
+                        calc = 'Math',
+                    }
+
+                    vim_item.menu = menu[entry.source.name]
+                    return vim_item
+
+                end,
+            },
+        })
+
+        cmp.setup.cmdline(':', {
+            mapping = cmp.mapping.preset.cmdline(),
+            sources = cmp.config.sources({
+                { name = 'path' }
+            }, {
+                { name = 'cmdline' }
+            })
+        })
+
+        cmp.setup.cmdline({ '/', '?' }, {
+            mapping = cmp.mapping.preset.cmdline(),
+            sources = {
+                { name = 'buffer' }
+            }
         })
     end
 }
