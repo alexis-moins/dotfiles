@@ -58,7 +58,7 @@ return {
         })
 
         -- Default function to run when attaching a client its LSP server
-        local on_attach = function(_, buffer)
+        local on_attach = function(client, buffer)
             -- Default options
             local mapping = require('utils').map
             local map = function(mode, keys, action, desc)
@@ -66,7 +66,7 @@ return {
             end
 
             -- Display information about hovered object
-            map('n', 'K', function() require('hover').hover() end, 'Show information')
+            map('n', 'K', vim.lsp.buf.hover, 'Show information')
 
             -- Don't map 'gc' or 'gb' because they are used by Comment.nvim
             -- Goto direct [d]efinitions, t[Y]pe definitions, [i]mplementations
@@ -139,5 +139,12 @@ return {
             }
         }
 
+        vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+            border = 'rounded'
+        })
+
+        vim.diagnostic.config {
+            float = { border = "rounded" }
+        }
     end
 }

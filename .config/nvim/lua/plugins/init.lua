@@ -17,22 +17,22 @@ return {
         }
     },
 
-    {
-        'lewis6991/hover.nvim',
-        opts = {
-            init = function()
-                require('hover.providers.man')
-                require('hover.providers.lsp')
-                require('hover.providers.dictionary')
-            end,
-
-            preview_opts = {
-                border = 'rounded'
-            },
-
-            title = false
-        }
-    },
+    -- {
+    --     'lewis6991/hover.nvim',
+    --     opts = {
+    --         init = function()
+    --             require('hover.providers.man')
+    --             require('hover.providers.lsp')
+    --             require('hover.providers.dictionary')
+    --         end,
+    --
+    --         preview_opts = {
+    --             border = 'rounded'
+    --         },
+    --
+    --         title = false
+    --     }
+    -- },
 
     {
         "danymat/neogen",
