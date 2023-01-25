@@ -16,11 +16,6 @@ plugin.config = function()
         }
     }
 
-    local link = require('utils').link
-
-    link('WhichKeyDesc', 'String')
-    link('WhichKeyFloat', 'Normal')
-    link('WhichKeyBorder', 'Normal')
 end
 
 return plugin

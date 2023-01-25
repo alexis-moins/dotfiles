@@ -7,13 +7,13 @@ plugin.config = function()
 
     local custom_nord = {
         normal = {
-            a = { fg = '#1e2030', bg = '#8aadf4' },
-            b = { fg = '#6e738d', bg = '#303347' },
-            c = 'CursorLine',
+            a = { fg = '#24273a', bg = '#ed8796' },
+            b = { fg = '#6e738d', bg = '#24273a' },
+            c = { bg = '#24273a' },
 
-            x = { fg = '#6e738d', bg = '#303347' },
-            y = { fg = '#ed8796', bg = '#303347' },
-            z = { fg = '#1e2030', bg = '#ed8796' },
+            x = { bg = '#24273a' },
+            y = { fg = '#6e738d', bg = '#24273a' },
+            z = { fg = '#24273a', bg = '#ed8796' },
         },
     }
 
@@ -27,8 +27,8 @@ plugin.config = function()
         end,
 
         tabs_color = {
-            active = 'DiffAdd',
             inactive = 'Comment',
+            active = 'DiffAdd',
         },
     }
 
@@ -47,19 +47,18 @@ plugin.config = function()
                 }
             end
         end,
-
-        padding = { right = 2 }
+        padding = { right = 0 }
     }
 
     local git_branch = {
         'branch',
-        separator = { left = '' },
+        -- separator = { left = '' },
         -- icon = ' ',
         -- color = { fg = '#1e2030', bg = '#f5bde6' },
         -- separator = { left = '' }
-        padding = {
-            right = 2
-        }
+        -- padding = {
+        --     right = 2
+        -- }
     }
 
     local diagnostics = {
@@ -80,8 +79,11 @@ plugin.config = function()
     local filename = {
         'filename',
         file_status = false,
+        -- separator = { right = '' }
+        -- color = { fg = '#6e738d', bg = '#24273a' }
         -- separator = { left = '' },
-        separator = { left = '' },
+        -- separator = { left = '' },
+        separator = { right = '' }
     }
 
     local marker = {
@@ -110,14 +112,24 @@ plugin.config = function()
         },
 
         sections = {
-            lualine_a = { mode },
-            lualine_b = { { 'progress', padding = { left = 2 } } },
-            lualine_c = { diagnostics },
+            lualine_a = { filename },
+            lualine_b = { git_branch },
+            lualine_c = { git_diff },
 
-            lualine_x = { git_diff },
-            lualine_y = { git_branch },
-            lualine_z = { filename },
+            lualine_x = {},
+            lualine_y = {},
+            lualine_z = {},
         },
+
+        winbar = {
+            lualine_y = { diagnostics, { '%m', color = 'Error' } },
+            lualine_z = { { '%t', color = { fg = '#6e738d', bg = '#24273a' } } }
+        },
+
+        inactive_winbar = {
+            lualine_y = { diagnostics, { '%m', color = 'Error' } },
+            lualine_z = { { '%t', color = { fg = '#6e738d', bg = '#24273a' } } }
+        }
     }
 
     vim.opt.showtabline = 1

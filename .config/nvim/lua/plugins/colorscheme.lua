@@ -16,15 +16,15 @@ return {
                     TelescopeMatching = { fg = colors.green, bg = "none" },
 
                     TelescopeNormal = { fg = colors.overlay1 },
-                    TelescopeBorder = { fg = colors.overlay1 },
+                    TelescopeBorder = { fg = colors.blue },
                     TelescopeSelection = { fg = colors.text, bg = colors.base },
 
                     TelescopeSelectionCaret = { fg = colors.red },
                     TelescopePromptTitle = { fg = colors.green },
                     TelescopePromptPrefix = { fg = colors.blue },
 
-                    -- Not working
                     WhichKeyBorder = { fg = colors.blue },
+                    WhichKey = { fg = colors.red },
                 }
             end,
 
@@ -43,5 +43,4 @@ return {
 
         vim.cmd.colorscheme 'catppuccin'
     end
-
 }

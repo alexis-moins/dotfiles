@@ -26,7 +26,9 @@ vim.opt.swapfile = false
 -- Never display the statusline
 vim.opt.ruler = false
 vim.opt.laststatus = 0
+
 vim.opt.showmode = false
+vim.opt.cmdheight = 0
 
 -- Just so that it is beautiful
 vim.opt.wrap = false
@@ -62,7 +64,7 @@ vim.opt.list = true
 vim.opt.showcmd = false
 vim.opt.showtabline = 0
 
-vim.opt.winbar = '%=%#Error#%m %#Conceal#%f'
+-- vim.opt.winbar = '%=%#Error#%m %#Conceal#%f'
 
 -- Show which-key menu faster
 vim.opt.timeoutlen = 200
