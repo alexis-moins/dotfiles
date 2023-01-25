@@ -13,6 +13,7 @@ SETUVAR --export JAVA_HOME:/usr/local/Cellar/openjdk\x4017/17\x2e0\x2e5/libexec/
 SETUVAR --export LS_COLORS:di\x3d34\x3aln\x3d35\x3aso\x3d32\x3api\x3d33\x3aex\x3d31\x3abd\x3d34\x3b46\x3acd\x3d34\x3b43\x3asu\x3d30\x3b41\x3asg\x3d30\x3b46\x3atw\x3d30\x3b42\x3aow\x3d30\x3b43
 SETUVAR --export MANPAGER:nvim\x1e\x2bMan\x21
 SETUVAR --export PYENV_ROOT:/Users/alexis/\x2epyenv
+SETUVAR --export TERM:screen\x2d256color\x20tmux
 SETUVAR XDG_CONFIG_HOME:/Users/alexis/\x2econfig
 SETUVAR Z_DATA_DIR:/Users/alexis/\x2elocal/share/z
 SETUVAR __fish_initialized:3400

@@ -1,5 +1,5 @@
 function tmux-switch --description 'Use fzf to switch to another open tmux session'
-    set --local window (tmux list-sessions -F '#S: #{session_windows}' | fzf-tmux -p85%,70%)
+    set --local window (tmux list-sessions -F '#S: #{session_windows}' | fzf-tmux -p90%,75%)
 
     test -z $window && return 0
     set --local parts (string split ': ' $window)
