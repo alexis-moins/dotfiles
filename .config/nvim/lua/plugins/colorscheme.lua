@@ -15,7 +15,7 @@ return {
 
                     TelescopeMatching = { fg = colors.green, bg = "none" },
 
-                    TelescopeNormal = { fg = colors.overlay1 },
+                    TelescopeNormal = { fg = colors.surface2 },
                     TelescopeBorder = { fg = colors.blue },
                     TelescopeSelection = { fg = colors.text, bg = colors.base },
 
@@ -24,7 +24,6 @@ return {
                     TelescopePromptPrefix = { fg = colors.blue },
 
                     WhichKeyBorder = { fg = colors.blue },
-                    WhichKey = { fg = colors.red },
                 }
             end,
 

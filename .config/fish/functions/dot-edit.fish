@@ -1,5 +1,5 @@
 function dot-edit
-    set --local dotfiles_dir "$HOME/.dotfiles"
+    set --local dotfiles_dir "$HOME/dotfiles"
     pushd "$dotfiles_dir"
 
     set --local file (fd --hidden --ignore . | fzf-tmux -p85%,70%)

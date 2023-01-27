@@ -47,7 +47,7 @@ plugin.config = function()
                 }
             end
         end,
-        padding = { right = 0 }
+        padding = { left = 1 }
     }
 
     local git_branch = {
@@ -56,9 +56,7 @@ plugin.config = function()
         -- icon = ' ',
         -- color = { fg = '#1e2030', bg = '#f5bde6' },
         -- separator = { left = '' }
-        -- padding = {
-        --     right = 2
-        -- }
+        separator = { right = '' }
     }
 
     local diagnostics = {
@@ -112,9 +110,9 @@ plugin.config = function()
         },
 
         sections = {
-            lualine_a = { filename },
-            lualine_b = { git_branch },
-            lualine_c = { git_diff },
+            lualine_a = { git_branch },
+            lualine_b = { git_diff },
+            lualine_c = {},
 
             lualine_x = {},
             lualine_y = {},
