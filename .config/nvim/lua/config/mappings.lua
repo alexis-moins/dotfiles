@@ -12,9 +12,6 @@ vim.keymap.set('n', '<leader>x', '"_x')
 vim.keymap.set({'n', 'v'}, 'j', 'gj')
 vim.keymap.set({'n', 'v'}, 'k', 'gk')
 
-vim.keymap.set('n', '<leader>ldn', vim.diagnostic.goto_next, { desc = 'Next diagnostic'})
-vim.keymap.set('n', '<leader>ldp', vim.diagnostic.goto_prev, { desc = 'Previous diagnostic'})
-
 -- Stay in place
 vim.keymap.set('n', 'J', 'mzJ`z')
 

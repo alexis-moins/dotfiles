@@ -11,6 +11,12 @@ return {
                 return {
                     Folded = { fg = colors.surface2, bg = colors.base },
                     NormalFloat = { bg = colors.base },
+
+                    TabLineSel = { fg = colors.blue, bg = colors.base },
+                    TabLine = { fg = colors.surface2, bg = colors.base },
+
+                    StatusLine = { fg = colors.base, bg = colors.base },
+
                     CmpBorder = { fg = colors.blue },
 
                     TelescopeMatching = { fg = colors.green, bg = "none" },
@@ -24,6 +30,7 @@ return {
                     TelescopePromptPrefix = { fg = colors.blue },
 
                     WhichKeyBorder = { fg = colors.blue },
+
                 }
             end,
 

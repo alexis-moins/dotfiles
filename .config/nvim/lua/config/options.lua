@@ -7,6 +7,7 @@ vim.opt.cursorline = true
 
 -- Enable mouse support in all modes
 vim.opt.mouse = 'a'
+vim.opt.conceallevel = 3
 
 -- Add line number
 vim.opt.number = true
@@ -26,9 +27,7 @@ vim.opt.swapfile = false
 -- Never display the statusline
 vim.opt.ruler = false
 vim.opt.laststatus = 0
-
 vim.opt.showmode = false
-vim.opt.cmdheight = 0
 
 -- Just so that it is beautiful
 vim.opt.wrap = false
@@ -62,22 +61,19 @@ vim.opt.list = true
 
 -- Don't show commands below the statusline
 vim.opt.showcmd = false
-vim.opt.showtabline = 0
+vim.opt.showtabline = 1
 
--- vim.opt.winbar = '%=%#Error#%m %#Conceal#%f'
+vim.opt.laststatus = 3
+vim.opt.cmdheight = 0
+
+vim.opt.winbar = "%= %#Directory#%{get(b:,'gitsigns_status','')} %#Error#%m %#Conceal#%t"
 
 -- Show which-key menu faster
 vim.opt.timeoutlen = 200
 vim.opt.updatetime = 200
 
 -- Treat - as part of a word
-vim.opt.iskeyword:append({ '-' })
-
--- Nord options
--- vim.g.nord_italic = false
--- vim.g.nord_borders = true
--- vim.g.nord_contrast = true
+-- vim.opt.iskeyword:append({ '-' })
 
 -- Leading for mappings
 vim.g.mapleader = ' '
-
