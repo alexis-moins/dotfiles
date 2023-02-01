@@ -17,6 +17,7 @@ return {
 
         mapping('n', '<leader>ff', function() require('telescope.builtin').git_files() end, 'Find files (git)')
         mapping('n', '<leader>fg', function() require('telescope.builtin').live_grep() end, 'Grep files')
+        mapping('n', '<leader>fb', function() require('telescope.builtin').buffers() end, 'Find buffers')
 
         mapping('n', '<leader>fh', function() require('telescope.builtin').help_tags() end, 'Find help pages')
         mapping('n', '<leader>fe', function() require('telescope.builtin').command_history() end,
@@ -32,7 +33,28 @@ return {
         local actions = require('telescope.actions')
 
         local options = {
+            defaults = {
+            },
+
             pickers = {
+                buffers = {
+                    show_all_buffers = true,
+                    sort_mru = true,
+
+                    theme = 'ivy',
+
+                    previewer = false,
+                    mappings = {
+                        i = {
+                            ['<C-d>'] = "delete_buffer"
+                        },
+
+                        n = {
+                            ['d'] = "delete_buffer"
+                        }
+                    }
+                },
+
                 find_files = {
                     find_command = { "fd", "--type", "f", "--strip-cwd-prefix", "--hidden" },
                 },
