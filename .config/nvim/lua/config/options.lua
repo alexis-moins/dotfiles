@@ -66,14 +66,11 @@ vim.opt.showtabline = 1
 vim.opt.laststatus = 3
 vim.opt.cmdheight = 0
 
-vim.opt.winbar = "%= %#Directory#%{get(b:,'gitsigns_status','')} %#Error#%m %#Conceal#%t"
+vim.opt.winbar = "%= %#Type#%{get(b:,'gitsigns_status','')} %#Error#%m %#Conceal#%.30f"
 
 -- Show which-key menu faster
 vim.opt.timeoutlen = 200
 vim.opt.updatetime = 200
-
--- Treat - as part of a word
--- vim.opt.iskeyword:append({ '-' })
 
 -- Leading for mappings
 vim.g.mapleader = ' '

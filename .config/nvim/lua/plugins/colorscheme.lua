@@ -30,7 +30,6 @@ return {
                     TelescopePromptPrefix = { fg = colors.blue },
 
                     WhichKeyBorder = { fg = colors.blue },
-
                 }
             end,
 
