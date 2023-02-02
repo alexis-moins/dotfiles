@@ -29,3 +29,5 @@ alias la 'exa --all'
 alias ll 'exa --long --all --git'
 
 alias tree 'exa --tree --git-ignore'
+
+alias ci git-commit
