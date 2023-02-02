@@ -11,6 +11,7 @@ brew "fzf"
 brew "gh"
 brew "git"
 brew "go"
+brew "gum"
 brew "neovim", args: ["HEAD"]
 brew "pipx"
 brew "poetry"
