@@ -6,4 +6,6 @@ function git-commit
 
     set -l summary (gum input --value "$type$scope: " --placeholder "Summary of this change" --width 80)
     set -l description (gum write --placeholder "Details of this change (CTRL+D to finish)")
+
+    gum confirm "Commit changes?" && git commit -m "$summary" -m "$description"
 end
