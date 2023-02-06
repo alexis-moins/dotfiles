@@ -13,6 +13,8 @@ return {
     init = function()
         local mapping = require('utils').map
 
+        mapping('n', '/', function() require('telescope.builtin').current_buffer_fuzzy_find() end, 'Search current buffer')
+
         mapping('n', '<leader><leader>', function() require('telescope.builtin').find_files() end, 'Find files')
 
         mapping('n', '<leader>ff', function() require('telescope.builtin').git_files() end, 'Find files (git)')
@@ -53,6 +55,11 @@ return {
                             ['d'] = "delete_buffer"
                         }
                     }
+                },
+
+                current_buffer_fuzzy_find = {
+                    skip_empty_lines = true,
+                    theme = 'ivy',
                 },
 
                 find_files = {

@@ -43,18 +43,6 @@ return {
     },
 
     {
-        "folke/zen-mode.nvim",
-        cmd = 'ZenMode',
-        config = true
-    },
-
-    {
-        "folke/twilight.nvim",
-        cmd = 'Twilight',
-        config = true
-    },
-
-    {
         'nvim-neorg/neorg',
         ft = 'norg', cmd = 'Neorg',
 
@@ -98,14 +86,6 @@ return {
             'rcarriga/nvim-dap-ui',
             'jay-babu/mason-nvim-dap.nvim',
         }
-    },
-
-    {
-        'cvigilv/esqueleto.nvim',
-        config = {
-            directory = '~/.config/nvim/skeletons/',
-            patterns = { 'README.md', 'python', 'LICENSE', 'lua' }
-        },
     },
 
     {
