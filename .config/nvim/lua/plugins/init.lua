@@ -42,27 +42,6 @@ return {
         },
     },
 
-    {
-        'nvim-neorg/neorg',
-        ft = 'norg', cmd = 'Neorg',
-
-        build = ':Neorg sync-parsers',
-        config = {
-            load = {
-                ['core.defaults'] = {},
-                ["core.norg.concealer"] = {},
-                ['core.norg.dirman'] = {
-                    config = {
-                        workspaces = {
-                            work = '~/notes/work',
-                            school = '~/notes/school',
-                        }
-                    }
-                }
-            }
-        }
-    },
-
     -- UI
     {
         'stevearc/dressing.nvim',
