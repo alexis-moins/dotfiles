@@ -5,7 +5,7 @@ function fish_user_key_bindings
     fzf_key_bindings
 
     # ^G for fzf cd
-    bind --mode insert \cg fzf-git-branch
+    bind --mode insert \cg git-switch-branch
 
     # Bind ^Z to resume background process
     bind --mode insert \cz fg\r

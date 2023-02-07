@@ -56,7 +56,7 @@ vim.opt.shortmess = 'filnxtToOFIc'
 vim.opt.diffopt:append({ 'algorithm:patience', 'iwhiteall', 'context:0' })
 
 vim.opt.fillchars = { fold = ' ', eob = ' ' }
-vim.opt.listchars = { tab = '>.', trail = '-', extends = '>', precedes = '<' }
+vim.opt.listchars = { tab = '  ', trail = '-', extends = '>', precedes = '<' }
 vim.opt.list = true
 
 -- Don't show commands below the statusline

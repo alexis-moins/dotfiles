@@ -1,7 +1,6 @@
 return {
     -- Language servers
     'neovim/nvim-lspconfig',
-    event = { 'BufReadPre', 'BufNewFile' },
 
     dependencies = {
         'williamboman/mason.nvim',
@@ -9,10 +8,6 @@ return {
 
         'jose-elias-alvarez/null-ls.nvim',
 
-        -- {
-        --     'lewis6991/hover.nvim',
-        --     config =
-        -- },
         {
             'folke/neodev.nvim',
             config = true
@@ -24,8 +19,8 @@ return {
 
         mapping('n', '<leader>lm', vim.cmd.Mason, 'Open Mason popup')
         mapping('n', '<leader>li', vim.cmd.LspInfo, 'Show LSP client information')
-    end,
 
+    end,
     config = function()
         -- Changing mason's UI
         require('mason').setup {
@@ -58,7 +53,7 @@ return {
         })
 
         -- Default function to run when attaching a client its LSP server
-        local on_attach = function(client, buffer)
+        local on_attach = function(_, buffer)
             -- Default options
             local mapping = require('utils').map
             local map = function(mode, keys, action, desc)

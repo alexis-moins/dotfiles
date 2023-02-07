@@ -95,7 +95,7 @@ return {
             sources = cmp.config.sources({
                 { name = 'path' }
             }, {
-                { name = 'cmdline', keyword_length = 3 }
+                { name = 'cmdline' }
             })
         })
 

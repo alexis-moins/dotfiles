@@ -1,5 +1,3 @@
-abbr --add gg "git-switch-branch"
-
 abbr --add de "dot-edit"
 
 abbr --add ga "git add -A"

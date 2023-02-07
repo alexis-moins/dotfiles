@@ -16,9 +16,7 @@ plugin.config = function()
             'vim',
             'help',
 
-            'markdown',
-            'markdown_inline',
-
+            'go',
             'html',
             'javascript',
 
