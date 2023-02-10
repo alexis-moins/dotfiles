@@ -17,6 +17,10 @@ return {
         }
     },
 
+    {
+        'tpope/vim-fugitive'
+    },
+
     -- {
     --     'lewis6991/hover.nvim',
     --     opts = {

@@ -55,7 +55,7 @@ vim.opt.ignorecase = true
 vim.opt.shortmess = 'filnxtToOFIc'
 vim.opt.diffopt:append({ 'algorithm:patience', 'iwhiteall', 'context:0' })
 
-vim.opt.fillchars = { fold = ' ', eob = ' ' }
+vim.opt.fillchars = { fold = ' ', eob = ' ', diff = '╱' }
 vim.opt.listchars = { tab = '  ', trail = '-', extends = '>', precedes = '<' }
 vim.opt.list = true
 

@@ -30,6 +30,8 @@ return {
                     TelescopePromptPrefix = { fg = colors.blue },
 
                     WhichKeyBorder = { fg = colors.blue },
+
+                    DiffDelete = { fg = colors.mantle, bg = "#48384b" },
                 }
             end,
 

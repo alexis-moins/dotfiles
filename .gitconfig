@@ -8,20 +8,21 @@
 [core]
     editor = nvim
 
-[color]
-    ui = true
-
-[color "branch"]
-    remote = blue
-    local = normal
-    worktree = cyan
-    current = green
-
 [diff]
     colorMoved = default
+	mnemonicPrefix = true
+
+[color "diff"]
+    meta = bold black
 
 [difftool]
-    prompt = false
+    prompt = true
+
+[diff]
+    tool = nvimdiff
+
+[difftool "nvimdiff"]
+    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
 
 [merge]
     conflictstyle = diff3
@@ -35,11 +36,9 @@
 
 [alias]
     ci = commit
-    cim = commit -m
 
-    st = status
     co = checkout
-    br = branch
+    br = branch --format '%(color:red)%(HEAD)%(color:white) %(align:30)%(refname:short)%(end) %(align:30)%(color:blue)%(upstream:short)%(color:white) %(color:magenta)%(upstream:track)%(color:white)%(end)'
 
     dt = difftool
     mt = mergetool
@@ -47,14 +46,16 @@
     log = log --all
     bl = branch -va
 
+    di = diff --word-diff
+
     amend = commit --amend --no-edit
     ignore = !git rm -r --cached . && git add -A
 
-    this = !git init && git add -A && git commit -m 'feat: 🎉 initial commit'
+    this = !git init && git add -A && git commit -m 'feat: initial commit'
     oops = !git stash && git co -b oops && git stash pop
 
 [format]
-    pretty = format:%C(auto)%h [%D] %C(brightblue)%an%C(reset) %s (%C(cyan)%cr%C(reset))
+    pretty = format:%C(auto)%h [%D] %C(brightblue)%an%C(reset) %s %C(bold black)%cr%C(reset)
 
 [push]
     autoSetupRemote = true
