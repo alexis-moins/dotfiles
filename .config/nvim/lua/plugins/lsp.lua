@@ -73,11 +73,11 @@ return {
             map('n', 'gr', function() require('telescope.builtin').lsp_references() end, 'Show references')
 
             -- Navigate between diagnostics
-            map('n', '<leader>dn', vim.diagnostic.goto_next, 'Next diagnostic')
-            map('n', '<leader>dp', vim.diagnostic.goto_prev, 'Previous diagnostic')
+            map('n', ']d', vim.diagnostic.goto_next, 'Next diagnostic')
+            map('n', '[d', vim.diagnostic.goto_prev, 'Previous diagnostic')
 
             -- Formatting and diagnostic list
-            map('n', '<leader>lf', vim.lsp.buf.format, 'Format file')
+            map('n', '<leader>f', vim.lsp.buf.format, 'Format file')
             map('n', '<leader>fs', function() require('telescope.builtin').lsp_document_symbols() end, 'Buffer symbols')
 
             -- Diagnostics
