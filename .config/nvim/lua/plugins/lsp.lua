@@ -77,7 +77,7 @@ return {
             map('n', '[d', vim.diagnostic.goto_prev, 'Previous diagnostic')
 
             -- Formatting and diagnostic list
-            map('n', '<leader>f', vim.lsp.buf.format, 'Format file')
+            map('n', '<leader>lf', vim.lsp.buf.format, 'Format file')
             map('n', '<leader>fs', function() require('telescope.builtin').lsp_document_symbols() end, 'Buffer symbols')
 
             -- Diagnostics

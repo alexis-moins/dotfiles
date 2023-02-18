@@ -5,6 +5,8 @@ vim.keymap.set('n', '<leader>sp', '<cmd>setlocal spell!<cr>', { desc = 'Toggle s
 
 vim.keymap.set('n', '<leader>a', 'gg<S-v>G', { desc = "Select all buffer" })
 
+vim.keymap.set('n', '<leader>t>', ':tabmove +1<cr>')
+
 -- Paste and x without yanking text
 -- vim.keymap.set('n', 'p', '"_dP', { desc = "Paste text without yanking" })
 vim.keymap.set('n', '<leader>x', '"_x')
