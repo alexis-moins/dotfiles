@@ -24,8 +24,8 @@ vim.keymap.set('n', 'n', 'nzz')
 vim.keymap.set('n', 'N', 'Nzz')
 
 -- Tabs
-vim.keymap.set('n', '[t', vim.cmd.tabprevious, { desc = "Previous tab" })
-vim.keymap.set('n', ']t', vim.cmd.tabnext, { desc = "Next tab" })
+vim.keymap.set('n', '<Tab>', 'gt', { desc = "Previous tab" })
+vim.keymap.set('n', "<S-Tab>", 'gT', { desc = "Next tab" })
 
 -- Keep visual selection when indenting
 vim.keymap.set('v', '>', '>gv')
