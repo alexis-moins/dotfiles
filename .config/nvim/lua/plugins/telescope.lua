@@ -86,6 +86,7 @@ return {
 
                     display_stat = false,
                     previewer = false,
+                    git_status = false,
 
                     hidden = true,
                     hijack_netrw = true,

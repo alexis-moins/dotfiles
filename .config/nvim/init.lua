@@ -1,6 +1,6 @@
 -- Default configuration
-require 'config.options'
-require 'config.mappings'
+require("config.options")
+require("config.mappings")
 
 -- Package manager
-require 'config.lazy'
+require("config.lazy")

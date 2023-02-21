@@ -7,7 +7,6 @@ vim.opt.cursorline = true
 
 -- Enable mouse support in all modes
 vim.opt.mouse = 'a'
-vim.opt.conceallevel = 3
 
 -- Add line number
 vim.opt.number = true
