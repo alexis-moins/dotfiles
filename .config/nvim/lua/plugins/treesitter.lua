@@ -22,6 +22,7 @@ plugin.config = function()
 
             'gitcommit',
             'gitignore',
+            'comment',
 
             'fish',
             'python',
