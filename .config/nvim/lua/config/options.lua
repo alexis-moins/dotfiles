@@ -34,7 +34,9 @@ vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
 
 vim.opt.linebreak = true
+
 vim.opt.spelllang = { 'en', 'fr' }
+vim.opt.spell = true
 
 -- Folds
 vim.opt.foldlevel = 2
@@ -65,7 +67,7 @@ vim.opt.showtabline = 1
 vim.opt.laststatus = 3
 vim.opt.cmdheight = 0
 
-vim.opt.winbar = "%= %#Type#%{get(b:,'gitsigns_status','')} %#Error#%m %#Conceal#%.30f"
+vim.opt.winbar = "%=%#Error#%m %#Conceal#%.30f"
 
 -- Show which-key menu faster
 vim.opt.timeoutlen = 200

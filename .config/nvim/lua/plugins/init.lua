@@ -4,18 +4,18 @@ return {
         lazy = true
     },
 
-    {
-        'lukas-reineke/indent-blankline.nvim',
-        event = 'BufWinEnter',
-
-        config = {
-            char_blankline = '│',
-            use_treesitter = true,
-
-            show_current_context = true,
-            show_first_indent_level = false,
-        }
-    },
+    -- {
+    --     'lukas-reineke/indent-blankline.nvim',
+    --     event = 'BufWinEnter',
+    --
+    --     config = {
+    --         char_blankline = '│',
+    --         use_treesitter = true,
+    --
+    --         show_current_context = true,
+    --         show_first_indent_level = false,
+    --     }
+    -- },
 
     {
         'tpope/vim-fugitive'

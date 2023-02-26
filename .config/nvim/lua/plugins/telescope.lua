@@ -64,9 +64,17 @@ return {
 
                 find_files = {
                     find_command = { "fd", "--type", "f", "--strip-cwd-prefix", "--hidden" },
+                    theme = 'dropdown',
+                    previewer = false,
+                },
+
+                help_tags = {
+                    theme = 'dropdown',
+                    previewer = false,
                 },
 
                 command_history = {
+                    theme = 'dropdown',
                     mappings = {
                         i = {
                             ['<C-e>'] = actions.edit_command_line
@@ -96,11 +104,8 @@ return {
         }
 
         local pickers = {
-            find_files = false,
             live_grep = true,
             git_files = false,
-            help_tags = false,
-            command_history = false,
 
             lsp_definitions = true,
             lsp_type_definitions = true,

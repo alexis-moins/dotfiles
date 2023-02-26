@@ -28,4 +28,6 @@ alias ll 'exa --long --all --git'
 
 alias tree 'exa --tree --git-ignore'
 
+alias session 'nvim -S'
+
 alias ci git-commit
