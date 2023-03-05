@@ -9,7 +9,7 @@ vim.opt.cursorline = true
 vim.opt.mouse = 'a'
 
 -- Add line number
-vim.opt.number = true
+-- vim.opt.number = true
 
 -- Always use system clipboard
 vim.opt.clipboard:append('unnamedplus')
