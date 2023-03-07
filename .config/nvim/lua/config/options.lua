@@ -9,7 +9,7 @@ vim.opt.cursorline = true
 vim.opt.mouse = 'a'
 
 -- Add line number
--- vim.opt.number = true
+vim.opt.number = true
 
 -- Always use system clipboard
 vim.opt.clipboard:append('unnamedplus')
@@ -34,9 +34,7 @@ vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
 
 vim.opt.linebreak = true
-
 vim.opt.spelllang = { 'en', 'fr' }
-vim.opt.spell = true
 
 -- Folds
 vim.opt.foldlevel = 2
@@ -70,8 +68,10 @@ vim.opt.cmdheight = 0
 vim.opt.winbar = "%=%#Error#%m %#Conceal#%.30f"
 
 -- Show which-key menu faster
-vim.opt.timeoutlen = 200
-vim.opt.updatetime = 200
+vim.opt.timeoutlen = 500
+
+-- CursorHold event timeout
+vim.opt.updatetime = 300
 
 -- Leading for mappings
 vim.g.mapleader = ' '

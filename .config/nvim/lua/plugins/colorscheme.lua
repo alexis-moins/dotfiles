@@ -5,6 +5,7 @@ return {
         name = "rose-pine",
         priority = 1000,
     },
+
     {
         "catppuccin/nvim",
         name = "catppuccin",
@@ -45,7 +46,7 @@ return {
                 },
             })
 
-            vim.cmd.colorscheme("rose-pine-dawn")
+            vim.cmd.colorscheme("catppuccin")
         end,
     },
 }
