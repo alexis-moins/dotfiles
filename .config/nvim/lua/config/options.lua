@@ -73,5 +73,6 @@ vim.opt.timeoutlen = 500
 -- CursorHold event timeout
 vim.opt.updatetime = 300
 
--- Leading for mappings
+-- Leaders for mappings
 vim.g.mapleader = ' '
+vim.g.maplocalleader = ';'

@@ -157,6 +157,12 @@ return {
             virtual_text = false,
         })
 
-        vim.cmd([[autocmd CursorHold * lua vim.diagnostic.open_float(nil, {focus=false})]])
+        -- vim.cmd([[autocmd CursorHold * lua vim.diagnostic.open_float(nil, {focus=false})]])
+
+        vim.keymap.set("n", "H", function()
+            vim.diagnostic.open_float(nil, { focus = false })
+        end, {
+            desc = "Open diagnostics popup",
+        })
     end,
 }

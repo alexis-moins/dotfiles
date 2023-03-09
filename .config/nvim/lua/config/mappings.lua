@@ -5,8 +5,6 @@ vim.keymap.set('n', '<leader>sp', '<cmd>setlocal spell!<cr>', { desc = 'Toggle s
 
 vim.keymap.set('n', '<leader>a', 'gg<S-v>G', { desc = "Select all buffer" })
 
-vim.keymap.set('n', '<leader>t>', ':tabmove +1<cr>')
-
 vim.keymap.set("n", "<leader>=", vim.lsp.buf.format, { desc = "Format file" })
 
 vim.keymap.set("n", "<leader>sp", '<cmd>set spell!<cr>', { desc = "Toggle spell checking" })
