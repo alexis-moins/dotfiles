@@ -30,6 +30,10 @@ return {
             require("telescope.builtin").buffers()
         end, "Find buffers")
 
+        mapping("n", "<leader>fc", function ()
+            require("telescope.builtin").colorscheme()
+        end, "Find colorscheme")
+
         mapping("n", "<leader>fh", function()
             require("telescope.builtin").help_tags()
         end, "Find help pages")

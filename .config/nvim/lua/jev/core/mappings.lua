@@ -9,7 +9,6 @@ vim.keymap.set("n", "<leader>=", vim.lsp.buf.format, { desc = "Format file" })
 
 vim.keymap.set("n", "<leader>sp", '<cmd>set spell!<cr>', { desc = "Toggle spell checking" })
 
-
 -- Paste and x without yanking text
 -- vim.keymap.set('n', 'p', '"_dP', { desc = "Paste text without yanking" })
 vim.keymap.set('n', '<leader>x', '"_x')

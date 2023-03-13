@@ -46,7 +46,6 @@ return {
             ensure_installed = {
                 "autopep8",
                 "prettier",
-                "stylua",
             },
             automatic_installation = false,
             automatic_setup = true, -- Recommended, but optional
