@@ -30,7 +30,7 @@ return {
             require("telescope.builtin").buffers()
         end, "Find buffers")
 
-        mapping("n", "<leader>fc", function ()
+        mapping("n", "<leader>fc", function()
             require("telescope.builtin").colorscheme()
         end, "Find colorscheme")
 
@@ -42,7 +42,7 @@ return {
         end, "Find commands (history)")
 
         -- Extensions
-        mapping("n", "<leader>f.", function()
+        mapping("n", "<leader>-", function()
             require("telescope").extensions.file_browser.file_browser()
         end, "Browse files")
     end,
@@ -56,44 +56,35 @@ return {
                 buffers = {
                     show_all_buffers = true,
                     sort_mru = true,
-
                     theme = "ivy",
-
                     previewer = false,
                     mappings = {
                         i = {
                             ["<C-d>"] = "delete_buffer",
                         },
-
                         n = {
                             ["d"] = "delete_buffer",
                         },
                     },
                 },
-
                 current_buffer_fuzzy_find = {
                     skip_empty_lines = true,
                     theme = "ivy",
                 },
-
                 find_files = {
                     find_command = { "fd", "--type", "f", "--strip-cwd-prefix", "--hidden" },
                     theme = "dropdown",
                     previewer = false,
                 },
-
                 help_tags = {
                     theme = "dropdown",
                     previewer = false,
                 },
-
                 diagnostics = {
                     theme = "ivy",
                     no_sign = true,
-
                     bufnr = 0,
                 },
-
                 command_history = {
                     theme = "dropdown",
                     mappings = {
@@ -111,11 +102,9 @@ return {
                     theme = "ivy",
                     path = "%:p:h",
                     quiet = true,
-
                     display_stat = false,
                     previewer = false,
                     git_status = false,
-
                     hidden = true,
                     hijack_netrw = true,
                     respect_gitignore = true,

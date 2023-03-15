@@ -24,11 +24,35 @@ return {
     },
 
     {
+        "nvim-neorg/neorg",
+        ft = "norg",
+        cmd = "Neorg",
+        build = ":Neorg sync-parsers",
+        opts = {
+            load = {
+                ["core.defaults"] = {}
+            }
+        }
+    },
+
+    {
         -- Debugger
         "mfussenegger/nvim-dap",
         dependencies = {
             "rcarriga/nvim-dap-ui",
             "jay-babu/mason-nvim-dap.nvim",
+        },
+    },
+
+    {
+        "stevearc/dressing.nvim",
+        event = "VeryLazy",
+        config = {
+            input = {
+                win_options = {
+                    winblend = 0,
+                },
+            },
         },
     },
 

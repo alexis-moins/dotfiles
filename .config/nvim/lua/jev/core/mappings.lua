@@ -19,6 +19,10 @@ vim.keymap.set({ 'n', 'v' }, 'k', 'gk')
 -- Stay in place
 vim.keymap.set('n', 'J', 'mzJ`z')
 
+-- Use + to increment numbers
+vim.keymap.set('n', '+', '<C-A>')
+vim.keymap.set('n', '-', '<C-X>')
+
 -- Center
 vim.keymap.set('n', '<C-U>', '<C-U>zz')
 vim.keymap.set('n', '<C-D>', '<C-D>zz')
