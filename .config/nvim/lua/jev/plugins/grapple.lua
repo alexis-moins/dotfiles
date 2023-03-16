@@ -16,14 +16,12 @@ return {
             desc = "Open tag popup",
         })
 
-        for index, value in ipairs({ "a", "z", "e", "r", "t" }) do
+        for index, value in ipairs({ "1", "2", "3", "4", "5" }) do
             vim.keymap.set("n", "," .. value, function()
                 require("grapple").select({
                     key = index,
                 })
-            end, {
-                desc = "Navigate to tag " .. index,
-            })
+            end)
         end
     end,
 }

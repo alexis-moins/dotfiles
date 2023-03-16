@@ -76,6 +76,12 @@ return {
                     theme = "dropdown",
                     previewer = false,
                 },
+
+                git_files = {
+                    theme = 'dropdown',
+                    previewer = false
+                },
+
                 help_tags = {
                     theme = "dropdown",
                     previewer = false,
@@ -114,7 +120,6 @@ return {
 
         local pickers = {
             live_grep = true,
-            git_files = false,
             lsp_definitions = true,
             lsp_type_definitions = true,
             lsp_implementations = true,

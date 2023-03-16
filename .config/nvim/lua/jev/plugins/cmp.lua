@@ -1,7 +1,6 @@
 return {
     "hrsh7th/nvim-cmp",
     event = { "InsertEnter", "CmdlineEnter" },
-
     dependencies = {
         "hrsh7th/cmp-path",
         "hrsh7th/cmp-buffer",
@@ -21,7 +20,6 @@ return {
             config = function()
                 require("copilot_cmp").setup({})
             end,
-
             dependencies = {
                 {
                     "zbirenbaum/copilot.lua",
@@ -51,37 +49,34 @@ return {
                 completion = cmp.config.window.bordered({
                     winhighlight = "Normal:Normal,FloatBorder:CmpBorder,Search:None",
                 }),
-
                 documentation = cmp.config.window.bordered({
                     winhighlight = "Normal:Normal,FloatBorder:CmpBorder",
                 }),
             },
             mapping = {
-                ["<C-b>"] = cmp.mapping.scroll_docs( -4),
-                ["<C-f>"] = cmp.mapping.scroll_docs(4),
-
-                ["<C-k>"] = cmp.mapping.select_prev_item(),
-                ["<C-j>"] = cmp.mapping.select_next_item(),
-
-                ["<C-n>"] = function()
+                    ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+                    ["<C-f>"] = cmp.mapping.scroll_docs(4),
+                    ["<C-k>"] = cmp.mapping.select_prev_item(),
+                    ["<C-j>"] = cmp.mapping.select_next_item(),
+                    ["<C-n>"] = function()
                     if cmp.visible() then
                         cmp.abort()
                     else
                         cmp.complete()
                     end
                 end,
-
-                ["<C-y>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
+                    ["<C-y>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
             },
             sources = cmp.config.sources({
                 { name = "copilot" },
                 { name = "nvim_lua" },
                 { name = "nvim_lsp" },
+                { name = "neorg" },
                 { name = "nvim_lsp_signature_help" },
                 { name = "luasnip" },
                 { name = "path" },
                 { name = "calc" },
-                { name = "buffer",                 keyword_length = 2 },
+                { name = "buffer", keyword_length = 2 },
             }),
             formatting = {
                 format = function(entry, vim_item)
