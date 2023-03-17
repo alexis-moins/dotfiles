@@ -1,0 +1,106 @@
+You encounter a small troll!
+The troll snarls and brandishes a rusty sword.
+
+What will you do?
+1. Attack the troll with your sword
+2. Cast a spell
+3. Use an item
+4. Run away
+
+> 1
+
+You swing your sword at the troll.
+The troll dodges your attack and lunges forward with its sword.
+
+What will you do?
+1. Dodge the troll's attack
+2. Block the troll's attack with your shield
+3. Counter-attack with your sword
+4. Run away
+
+> 2
+
+You raise your shield to block the troll's attack.
+The troll's sword clangs against your shield, but you manage to block the attack.
+
+What will you do?
+1. Dodge the troll's attack
+2. Counter-attack with your sword
+3. Use an item
+4. Run away
+
+> 2
+
+You quickly counter-attack the troll with your sword.
+Your sword slashes across the troll's arm, causing it to yelp in pain.
+
+What will you do?
+1. Attack the troll again with your sword
+2. Cast a spell
+3. Use an item
+4. Run away
+
+> 1
+
+You swing your sword at the troll once again.
+This time, your sword connects with the troll's chest, causing it to stumble backwards.
+
+The troll looks weakened. What will you do?
+1. Finish off the troll with a final attack
+2. Spare the troll and let it go
+
+> 1
+
+You deliver a final blow to the troll, defeating it.
+You find a small pouch of gold coins on the troll's body.
+
+What will you do?
+1. Continue exploring
+2. Rest and heal
+3. Quit the game
+
+> 1
+
+
+
+
+
+
+You enter a dark room with a torch hanging on the wall.
+What will you do?
+1. Explore the room
+2. Cast a spell
+3. Leave the room
+
+> 2
+
+You cast a fire ball spell at the torch, hoping to light up the room.
+As the fireball hits the torch, you hear a loud click and a section of the wall slides open, revealing a secret passage!
+
+What will you do?
+1. Explore the secret passage
+2. Leave the room
+
+> 1
+
+You enter the secret passage and find yourself in a narrow tunnel.
+The tunnel twists and turns, but you eventually come to a small room with a chest in the center.
+
+What will you do?
+1. Open the chest
+2. Leave the room
+
+> 1
+
+You open the chest and find a magical amulet inside.
+As you put on the amulet, you feel a surge of power and realize that you have gained a new spell!
+
+What will you do?
+1. Continue exploring
+2. Leave the room
+
+> 1
+
+You continue to explore the passage and eventually find your way back to the main room.
+From here, you can go back to
+

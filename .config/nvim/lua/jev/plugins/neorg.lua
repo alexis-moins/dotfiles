@@ -6,11 +6,11 @@ return {
     opts = {
         load = {
             ["core.defaults"] = {},
-            ["core.keybinds"] = {
-                config = {
-                    default_keybinds = false
-                }
-            },
+            -- ["core.keybinds"] = {
+            --     config = {
+            --         default_keybinds = false
+            --     }
+            -- },
 
             ["core.norg.dirman"] = {
                 config = {
