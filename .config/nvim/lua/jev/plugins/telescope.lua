@@ -37,9 +37,20 @@ return {
         mapping("n", "<leader>fh", function()
             require("telescope.builtin").help_tags()
         end, "Find help pages")
+
         mapping("n", "<leader>fe", function()
             require("telescope.builtin").command_history()
         end, "Find commands (history)")
+
+        vim.keymap.set({ 'n', 'v' }, '<C-P>', function()
+            require('telescope.builtin').registers()
+        end, {
+            desc = 'Find registers'
+        })
+
+        vim.keymap.set('n', '<leader>fz', function()
+            require('telescope.builtin').spell_suggest()
+        end)
 
         -- Extensions
         mapping("n", "<leader>-", function()
@@ -76,12 +87,13 @@ return {
                     theme = "dropdown",
                     previewer = false,
                 },
-
+                spell_suggest = {
+                    theme = 'dropdown'
+                },
                 git_files = {
                     theme = 'dropdown',
                     previewer = false
                 },
-
                 help_tags = {
                     theme = "dropdown",
                     previewer = false,
@@ -90,6 +102,9 @@ return {
                     theme = "ivy",
                     no_sign = true,
                     bufnr = 0,
+                },
+                registers = {
+                    theme = 'dropdown'
                 },
                 command_history = {
                     theme = "dropdown",
