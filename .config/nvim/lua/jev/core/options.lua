@@ -8,9 +8,6 @@ vim.opt.cursorline = true
 -- Enable mouse support in all modes
 vim.opt.mouse = 'a'
 
--- Add line number
--- vim.opt.number = true
-
 -- Always use system clipboard
 vim.opt.clipboard:append('unnamedplus')
 
@@ -37,7 +34,7 @@ vim.opt.linebreak = true
 vim.opt.spelllang = { 'en', 'fr' }
 
 -- Folds
-vim.opt.foldlevel = 2
+vim.opt.foldlevel = 1
 vim.opt.foldnestmax = 10
 vim.opt.foldmethod = 'indent'
 vim.opt.foldenable = false

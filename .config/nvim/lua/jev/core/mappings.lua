@@ -37,9 +37,6 @@ vim.keymap.set('n', "<S-Tab>", 'gT', { desc = "Next tab" })
 vim.keymap.set('v', '>', '>gv')
 vim.keymap.set('v', '<', '<gv')
 
--- Zoom a window with Ctrl-z
-vim.keymap.set('n', '<C-w>z', '<C-w>|')
-
 -- Move lines around
 vim.keymap.set('v', '<C-j>', ":m '>+1<cr>gv=gv")
 vim.keymap.set('v', '<C-k>', ":m '<-2<cr>gv=gv")
