@@ -29,7 +29,10 @@ return {
     {
         "tpope/vim-fugitive",
         init = function()
-            vim.keymap.set('n', '<C-g>', vim.cmd.Git)
+            vim.keymap.set('n', '<C-g>', '<cmd>tab Git<cr>', {
+                silent = true,
+                desc = 'Open fugitive in a new tab'
+            })
         end
     },
 
