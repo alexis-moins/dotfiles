@@ -20,7 +20,17 @@ return {
     -- },
 
     {
+        "mbbill/undotree",
+        init = function()
+            -- vim.keymap.set('n', '<C-')
+        end
+    },
+
+    {
         "tpope/vim-fugitive",
+        init = function()
+            vim.keymap.set('n', '<C-g>', vim.cmd.Git)
+        end
     },
 
     {
