@@ -4,15 +4,15 @@ return {
         lazy = true,
     },
 
-    {
-        "lukas-reineke/indent-blankline.nvim",
-        event = "BufWinEnter",
-        config = {
-            char_blankline = "│",
-            use_treesitter = true,
-            show_first_indent_level = false,
-        },
-    },
+    -- {
+    --     "lukas-reineke/indent-blankline.nvim",
+    --     event = "BufWinEnter",
+    --     config = {
+    --         char_blankline = "│",
+    --         use_treesitter = true,
+    --         show_first_indent_level = false,
+    --     },
+    -- },
 
     -- {
     --     "udayvir-singh/tangerine.nvim",
