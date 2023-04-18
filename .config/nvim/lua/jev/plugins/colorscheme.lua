@@ -7,10 +7,13 @@ return {
     },
 
     {
+        'JoosepAlviste/palenightfall.nvim'
+    },
+
+    {
         "catppuccin/nvim",
         name = "catppuccin",
         priority = 1000,
-
         config = function()
             require("catppuccin").setup({
                 flavour = "macchiato",
@@ -34,12 +37,10 @@ return {
                     }
                 end,
                 integrations = {
-
                     indent_blankline = {
                         enabled = true,
                         colored_indent_levels = true,
                     },
-
                     native_lsp = {
                         enabled = true,
                     },

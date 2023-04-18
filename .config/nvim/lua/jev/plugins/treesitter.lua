@@ -38,7 +38,7 @@ plugin.config = function()
 
         indent = {
             enable = true,
-            disable = { "python" },
+            disable = { "python", "ts" },
         },
 
         textobjects = {
