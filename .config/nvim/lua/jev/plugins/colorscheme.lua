@@ -4,10 +4,11 @@ return {
         "rose-pine/neovim",
         name = "rose-pine",
         priority = 1000,
-    },
-
-    {
-        'JoosepAlviste/palenightfall.nvim'
+        opts = {
+            highlight_groups = {
+                StatusLine = { fg = "base", bg = "base" },
+            },
+        },
     },
 
     {

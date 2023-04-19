@@ -4,9 +4,11 @@ colors
 
 README.*
 Brewfile.*
+Session.vim
 
 install
 
 \.git
 \.gitignore
 catppuccin-iterm.json
+rose-pine-iterm.json
