@@ -18,18 +18,28 @@ return {
         "mbbill/undotree",
         init = function()
             -- vim.keymap.set('n', '<C-')
-        end
+        end,
     },
 
     {
         "tpope/vim-fugitive",
         init = function()
-            vim.keymap.set('n', '<C-g>', '<cmd>tab Git<cr>', {
+            vim.keymap.set("n", "<C-g>", "<cmd>tab Git<cr>", {
                 silent = true,
-                desc = 'Open fugitive in a new tab'
+                desc = "Open fugitive in a new tab",
             })
-        end
+
+            vim.keymap.set("n", "<leader>gp", "<cmd>Git push<cr>", {
+                silent = true,
+                desc = "Push current commit",
+            })
+        end,
     },
+
+    { "tpope/vim-dotenv" },
+
+    { "tpope/vim-dadbod" },
+    { "kristijanhusak/vim-dadbod-ui" },
 
     {
         -- Debugger

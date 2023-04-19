@@ -28,7 +28,6 @@ return {
                     package_pending = "~",
                     package_uninstalled = "-",
                 },
-
                 border = "rounded",
             },
         })
@@ -49,6 +48,11 @@ return {
             },
             automatic_installation = false,
             automatic_setup = true, -- Recommended, but optional
+            handlers = {
+                -- prettier = function ()
+                --
+                -- end
+            }
         })
 
         require("null-ls").setup({

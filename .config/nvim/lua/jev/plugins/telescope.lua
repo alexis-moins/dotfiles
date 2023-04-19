@@ -12,10 +12,6 @@ return {
     init = function()
         local mapping = require("utils").map
 
-        mapping("n", "/", function()
-            require("telescope.builtin").current_buffer_fuzzy_find()
-        end, "Search current buffer")
-
         mapping("n", "<leader><leader>", function()
             require("telescope.builtin").find_files()
         end, "Find files")
@@ -42,14 +38,14 @@ return {
             require("telescope.builtin").command_history()
         end, "Find commands (history)")
 
-        vim.keymap.set({ 'n', 'v' }, '<C-P>', function()
-            require('telescope.builtin').registers()
+        vim.keymap.set({ "n", "v" }, "<C-P>", function()
+            require("telescope.builtin").registers()
         end, {
-            desc = 'Find registers'
+            desc = "Find registers",
         })
 
-        vim.keymap.set('n', '<leader>fz', function()
-            require('telescope.builtin').spell_suggest()
+        vim.keymap.set("n", "<leader>fz", function()
+            require("telescope.builtin").spell_suggest()
         end)
 
         -- Extensions
@@ -88,11 +84,11 @@ return {
                     previewer = false,
                 },
                 spell_suggest = {
-                    theme = 'dropdown'
+                    theme = "dropdown",
                 },
                 git_files = {
-                    theme = 'dropdown',
-                    previewer = false
+                    theme = "dropdown",
+                    previewer = false,
                 },
                 help_tags = {
                     theme = "dropdown",
@@ -104,7 +100,11 @@ return {
                     bufnr = 0,
                 },
                 registers = {
-                    theme = 'dropdown'
+                    theme = "dropdown",
+                },
+                git_branches = {
+                    theme = "ivy",
+                    show_remote_tracking_branches = false,
                 },
                 command_history = {
                     theme = "dropdown",
