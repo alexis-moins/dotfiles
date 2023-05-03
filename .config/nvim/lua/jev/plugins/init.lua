@@ -4,15 +4,19 @@ return {
         lazy = true,
     },
 
-    {
-        "lukas-reineke/indent-blankline.nvim",
-        event = "BufWinEnter",
-        config = {
-            char_blankline = "│",
-            use_treesitter = true,
-            show_first_indent_level = false,
-        },
-    },
+    -- {
+    --     "lukas-reineke/indent-blankline.nvim",
+    --     event = "BufWinEnter",
+    --     config = {
+    --         char_blankline = "│",
+    --         use_treesitter = true,
+    --         show_first_indent_level = false,
+    --     },
+    -- },
+
+    -- {
+    --     'Olical/conjure'
+    -- },
 
     {
         "mbbill/undotree",
@@ -35,11 +39,6 @@ return {
             })
         end,
     },
-
-    { "tpope/vim-dotenv" },
-
-    { "tpope/vim-dadbod" },
-    { "kristijanhusak/vim-dadbod-ui" },
 
     {
         -- Debugger

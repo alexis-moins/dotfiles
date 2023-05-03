@@ -16,6 +16,12 @@ vim.keymap.set('n', '<leader>x', '"_x')
 vim.keymap.set({ 'n', 'v' }, 'j', 'gj')
 vim.keymap.set({ 'n', 'v' }, 'k', 'gk')
 
+vim.keymap.set('n', '[q', vim.cmd.cprevious, { desc = 'Previous quickfix item' })
+vim.keymap.set('n', ']q', vim.cmd.cnext, { desc = 'Next quickfix item' })
+
+vim.keymap.set('n', '<leader>q', vim.cmd.copen, { desc = 'Open quickfix list' })
+vim.keymap.set('n', '<leader>Q', vim.cmd.cclose, { desc = 'Close quickfix list' })
+
 -- Stay in place
 vim.keymap.set('n', 'J', 'mzJ`z')
 

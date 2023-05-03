@@ -32,6 +32,10 @@ plugin.config = function()
     ls.add_snippets("norg", {
         ls.parser.parse_snippet("code", "@code $1\n@end"),
     })
+
+    ls.add_snippets("python", {
+        ls.parser.parse_snippet("log", "print(f'\\n{$1=}\\n')"),
+    })
 end
 
 return plugin

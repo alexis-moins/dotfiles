@@ -35,6 +35,7 @@ return {
                         TelescopePromptPrefix = { fg = colors.blue },
                         WhichKeyBorder = { fg = colors.blue },
                         DiffDelete = { fg = colors.mantle, bg = "#48384b" },
+                        LeapLabelPrimary = { fg = colors.base, bg = colors.green }
                     }
                 end,
                 integrations = {

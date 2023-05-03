@@ -38,13 +38,14 @@
     ci = commit
     force = !git amend && git push -f
 
-    co = checkout
+    sw = switch
     br = branch --format '%(color:red)%(HEAD)%(color:white) %(align:30)%(refname:short)%(end) %(align:30)%(color:blue)%(upstream:short)%(color:white) %(color:magenta)%(upstream:track)%(color:white)%(end)'
 
     dt = difftool
     mt = mergetool
 
-    log = log --all
+    l = log --all --graph -n 15
+    ll = log --all --graph
     bl = branch -va
 
     di = diff --word-diff

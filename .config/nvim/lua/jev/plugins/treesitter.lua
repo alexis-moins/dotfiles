@@ -47,8 +47,8 @@ plugin.config = function()
                 lookahead = true,
 
                 keymaps = {
-                    ["af"] = "@function.outer",
-                    ["if"] = "@function.inner",
+                    ["af"] = { query = '@function.outer', desc = 'a function' },
+                    ["if"] = { query = '@function.inner', desc = 'inner function'},
 
                     ["aP"] = { query = '@parameter.outer', desc = 'a parameter' },
                     ["iP"] = { query = '@parameter.inner', desc = 'inner parameter' },
@@ -77,26 +77,25 @@ plugin.config = function()
                 set_jumps = true,
 
                 goto_next_start = {
-                    ["]m"] = "@function.outer",
+                    ["]f"] = "@function.outer",
                     ["]p"] = { query = '@parameter.inner', desc = 'Next parameter start' },
                 },
                 goto_next_end = {
-                    ["]M"] = "@function.outer",
+                    ["]F"] = "@function.outer",
                     ["]P"] = { query = '@parameter.inner', desc = 'Next parameter end' },
                 },
                 goto_previous_start = {
-                    ["[m"] = "@function.outer",
+                    ["[f"] = "@function.outer",
                     ["[p"] = { query = '@parameter.inner', desc = 'Previous parameter start' },
                 },
 
                 goto_previous_end = {
-                    ["[M"] = "@function.outer",
+                    ["[F"] = "@function.outer",
                     ["[P"] = { query = '@parameter.inner', desc = 'Previous parameter end' },
                 },
             },
         }
     }
-
 end
 
 return plugin
