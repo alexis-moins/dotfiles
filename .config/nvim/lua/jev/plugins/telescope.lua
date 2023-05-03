@@ -48,6 +48,10 @@ return {
             require("telescope.builtin").spell_suggest()
         end)
 
+        vim.keymap.set('n', '<leader>/', function ()
+            require('telescope.builtin').current_buffer_fuzzy_find()
+        end, { desc = 'Search in the current buffer'})
+
         -- Extensions
         mapping("n", "<leader>-", function()
             require("telescope").extensions.file_browser.file_browser()

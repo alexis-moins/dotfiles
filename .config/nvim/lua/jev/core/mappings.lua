@@ -7,8 +7,6 @@ vim.keymap.set('n', '<leader>a', 'gg<S-v>G', { desc = "Select all buffer" })
 
 vim.keymap.set("n", "<leader>=", vim.lsp.buf.format, { desc = "Format file" })
 
-vim.keymap.set("n", "<leader>sp", '<cmd>set spell!<cr>', { desc = "Toggle spell checking" })
-
 -- Paste and x without yanking text
 -- vim.keymap.set('n', 'p', '"_dP', { desc = "Paste text without yanking" })
 vim.keymap.set('n', '<leader>x', '"_x')
@@ -51,3 +49,7 @@ vim.keymap.set('n', '<C-k>', '<cmd>m .-2<cr>==')
 
 vim.keymap.set('n', '<leader>ss', '<cmd>mksession!<cr>', { desc = 'Save session' })
 vim.keymap.set('n', '<leader>sr', '<cmd>source Session.vim<cr>', { desc = 'Restore session' })
+
+vim.keymap.set('n', '<leader>on', ':set number!<cr>', { desc = 'Toggle line number', silent = true })
+vim.keymap.set('n', '<leader>ow', ':set wrap!<cr>', { desc = 'Toggle line wrapping', silent = true })
+vim.keymap.set('n', '<leader>os', ':set spell!<cr>', { desc = 'Toggle spell checking', silent = true })

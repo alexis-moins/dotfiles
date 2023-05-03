@@ -20,11 +20,11 @@ alias fd 'fd --color="never"'
 
 alias mkdir 'mkdir -p'
 
-alias ls 'exa'
+alias ls 'exa --git-ignore'
 
 alias la 'exa --all'
 
-alias ll 'exa --long --all --git'
+alias ll 'exa --all --long --git'
 
 alias tree 'exa --tree --git-ignore'
 
