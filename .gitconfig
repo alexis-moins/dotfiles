@@ -46,7 +46,6 @@
 
     l = log --all --graph -n 15
     ll = log --all --graph
-    bl = branch -va
 
     di = diff --word-diff
 
@@ -54,7 +53,7 @@
     ignore = !git rm -r --cached . && git add -A
 
     this = !git init && git add -A && git commit -m 'feat: initial commit'
-    oops = !git stash && git co -b oops && git stash pop
+    oops = !git stash && git switch -c oops && git stash pop
 
 [format]
     pretty = format:%C(auto)%h [%D] %C(brightblue)%an%C(reset) %s %C(bold black)%cr%C(reset)
