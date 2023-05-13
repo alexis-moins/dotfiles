@@ -5,25 +5,8 @@ return {
     },
 
     -- {
-    --     "lukas-reineke/indent-blankline.nvim",
-    --     event = "BufWinEnter",
-    --     config = {
-    --         char_blankline = "│",
-    --         use_treesitter = true,
-    --         show_first_indent_level = false,
-    --     },
-    -- },
-
-    -- {
     --     'Olical/conjure'
     -- },
-
-    {
-        "mbbill/undotree",
-        init = function()
-            -- vim.keymap.set('n', '<C-')
-        end,
-    },
 
     {
         "tpope/vim-fugitive",
@@ -61,18 +44,6 @@ return {
         },
     },
 
-    -- Editing stuff
-    {
-        "kylechui/nvim-surround",
-        keys = {
-            "ys",
-            "ds",
-            "cs",
-            { "S", mode = "v" },
-        },
-        config = true,
-    },
-
     {
         "numToStr/Comment.nvim",
         keys = { { "gc", mode = "v" }, "gcc", "gbc" },
@@ -80,8 +51,32 @@ return {
     },
 
     {
-        "windwp/nvim-autopairs",
-        event = "InsertEnter",
-        config = true,
+        "echasnovski/mini.pairs",
+        event = "VeryLazy",
+        opts = {
+            modes = { insert = true, command = true, terminal = true },
+        },
+    },
+
+    -- {
+    --     "echasnovski/mini.comment",
+    --     event = "VeryLazy",
+    --     opts = {
+    --         options = { ignore_blank_line = true },
+    --     },
+    -- },
+
+    {
+        "echasnovski/mini.surround",
+        event = "VeryLazy",
+        opts = {
+            custom_surroundings = {
+                ["b"] = { output = { left = "(", right = ")" } },
+                ["B"] = { output = { left = "{", right = "}" } },
+                ["r"] = { output = { left = "[", right = "]" } },
+            },
+
+            silent = true,
+        },
     },
 }

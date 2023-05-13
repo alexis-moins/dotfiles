@@ -48,7 +48,7 @@ vim.opt.expandtab = true
 vim.opt.smartcase = true
 vim.opt.ignorecase = true
 
-vim.opt.shortmess = 'filnxtToOFIc'
+vim.opt.shortmess = 'filnxtToOFIcW'
 vim.opt.diffopt:append({ 'algorithm:patience', 'iwhiteall', 'context:0' })
 
 vim.opt.fillchars = { fold = ' ', eob = ' ', diff = '╱' }
