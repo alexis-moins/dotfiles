@@ -14,7 +14,7 @@ plugin.config = function()
         ensure_installed = {
             'lua',
             'vim',
-            'help',
+            'vimdoc',
 
             'go',
             'html',

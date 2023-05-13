@@ -24,7 +24,7 @@ return {
                 },
             },
 
-            ["core.norg.journal"] = {
+            ["core.journal"] = {
                 config = {
                     workspace = "work",
                 },
@@ -32,13 +32,13 @@ return {
 
             ["core.export"] = {},
 
-            ["core.norg.completion"] = {
+            ["core.completion"] = {
                 config = {
                     engine = "nvim-cmp"
                 }
             },
 
-            ["core.norg.concealer"] = {
+            ["core.concealer"] = {
                 config = {
                     dim_code_blocks = {
                         adaptative = false,
