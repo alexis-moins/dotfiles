@@ -75,8 +75,15 @@ return {
                 ["B"] = { output = { left = "{", right = "}" } },
                 ["r"] = { output = { left = "[", right = "]" } },
             },
-
             silent = true,
         },
     },
+
+    {
+        "echasnovski/mini.ai",
+        event = "VeryLazy",
+        opts = {
+            silent = true
+        },
+    }
 }
