@@ -8,7 +8,5 @@ return {
         { 'X', mode = 'v' },
     },
 
-    config = function()
-        require('leap').add_default_mappings()
-    end
+    lazy = true
 }
