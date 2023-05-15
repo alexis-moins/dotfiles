@@ -50,5 +50,8 @@ style = "yellow"
 
 [character]
 # ❯ or ➜
-success_symbol = "[❯](white)"
-vimcmd_symbol = "[❮](yellow)"
+success_symbol = "[¬](white)"
+error_symbol = "[¬](yellow)"
+
+vimcmd_symbol = "[N](green)"
+vimcmd_visual_symbol = "[V](purple)"

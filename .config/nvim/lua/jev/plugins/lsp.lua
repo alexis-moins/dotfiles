@@ -41,30 +41,22 @@ return {
             },
         })
 
-        require("mason-null-ls").setup({
-            ensure_installed = {
-                "autopep8",
-                "prettier",
-            },
-            automatic_installation = false,
-            automatic_setup = true, -- Recommended, but optional
-            handlers = {
-                -- prettier = function ()
-                --
-                -- end
-            }
-        })
+        -- require("mason-null-ls").setup({
+        --     ensure_installed = {
+        --         "autopep8",
+        --     },
+        --     automatic_installation = false,
+        --     automatic_setup = true, -- Recommended, but optional
+        --     handlers = {
+        --         -- prettier = function ()
+        --         --
+        --         -- end
+        --     }
+        -- })
 
-        require("null-ls").setup({
-            update_in_insert = true,
-        })
-
-        require("mason-nvim-dap").setup({
-            ensure_installed = {
-                "python",
-            },
-            automatic_setup = true,
-        })
+        -- require("null-ls").setup({
+        --     update_in_insert = true,
+        -- })
 
         -- Default function to run when attaching a client its LSP server
         local on_attach = function(_, buffer)

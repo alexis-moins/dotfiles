@@ -16,6 +16,13 @@ return {
             require("telescope.builtin").find_files()
         end, "Find files")
 
+        mapping('n', '<leader>fk', function()
+            require('telescope.builtin').keymaps({
+                modes = { 'n', 'i' },
+                show_plug = false
+            })
+        end, 'Find Keymaps')
+
         mapping("n", "<leader>ff", function()
             require("telescope.builtin").git_files()
         end, "Find files (git)")
@@ -48,12 +55,12 @@ return {
             require("telescope.builtin").spell_suggest()
         end)
 
-        vim.keymap.set('n', '<leader>/', function ()
+        vim.keymap.set('n', '<leader>/', function()
             require('telescope.builtin').current_buffer_fuzzy_find()
-        end, { desc = 'Search in the current buffer'})
+        end, { desc = 'Search in the current buffer' })
 
         -- Extensions
-        mapping("n", "<leader>-", function()
+        mapping("n", "-", function()
             require("telescope").extensions.file_browser.file_browser()
         end, "Browse files")
     end,
@@ -86,6 +93,9 @@ return {
                     find_command = { "fd", "--type", "f", "--strip-cwd-prefix", "--hidden" },
                     theme = "dropdown",
                     previewer = false,
+                },
+                keymaps = {
+                    theme = "ivy",
                 },
                 spell_suggest = {
                     theme = "dropdown",

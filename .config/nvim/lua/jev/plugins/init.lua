@@ -24,15 +24,6 @@ return {
     },
 
     {
-        -- Debugger
-        "mfussenegger/nvim-dap",
-        dependencies = {
-            "rcarriga/nvim-dap-ui",
-            "jay-babu/mason-nvim-dap.nvim",
-        },
-    },
-
-    {
         "stevearc/dressing.nvim",
         event = "VeryLazy",
         config = {
@@ -54,7 +45,7 @@ return {
         "echasnovski/mini.pairs",
         event = "VeryLazy",
         opts = {
-            modes = { insert = true, command = true, terminal = true },
+            modes = { insert = true, command = true, terminal = true }
         },
     },
 
@@ -85,5 +76,33 @@ return {
         opts = {
             silent = true
         },
+    },
+
+    {
+        "echasnovski/mini.sessions",
+        opts = {
+            autowrite = false,
+            verbose = { write = true, read = true }
+        },
+        init = function()
+            vim.keymap.set('n', '<leader>ss', function() MiniSessions.write() end)
+        end
+    },
+
+    {
+        "echasnovski/mini.bracketed",
+        event = "VeryLazy",
+        opts = {
+            location = { suffix = '' },
+            treesitter = { suffix = '' },
+            oldfile = { suffix = '' },
+            undo = { suffix = '' },
+        }
+    },
+
+    {
+        "echasnovski/mini.jump",
+        event = "VeryLazy",
+        opts = {}
     }
 }

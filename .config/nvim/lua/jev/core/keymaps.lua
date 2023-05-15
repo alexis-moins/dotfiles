@@ -1,15 +1,6 @@
-vim.keymap.set('n', '<leader>so', vim.cmd.source)
-
 vim.keymap.set('i', 'jk', '<C-c>')
-vim.keymap.set('n', '<leader>sp', '<cmd>setlocal spell!<cr>', { desc = 'Toggle spell checking' })
-
-vim.keymap.set('n', '<leader>a', 'gg<S-v>G', { desc = "Select all buffer" })
 
 vim.keymap.set("n", "<leader>=", vim.lsp.buf.format, { desc = "Format file" })
-
--- Paste and x without yanking text
--- vim.keymap.set('n', 'p', '"_dP', { desc = "Paste text without yanking" })
-vim.keymap.set('n', '<leader>x', '"_x')
 
 vim.keymap.set({ 'n', 'v' }, 'j', 'gj')
 vim.keymap.set({ 'n', 'v' }, 'k', 'gk')
@@ -25,7 +16,6 @@ vim.keymap.set('n', 'J', 'mzJ`z')
 
 -- Use + to increment numbers
 vim.keymap.set('n', '+', '<C-A>')
-vim.keymap.set('n', '-', '<C-X>')
 
 -- Center
 vim.keymap.set('n', '<C-U>', '<C-U>zz')
