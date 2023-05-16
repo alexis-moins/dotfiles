@@ -16,16 +16,9 @@ plugin.config = function()
             'vim',
             'vimdoc',
 
-            'go',
-            'html',
-            'javascript',
-
             'gitcommit',
             'gitignore',
             'comment',
-
-            'fish',
-            'python',
         },
 
         auto_install = true,

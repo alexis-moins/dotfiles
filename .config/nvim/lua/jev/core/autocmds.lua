@@ -20,6 +20,22 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end,
 })
 
+-- close some filetypes with <q>
+vim.api.nvim_create_autocmd("FileType", {
+    group = augroup("close_with_q"),
+    pattern = {
+        "help",
+        "lspinfo",
+        "man",
+        "qf",
+    },
+    callback = function(event)
+        vim.bo[event.buf].buflisted = false
+        vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
+    end,
+})
+
+
 -- resize splits if window got resized
 vim.api.nvim_create_autocmd({ "VimResized" }, {
     group = augroup("resize_splits"),

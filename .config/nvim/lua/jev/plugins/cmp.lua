@@ -31,6 +31,8 @@ return {
             },
         },
     },
+
+    lazy = true,
     config = function()
         local cmp = require("cmp")
 

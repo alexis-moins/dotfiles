@@ -1,21 +1,34 @@
-vim.keymap.set('i', 'jk', '<C-c>')
+local map = function(mode, lhs, rhs, description)
+    vim.keymap.set(mode, lhs, rhs, {
+        desc = description or '',
+        silent = true
+    })
+end
 
-vim.keymap.set("n", "<leader>=", vim.lsp.buf.format, { desc = "Format file" })
+-- Easier way to leave insert mode
+map('i', 'jk', '<C-c>')
 
-vim.keymap.set({ 'n', 'v' }, 'j', 'gj')
-vim.keymap.set({ 'n', 'v' }, 'k', 'gk')
+-- Add newlines below and above
+map('n', '[<space>', 'O<esc>j', 'Insert a line above cursor')
+map('n', ']<space>', 'o<esc>k', 'Insert a line below cursor')
 
-vim.keymap.set('n', '[q', vim.cmd.cprevious, { desc = 'Previous quickfix item' })
-vim.keymap.set('n', ']q', vim.cmd.cnext, { desc = 'Next quickfix item' })
+map('n', '<leader>=', vim.lsp.buf.format, 'Format this file')
 
-vim.keymap.set('n', '<leader>q', vim.cmd.copen, { desc = 'Open quickfix list' })
-vim.keymap.set('n', '<leader>Q', vim.cmd.cclose, { desc = 'Close quickfix list' })
+-- Move normally in in wrapped lines
+map({ 'n', 'v' }, 'j', 'gj')
+map({ 'n', 'v' }, 'k', 'gk')
+
+-- Session management
+map('n', '<C-S>', ':mksession!', 'Save current session')
+
+-- Quickfix list
+map('n', '<leader>q', vim.cmd.copen, 'Open quickfix list')
 
 -- Stay in place
-vim.keymap.set('n', 'J', 'mzJ`z')
+map('n', 'J', 'mzJ`z', 'Join line below without moving cursor')
 
 -- Use + to increment numbers
-vim.keymap.set('n', '+', '<C-A>')
+map('n', '+', '<C-A>', 'Increment number under cursor')
 
 -- Center
 vim.keymap.set('n', '<C-U>', '<C-U>zz')
@@ -24,21 +37,18 @@ vim.keymap.set('n', 'n', 'nzz')
 vim.keymap.set('n', 'N', 'Nzz')
 
 -- Tabs
-vim.keymap.set('n', '<Tab>', 'gt', { desc = "Previous tab" })
-vim.keymap.set('n', "<S-Tab>", 'gT', { desc = "Next tab" })
+map('n', '<Tab>', 'gt', 'Previous tab')
+map('n', '<S-Tab>', 'gT', 'Next tab')
 
 -- Keep visual selection when indenting
-vim.keymap.set('v', '>', '>gv')
-vim.keymap.set('v', '<', '<gv')
+map('v', '>', '>gv')
+map('v', '<', '<gv')
 
 -- Move lines around
 vim.keymap.set('v', '<C-j>', ":m '>+1<cr>gv=gv")
 vim.keymap.set('v', '<C-k>', ":m '<-2<cr>gv=gv")
 vim.keymap.set('n', '<C-j>', '<cmd>m .+1<cr>==')
 vim.keymap.set('n', '<C-k>', '<cmd>m .-2<cr>==')
-
-vim.keymap.set('n', '<leader>ss', '<cmd>mksession!<cr>', { desc = 'Save session' })
-vim.keymap.set('n', '<leader>sr', '<cmd>source Session.vim<cr>', { desc = 'Restore session' })
 
 vim.keymap.set('n', '<leader>on', ':set number!<cr>', { desc = 'Toggle line number', silent = true })
 vim.keymap.set('n', '<leader>ow', ':set wrap!<cr>', { desc = 'Toggle line wrapping', silent = true })

@@ -104,5 +104,12 @@ return {
         "echasnovski/mini.jump",
         event = "VeryLazy",
         opts = {}
+    },
+
+    {
+        "echasnovski/mini.splitjoin",
+        event = "VeryLazy",
+        opts = {}
     }
+
 }
