@@ -12,7 +12,7 @@ map('i', 'jk', '<C-c>')
 map('n', '[<space>', 'O<esc>j', 'Insert a line above cursor')
 map('n', ']<space>', 'o<esc>k', 'Insert a line below cursor')
 
-map('n', '<leader>=', vim.lsp.buf.format, 'Format this file')
+map('n', '=', vim.lsp.buf.format, 'Format this file')
 
 -- Move normally in in wrapped lines
 map({ 'n', 'v' }, 'j', 'gj')
@@ -21,9 +21,6 @@ map({ 'n', 'v' }, 'k', 'gk')
 -- Session management
 map('n', '<C-S>', ':mksession!<cr>', 'Save current session')
 
--- Quickfix list
--- map('n', '<leader>q', vim.cmd.copen, 'Open quickfix list')
-
 -- Stay in place
 map('n', 'J', 'mzJ`z', 'Join line below without moving cursor')
 
@@ -31,14 +28,15 @@ map('n', 'J', 'mzJ`z', 'Join line below without moving cursor')
 map('n', '+', '<C-A>', 'Increment number under cursor')
 
 -- Center
-vim.keymap.set('n', '<C-U>', '<C-U>zz')
-vim.keymap.set('n', '<C-D>', '<C-D>zz')
-vim.keymap.set('n', 'n', 'nzz')
-vim.keymap.set('n', 'N', 'Nzz')
+map('n', '<C-U>', '<C-U>zz', 'Scroll upwards (center)')
+map('n', '<C-D>', '<C-D>zz', 'Scroll downwards (center)')
+
+map('n', 'n', 'nzz', 'Repeat last search (center)')
+map('n', 'N', 'Nzz', 'Repeat last search in opposite direction (center)')
 
 -- Tabs
-map('n', '<Tab>', 'gt', 'Previous tab')
-map('n', '<S-Tab>', 'gT', 'Next tab')
+map('n', '<Tab>', ':tabnext<cr>', 'Previous tab')
+map('n', '<S-Tab>', ':tabprevious<cr>', 'Next tab')
 
 -- Keep visual selection when indenting
 map('v', '>', '>gv')
@@ -50,6 +48,16 @@ vim.keymap.set('v', '<C-k>', ":m '<-2<cr>gv=gv")
 vim.keymap.set('n', '<C-j>', '<cmd>m .+1<cr>==')
 vim.keymap.set('n', '<C-k>', '<cmd>m .-2<cr>==')
 
-vim.keymap.set('n', '<leader>on', ':set number!<cr>', { desc = 'Toggle line number', silent = true })
-vim.keymap.set('n', '<leader>ow', ':set wrap!<cr>', { desc = 'Toggle line wrapping', silent = true })
-vim.keymap.set('n', '<leader>os', ':set spell!<cr>', { desc = 'Toggle spell checking', silent = true })
+-- Option toggling
+map('n', '|n', ':setl number!<cr>', 'Toggle line number')
+map('n', '|r', ':setl relativenumber!<cr>', 'Toggle relative line number')
+
+map('n', '|w', ':setl wrap!<cr>', 'Toggle line wrapping')
+map('n', '|s', ':setl spell!<cr>', 'Toggle spell checking')
+
+-- Copy using + register
+map({ 'n', 'x' }, 'gy', '"+y', 'Copy (+register)')
+
+-- Paste using + register
+map('n', 'gp', '"+p', 'Paste after cursor (+register)')
+map('n', 'gP', '"+P', 'Paste before cursor (+register)')

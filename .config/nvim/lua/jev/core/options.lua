@@ -8,9 +8,6 @@ vim.opt.cursorline = true
 -- Enable mouse support in all modes
 vim.opt.mouse = 'a'
 
--- Always use system clipboard
-vim.opt.clipboard:append('unnamedplus')
-
 -- Split panes below and to the right
 vim.opt.splitbelow = true
 vim.opt.splitright = true

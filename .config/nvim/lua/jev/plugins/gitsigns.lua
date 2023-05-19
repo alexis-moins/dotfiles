@@ -4,14 +4,13 @@ return {
     event = 'BufWinEnter',
 
     config = function()
-
         local git_signs = require('gitsigns')
-        local mapping = require('utils').map
+        local mapping = require('jev.utils').map
 
         local on_attach = function(buffer)
             -- Navigate between hunks
-            mapping('n', '[h', git_signs.prev_hunk, 'Previous git hunk', buffer)
-            mapping('n', ']h', git_signs.next_hunk, 'Next git hunk', buffer)
+            mapping('n', '[h', git_signs.prev_hunk, 'Previous git hunk', { buffer = buffer })
+            mapping('n', ']h', git_signs.next_hunk, 'Next git hunk', { buffer = buffer })
 
             -- Blame the current line(s)
             mapping({ 'n', 'v' }, '<leader>gb', git_signs.toggle_current_line_blame, 'Blame current line')

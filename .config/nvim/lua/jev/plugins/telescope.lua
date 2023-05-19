@@ -6,7 +6,6 @@ return {
         { '<leader>ff',      ':Telescope git_files theme=dropdown<cr>',  desc = 'Git files',    silent = true },
         { '<leader>fk',      ':Telescope keymaps theme=ivy<cr>',         desc = 'Find keymaps', silent = true },
         { '<leader>fg',      ':Telescope live_grep theme=ivy<cr>',       desc = 'Grep files',   silent = true },
-        { '<leader>-',       ':Telescope file_browser<cr>',              desc = 'Grep files',   silent = true },
     },
 
     dependencies = {
@@ -19,7 +18,7 @@ return {
     },
 
     init = function()
-        local mapping = require("utils").map
+        local mapping = require("jev.utils").map
 
         mapping('n', '<leader>fk', function()
             require('telescope.builtin').keymaps({
