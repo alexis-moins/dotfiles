@@ -73,7 +73,6 @@ return {
             location = { suffix = '' },
             treesitter = { suffix = '' },
             oldfile = { suffix = '' },
-            -- undo = { suffix = '' },
         }
     },
 

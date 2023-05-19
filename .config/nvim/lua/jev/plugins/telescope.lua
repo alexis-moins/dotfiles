@@ -45,11 +45,11 @@ return {
             require("telescope.builtin").command_history()
         end, "Find commands (history)")
 
-        vim.keymap.set({ "n", "v" }, "<C-P>", function()
-            require("telescope.builtin").registers()
-        end, {
-            desc = "Find registers",
-        })
+        -- vim.keymap.set({ "n", "v" }, "<C-P>", function()
+        --     require("telescope.builtin").registers()
+        -- end, {
+        --     desc = "Find registers",
+        -- })
 
         vim.keymap.set("n", "<leader>fz", function()
             require("telescope.builtin").spell_suggest()
