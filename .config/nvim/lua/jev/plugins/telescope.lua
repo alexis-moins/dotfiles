@@ -1,20 +1,25 @@
 return {
-    -- Fuzzy finder
     "nvim-telescope/telescope.nvim",
+
+    keys = {
+        { '<leader><space>', ':Telescope find_files theme=dropdown<cr>', desc = 'Find files',   silent = true },
+        { '<leader>ff',      ':Telescope git_files theme=dropdown<cr>',  desc = 'Git files',    silent = true },
+        { '<leader>fk',      ':Telescope keymaps theme=ivy<cr>',         desc = 'Find keymaps', silent = true },
+        { '<leader>fg',      ':Telescope live_grep theme=ivy<cr>',       desc = 'Grep files',   silent = true },
+        { '<leader>-',       ':Telescope file_browser<cr>',              desc = 'Grep files',   silent = true },
+    },
+
     dependencies = {
         "nvim-telescope/telescope-file-browser.nvim",
         {
             "nvim-telescope/telescope-fzf-native.nvim",
-            build = "make",
             cond = vim.fn.executable("make") == 1,
+            build = "make",
         },
     },
+
     init = function()
         local mapping = require("utils").map
-
-        mapping("n", "<leader><leader>", function()
-            require("telescope.builtin").find_files()
-        end, "Find files")
 
         mapping('n', '<leader>fk', function()
             require('telescope.builtin').keymaps({
@@ -23,12 +28,7 @@ return {
             })
         end, 'Find Keymaps')
 
-        mapping("n", "<leader>ff", function()
-            require("telescope.builtin").git_files()
-        end, "Find files (git)")
-        mapping("n", "<leader>fg", function()
-            require("telescope.builtin").live_grep()
-        end, "Grep files")
+
         mapping("n", "<leader>fb", function()
             require("telescope.builtin").buffers()
         end, "Find buffers")
@@ -41,7 +41,7 @@ return {
             require("telescope.builtin").help_tags()
         end, "Find help pages")
 
-        mapping("n", "<leader>fe", function()
+        mapping("n", "<leader>f.", function()
             require("telescope.builtin").command_history()
         end, "Find commands (history)")
 

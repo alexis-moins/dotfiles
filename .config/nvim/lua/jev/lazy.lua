@@ -13,20 +13,14 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup('jev.plugins', {
-    dev = {
-        path = '~/dev/nvim',
-        patterns = { 'alexis' },
-    },
-    ui = {
-        border = 'single'
-    },
+    ui = { border = 'single' },
+
     install = {
         colorscheme = { 'catppuccin', 'habamax' },
     },
 })
 
-local mapping = require('utils').map
-
--- [I]nstall plugins
-mapping('n', '<leader>pi', require("lazy").sync, 'Install, clean and update plugins')
-mapping('n', '<leader>ph', require("lazy").home, 'Open lazy popup')
+vim.keymap.set('n', '<leader>lz', ':Lazy<cr>', {
+    desc = 'Open Lazy',
+    silent = true
+})

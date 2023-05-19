@@ -4,23 +4,11 @@ return {
         lazy = true,
     },
 
-    -- {
-    --     'Olical/conjure'
-    -- },
-
     {
         "tpope/vim-fugitive",
-        init = function()
-            vim.keymap.set("n", "<C-g>", "<cmd>tab Git<cr>", {
-                silent = true,
-                desc = "Open fugitive in a new tab",
-            })
-
-            vim.keymap.set("n", "<leader>gp", "<cmd>Git push<cr>", {
-                silent = true,
-                desc = "Push current commit",
-            })
-        end,
+        keys = {
+            { '<C-G>', ':tab Git<CR>', desc = 'Open fugitive in a new tab', silent = true }
+        }
     },
 
     {
@@ -79,37 +67,53 @@ return {
     },
 
     {
-        "echasnovski/mini.sessions",
-        opts = {
-            autowrite = false,
-            verbose = { write = true, read = true }
-        },
-        init = function()
-            vim.keymap.set('n', '<leader>ss', function() MiniSessions.write() end)
-        end
-    },
-
-    {
         "echasnovski/mini.bracketed",
         event = "VeryLazy",
         opts = {
             location = { suffix = '' },
             treesitter = { suffix = '' },
             oldfile = { suffix = '' },
-            undo = { suffix = '' },
+            -- undo = { suffix = '' },
         }
     },
 
     {
         "echasnovski/mini.jump",
         event = "VeryLazy",
-        opts = {}
+        opts = {
+            mappings = {
+                repeat_jump = ','
+            },
+            delay = {
+                highlight = 50
+            }
+        }
     },
 
     {
         "echasnovski/mini.splitjoin",
-        event = "VeryLazy",
-        opts = {}
+        keys = { 'gs' },
+        opts = {
+            mappings = {
+                toggle = 'gs'
+            }
+        }
+    },
+
+    {
+        "folke/trouble.nvim",
+        keys = {
+            { '<leader>q', ':TroubleToggle<CR>', desc = 'Toggle Trouble window', silent = true }
+        },
+
+        opts = {
+            icons = false,
+            fold_open = 'v',
+            fold_closed = '>',
+
+            indent_lines = false,
+            use_diagnostic_signs = true
+        }
     }
 
 }

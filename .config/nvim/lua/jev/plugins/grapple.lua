@@ -1,27 +1,19 @@
 return {
     "cbochs/grapple.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
-    config = true,
-    lazy = true,
-    init = function()
-        vim.keymap.set("n", "<leader>tt", function()
-            require("grapple").toggle()
-        end, {
-            desc = "Toggle buffer tag",
-        })
+    cmd = 'Grapple',
+    opts = {},
 
-        vim.keymap.set("n", "<leader>tp", function()
-            require("grapple").popup_tags()
-        end, {
-            desc = "Open tag popup",
-        })
+    keys = {
+        { '<leader>gg', ':GrappleToggle<cr>',         desc = 'Toggle tag for buffer',      silent = true },
+        { '<leader>gp', ':GrapplePopup tags<cr>',     desc = 'Open Grapple tag popup',     silent = true },
 
-        for index, value in ipairs({ "1", "2", "3", "4", "5" }) do
-            vim.keymap.set("n", "," .. value, function()
-                require("grapple").select({
-                    key = index,
-                })
-            end)
-        end
-    end,
+        { '[g',         ':GrappleCycle backward<cr>', desc = 'Go to previous Grapple tag', silent = true },
+        { ']g',         ':GrappleCycle forward<cr>',  desc = 'Go to next Grapple tag',     silent = true },
+
+        { '<leader>gq', ':GrappleSelect key=1<cr>',   desc = 'Go to Grapple tag #1',       silent = true },
+        { '<leader>gw', ':GrappleSelect key=2<cr>',   desc = 'Go to Grapple tag #2',       silent = true },
+        { '<leader>ge', ':GrappleSelect key=3<cr>',   desc = 'Go to Grapple tag #3',       silent = true },
+        { '<leader>gr', ':GrappleSelect key=4<cr>',   desc = 'Go to Grapple tag #4',       silent = true },
+    },
 }

@@ -19,10 +19,10 @@ map({ 'n', 'v' }, 'j', 'gj')
 map({ 'n', 'v' }, 'k', 'gk')
 
 -- Session management
-map('n', '<C-S>', ':mksession!', 'Save current session')
+map('n', '<C-S>', ':mksession!<cr>', 'Save current session')
 
 -- Quickfix list
-map('n', '<leader>q', vim.cmd.copen, 'Open quickfix list')
+-- map('n', '<leader>q', vim.cmd.copen, 'Open quickfix list')
 
 -- Stay in place
 map('n', 'J', 'mzJ`z', 'Join line below without moving cursor')
