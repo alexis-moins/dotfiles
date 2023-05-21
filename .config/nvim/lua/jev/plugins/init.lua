@@ -7,7 +7,7 @@ return {
     {
         "tpope/vim-fugitive",
         keys = {
-            { '<C-G>', ':tab Git<CR>', desc = 'Open fugitive in a new tab', silent = true }
+            { '<C-G>', '<cmd>tab Git<CR>', desc = 'Open fugitive in a new tab', silent = true }
         }
     },
 
