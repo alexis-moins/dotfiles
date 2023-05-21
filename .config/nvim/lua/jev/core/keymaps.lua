@@ -42,12 +42,6 @@ map('n', '<S-Tab>', ':tabprevious<cr>', 'Next tab')
 map('v', '>', '>gv')
 map('v', '<', '<gv')
 
--- Move lines around
-vim.keymap.set('v', '<C-j>', ":m '>+1<cr>gv=gv")
-vim.keymap.set('v', '<C-k>', ":m '<-2<cr>gv=gv")
-vim.keymap.set('n', '<C-j>', '<cmd>m .+1<cr>==')
-vim.keymap.set('n', '<C-k>', '<cmd>m .-2<cr>==')
-
 -- Option toggling
 map('n', '|n', ':setl number!<cr>', 'Toggle line number')
 map('n', '|r', ':setl relativenumber!<cr>', 'Toggle relative line number')

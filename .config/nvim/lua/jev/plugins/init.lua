@@ -59,6 +59,26 @@ return {
     },
 
     {
+        "echasnovski/mini.move",
+        event = "VeryLazy",
+        opts = {
+            mappings = {
+                -- Normal mode
+                down = '<C-J>',
+                up = '<C-K>',
+                left = '<C-H>',
+                right = '<C-L>',
+
+                -- Visual node
+                line_down = '<C-J>',
+                line_up = '<C-K>',
+                line_left = '<C-H>',
+                line_right = '<C-L>',
+            }
+        }
+    },
+
+    {
         "echasnovski/mini.ai",
         event = "VeryLazy",
         opts = {
