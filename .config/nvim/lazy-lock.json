@@ -13,6 +13,7 @@
   "copilot-cmp": { "branch": "master", "commit": "c2cdb3c0f5078b0619055af192295830a7987790" },
   "copilot.lua": { "branch": "master", "commit": "653bbdc44cd569a5fd0617e5a9d3df2b1359e230" },
   "dressing.nvim": { "branch": "master", "commit": "66e4990240f92e31b0d5e4df6deb6bb0160ae832" },
+  "github-theme": { "branch": "main", "commit": "eb9213680a643e7e2c8c2e83276024bf7774227d" },
   "gitsigns.nvim": { "branch": "main", "commit": "c18b7ca0b5b50596722f3a1572eb9b8eb520c0f1" },
   "grapple.nvim": { "branch": "main", "commit": "ab274a3bfb674442d57fca05df866b71895853bc" },
   "lazy.nvim": { "branch": "main", "commit": "5f316cea4f0b5379e0094d6cfa5e1ee5e279f65a" },
