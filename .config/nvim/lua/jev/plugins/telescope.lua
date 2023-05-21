@@ -55,7 +55,7 @@ return {
 
             help_tags = {
                 previewer = false,
-                theme = 'ivy'
+                theme = 'dropdown'
             },
 
             keymaps = {
@@ -92,6 +92,10 @@ return {
                         ["e"] = 'edit_command_line',
                     },
                 },
+            },
+
+            lsp_document_symbols = {
+                theme = "ivy",
             },
 
         },

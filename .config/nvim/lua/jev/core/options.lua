@@ -2,71 +2,83 @@
 vim.opt.termguicolors = true
 
 -- Never display signs
-vim.opt.signcolumn = 'yes'
-vim.opt.cursorline = true
+vim.opt.signcolumn    = 'yes'
+vim.opt.cursorline    = true
 
 -- Enable mouse support in all modes
-vim.opt.mouse = 'a'
+vim.opt.mouse         = 'a'
 
 -- Split panes below and to the right
-vim.opt.splitbelow = true
-vim.opt.splitright = true
+vim.opt.splitbelow    = true
+vim.opt.splitright    = true
 
 -- Prefer a general persistent undo history
 -- over the use of local swap files
-vim.opt.undofile = true
-vim.opt.swapfile = false
+vim.opt.undofile      = true
+vim.opt.swapfile      = false
 
 -- Never display the statusline
-vim.opt.ruler = false
-vim.opt.laststatus = 0
-vim.opt.showmode = false
+vim.opt.ruler         = true
+vim.opt.laststatus    = 3
+vim.opt.cmdheight     = 0
+vim.opt.showmode      = false
+vim.opt.showcmd       = false
 
--- Just so that it is beautiful
-vim.opt.wrap = false
-vim.opt.scrolloff = 8
+-- Never wrap lines
+vim.opt.wrap          = false
+
+-- Keep 8 lines above and below the cursor
+vim.opt.scrolloff     = 8
+
+-- Keep 8 lines before and after the cursor
 vim.opt.sidescrolloff = 8
 
-vim.opt.linebreak = true
-vim.opt.spelllang = { 'en', 'fr' }
+vim.opt.linebreak     = true -- When wrapping lines, break at word boundaries
+vim.opt.breakindent   = true -- Keep indent when breaking lines
+
+vim.opt.spelllang     = 'en,fr'
 
 -- Folds
-vim.opt.foldlevel = 1
-vim.opt.foldnestmax = 10
-vim.opt.foldmethod = 'indent'
-vim.opt.foldenable = false
+vim.opt.foldlevel     = 1
+vim.opt.foldnestmax   = 10
+vim.opt.foldmethod    = 'indent'
+vim.opt.foldenable    = false
 
 -- Tabulation
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+vim.opt.tabstop       = 4
+vim.opt.shiftwidth    = 4
+vim.opt.expandtab     = true
 
 -- Search
-vim.opt.smartcase = true
-vim.opt.ignorecase = true
+vim.opt.smartcase     = true
+vim.opt.ignorecase    = true
 
-vim.opt.shortmess = 'filnxtToOFIcW'
+-- No intro message, less command line messages
+vim.opt.shortmess:append('WIcCS')
+
+--
+vim.opt.formatoptions = 'qjl1'
+
 vim.opt.diffopt:append({ 'algorithm:patience', 'iwhiteall', 'context:0' })
 
-vim.opt.fillchars = { fold = ' ', eob = ' ', diff = '╱' }
-vim.opt.listchars = { tab = '  ', trail = '-', extends = '>', precedes = '<' }
+vim.opt.fillchars = 'fold: ,eob: ,diff:╱'
+
+vim.opt.listchars = { tab = '  ', trail = '-', extends = '…', precedes = '…' }
+
 vim.opt.list = true
 
--- Don't show commands below the statusline
-vim.opt.showcmd = false
 vim.opt.showtabline = 1
 
-vim.opt.laststatus = 3
-vim.opt.cmdheight = 0
 
 vim.opt.winbar = "%=%#Error#%m %#Conceal#%.30f"
 
--- Show which-key menu faster
-vim.opt.timeoutlen = 500
+vim.opt.timeout = false -- Wait indefinitely for mappings
 
--- CursorHold event timeout
-vim.opt.updatetime = 300
+-- Show which-key menu faster
+vim.opt.timeoutlen = 300
 
 -- Leaders for mappings
 vim.g.mapleader = ' '
-vim.g.maplocalleader = ';'
+
+-- Local leader for plugin mappings
+vim.g.maplocalleader = ','

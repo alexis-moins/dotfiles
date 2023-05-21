@@ -18,6 +18,10 @@ require('lazy').setup('jev.plugins', {
     install = {
         colorscheme = { 'catppuccin', 'habamax' },
     },
+
+    change_detection = {
+        notify = false
+    },
 })
 
 vim.keymap.set('n', '<leader>lz', ':Lazy<cr>', {

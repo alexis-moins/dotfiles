@@ -6,6 +6,8 @@ return {
 
     {
         "tpope/vim-fugitive",
+        cmd = 'Git',
+
         keys = {
             { '<C-G>', '<cmd>tab Git<CR>', desc = 'Open fugitive in a new tab', silent = true }
         }
@@ -66,14 +68,14 @@ return {
                 -- Normal mode
                 down = '<C-J>',
                 up = '<C-K>',
-                left = '<C-H>',
-                right = '<C-L>',
+                left = '<',
+                right = '>',
 
                 -- Visual node
                 line_down = '<C-J>',
                 line_up = '<C-K>',
-                line_left = '<C-H>',
-                line_right = '<C-L>',
+                line_left = '<',
+                line_right = '>',
             }
         }
     },
@@ -100,9 +102,6 @@ return {
         "echasnovski/mini.jump",
         event = "VeryLazy",
         opts = {
-            mappings = {
-                repeat_jump = ','
-            },
             delay = {
                 highlight = 50
             }

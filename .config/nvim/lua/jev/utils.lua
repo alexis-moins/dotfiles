@@ -4,10 +4,9 @@ local utils = {}
 ---@param mode string|table the mode of the mapping
 ---@param keys string the keys used to trigger the mapping
 ---@param action function|string string or lua function to execute
----@param description string description of the mapping
+---@param description? string description of the mapping
 ---@param opts? string[] optional options
 function utils.map(mode, keys, action, description, opts)
-
     local default_opts = {
         silent = true,
         desc = description

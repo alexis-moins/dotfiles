@@ -56,18 +56,18 @@ return {
                 }),
             },
             mapping = {
-                    ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-                    ["<C-f>"] = cmp.mapping.scroll_docs(4),
-                    ["<C-k>"] = cmp.mapping.select_prev_item(),
-                    ["<C-j>"] = cmp.mapping.select_next_item(),
-                    ["<C-n>"] = function()
+                ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+                ["<C-f>"] = cmp.mapping.scroll_docs(4),
+                ["<C-k>"] = cmp.mapping.select_prev_item(),
+                ["<C-j>"] = cmp.mapping.select_next_item(),
+                ["<C-n>"] = function()
                     if cmp.visible() then
                         cmp.abort()
                     else
                         cmp.complete()
                     end
                 end,
-                    ["<C-y>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
+                ["<CR>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
             },
             sources = cmp.config.sources({
                 { name = "copilot" },
@@ -78,7 +78,7 @@ return {
                 { name = "luasnip" },
                 { name = "path" },
                 { name = "calc" },
-                { name = "buffer", keyword_length = 2 },
+                { name = "buffer",                 keyword_length = 2 },
             }),
             formatting = {
                 format = function(entry, vim_item)
