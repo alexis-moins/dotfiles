@@ -118,20 +118,4 @@ return {
         }
     },
 
-    {
-        "folke/trouble.nvim",
-        keys = {
-            { '<leader>q', ':TroubleToggle<CR>', desc = 'Toggle Trouble window', silent = true }
-        },
-
-        opts = {
-            icons = false,
-            fold_open = 'v',
-            fold_closed = '>',
-
-            indent_lines = false,
-            use_diagnostic_signs = true
-        }
-    }
-
 }

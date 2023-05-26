@@ -56,18 +56,18 @@ return {
                 }),
             },
             mapping = {
-                ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-                ["<C-f>"] = cmp.mapping.scroll_docs(4),
-                ["<C-k>"] = cmp.mapping.select_prev_item(),
-                ["<C-j>"] = cmp.mapping.select_next_item(),
-                ["<C-n>"] = function()
+                ["<C-U>"] = cmp.mapping.scroll_docs(-4),
+                ["<C-D>"] = cmp.mapping.scroll_docs(4),
+                ["<C-K>"] = cmp.mapping.select_prev_item(),
+                ["<C-J>"] = cmp.mapping.select_next_item(),
+                ["<C-N>"] = function()
                     if cmp.visible() then
                         cmp.abort()
                     else
                         cmp.complete()
                     end
                 end,
-                ["<CR>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
+                ["<C-H>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
             },
             sources = cmp.config.sources({
                 { name = "copilot" },

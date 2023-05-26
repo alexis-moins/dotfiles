@@ -5,8 +5,9 @@ return {
     keys = {
         { '<leader><space>', '<cmd>Telescope find_files<CR>',      desc = 'Find files',            silent = true },
         { '<leader>fk',      '<cmd>Telescope keymaps<CR>',         desc = 'Find keymaps',          silent = true },
-        { '<leader>fg',      '<cmd>Telescope live_grep<CR>',       desc = 'Grep files',            silent = true },
+        { '<leader>F',       '<cmd>Telescope live_grep<CR>',       desc = 'Grep files',            silent = true },
         { '<leader>fb',      '<cmd>Telescope buffers<CR>',         desc = 'Find buffers',          silent = true },
+        { '<leader>fz',      '<cmd>Telescope spell_suggest<CR>',   desc = 'Find spelling',         silent = true },
         { '<leader>fh',      '<cmd>Telescope help_tags<CR>',       desc = 'Find help',             silent = true },
         { '<leader>:',       '<cmd>Telescope command_history<CR>', desc = 'Open command history',  silent = true },
         { '<C-R>',           '<cmd>Telescope registers<CR>',       desc = 'Find register content', mode = 'i' },
@@ -50,7 +51,14 @@ return {
             },
 
             live_grep = {
-                theme = 'ivy'
+                theme = 'ivy',
+
+                additional_args = { '-i' },
+                disable_coordinates = true
+            },
+
+            spell_suggest = {
+                theme = 'dropdown'
             },
 
             help_tags = {
@@ -60,6 +68,10 @@ return {
 
             keymaps = {
                 theme = 'ivy',
+            },
+
+            lsp_references = {
+                theme = 'ivy'
             },
 
             find_files = {

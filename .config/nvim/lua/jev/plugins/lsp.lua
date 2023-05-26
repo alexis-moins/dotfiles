@@ -63,10 +63,8 @@ return {
                 require("telescope.builtin").lsp_implementations()
             end, "Go to implementations")
 
-            -- Goto [r]eferences
-            map("n", "gr", function()
-                require("telescope.builtin").lsp_references()
-            end, "Show references")
+            -- [g]o to [r]eferences
+            map("n", "gr", "<cmd>Telescope lsp_references<CR>", "Go to LSP references")
 
             -- Navigate between diagnostics
             -- map("n", "]d", vim.diagnostic.goto_next, "Next diagnostic")

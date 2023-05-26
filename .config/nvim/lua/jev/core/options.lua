@@ -69,8 +69,7 @@ vim.opt.list = true
 
 vim.opt.showtabline = 1
 
-
-vim.opt.winbar = "%=%#Error#%m %#Conceal#%.30f"
+vim.opt.winbar = "%=%#Error#%m %#Conceal#%.30t"
 
 vim.opt.timeout = false -- Wait indefinitely for mappings
 

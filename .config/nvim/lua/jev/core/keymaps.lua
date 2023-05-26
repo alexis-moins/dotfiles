@@ -4,6 +4,9 @@ local map = utils.map
 -- Easier way to leave insert mode
 map('i', 'jk', '<C-C>')
 
+map('n', '<leader>q', vim.cmd.copen, 'Open quickfix list')
+map('n', '<leader>Q', vim.cmd.cclose, 'Close quickfix list')
+
 -- Clear search highlighting
 map('n', '<CR>', '<cmd>nohlsearch<CR>', 'Clear search highlighting')
 

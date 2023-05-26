@@ -11,7 +11,7 @@ plugin.config = function()
         updateevents = "TextChanged,TextChangedI",
     })
 
-    vim.keymap.set({ "i", "s" }, "<Tab>", function()
+    vim.keymap.set({ "i", "s" }, "<right>", function()
         if ls.expand_or_jumpable() then
             ls.expand_or_jump()
         end
@@ -36,6 +36,11 @@ plugin.config = function()
     ls.add_snippets("python", {
         ls.parser.parse_snippet("log", "print(f'\\n{$1=}\\n')"),
     })
+
+    ls.add_snippets("python", {
+        ls.parser.parse_snippet("def", "def $1($2) -> None$3:\n\t\"\"\"$4\"\"\"\n\tpass$0"),
+    })
+
 end
 
 return plugin
