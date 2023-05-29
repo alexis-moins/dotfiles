@@ -63,7 +63,7 @@ vim.opt.diffopt:append({ 'algorithm:patience', 'iwhiteall', 'context:0' })
 
 vim.opt.fillchars = 'fold: ,eob: ,diff:╱'
 
-vim.opt.listchars = { tab = '  ', trail = '-', extends = '…', precedes = '…' }
+vim.opt.listchars = { tab = '> ', trail = '-', extends = '…', precedes = '…' }
 
 vim.opt.list = true
 
