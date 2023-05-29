@@ -34,6 +34,7 @@ return {
                         TelescopePromptTitle = { fg = colors.green },
                         TelescopePromptPrefix = { fg = colors.blue },
                         WhichKeyBorder = { fg = colors.blue },
+                        Todo = {},
 
                         DiffDelete = { fg = colors.mantle, bg = "#48384b" },
                         -- WhichKeyFloat = { bg = colors.mantle },

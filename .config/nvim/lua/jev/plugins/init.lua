@@ -118,4 +118,47 @@ return {
         }
     },
 
+    {
+        "echasnovski/mini.bufremove",
+        event = "VeryLazy",
+        opts = {},
+
+        keys = {
+            { '<leader>dd', function() require('mini.bufremove').delete() end }
+        }
+    },
+
+    -- {
+    --     "echasnovski/mini.completion",
+    --     opts = {
+    --         window = {
+    --             info = { height = 25, width = 80, border = 'rounded' },
+    --             signature = { height = 25, width = 80, border = 'rounded' }
+    --         },
+    --
+    --         mappings = {
+    --             force_twostep = '<C-H>'
+    --         }
+    --     }
+    -- }
+
+    {
+        "echasnovski/mini.hipatterns",
+        opts = {
+            highlighters = {
+                -- fixme = { pattern = '%f[%w]()FIXME()%f[%W]', group = 'DiagnosticError' },
+                -- hack  = { pattern = '%f[%w]()HACK()%f[%W]', group = 'MiniHipatternsHack' },
+                -- todo  = { pattern = '%f[%w]()TODO()%f[%W]', group = 'MiniHipatternsTodo' },
+                -- note  = { pattern = '%f[%w]()NOTE()%f[%W]', group = 'DiagnosticHint' },
+            }
+        },
+
+        config = function(_, opts)
+            local hipatterns = require('mini.hipatterns')
+            opts.highlighters.hex_color = hipatterns.gen_highlighter.hex_color()
+
+            hipatterns.setup(opts)
+        end
+    }
+
 }

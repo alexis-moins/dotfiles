@@ -9,27 +9,10 @@ return {
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-nvim-lsp-signature-help",
 
-        "hrsh7th/cmp-calc",
         "hrsh7th/cmp-cmdline",
 
         "L3MON4D3/LuaSnip",
         "saadparwaiz1/cmp_luasnip",
-
-        {
-            "zbirenbaum/copilot-cmp",
-            config = function()
-                require("copilot_cmp").setup({})
-            end,
-            dependencies = {
-                {
-                    "zbirenbaum/copilot.lua",
-                    opts = {
-                        suggestion = { enabled = false },
-                        panel = { enabled = false },
-                    },
-                },
-            },
-        },
     },
 
     lazy = true,
