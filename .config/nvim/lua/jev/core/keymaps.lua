@@ -58,5 +58,5 @@ map('n', '|s', '<cmd>setl spell! spell?<cr>', 'Toggle spell checking')
 map({ 'n', 'x' }, 'gy', '"+y', 'Copy (+register)')
 
 -- Paste using + register
-map('n', 'gp', '"+p', 'Paste after cursor (+register)')
-map('n', 'gP', '"+P', 'Paste before cursor (+register)')
+map({ 'n', 'x' }, 'gp', '"+p', 'Paste after cursor (+register)')
+map({ 'n', 'x' }, 'gP', '"+P', 'Paste before cursor (+register)')
