@@ -60,8 +60,8 @@ return {
             end, "Go to type definition")
 
             map("n", "gi", function()
-                require("telescope.builtin").lsp_implementations()
             end, "Go to implementations")
+                require("telescope.builtin").lsp_implementations()
 
             -- [g]o to [r]eferences
             map("n", "gr", "<cmd>Telescope lsp_references<CR>", "Go to LSP references")
@@ -75,8 +75,8 @@ return {
                 require("telescope.builtin").lsp_document_symbols()
             end, "Buffer symbols")
 
-            map('n', '<leader>fd', function() require('telescope.builtin').diagnostics({ bufnr = 0 }) end,
-                'Show buffer diagnostic')
+            map('n', '<leader>fd', '<cmd>Telescope diagnostics bufnr=0<CR>', 'Show buffer diagnostic')
+            map('n', '<leader>fw', '<cmd>Telescope diagnostics<CR>', 'Show workspace diagnostic')
 
             map("n", "<leader>rn", vim.lsp.buf.rename, "Rename symbol under the cursor")
             map("n", "<leader>ca", vim.lsp.buf.code_action, "Code actions")
