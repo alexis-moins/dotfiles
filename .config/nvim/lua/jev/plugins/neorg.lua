@@ -51,5 +51,6 @@ return {
 
     init = function ()
         vim.keymap.set('n', ';jt', ":Neorg journal today<CR>")
+        vim.keymap.set('n', ';jy', ":Neorg journal yesterday<CR>")
     end
 }

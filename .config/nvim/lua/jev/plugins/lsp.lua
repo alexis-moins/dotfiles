@@ -59,30 +59,26 @@ return {
                 require("telescope.builtin").lsp_type_definitions()
             end, "Go to type definition")
 
-            map("n", "gi", function()
-            end, "Go to implementations")
-                require("telescope.builtin").lsp_implementations()
+            -- [g]o to [i]mplementations
+            map("n", "gi", "<cmd>Telescope lsp_implementations<cr>", "Go to LSP implementations(s)")
 
             -- [g]o to [r]eferences
-            map("n", "gr", "<cmd>Telescope lsp_references<CR>", "Go to LSP references")
+            map("n", "gr", "<cmd>Telescope lsp_references<cr>", "Go to LSP reference(s)")
 
             -- Navigate between diagnostics
             -- map("n", "]d", vim.diagnostic.goto_next, "Next diagnostic")
             -- map("n", "[d", vim.diagnostic.goto_prev, "Previous diagnostic")
 
-            -- Formatting and diagnostic list
-            map("n", "<leader>fs", function()
-                require("telescope.builtin").lsp_document_symbols()
-            end, "Buffer symbols")
+            map('n', '<leader>fs', '<cmd>Telescope lsp_document_symbols<cr>', 'Show LSP symbols')
 
-            map('n', '<leader>fd', '<cmd>Telescope diagnostics bufnr=0<CR>', 'Show buffer diagnostic')
-            map('n', '<leader>fw', '<cmd>Telescope diagnostics<CR>', 'Show workspace diagnostic')
+            map('n', '<leader>fd', '<cmd>Telescope diagnostics bufnr=0<cr>', 'Show buffer diagnostic')
+            map('n', '<leader>fw', '<cmd>Telescope diagnostics<cr>', 'Show workspace diagnostic')
 
             map("n", "<leader>rn", vim.lsp.buf.rename, "Rename symbol under the cursor")
             map("n", "<leader>ca", vim.lsp.buf.code_action, "Code actions")
 
             -- [R]estart neovim LSP client
-            map("n", "<leader>lr", ":LspRestart<cr>", "Restart Lsp client")
+            map("n", "<leader>lr", "<cmd>LspRestart<cr>", "Restart Lsp client")
         end
 
         -- Capabilities from nvim-cmp
