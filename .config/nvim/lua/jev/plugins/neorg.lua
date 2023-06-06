@@ -24,6 +24,8 @@ return {
                 },
             },
 
+            ["core.ui.calendar"] = {},
+
             ["core.journal"] = {
                 config = {
                     workspace = "work",
