@@ -37,8 +37,8 @@ return {
     --             -- Normal mode
     --             down = '<C-J>',
     --             up = '<C-K>',
-    --             left = '<leader><',
-    --             right = '<leader>>',
+    --             left = '<Leader><',
+    --             right = '<Leader>>',
     --
     --             -- Visual node
     --             line_down = '<C-J>',
@@ -93,7 +93,7 @@ return {
         opts = {},
 
         keys = {
-            { '<leader>dd', function() require('mini.bufremove').delete() end }
+            { '<Leader>dd', function() require('mini.bufremove').delete() end }
         }
     },
 

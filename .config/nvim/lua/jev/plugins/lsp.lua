@@ -12,8 +12,8 @@ return {
     },
 
     keys = {
-        { '<leader>lm', ':Mason<cr>',   desc = 'Open Mason',    silent = true },
-        { '<leader>li', ':LspInfo<cr>', desc = 'Show Lsp info', silent = true }
+        { '<Leader>lm', ':Mason<cr>',   desc = 'Open Mason',    silent = true },
+        { '<Leader>li', ':LspInfo<cr>', desc = 'Show Lsp info', silent = true }
     },
 
     config = function()
@@ -69,16 +69,16 @@ return {
             -- map("n", "]d", vim.diagnostic.goto_next, "Next diagnostic")
             -- map("n", "[d", vim.diagnostic.goto_prev, "Previous diagnostic")
 
-            map('n', '<leader>fs', '<cmd>Telescope lsp_document_symbols<cr>', 'Show LSP symbols')
+            map('n', '<Leader>fs', '<cmd>Telescope lsp_document_symbols<cr>', 'Show LSP symbols')
 
-            map('n', '<leader>fd', '<cmd>Telescope diagnostics bufnr=0<cr>', 'Show buffer diagnostic')
-            map('n', '<leader>fw', '<cmd>Telescope diagnostics<cr>', 'Show workspace diagnostic')
+            map('n', '<Leader>fd', '<cmd>Telescope diagnostics bufnr=0<cr>', 'Show buffer diagnostic')
+            map('n', '<Leader>fw', '<cmd>Telescope diagnostics<cr>', 'Show workspace diagnostic')
 
-            map("n", "<leader>rn", vim.lsp.buf.rename, "Rename symbol under the cursor")
-            map("n", "<leader>ca", vim.lsp.buf.code_action, "Code actions")
+            map("n", "<Leader>rn", vim.lsp.buf.rename, "Rename symbol under the cursor")
+            map("n", "<Leader>ca", vim.lsp.buf.code_action, "Code actions")
 
             -- [R]estart neovim LSP client
-            map("n", "<leader>lr", "<cmd>LspRestart<cr>", "Restart Lsp client")
+            map("n", "<Leader>lr", "<cmd>LspRestart<cr>", "Restart Lsp client")
         end
 
         -- Capabilities from nvim-cmp

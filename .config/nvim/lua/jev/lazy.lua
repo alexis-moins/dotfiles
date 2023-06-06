@@ -24,7 +24,7 @@ require('lazy').setup('jev.plugins', {
     },
 })
 
-vim.keymap.set('n', '<leader>lz', ':Lazy<cr>', {
+vim.keymap.set('n', '<Leader>lz', ':Lazy<cr>', {
     desc = 'Open Lazy',
     silent = true
 })

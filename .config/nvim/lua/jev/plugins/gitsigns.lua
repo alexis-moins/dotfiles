@@ -14,8 +14,8 @@ return {
     --         mapping('n', ']h', git_signs.next_hunk, 'Next git hunk', { buffer = buffer })
     --
     --         -- Blame the current line(s)
-    --         mapping({ 'n', 'v' }, '<leader>gb', git_signs.toggle_current_line_blame, 'Blame current line')
-    --         mapping('n', '<leader>gd', git_signs.diffthis, 'Diff current buffer')
+    --         mapping({ 'n', 'v' }, '<Leader>gb', git_signs.toggle_current_line_blame, 'Blame current line')
+    --         mapping('n', '<Leader>gd', git_signs.diffthis, 'Diff current buffer')
     --     end
     --
     --     git_signs.setup {

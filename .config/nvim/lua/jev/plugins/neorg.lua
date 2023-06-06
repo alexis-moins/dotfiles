@@ -9,8 +9,9 @@ return {
             ["core.keybinds"] = {
                 config = {
                     default_keybinds = false,
-                    hook = function (keybinds)
-                        keybinds.map("norg", "n", "<leader>ng", "<cmd>Neorg keybind all core.looking-glass.magnify-code-block<CR>")
+                    hook = function(keybinds)
+                        keybinds.map("norg", "n", "<Leader>ng",
+                            "<cmd>Neorg keybind all core.looking-glass.magnify-code-block<CR>")
                     end
                 }
             },
@@ -51,8 +52,8 @@ return {
         },
     },
 
-    init = function ()
-        vim.keymap.set('n', ';jt', ":Neorg journal today<CR>")
-        vim.keymap.set('n', ';jy', ":Neorg journal yesterday<CR>")
+    init = function()
+        vim.keymap.set('n', ',jt', "<cmd>Neorg journal today<CR>")
+        vim.keymap.set('n', ',jy', "<cmd>Neorg journal yesterday<CR>")
     end
 }

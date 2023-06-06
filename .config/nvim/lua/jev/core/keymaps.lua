@@ -4,8 +4,8 @@ local map = utils.map
 -- Easier way to leave insert mode
 map('i', 'jk', '<C-C>')
 
-map('n', '<leader>q', vim.cmd.copen, 'Open quickfix list')
-map('n', '<leader>Q', vim.cmd.cclose, 'Close quickfix list')
+map('n', '<Leader>q', vim.cmd.copen, 'Open quickfix list')
+map('n', '<Leader>Q', vim.cmd.cclose, 'Close quickfix list')
 
 -- Clear search highlighting
 -- map('n', '<CR>', '<cmd>nohlsearch<CR>', 'Clear search highlighting')
@@ -15,7 +15,7 @@ map('n', '[<space>', 'mzO<esc>`z', 'Insert a line above cursor')
 map('n', ']<space>', 'mzo<esc>`z', 'Insert a line below cursor')
 
 map('n', '=', vim.lsp.buf.format, 'Format file')
-map('n', '<leader>so', vim.cmd.source, 'Source file')
+map('n', '<Leader>so', vim.cmd.source, 'Source file')
 
 -- Move normally in in wrapped lines
 map({ 'n', 'v' }, 'j', 'gj')

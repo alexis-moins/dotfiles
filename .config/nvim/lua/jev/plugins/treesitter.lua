@@ -58,10 +58,10 @@ plugin.config = function()
                 enable = true,
 
                 swap_next = {
-                    ["<leader>lsp"] = { query = '@parameter.inner', desc = 'Swap next parameter' },
+                    ["<Leader>lsp"] = { query = '@parameter.inner', desc = 'Swap next parameter' },
                 },
                 swap_previous = {
-                    ["<leader>lsP"] = { query = '@parameter.inner', desc = 'Swap previous parameter' },
+                    ["<Leader>lsP"] = { query = '@parameter.inner', desc = 'Swap previous parameter' },
                 },
             },
 
