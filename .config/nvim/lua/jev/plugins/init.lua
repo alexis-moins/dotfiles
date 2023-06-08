@@ -25,10 +25,4 @@ return {
         },
     },
 
-    {
-        "numToStr/Comment.nvim",
-        keys = { { "gc", mode = "v" }, "gcc", "gbc" },
-        config = true,
-    },
-
 }
