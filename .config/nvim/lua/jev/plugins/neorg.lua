@@ -3,12 +3,20 @@ return {
     ft = "norg",
     cmd = "Neorg",
     build = ":Neorg sync-parsers",
+
+    keys = {
+        { '<Leader>j.', '<cmd>Neorg journal today<CR>',     desc = 'Open journal for today' },
+        { '<Leader>j[', '<cmd>Neorg journal yesterday<CR>', desc = 'Open journal from yesterday ' },
+        { '<Leader>j]', '<cmd>Neorg journal tomorrow<CR>',  desc = 'Open journal for tomorrow' },
+        { '<Leader>jj', '<cmd>Neorg journal custom<CR>',    desc = 'Select journal to open' },
+    },
+
     opts = {
         load = {
             ["core.defaults"] = {},
             ["core.keybinds"] = {
                 config = {
-                    default_keybinds = false,
+                    default_keybinds = true,
                     hook = function(keybinds)
                         keybinds.map("norg", "n", "<Leader>ng",
                             "<cmd>Neorg keybind all core.looking-glass.magnify-code-block<CR>")
@@ -51,9 +59,4 @@ return {
             },
         },
     },
-
-    init = function()
-        vim.keymap.set('n', ',jt', "<cmd>Neorg journal today<CR>")
-        vim.keymap.set('n', ',jy', "<cmd>Neorg journal yesterday<CR>")
-    end
 }

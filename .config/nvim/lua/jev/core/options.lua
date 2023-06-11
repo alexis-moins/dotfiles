@@ -7,6 +7,7 @@ vim.opt.cursorline    = true
 
 -- Enable mouse support in all modes
 vim.opt.mouse         = 'a'
+vim.opt.switchbuf     = 'usetab'
 
 -- Split panes below and to the right
 vim.opt.splitbelow    = true
@@ -69,7 +70,7 @@ vim.opt.list = true
 
 vim.opt.showtabline = 1
 
-vim.opt.winbar = "%=%#Error#%m %#Conceal#%.30t"
+vim.opt.winbar = "%=%#Error#%m %#Conceal#%.30f"
 
 vim.opt.timeout = false -- Wait indefinitely for mappings
 
@@ -80,4 +81,4 @@ vim.opt.timeoutlen = 300
 vim.g.mapleader = ' '
 
 -- Local leader for plugin mappings
-vim.g.maplocalleader = ','
+vim.g.maplocalleader = ';'

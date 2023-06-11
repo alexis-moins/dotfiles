@@ -29,25 +29,25 @@ return {
         },
     },
 
-    -- {
-    --     "echasnovski/mini.move",
-    --     event = "VeryLazy",
-    --     opts = {
-    --         mappings = {
-    --             -- Normal mode
-    --             down = '<C-J>',
-    --             up = '<C-K>',
-    --             left = '<Leader><',
-    --             right = '<Leader>>',
-    --
-    --             -- Visual node
-    --             line_down = '<C-J>',
-    --             line_up = '<C-K>',
-    --             line_left = '<',
-    --             line_right = '>',
-    --         }
-    --     }
-    -- },
+    {
+        "echasnovski/mini.move",
+        event = "VeryLazy",
+        opts = {
+            mappings = {
+                -- Normal mode
+                down = '<C-J>',
+                up = '<C-K>',
+                left = '',
+                right = '',
+
+                -- Visual node
+                line_down = '<C-J>',
+                line_up = '<C-K>',
+                line_left = '',
+                line_right = '',
+            }
+        }
+    },
 
     {
         "echasnovski/mini.ai",
@@ -71,6 +71,10 @@ return {
         "echasnovski/mini.jump",
         event = "VeryLazy",
         opts = {
+            mappings = {
+                repeat_jump = ''
+            },
+
             delay = {
                 highlight = 50
             }
