@@ -10,6 +10,8 @@ $jobs
 """
 
 [directory]
+read_only = '(r)'
+read_only_style = 'green'
 style = "cyan"
 
 [jobs]
