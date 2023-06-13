@@ -23,5 +23,8 @@ end
 
 source ~/.asdf/asdf.fish
 
+# Initialize direnv
+type -qf direnv && direnv hook fish | source
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/alexis/google-cloud-sdk/path.fish.inc' ]; . '/Users/alexis/google-cloud-sdk/path.fish.inc'; end
