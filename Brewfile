@@ -15,6 +15,7 @@ brew "gcc@12"
 brew "git"
 brew "go"
 brew "gum"
+brew "git-delta"
 brew "just"
 brew "jq"
 brew "neovim", args: ["HEAD"]

@@ -7,6 +7,18 @@
 
 [core]
     editor = nvim
+    pager = delta
+
+[delta]
+    tabs = 6
+    navigate = true
+    syntax-theme = catppuccin-macchiato
+
+    plus-style = syntax "#3b474a"
+    minus-style = syntax "#48384b"
+
+    plus-emph-style = "#a6da95" "#3b474a"
+    minus-emph-style = "#ed8796" "#48384b"
 
 [diff]
     colorMoved = default
