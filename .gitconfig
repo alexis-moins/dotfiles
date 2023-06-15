@@ -11,14 +11,18 @@
 
 [delta]
     tabs = 6
-    navigate = true
+    ; navigate = true
+    side-by-side = true
     syntax-theme = catppuccin-macchiato
 
     plus-style = syntax "#3b474a"
     minus-style = syntax "#48384b"
 
-    plus-emph-style = "#a6da95" "#3b474a"
-    minus-emph-style = "#ed8796" "#48384b"
+    line-numbers-plus-style = "#a6da95"
+    line-numbers-minus-style = "#ed8796"
+
+    plus-emph-style = "#a6da95" ul "#3b474a"
+    minus-emph-style = "#ed8796" ul "#48384b"
 
 [diff]
     colorMoved = default
