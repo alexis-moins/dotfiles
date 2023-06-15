@@ -30,4 +30,6 @@ alias tree 'exa --tree --git-ignore'
 
 alias session 'nvim -S'
 
+alias rg 'rg --smart-case'
+
 alias ci git-commit

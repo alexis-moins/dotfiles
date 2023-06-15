@@ -52,8 +52,6 @@ return {
 
             live_grep = {
                 theme = 'ivy',
-
-                additional_args = { '-i' },
                 disable_coordinates = true
             },
 

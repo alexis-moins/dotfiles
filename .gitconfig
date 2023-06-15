@@ -56,10 +56,11 @@
     dt = difftool
     mt = mergetool
 
+    d = diff
+    ds = diff --staged
+
     l = log --all --graph -n 15
     ll = log --all --graph
-
-    di = diff --word-diff
 
     amend = commit --amend --no-edit
     ignore = !git rm -r --cached . && git add -A
