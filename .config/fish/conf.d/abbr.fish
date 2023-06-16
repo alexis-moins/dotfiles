@@ -1,8 +1,9 @@
 abbr --add de "dot-edit"
 
-abbr --add ga "git add"
-abbr --add gA "git add -A"
+abbr --add ga "git-add"
+abbr --add gr "git-restore"
 
+abbr --add gA "git add -A"
 abbr --add gs "git status"
 
 abbr --add gl "git log"

@@ -6,7 +6,7 @@ $character
 """
 
 right_format = """
-$jobs
+$jobs$cmd_duration
 """
 
 [directory]
@@ -19,6 +19,10 @@ format = "[$symbol$number]($style) "
 number_threshold = 1
 symbol = "*"
 style = "bold yellow"
+
+[cmd_duration]
+format = "[$duration]($style) "
+style = "bold black"
 
 [git_branch]
 style = "purple"

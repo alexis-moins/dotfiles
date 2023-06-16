@@ -27,9 +27,7 @@ return {
                     require('luasnip').lsp_expand(args.body)
                 end,
             },
-            experimental = {
-                ghost_text = true,
-            },
+
             window = {
                 completion = cmp.config.window.bordered({
                     winhighlight = "Normal:Normal,FloatBorder:CmpBorder,Search:None",
@@ -38,6 +36,7 @@ return {
                     winhighlight = "Normal:Normal,FloatBorder:CmpBorder",
                 }),
             },
+
             mapping = {
                 ["<C-U>"] = cmp.mapping.scroll_docs(-4),
                 ["<C-D>"] = cmp.mapping.scroll_docs(4),
@@ -52,6 +51,7 @@ return {
                 end,
                 ["<C-H>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
             },
+
             sources = cmp.config.sources({
                 { name = "copilot" },
                 { name = "nvim_lua" },
@@ -63,6 +63,7 @@ return {
                 { name = "calc" },
                 { name = "buffer",                 keyword_length = 2 },
             }),
+
             formatting = {
                 format = function(entry, vim_item)
                     local menu = {
