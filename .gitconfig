@@ -61,10 +61,11 @@
     sw = switch
     br = branch --format '%(color:red)%(HEAD)%(color:white) %(align:30)%(refname:short)%(end) %(align:30)%(color:blue)%(upstream:short)%(color:white) %(color:magenta)%(upstream:track)%(color:white)%(end)'
 
-    rs = restore --staged
+    rs = restore
 
     d = diff
     ds = diff --staged
+    da = diff HEAD
 
     l = log --all --graph -n 15
     ll = log --all --graph

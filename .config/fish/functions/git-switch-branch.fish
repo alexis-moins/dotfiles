@@ -1,6 +1,4 @@
-function git-switch-branch
-    git branch --sort="-committerdate" --format="%(refname:short)" \
-        | fzf-tmux -p $FZF_TMUX_OPTS | xargs git switch
-
-    commandline -f repaint
+function git-switch-branch --description="Switch git branches interactively"
+    git branch --sort='-committerdate' --format='%(refname:short)' \
+        | gum filter --placeholder='Branch to switch to...' | xargs git switch
 end
