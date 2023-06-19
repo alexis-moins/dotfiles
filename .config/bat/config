@@ -3,12 +3,12 @@
 # run `bat --help` to get a list of all possible configuration options.
 
 # Show line numbers, Git modifications (but no file header or grid)
---style="changes,numbers"
+--style="grid,changes,numbers"
 
 
 # Specify desired highlighting theme (e.g. "TwoDark"). Run `bat --list-themes`
 # for a list of all available themes
---theme="catppuccin-macchiato"
+--theme="Catppuccin-macchiato"
 --color=always
 
 # Enable this to use italic text on the terminal. This is not supported on all

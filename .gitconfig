@@ -17,7 +17,7 @@
     navigate = true
     file-modified-label = "~"
 
-    syntax-theme = catppuccin-macchiato
+    syntax-theme = Catppuccin-macchiato
 
     plus-style = syntax "#3b474a"
     minus-style = syntax "#48384b"
