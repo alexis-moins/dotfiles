@@ -1,17 +1,4 @@
 function fish_user_key_bindings
-    # ^B -> find file
-    # ^H -> history
-    # ^f -> directory
-    fzf_key_bindings
-
-    bind --mode insert \ce git-switch-branch
-
-    # Bind ^Z to resume background process
-    bind --mode insert \cz fg\r
-
-    # Bind ^R to restoring a tmux session
-    # bind --mode insert \cr tmux-restore
-
     function vi-normal-mode
         if commandline --paging-mode
             commandline -f cancel
@@ -29,6 +16,19 @@ function fish_user_key_bindings
     bind -M insert \cp up-or-search
     bind -M insert \cn down-or-search
 
+    # Bind ^z to resume background process
+    bind -M insert \cz fg\r
+
+    # Bind ^e to git switch branch
+    bind -M insert \ce git-switch-branch
+
+    # Bind ^b to gum file widget
     bind -M insert \cb gum-file-widget
+
+    # Bind ^h to gum history widget
+    bind -M insert \ch gum-history-widget
+
+    # Bind ^f to gum history widget
+    bind -M insert \cf gum-cd-widget
 end
 

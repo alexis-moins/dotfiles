@@ -22,6 +22,3 @@ function fish_user_cursor --on-event fish_prompt
 end
 
 source ~/.asdf/asdf.fish
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/alexis/google-cloud-sdk/path.fish.inc' ]; . '/Users/alexis/google-cloud-sdk/path.fish.inc'; end
