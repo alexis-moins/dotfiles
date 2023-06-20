@@ -1,9 +1,6 @@
-function tmux-switch --description 'Use fzf to switch to another open tmux session'
-    set --local SESSION (tmux list-sessions -F '#S' | fzf-tmux $FZF_TMUX_OPTS)
-
+function tmux-switch --description 'Use gum to switch / attach to a tmux session'
+    set -l SESSION (tmux list-sessions -F '#S' | gum filter --placeholder "Select a session...")
     test -z $SESSION && return 0
 
-    set --query TMUX
-        and tmux switch-client -t $SESSION
-        or tmux attach -t $SESSION
+    set --query TMUX && tmux switch-client -t $SESSION || tmux attach-session -t $SESSION
 end
