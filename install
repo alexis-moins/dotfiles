@@ -1,16 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-function make_dir {
-    if [[ ! -d "${1}" ]]; then
-        mkdir -pv "${1}"
-    fi
-}
+# Create necessary directories
+mkdir -pv ~/dev ~/notes/work ~/notes/school
 
-make_dir "${HOME}/.config"
-make_dir "${HOME}/dev"
-
-make_dir "${HOME}/notes/work"
-make_dir "${HOME}/notes/school"
-
-stow --restow --dotfiles --verbose .
+stow --delete . && stow --stow --verbose .
