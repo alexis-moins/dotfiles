@@ -33,3 +33,5 @@ alias session 'nvim -S'
 alias rg 'rg --smart-case'
 
 alias ci git-commit
+
+alias dot-install "bash $HOME/dotfiles/install"
