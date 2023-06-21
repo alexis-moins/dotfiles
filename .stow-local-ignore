@@ -8,5 +8,4 @@ install
 
 \.git
 \.gitignore
-catppuccin-iterm.json
-rose-pine-iterm.json
+\.config/iterm

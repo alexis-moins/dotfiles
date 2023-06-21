@@ -13,4 +13,4 @@ make_dir "${HOME}/dev"
 make_dir "${HOME}/notes/work"
 make_dir "${HOME}/notes/school"
 
-stow --delete . && stow --stow --verbose .
+stow --restow --dotfiles --verbose .
