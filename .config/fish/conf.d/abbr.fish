@@ -1,5 +1,4 @@
 abbr --add de "dot-edit"
-abbr --add di "dot-install"
 
 abbr --add ga "git-add"
 abbr --add gr "git-restore"
