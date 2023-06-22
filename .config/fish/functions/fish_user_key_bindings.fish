@@ -19,16 +19,13 @@ function fish_user_key_bindings
     # Bind ^z to resume background process
     bind -M insert \cz fg\r
 
-    # Bind ^b to git switch branch
-    bind -M insert \cb git-switch-branch
+    # Bind ^e to git switch branch
+    bind -M insert \ce git-switch-branch
 
-    # Bind ^f to gum file widget
-    bind -M insert \cf gum-file-widget
+    # Bind ^b to gum find widget
+    bind -M insert \cb gum-find-widget
 
-    # Bind ^g to gum find widget
-    bind -M insert \cg gum-find-widget
-
-    # Bind ^e to gum cd widget
-    bind -M insert \ce gum-cd-widget
+    # Bind ^f to gum cd widget
+    bind -M insert \cf gum-cd-widget
 end
 
