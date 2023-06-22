@@ -11,11 +11,9 @@ return {
         { '<Leader>fh',      '<cmd>Telescope help_tags<CR>',       desc = 'Find help',             silent = true },
         { '<Leader>:',       '<cmd>Telescope command_history<CR>', desc = 'Open command history',  silent = true },
         { '<C-R>',           '<cmd>Telescope registers<CR>',       desc = 'Find register content', mode = 'i' },
-        { '-',               '<cmd>Telescope file_browser<CR>',    desc = 'Open file browser',     silent = true },
     },
 
     dependencies = {
-        "nvim-telescope/telescope-file-browser.nvim",
         {
             "nvim-telescope/telescope-fzf-native.nvim",
             cond = vim.fn.executable("make") == 1,
@@ -66,10 +64,6 @@ return {
 
             keymaps = {
                 theme = 'ivy',
-            },
-
-            lsp_references = {
-                theme = 'ivy'
             },
 
             find_files = {
@@ -126,20 +120,6 @@ return {
 
         },
 
-        extensions = {
-            file_browser = {
-                theme = "ivy",
-                path = "%:p:h",
-                quiet = true,
-                display_stat = false,
-                previewer = false,
-                git_status = false,
-                hidden = true,
-                hijack_netrw = true,
-                respect_gitignore = true,
-            },
-        },
-
     },
 
     config = function(_, opts)
@@ -149,6 +129,5 @@ return {
 
         -- Extensions
         telescope.load_extension("fzf")
-        telescope.load_extension("file_browser")
     end,
 }

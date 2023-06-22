@@ -91,16 +91,6 @@ return {
         }
     },
 
-    {
-        "echasnovski/mini.bufremove",
-        event = "VeryLazy",
-        opts = {},
-
-        keys = {
-            { '<Leader>dd', function() require('mini.bufremove').delete() end }
-        }
-    },
-
     -- {
     --     "echasnovski/mini.completion",
     --     opts = {
@@ -116,22 +106,14 @@ return {
     -- }
 
     {
-        "echasnovski/mini.hipatterns",
-        opts = {
-            highlighters = {
-                -- fixme = { pattern = '%f[%w]()FIXME()%f[%W]', group = 'DiagnosticError' },
-                -- hack  = { pattern = '%f[%w]()HACK()%f[%W]', group = 'MiniHipatternsHack' },
-                -- todo  = { pattern = '%f[%w]()TODO()%f[%W]', group = 'MiniHipatternsTodo' },
-                -- note  = { pattern = '%f[%w]()NOTE()%f[%W]', group = 'DiagnosticHint' },
-            }
-        },
+        "echasnovski/mini.files",
+        event = 'BufEnter',
+        opts = {},
 
-        config = function(_, opts)
-            local hipatterns = require('mini.hipatterns')
-            opts.highlighters.hex_color = hipatterns.gen_highlighter.hex_color()
+        keys = {
+            { '-', function() require('mini.files').open(vim.api.nvim_buf_get_name(0)) end, desc = 'Open file explorer' },
+        }
 
-            hipatterns.setup(opts)
-        end
     }
 
 }

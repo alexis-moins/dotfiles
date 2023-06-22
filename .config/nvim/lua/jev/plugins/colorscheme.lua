@@ -35,6 +35,7 @@ return {
                         TelescopePromptPrefix = { fg = colors.blue },
                         WhichKeyBorder = { fg = colors.blue },
                         Todo = {},
+                        MiniFilesBorderModified = { fg = colors.red },
 
                         DiffDelete = { fg = colors.mantle, bg = "#48384b" },
                         -- WhichKeyFloat = { bg = colors.mantle },
