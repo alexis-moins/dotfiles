@@ -22,3 +22,6 @@ function fish_user_cursor --on-event fish_prompt
 end
 
 source ~/.asdf/asdf.fish
+
+# opam configuration
+source ~/.opam/opam-init/init.fish

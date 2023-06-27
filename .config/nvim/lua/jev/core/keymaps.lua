@@ -1,5 +1,4 @@
-local utils = require('jev.utils')
-local map = utils.map
+local map = require('jev.utils').map
 
 -- Easier way to leave insert mode
 map('i', 'jk', '<C-C>')

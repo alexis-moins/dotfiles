@@ -70,7 +70,7 @@ return {
                 theme = 'dropdown',
                 previewer = false,
 
-                find_command = { "fd", "--type", "f", "--strip-cwd-prefix", "--hidden" },
+                find_command = { "fd", "--type", "f", "--strip-cwd-prefix", "--hidden", "--no-ignore-vcs" },
             },
 
             diagnostics = {

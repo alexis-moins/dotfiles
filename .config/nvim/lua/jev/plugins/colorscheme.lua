@@ -36,6 +36,7 @@ return {
                         WhichKeyBorder = { fg = colors.blue },
                         Todo = {},
                         MiniFilesBorderModified = { fg = colors.red },
+                        NonText = { fg = "#494d64" },
 
                         DiffDelete = { fg = colors.mantle, bg = "#48384b" },
                         -- WhichKeyFloat = { bg = colors.mantle },
