@@ -5,15 +5,6 @@ return {
     },
 
     {
-        "tpope/vim-fugitive",
-        cmd = 'Git',
-
-        keys = {
-            { '<C-G>', '<cmd>tab Git<CR>', desc = 'Open fugitive in a new tab', silent = true }
-        }
-    },
-
-    {
         "stevearc/dressing.nvim",
         event = "VeryLazy",
         config = {

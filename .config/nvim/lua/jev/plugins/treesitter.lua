@@ -5,7 +5,6 @@ local plugin = {
 
     dependencies = {
         'nvim-treesitter/nvim-treesitter-textobjects',
-        'nvim-treesitter/playground',
     }
 }
 

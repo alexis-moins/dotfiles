@@ -39,12 +39,14 @@ return {
         })
 
         -- Default function to run when attaching a client its LSP server
-        local on_attach = function(_, buffer)
+        local on_attach = function(client, buffer)
             local utils = require("jev.utils")
 
             local map = function(mode, keys, action, desc)
                 return utils.map(mode, keys, action, desc, { buffer = buffer })
             end
+
+            if client.server_capabilities.inlayHintProvider then vim.lsp.buf.inlay_hint(buffer, true) end
 
             -- Display information about hovered object
             map("n", "K", vim.lsp.buf.hover, "Show information")

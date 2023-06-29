@@ -55,7 +55,7 @@ vim.opt.smartcase     = true
 vim.opt.ignorecase    = true
 
 -- No intro message, less command line messages
-vim.opt.shortmess:append('WIcCS')
+vim.opt.shortmess:append('WIcS')
 
 --
 vim.opt.formatoptions = 'qjl1'

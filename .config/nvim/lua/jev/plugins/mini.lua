@@ -108,7 +108,11 @@ return {
     {
         "echasnovski/mini.files",
         event = 'BufEnter',
-        opts = {},
+        opts = {
+            mappings = {
+                go_in_plus = '<CR>'
+            }
+        },
 
         keys = {
             { '-', function() require('mini.files').open(vim.api.nvim_buf_get_name(0)) end, desc = 'Open file explorer' },

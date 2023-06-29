@@ -3,7 +3,7 @@ abbr --add de "dot-edit"
 abbr --add ga "git-add"
 abbr --add gr "git-restore"
 
-abbr --add gb "git-switch-branch"
+abbr --add gb "git branch"
 
 abbr --add gd "git diff"
 
