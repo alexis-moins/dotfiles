@@ -23,8 +23,5 @@ end
 
 source ~/.asdf/asdf.fish
 
-# opam configuration
-source ~/.opam/opam-init/init.fish
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/alexis/google-cloud-sdk/path.fish.inc' ]; . '/Users/alexis/google-cloud-sdk/path.fish.inc'; end
+# ocaml configuration
+test -d ~/.opam/opam-init/init.fish && source ~/.opam/opam-init/init.fish
