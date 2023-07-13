@@ -5,6 +5,6 @@ function git-add --description "Add files to git interactively"
     test -z "$CANDIDATES" && echo 'No more changes to stage.' && return 0
 
     echo $CANDIDATES | string split " " \
-        | gum filter --no-limit --fuzzy --placeholder="File(s) to stage..." \
+        | gum filter --no-limit --fuzzy --placeholder="Select file(s)" \
         | sed -e "s!^!$GIT_ROOT/!" | xargs git add
 end
