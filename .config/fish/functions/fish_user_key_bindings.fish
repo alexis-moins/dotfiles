@@ -10,7 +10,8 @@ function fish_user_key_bindings
 
     bind -M insert jk vi-normal-mode
 
-    bind -M insert \cy forward-char  # accepts suggestion
+    # Bind ^h to 'accept-suggestion'
+    bind -M insert \ch forward-char
     bind -M insert \ck kill-line
 
     bind -M insert \cp up-or-search
