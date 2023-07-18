@@ -48,9 +48,6 @@ return {
 
             if client.server_capabilities.inlayHintProvider then vim.lsp.buf.inlay_hint(buffer, true) end
 
-            -- Display information about hovered object
-            map("n", "K", vim.lsp.buf.hover, "Show information")
-
             -- Don't map 'gc' or 'gb' because they are used by Comment.nvim
             -- Goto direct [d]efinitions, t[Y]pe definitions, [i]mplementations
             map("n", "gd", function()
