@@ -29,14 +29,7 @@ return {
             },
         })
 
-        require("mason-lspconfig").setup({
-            ensure_installed = {
-                "pyright",
-                "emmet_ls",
-                "tsserver",
-                "lua_ls",
-            },
-        })
+        require("mason-lspconfig").setup()
 
         -- Default function to run when attaching a client its LSP server
         local on_attach = function(client, buffer)
