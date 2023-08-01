@@ -39,7 +39,10 @@ return {
                 return utils.map(mode, keys, action, desc, { buffer = buffer })
             end
 
-            if client.server_capabilities.inlayHintProvider then vim.lsp.buf.inlay_hint(buffer, true) end
+            if client.server_capabilities.inlayHintProvider then
+                vim.lsp.inlay_hint(0, true)
+                vim.api.nvim_set_hl(0, 'LspInlayHint', { link = 'NonText' })
+            end
 
             -- Don't map 'gc' or 'gb' because they are used by Comment.nvim
             -- Goto direct [d]efinitions, t[Y]pe definitions, [i]mplementations
@@ -63,8 +66,8 @@ return {
 
             map('n', '<Leader>fs', '<cmd>Telescope lsp_document_symbols<cr>', 'Show LSP symbols')
 
-            map('n', '<Leader>fd', '<cmd>Telescope diagnostics bufnr=0<cr>', 'Show buffer diagnostic')
-            map('n', '<Leader>fw', '<cmd>Telescope diagnostics<cr>', 'Show workspace diagnostic')
+            map('n', '<Leader>d', '<cmd>Telescope diagnostics bufnr=0<cr>', 'Show buffer diagnostic')
+            map('n', '<Leader>D', '<cmd>Telescope diagnostics<cr>', 'Show workspace diagnostic')
 
             map("n", "<Leader>rn", vim.lsp.buf.rename, "Rename symbol under the cursor")
             map("n", "<Leader>ca", vim.lsp.buf.code_action, "Code actions")
@@ -95,6 +98,10 @@ return {
                             diagnostics = {
                                 globals = { "vim" },
                             },
+
+                            hint = {
+                                enable = true
+                            },
                         },
                     },
                 })
@@ -117,6 +124,42 @@ return {
             vim.diagnostic.open_float(nil, { focus = false })
         end, {
             desc = "Open diagnostics popup",
+        })
+
+
+        local namespace = vim.api.nvim_create_namespace("class_conceal")
+        local group = vim.api.nvim_create_augroup("class_conceal", { clear = true })
+
+        local conceal_html_class = function(bufnr)
+            local language_tree = vim.treesitter.get_parser(bufnr, "html")
+            local syntax_tree = language_tree:parse()
+            local root = syntax_tree[1]:root()
+
+            local query = vim.treesitter.query.parse(
+                "html",
+                [[
+    ((attribute
+        (attribute_name) @att_name (#eq? @att_name "class")
+        (quoted_attribute_value (attribute_value) @class_value) (#set! @class_value conceal "…")))
+    ]]
+            ) -- using single character for conceal thanks to u/Rafat913
+
+            for _, captures, metadata in query:iter_matches(root, bufnr, root:start(), root:end_(), {}) do
+                local start_row, start_col, end_row, end_col = captures[2]:range()
+                vim.api.nvim_buf_set_extmark(bufnr, namespace, start_row, start_col, {
+                    end_line = end_row,
+                    end_col = end_col,
+                    conceal = metadata[2].conceal,
+                })
+            end
+        end
+
+        vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "TextChanged", "InsertLeave" }, {
+            group = group,
+            pattern = "*.html",
+            callback = function()
+                conceal_html_class(vim.api.nvim_get_current_buf())
+            end,
         })
     end,
 }

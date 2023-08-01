@@ -62,6 +62,7 @@
     b = branch
     bd = branch -d
     bl = branch --all --format '%(color:red)%(HEAD)%(color:white) %(align:30)%(refname:short)%(end) %(align:30)%(color:blue)%(upstream:short)%(color:white) %(color:magenta)%(upstream:track)%(color:white)%(end)'
+    bm = branch --move
 
     rs = restore
 
