@@ -35,10 +35,10 @@ return {
         opts = {
             mappings = {
                 -- Normal mode
-                down = '<C-J>',
-                up = '<C-K>',
-                left = '',
-                right = '',
+                down = '<Leader>mj',
+                up = '<Leader>mk',
+                left = '<Leader>mh',
+                right = '<Leader>mr',
 
                 -- Visual node
                 line_down = '<C-J>',
@@ -67,19 +67,19 @@ return {
         }
     },
 
-    {
-        "echasnovski/mini.jump",
-        event = "VeryLazy",
-        opts = {
-            mappings = {
-                repeat_jump = ''
-            },
+    -- {
+    --     "echasnovski/mini.jump",
+    --     event = "VeryLazy",
+    --     opts = {
+    --         mappings = {
+    --             repeat_jump = ''
+    --         },
 
-            delay = {
-                highlight = 50
-            }
-        }
-    },
+    --         delay = {
+    --             highlight = 50
+    --         }
+    --     }
+    -- },
 
     {
         "echasnovski/mini.splitjoin",
@@ -122,6 +122,31 @@ return {
             { '-', function() require('mini.files').open(vim.api.nvim_buf_get_name(0)) end, desc = 'Open file explorer' },
         }
 
-    }
+    },
+
+    -- {
+    --     "echasnovski/mini.clue",
+    --     event = 'VeryLazy',
+    --     opts = {
+    --         triggers = {
+    --             { mode = 'n', keys = '<Leader>' },
+    --             { mode = 'n', keys = '[' },
+    --             { mode = 'n', keys = ']' },
+    --         },
+
+    --         clues = {
+    --             { mode = 'n', keys = ']d',        postkeys = ']' },
+    --             { mode = 'n', keys = '[d',        postkeys = '[' },
+
+    --             { mode = 'n', keys = '<Leader>l', desc = '+LSP' },
+    --             { mode = 'n', keys = '<Leader>f', desc = '+Find' },
+    --             { mode = 'n', keys = '<Leader>m', desc = '+Move' },
+    --         },
+
+    --         window = {
+    --             delay = 300
+    --         }
+    --     },
+    -- },
 
 }

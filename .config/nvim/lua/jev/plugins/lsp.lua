@@ -41,11 +41,10 @@ return {
 
             if client.server_capabilities.inlayHintProvider then
                 vim.lsp.inlay_hint(0, true)
-                vim.api.nvim_set_hl(0, 'LspInlayHint', { link = 'NonText' })
+                vim.api.nvim_set_hl(0, 'LspInlayHint', { link = 'Comment' })
             end
 
             -- Don't map 'gc' or 'gb' because they are used by Comment.nvim
-            -- Goto direct [d]efinitions, t[Y]pe definitions, [i]mplementations
             map("n", "gd", function()
                 require("telescope.builtin").lsp_definitions()
             end, "Go to definition")
@@ -54,15 +53,8 @@ return {
                 require("telescope.builtin").lsp_type_definitions()
             end, "Go to type definition")
 
-            -- [g]o to [i]mplementations
             map("n", "gi", "<cmd>Telescope lsp_implementations<cr>", "Go to LSP implementations(s)")
-
-            -- [g]o to [r]eferences
             map("n", "gr", "<cmd>Telescope lsp_references<cr>", "Go to LSP reference(s)")
-
-            -- Navigate between diagnostics
-            -- map("n", "]d", vim.diagnostic.goto_next, "Next diagnostic")
-            -- map("n", "[d", vim.diagnostic.goto_prev, "Previous diagnostic")
 
             map('n', '<Leader>fs', '<cmd>Telescope lsp_document_symbols<cr>', 'Show LSP symbols')
 
@@ -72,7 +64,6 @@ return {
             map("n", "<Leader>rn", vim.lsp.buf.rename, "Rename symbol under the cursor")
             map("n", "<Leader>ca", vim.lsp.buf.code_action, "Code actions")
 
-            -- [R]estart neovim LSP client
             map("n", "<Leader>lr", "<cmd>LspRestart<cr>", "Restart Lsp client")
         end
 

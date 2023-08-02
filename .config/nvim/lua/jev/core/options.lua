@@ -72,10 +72,8 @@ vim.opt.showtabline = 1
 
 vim.opt.winbar = "%=%#Error#%m %#Conceal#%.30f"
 
-vim.opt.timeout = false -- Wait indefinitely for mappings
-
--- Show which-key menu faster
-vim.opt.timeoutlen = 300
+-- Wait indefinitely for mappings (not needed when using mini.clue)
+vim.opt.timeout = false
 
 -- Leaders for mappings
 vim.g.mapleader = ' '

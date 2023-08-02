@@ -10,16 +10,6 @@ local plugin = {
 
 plugin.config = function()
     require('nvim-treesitter.configs').setup {
-        ensure_installed = {
-            'lua',
-            'vim',
-            'vimdoc',
-
-            'gitcommit',
-            'gitignore',
-            'comment',
-        },
-
         auto_install = true,
         sync_install = false,
 
@@ -40,7 +30,7 @@ plugin.config = function()
 
                 keymaps = {
                     ["af"] = { query = '@function.outer', desc = 'a function' },
-                    ["if"] = { query = '@function.inner', desc = 'inner function'},
+                    ["if"] = { query = '@function.inner', desc = 'inner function' },
 
                     ["aP"] = { query = '@parameter.outer', desc = 'a parameter' },
                     ["iP"] = { query = '@parameter.inner', desc = 'inner parameter' },

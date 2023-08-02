@@ -39,16 +39,17 @@ return {
                         TelescopeSelectionCaret = { fg = colors.red },
                         TelescopePromptTitle = { fg = colors.green },
                         TelescopePromptPrefix = { fg = colors.blue },
-                        WhichKeyBorder = { fg = colors.blue },
                         Todo = {},
                         MiniFilesBorderModified = { fg = colors.red },
                         NonText = { fg = "#494d64" },
 
-                        DiffDelete = { fg = colors.mantle, bg = "#48384b" },
-                        -- WhichKeyFloat = { bg = colors.mantle },
+                        MiniClueDescGroup = { fg = colors.red },
+                        MiniClueSeparator = { fg = colors.base },
 
-                        LeapLabelPrimary = { fg = colors.base, bg = colors.green },
-                        -- MiniJump = { fg = colors.base, bg = colors.green }
+                        MiniClueNextKey = { fg = colors.mauve },
+                        MiniClueNextKeyWithPostKeys = { fg = colors.mauve },
+
+                        DiffDelete = { fg = colors.mantle, bg = "#48384b" },
                     }
                 end,
                 integrations = {
