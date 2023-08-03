@@ -7,7 +7,7 @@ map('n', '<Leader>q', vim.cmd.copen, 'Open quickfix list')
 map('n', '<Leader>Q', vim.cmd.cclose, 'Close quickfix list')
 
 -- Clear search highlighting
--- map('n', '<CR>', '<cmd>nohlsearch<CR>', 'Clear search highlighting')
+map('n', '<CR>', '<cmd>nohlsearch<CR>', 'Clear search highlighting')
 
 -- Add newlines below and above
 map('n', '[<space>', 'mzO<esc>`z', 'Insert a line above cursor')
