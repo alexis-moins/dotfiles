@@ -21,106 +21,113 @@ return {
         },
     },
 
-    opts = {
-        defaults = {
-            mappings = {
-                n = {
-                    ['q'] = 'close',
-                },
+    opts = function()
+        local actions = require('telescope.actions')
 
-            }
-        },
-
-        pickers = {
-            buffers = {
-                show_all_buffers = true,
-                sort_mru = true,
-
-                theme = "ivy",
-
+        return {
+            defaults = {
                 mappings = {
-                    i = {
-                        ["<C-d>"] = "delete_buffer",
-                    },
                     n = {
-                        ["d"] = "delete_buffer",
+                        ['q'] = actions.close,
                     },
+                    i = {
+                        ['<C-L>'] = actions.smart_send_to_loclist + actions.open_loclist,
+                        ['<C-J>'] = actions.move_selection_next,
+                        ['<C-K>'] = actions.move_selection_previous,
+                    }
                 }
             },
 
-            live_grep = {
-                theme = 'ivy',
-                disable_coordinates = true
-            },
+            pickers = {
+                buffers = {
+                    show_all_buffers = true,
+                    sort_mru = true,
 
-            spell_suggest = {
-                theme = 'dropdown'
-            },
+                    theme = "ivy",
 
-            help_tags = {
-                previewer = false,
-                theme = 'dropdown'
-            },
+                    mappings = {
+                        i = {
+                            ["<C-d>"] = "delete_buffer",
+                        },
+                        n = {
+                            ["d"] = "delete_buffer",
+                        },
+                    }
+                },
 
-            keymaps = {
-                theme = 'ivy',
-            },
+                live_grep = {
+                    theme = 'ivy',
+                    disable_coordinates = true,
+                    previewer = true,
+                },
 
-            find_files = {
-                theme = 'dropdown',
-                previewer = false,
+                spell_suggest = {
+                    theme = 'dropdown'
+                },
 
-                find_command = { "fd", "--type", "f", "--strip-cwd-prefix", "--hidden" },
-            },
+                help_tags = {
+                    previewer = false,
+                    theme = 'dropdown'
+                },
 
-            diagnostics = {
-                theme = "ivy",
+                keymaps = {
+                    theme = 'ivy',
+                },
 
-                no_sign = true,
-                bufnr = 0,
-            },
+                find_files = {
+                    theme = 'dropdown',
+                    previewer = false,
 
-            registers = {
-                theme = 'dropdown'
-            },
+                    find_command = { "fd", "--type", "f", "--strip-cwd-prefix", "--hidden" },
+                },
 
-            command_history = {
-                previewer = false,
-                theme = "dropdown",
+                diagnostics = {
+                    theme = "ivy",
 
-                mappings = {
-                    i = {
-                        ["<C-e>"] = 'edit_command_line',
-                    },
-                    n = {
-                        ["e"] = 'edit_command_line',
+                    no_sign = true,
+                    bufnr = 0,
+                },
+
+                registers = {
+                    theme = 'dropdown'
+                },
+
+                command_history = {
+                    previewer = false,
+                    theme = "dropdown",
+
+                    mappings = {
+                        i = {
+                            ["<C-e>"] = 'edit_command_line',
+                        },
+                        n = {
+                            ["e"] = 'edit_command_line',
+                        },
                     },
                 },
+
+                lsp_document_symbols = {
+                    theme = "ivy",
+                },
+
+                lsp_definitions = {
+                    theme = "ivy",
+                },
+
+                lsp_type_definitions = {
+                    theme = "ivy",
+                },
+
+                lsp_implementations = {
+                    theme = "ivy",
+                },
+
+                lsp_references = {
+                    theme = "ivy",
+                },
             },
-
-            lsp_document_symbols = {
-                theme = "ivy",
-            },
-
-            lsp_definitions = {
-                theme = "ivy",
-            },
-
-            lsp_type_definitions = {
-                theme = "ivy",
-            },
-
-            lsp_implementations = {
-                theme = "ivy",
-            },
-
-            lsp_references = {
-                theme = "ivy",
-            },
-
-        },
-
-    },
+        }
+    end,
 
     config = function(_, opts)
         local telescope = require("telescope")

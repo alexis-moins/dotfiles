@@ -35,16 +35,16 @@ return {
         opts = {
             mappings = {
                 -- Normal mode
-                down = '<Leader>mj',
-                up = '<Leader>mk',
-                left = '<Leader>mh',
-                right = '<Leader>mr',
+                down = '<C-J>',
+                up = '<C-K>',
+                left = '<C-H>',
+                right = '<C-L>',
 
                 -- Visual node
                 line_down = '<C-J>',
                 line_up = '<C-K>',
-                line_left = '',
-                line_right = '',
+                line_left = '<C-H>',
+                line_right = '<C-L>',
             }
         }
     },
@@ -61,25 +61,24 @@ return {
         "echasnovski/mini.bracketed",
         event = "VeryLazy",
         opts = {
-            location = { suffix = '' },
             treesitter = { suffix = '' },
             oldfile = { suffix = '' },
         }
     },
 
-    -- {
-    --     "echasnovski/mini.jump",
-    --     event = "VeryLazy",
-    --     opts = {
-    --         mappings = {
-    --             repeat_jump = ''
-    --         },
+    {
+        "echasnovski/mini.jump",
+        event = "VeryLazy",
+        opts = {
+            mappings = {
+                repeat_jump = ','
+            },
 
-    --         delay = {
-    --             highlight = 50
-    --         }
-    --     }
-    -- },
+            delay = {
+                highlight = 0
+            }
+        }
+    },
 
     {
         "echasnovski/mini.splitjoin",

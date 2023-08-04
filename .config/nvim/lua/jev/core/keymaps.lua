@@ -4,14 +4,17 @@ local map = require('jev.utils').map
 map('i', 'jk', '<C-C>')
 
 map('n', '<Leader>q', vim.cmd.copen, 'Open quickfix list')
-map('n', '<Leader>Q', vim.cmd.cclose, 'Close quickfix list')
+map('n', '<Leader>x', vim.cmd.lopen, 'Open location list')
+
+-- map('n', '[x', vim.cmd.lprevious, 'Previous localtion list item')
+-- map('n', ']x', vim.cmd.lnext, 'Next location list item')
 
 -- Clear search highlighting
 map('n', '<CR>', '<cmd>nohlsearch<CR>', 'Clear search highlighting')
 
 -- Add newlines below and above
-map('n', '[<space>', 'mzO<esc>`z', 'Insert a line above cursor')
-map('n', ']<space>', 'mzo<esc>`z', 'Insert a line below cursor')
+map('n', '[<Space>', 'mzO<esc>`z', 'Insert a line above cursor')
+map('n', ']<Space>', 'mzo<esc>`z', 'Insert a line below cursor')
 
 map('n', '=', vim.lsp.buf.format, 'Format file')
 map('n', '<Leader>so', vim.cmd.source, 'Source file')
