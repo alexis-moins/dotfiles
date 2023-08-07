@@ -56,10 +56,11 @@ return {
             map("n", "gi", "<cmd>Telescope lsp_implementations<cr>", "Go to LSP implementations(s)")
             map("n", "gr", "<cmd>Telescope lsp_references<cr>", "Go to LSP reference(s)")
 
-            map('n', '<Leader>fs', '<cmd>Telescope lsp_document_symbols<cr>', 'Show LSP symbols')
+            map('n', '<Leader>fs', '<cmd>Telescope lsp_document_symbols<cr>', 'Show document symbols')
+            map('n', '<Leader>fw', '<cmd>Telescope lsp_dynamic_workspace_symbols<cr>', 'Show workspace symbols')
 
             map('n', '<Leader>d', '<cmd>Telescope diagnostics bufnr=0<cr>', 'Show buffer diagnostic')
-            map('n', '<Leader>D', '<cmd>Telescope diagnostics<cr>', 'Show workspace diagnostic')
+            map('n', '<Leader>w', '<cmd>Telescope diagnostics<cr>', 'Show workspace diagnostic')
 
             map("n", "<Leader>rn", vim.lsp.buf.rename, "Rename symbol under the cursor")
             map("n", "<Leader>ca", vim.lsp.buf.code_action, "Code actions")

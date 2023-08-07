@@ -3,14 +3,15 @@ return {
     cmd = 'Telescope',
 
     keys = {
-        { '<Leader><space>', '<cmd>Telescope find_files<CR>',      desc = 'Find files',            silent = true },
-        { '<Leader>fk',      '<cmd>Telescope keymaps<CR>',         desc = 'Find keymaps',          silent = true },
-        { '<Leader>F',       '<cmd>Telescope live_grep<CR>',       desc = 'Grep files',            silent = true },
-        { '<Leader>fb',      '<cmd>Telescope buffers<CR>',         desc = 'Find buffers',          silent = true },
-        { '<Leader>fz',      '<cmd>Telescope spell_suggest<CR>',   desc = 'Find spelling',         silent = true },
-        { '<Leader>fh',      '<cmd>Telescope help_tags<CR>',       desc = 'Find help',             silent = true },
-        { '<Leader>:',       '<cmd>Telescope command_history<CR>', desc = 'Open command history',  silent = true },
-        { '<C-R>',           '<cmd>Telescope registers<CR>',       desc = 'Find register content', mode = 'i' },
+        { '<Leader><space>', '<cmd>Telescope find_files<CR>',      desc = 'Find files',             silent = true },
+        { '<Leader>fk',      '<cmd>Telescope keymaps<CR>',         desc = 'Find keymaps',           silent = true },
+        { '<Leader>fg',       '<cmd>Telescope live_grep<CR>',       desc = 'Grep files',             silent = true },
+        { '<Leader>fb',      '<cmd>Telescope buffers<CR>',         desc = 'Find buffers',           silent = true },
+        { '<Leader>fz',      '<cmd>Telescope spell_suggest<CR>',   desc = 'Find spelling',          silent = true },
+        { '<Leader>fh',      '<cmd>Telescope help_tags<CR>',       desc = 'Find help',              silent = true },
+        { '<Leader>fc',       '<cmd>Telescope command_history<CR>', desc = 'Open command history',   silent = true },
+        { '<Leader>*',       '<cmd>Telescope grep_string<CR>',     desc = 'Grep item under cursor', silent = true },
+        { '<C-R>',           '<cmd>Telescope registers<CR>',       desc = 'Find register content',  mode = 'i' },
     },
 
     dependencies = {
@@ -53,6 +54,10 @@ return {
                             ["d"] = "delete_buffer",
                         },
                     }
+                },
+
+                grep_string = {
+                    theme = 'ivy'
                 },
 
                 live_grep = {
@@ -125,6 +130,10 @@ return {
                 lsp_references = {
                     theme = "ivy",
                 },
+
+                lsp_dynamic_workspace_symbols = {
+                    theme = 'ivy'
+                }
             },
         }
     end,
