@@ -35,8 +35,11 @@ plugin.config = function()
                     ["aP"] = { query = '@parameter.outer', desc = 'a parameter' },
                     ["iP"] = { query = '@parameter.inner', desc = 'inner parameter' },
 
-                    ["ac"] = { query = "@class.outer", desc = "a class" },
-                    ["ic"] = { query = "@class.inner", desc = "inner class" },
+                    ["ac"] = { query = "@comment.outer", desc = "a comment" },
+                    ["ic"] = { query = "@comment.inner", desc = "inner comment" },
+
+                    ["as"] = { query = "@class.outer", desc = "a class" },
+                    ["is"] = { query = "@class.inner", desc = "inner class" },
 
                     ["aa"] = { query = "@attribute.outer", desc = "an attribute" },
                     ["ia"] = { query = "@attribute.inner", desc = "inner attribute" },
@@ -47,10 +50,10 @@ plugin.config = function()
                 enable = true,
 
                 swap_next = {
-                    ["<Leader>lsp"] = { query = '@parameter.inner', desc = 'Swap next parameter' },
+                    ["<Leader>a"] = { query = '@parameter.inner', desc = 'Swap next parameter' },
                 },
                 swap_previous = {
-                    ["<Leader>lsP"] = { query = '@parameter.inner', desc = 'Swap previous parameter' },
+                    ["<Leader>A"] = { query = '@parameter.inner', desc = 'Swap previous parameter' },
                 },
             },
 
@@ -61,19 +64,25 @@ plugin.config = function()
                 goto_next_start = {
                     ["]f"] = "@function.outer",
                     ["]p"] = { query = '@parameter.inner', desc = 'Next parameter start' },
+                    ["]c"] = { query = '@comment.inner', desc = 'Next comment start' },
                 },
-                goto_next_end = {
-                    ["]F"] = "@function.outer",
-                    ["]P"] = { query = '@parameter.inner', desc = 'Next parameter end' },
-                },
+
                 goto_previous_start = {
-                    ["[f"] = "@function.outer",
+                    ["[f"] = { query = '@function.inner', desc = 'Previous function start' },
                     ["[p"] = { query = '@parameter.inner', desc = 'Previous parameter start' },
+                    ["[c"] = { query = '@comment.inner', desc = 'Previous comment start' },
+                },
+
+                goto_next_end = {
+                    ["]F"] = { query = '@function.outer', desc = 'Previous function end' },
+                    ["]P"] = { query = '@parameter.outer', desc = 'Next parameter end' },
+                    ["]C"] = { query = '@comment.outer', desc = 'Next comment end' },
                 },
 
                 goto_previous_end = {
-                    ["[F"] = "@function.outer",
-                    ["[P"] = { query = '@parameter.inner', desc = 'Previous parameter end' },
+                    ["[F"] = { query = '@function.outer', desc = 'Previous function end' },
+                    ["[P"] = { query = '@parameter.outer', desc = 'Previous parameter end' },
+                    ["[C"] = { query = '@comment.outer', desc = 'Previous comment end' },
                 },
             },
         }

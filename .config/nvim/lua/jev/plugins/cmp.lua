@@ -53,27 +53,24 @@ return {
             },
 
             sources = cmp.config.sources({
-                { name = "copilot" },
                 { name = "nvim_lua" },
                 { name = "nvim_lsp" },
                 { name = "neorg" },
                 { name = "nvim_lsp_signature_help" },
                 { name = "luasnip" },
                 { name = "path" },
-                { name = "calc" },
-                { name = "buffer",                 keyword_length = 2 },
+            }, {
+                { name = "buffer", keyword_length = 2 }
             }),
 
             formatting = {
                 format = function(entry, vim_item)
                     local menu = {
-                        copilot = "Copilot",
                         nvim_lua = "API",
                         nvim_lsp = "LSP",
                         luasnip = "Snippet",
                         buffer = "Buffer",
                         path = "Path",
-                        calc = "Math",
                     }
 
                     vim_item.menu = menu[entry.source.name]
