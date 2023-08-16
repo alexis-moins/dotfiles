@@ -25,3 +25,8 @@ source ~/.asdf/asdf.fish
 
 # ocaml configuration
 test -d ~/.opam/opam-init/init.fish && source ~/.opam/opam-init/init.fish
+
+echo '  ⟋|､'
+echo ' (°､ ｡ 7'
+echo ' |､  ~ヽ'
+echo ' じしf_,)〳'

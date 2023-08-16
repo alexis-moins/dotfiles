@@ -124,29 +124,10 @@ return {
 
     },
 
-    -- {
-    --     "echasnovski/mini.clue",
-    --     event = 'VeryLazy',
-    --     opts = {
-    --         triggers = {
-    --             { mode = 'n', keys = '<Leader>' },
-    --             { mode = 'n', keys = '[' },
-    --             { mode = 'n', keys = ']' },
-    --         },
-
-    --         clues = {
-    --             { mode = 'n', keys = ']d',        postkeys = ']' },
-    --             { mode = 'n', keys = '[d',        postkeys = '[' },
-
-    --             { mode = 'n', keys = '<Leader>l', desc = '+LSP' },
-    --             { mode = 'n', keys = '<Leader>f', desc = '+Find' },
-    --             { mode = 'n', keys = '<Leader>m', desc = '+Move' },
-    --         },
-
-    --         window = {
-    --             delay = 300
-    --         }
-    --     },
-    -- },
+    {
+        "echasnovski/mini.operators",
+        event = 'BufEnter',
+        opts = {},
+    },
 
 }

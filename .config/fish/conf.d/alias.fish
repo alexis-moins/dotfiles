@@ -3,6 +3,8 @@ alias nvimrc 'nvim $HOME/.config/nvim/init.lua'
 # Active a python virtual env
 alias activate 'source (fd activate.fish .venv)'
 
+alias ... 'cd .. && cd ..'
+
 # Copy stuff verbosely (-v) and ask for confirmation (-i)
 alias cp 'cp -iv'
 

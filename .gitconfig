@@ -38,12 +38,6 @@
 [difftool]
     prompt = true
 
-[diff]
-    tool = nvimdiff
-
-[difftool "nvimdiff"]
-    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
-
 [merge]
     conflictstyle = diff3
 
@@ -59,18 +53,22 @@
     force = !git amend && git push -f
 
     sw = switch
-    b = branch
-    bd = branch -d
-    bl = branch --all --format '%(color:red)%(HEAD)%(color:white) %(align:30)%(refname:short)%(end) %(align:30)%(color:blue)%(upstream:short)%(color:white) %(color:magenta)%(upstream:track)%(color:white)%(end)'
+
+    bl = branch --format '%(color:red)[%(HEAD)]%(color:white) %(refname:short) %(color:green)%(upstream:short) %(color:blue)%(authorname) %(color:bold black)%(committerdate:relative) %(upstream:track)'
+    blr = branch --remote --format '%(color:red)[%(HEAD)]%(color:white) %(refname:short) %(color:blue)%(authorname) %(color:bold black)%(committerdate:relative)'
+
+    bd = branch --delete
     bm = branch --move
 
     rs = restore
 
     d = diff
+    dl = diff HEAD^
     ds = diff --staged
     da = diff HEAD
 
     l = log --all --graph -n 15
+    lb = log main...
     ll = log --all --graph
 
     st = "status"
@@ -89,5 +87,6 @@
 
 [remote "origin"]
     prune = true
+
 [pull]
 	rebase = true
