@@ -4,4 +4,5 @@ set -e
 # Create necessary directories
 mkdir -pv ~/dev ~/notes/work ~/notes/school
 
+# TODO use scopes
 stow --delete . && stow --stow --verbose .
