@@ -58,6 +58,7 @@
     blr = branch --remote --format '%(color:red)[%(HEAD)]%(color:white) %(refname:short) %(color:blue)%(authorname) %(color:bold black)%(committerdate:relative)'
 
     bd = branch --delete
+    bd = branch -D
     bm = branch --move
 
     rs = restore
