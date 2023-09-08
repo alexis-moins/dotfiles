@@ -1,5 +1,4 @@
 return {
-
     {
         "rose-pine/neovim",
         name = "rose-pine",
@@ -50,6 +49,9 @@ return {
                         MiniClueNextKeyWithPostKeys = { fg = colors.mauve },
 
                         DiffDelete = { fg = colors.mantle, bg = "#48384b" },
+
+                        MiniTablineCurrent = { fg = colors.text },
+                        -- MiniTablineModifiedVisible = { fg = colors.blue },
                     }
                 end,
                 integrations = {
@@ -62,6 +64,10 @@ return {
                     },
                 },
             })
+
+            vim.api.nvim_set_hl(0, 'MiniTablineModifiedVisible', { link = 'TabLine' })
+            vim.api.nvim_set_hl(0, 'MiniTablineModifiedHidden', { link = 'TabLine' })
+            vim.api.nvim_set_hl(0, 'MiniTablineModifiedCurrent', { link = 'Normal' })
 
             vim.cmd.colorscheme("catppuccin")
         end,

@@ -126,4 +126,9 @@ return {
         opts = {},
     },
 
+    {
+        "echasnovski/mini.tabline",
+        opts = {},
+    },
+
 }

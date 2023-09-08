@@ -58,7 +58,12 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("FileType", {
     group = augroup('format_options'),
     pattern = '*',
-    callback = function ()
+    callback = function()
         vim.opt_local.formatoptions = 'qjl1'
     end
+})
+
+vim.api.nvim_create_autocmd("TermEnter", {
+    group = augroup('auto_term_insert_mode'),
+    command = 'startinsert'
 })

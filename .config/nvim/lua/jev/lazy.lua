@@ -29,7 +29,7 @@ vim.keymap.set('n', '<Leader>lz', ':Lazy<cr>', {
     silent = true
 })
 
-vim.keymap.set('n', '<Leader>t', require('lazy.util').float_term, {
+vim.keymap.set('n', '<Leader>tt', require('lazy.util').float_term, {
     desc = 'Open floating terminal',
     silent = true
 })

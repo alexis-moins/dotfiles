@@ -32,6 +32,7 @@ vim.opt.wrap          = false
 vim.opt.scrolloff     = 8
 
 -- Keep 8 lines before and after the cursor
+
 vim.opt.sidescrolloff = 8
 
 vim.opt.linebreak     = true -- When wrapping lines, break at word boundaries
@@ -70,7 +71,7 @@ vim.opt.list = true
 
 vim.opt.showtabline = 1
 
-vim.opt.winbar = "%=%#Error#%m %#Conceal#%.30f"
+vim.opt.winbar = "%=%#Error#%m %#Comment#%y"
 
 -- Wait indefinitely for mappings (not needed when using mini.clue)
 vim.opt.timeout = false
