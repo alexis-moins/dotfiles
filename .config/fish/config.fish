@@ -30,3 +30,7 @@ echo '  ⟋|､'
 echo ' (°､ ｡ 7'
 echo ' |､  ~ヽ'
 echo ' じしf_,)〳'
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH

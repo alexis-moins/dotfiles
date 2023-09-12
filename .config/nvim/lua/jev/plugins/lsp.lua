@@ -108,6 +108,7 @@ return {
             float = { border = "rounded" },
             update_in_insert = true,
             virtual_text = false,
+
         })
 
         -- vim.cmd([[autocmd CursorHold * lua vim.diagnostic.open_float(nil, {focus=false})]])

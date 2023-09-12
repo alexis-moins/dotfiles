@@ -71,7 +71,7 @@ vim.opt.list = true
 
 vim.opt.showtabline = 1
 
-vim.opt.winbar = "%=%#Error#%m %#Comment#%y"
+vim.opt.winbar = "%=%#Error#%m %#Comment#%Y"
 
 -- Wait indefinitely for mappings (not needed when using mini.clue)
 vim.opt.timeout = false
