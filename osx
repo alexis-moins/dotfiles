@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# Normal minimum is 15 (225 ms)
+defaults write -g InitialKeyRepeat -int 10
+
+# Normal minimum is 2 (30 ms)
+defaults write -g KeyRepeat -int 1

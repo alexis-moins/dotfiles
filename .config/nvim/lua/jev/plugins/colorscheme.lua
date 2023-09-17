@@ -21,8 +21,8 @@ return {
                     return {
                         Folded = { fg = colors.surface2, bg = colors.base },
                         NormalFloat = { bg = colors.base },
-                        TabLineSel = { fg = colors.blue, bg = colors.base },
                         TabLine = { fg = colors.surface2, bg = colors.base },
+                        TabLineSel = { fg = colors.none, bg = colors.base },
                         StatusLine = { fg = colors.base, bg = colors.base },
                         CmpBorder = { fg = colors.blue },
                         TelescopeMatching = { fg = colors.green, bg = "none" },
@@ -62,6 +62,7 @@ return {
             vim.api.nvim_set_hl(0, 'MiniTablineModifiedVisible', { link = 'TabLine' })
             vim.api.nvim_set_hl(0, 'MiniTablineModifiedHidden', { link = 'TabLine' })
             vim.api.nvim_set_hl(0, 'MiniTablineModifiedCurrent', { link = 'Normal' })
+            vim.api.nvim_set_hl(0, 'TabLineSel', { link = 'Normal' })
 
             vim.cmd.colorscheme("catppuccin")
         end,

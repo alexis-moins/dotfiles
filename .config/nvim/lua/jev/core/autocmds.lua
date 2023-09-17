@@ -48,7 +48,7 @@ vim.api.nvim_create_autocmd({ "VimResized" }, {
 -- wrap and check for spell in text filetypes
 vim.api.nvim_create_autocmd("FileType", {
     group = augroup("wrap_spell"),
-    pattern = { "gitcommit", "html", "norg", "markdown" },
+    pattern = { "gitcommit", "html", "norg", "markdown", "typescriptreact" },
     callback = function()
         vim.opt_local.wrap = true
         vim.opt_local.spell = true
@@ -63,7 +63,11 @@ vim.api.nvim_create_autocmd("FileType", {
     end
 })
 
-vim.api.nvim_create_autocmd("TermEnter", {
+vim.api.nvim_create_autocmd("TermOpen", {
     group = augroup('auto_term_insert_mode'),
-    command = 'startinsert'
+    callback = function ()
+        vim.opt_local.number = false
+        vim.opt_local.relativenumber = false
+        vim.cmd.startinsert()
+    end
 })
