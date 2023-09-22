@@ -53,10 +53,12 @@ map('n', '|n', '<cmd>set number!<cr>', 'Toggle line number')
 map('n', '|r', '<cmd>set relativenumber!<cr>', 'Toggle relative line number')
 
 map('n', '|c', '<cmd>set cursorline!<cr>', 'Toggle cursorline')
-map('n', '|l', '<cmd>set list! list?<cr>', 'Toggle list chararcters')
+map('n', '|l', '<cmd>set list!<cr>', 'Toggle list chararcters')
 
 map('n', '|w', '<cmd>setl wrap! wrap?<cr>', 'Toggle line wrapping')
 map('n', '|s', '<cmd>setl spell! spell?<cr>', 'Toggle spell checking')
+
+map('n', '|h', '<cmd>lua vim.lsp.inlay_hint(0, nil)<cr>', 'Toggle inlay hints')
 
 -- Copy using + register
 map({ 'n', 'x' }, 'gy', '"+y', 'Copy (+register)')
@@ -66,3 +68,7 @@ map({ 'n', 'x' }, 'gp', '"+p', 'Paste after cursor (+register)')
 map({ 'n', 'x' }, 'gP', '"+P', 'Paste before cursor (+register)')
 
 map('n', '<Leader>ts', '<cmd>horizontal terminal<cr>', 'Open a terminal in a split')
+map('n', '<Leader>tt', '<cmd>terminal<cr>', 'Open a terminal')
+
+map('t', '<Esc>', '<C-\\><C-N>', 'Leave terminal mode')
+map('t', '<C-^>', '<C-\\><C-N><C-O>', 'Jump to last position')
