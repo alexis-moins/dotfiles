@@ -5,3 +5,12 @@ defaults write -g InitialKeyRepeat -int 10
 
 # Normal minimum is 2 (30 ms)
 defaults write -g KeyRepeat -int 1
+
+# Dock animation duration
+defaults write com.apple.dock autohide-time-modifier -float 0.5
+
+# Dock delay before animation
+defaults write com.apple.dock autohide-delay -float 0
+
+# Restart dock
+killAll Dock

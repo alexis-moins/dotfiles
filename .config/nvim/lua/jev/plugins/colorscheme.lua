@@ -44,7 +44,7 @@ return {
 
                         DiffDelete = { fg = colors.mantle, bg = "#48384b" },
 
-                        MiniTablineCurrent = { fg = colors.text },
+                        -- MiniTablineCurrent = { fg = colors.text },
                         -- MiniTablineModifiedVisible = { fg = colors.blue },
                     }
                 end,
@@ -62,7 +62,10 @@ return {
             vim.api.nvim_set_hl(0, 'MiniTablineModifiedVisible', { link = 'TabLine' })
             vim.api.nvim_set_hl(0, 'MiniTablineModifiedHidden', { link = 'TabLine' })
             vim.api.nvim_set_hl(0, 'MiniTablineModifiedCurrent', { link = 'Normal' })
+
             vim.api.nvim_set_hl(0, 'TabLineSel', { link = 'Normal' })
+            vim.api.nvim_set_hl(0, 'MiniTablineCurrent', { link = 'TabLineSel' })
+            vim.api.nvim_set_hl(0, 'MiniTablineVisible', { link = 'Function' })
 
             vim.cmd.colorscheme("catppuccin")
         end,
