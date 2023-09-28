@@ -131,4 +131,9 @@ return {
         opts = {},
     },
 
+    {
+        "echasnovski/mini.sessions",
+        opts = {}
+    }
+
 }
