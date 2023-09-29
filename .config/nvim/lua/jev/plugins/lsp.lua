@@ -98,6 +98,36 @@ return {
                     },
                 })
             end,
+
+
+            ["fennel_language_server"] = function()
+                require("lspconfig").fennel_language_server.setup({
+                    capabilities = capabilities,
+                    on_attach = on_attach,
+
+                    root_dir = require('lspconfig.util').root_pattern("fnl", "lua"),
+                    single_file_support = true,
+
+                    filetypes = { 'fennel' },
+
+                    settings = {
+                        fennel = {
+                            diagnostics = {
+                                globals = { "vim", "jit", "comment" },
+                            },
+
+                            hint = {
+                                enable = true
+                            },
+
+                            workspace = {
+                                library = vim.api.nvim_list_runtime_paths()
+                            }
+                        },
+                    },
+                })
+            end,
+
         })
 
         vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {

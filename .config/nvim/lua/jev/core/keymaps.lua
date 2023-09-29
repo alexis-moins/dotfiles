@@ -6,7 +6,7 @@ map('i', 'jk', '<C-C>')
 map('n', '<Leader>q', vim.cmd.copen, 'Open quickfix list')
 map('n', '<Leader>x', vim.cmd.lopen, 'Open location list')
 
-map('n', '<Leader>bd', '<cmd>bdelete<cr>', 'Delete the current buffer')
+map('n', '<Leader>-', '<cmd>bdelete<cr>', 'Delete the current buffer')
 
 -- map('n', '[x', vim.cmd.lprevious, 'Previous localtion list item')
 -- map('n', ']x', vim.cmd.lnext, 'Next location list item')
@@ -55,7 +55,7 @@ map('n', '|r', '<cmd>set relativenumber!<cr>', 'Toggle relative line number')
 map('n', '|c', '<cmd>set cursorline!<cr>', 'Toggle cursorline')
 map('n', '|l', '<cmd>set list!<cr>', 'Toggle list chararcters')
 
-map('n', '|w', '<cmd>setl wrap! wrap?<cr>', 'Toggle line wrapping')
+map('n', '|w', '<cmd>setl wrap!<cr>', 'Toggle line wrapping')
 map('n', '|s', '<cmd>setl spell! spell?<cr>', 'Toggle spell checking')
 
 map('n', '|h', '<cmd>lua vim.lsp.inlay_hint(0, nil)<cr>', 'Toggle inlay hints')
