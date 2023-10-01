@@ -133,7 +133,9 @@ return {
 
     {
         "echasnovski/mini.sessions",
-        opts = {}
+        opts = {
+            verbose = { read = true }
+        },
     }
 
 }

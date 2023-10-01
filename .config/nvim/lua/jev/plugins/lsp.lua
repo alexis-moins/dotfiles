@@ -39,10 +39,10 @@ return {
                 return utils.map(mode, keys, action, desc, { buffer = buffer })
             end
 
-            if client.server_capabilities.inlayHintProvider then
-                vim.lsp.inlay_hint(0, true)
-                vim.api.nvim_set_hl(0, 'LspInlayHint', { link = 'Comment' })
-            end
+            -- if client.server_capabilities.inlayHintProvider then
+            --     vim.lsp.inlay_hint(0, true)
+            --     vim.api.nvim_set_hl(0, 'LspInlayHint', { link = 'Comment' })
+            -- end
 
             -- Don't map 'gc' or 'gb' because they are used by Comment.nvim
             map("n", "gd", function()
