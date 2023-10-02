@@ -50,7 +50,9 @@
 
 ;; Terminal
 (map :n :<Leader>tt vim.cmd.terminal "Open a terminal")
-(map :n :<Leader>ts #(vim.cmd.horizontal :terminal ) "Open a terminal in a split")
+(map :n :<Leader>ts "<cmd>horizontal terminal<cr>" "Open a terminal in a split")
+
+(map :t :<C-^> "<C-\\><C-N><C-O>" "Leave terminal mode and jump to last buffer")
 
 ;; Option toggling
 (fn toggle [option]

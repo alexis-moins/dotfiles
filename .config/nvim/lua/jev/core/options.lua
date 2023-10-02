@@ -1,87 +1,40 @@
--- Use 24-bit colors
-vim.opt.termguicolors  = true
-
--- Line numbers
-vim.opt.number         = true
-vim.opt.relativenumber = true
-
--- Never display signs
-vim.opt.signcolumn     = 'yes'
-vim.opt.cursorline     = true
-
--- Enable mouse support in all modes
-vim.opt.mouse          = 'a'
-vim.opt.switchbuf      = 'usetab'
-
--- Split panes below and to the right
-vim.opt.splitbelow     = true
-vim.opt.splitright     = true
-
--- Prefer a general persistent undo history
--- over the use of local swap files
-vim.opt.undofile       = true
-vim.opt.swapfile       = false
-
--- Never display the statusline
-vim.opt.ruler          = true
-vim.opt.laststatus     = 3
-vim.opt.cmdheight      = 0
-vim.opt.showmode       = false
-vim.opt.showcmd        = false
-
--- Never wrap lines
-vim.opt.wrap           = false
-
--- Keep 8 lines above and below the cursor
-vim.opt.scrolloff      = 8
-
--- Keep 8 lines before and after the cursor
-
-vim.opt.sidescrolloff  = 8
-
-vim.opt.linebreak      = true -- When wrapping lines, break at word boundaries
-vim.opt.breakindent    = true -- Keep indent when breaking lines
-
-vim.opt.spelllang      = 'en,fr'
-
--- Folds
-vim.opt.foldlevel      = 1
-vim.opt.foldnestmax    = 10
-vim.opt.foldmethod     = 'indent'
-vim.opt.foldenable     = false
-
--- Tabulation
-vim.opt.tabstop        = 4
-vim.opt.shiftwidth     = 4
-vim.opt.expandtab      = true
-
--- Search
-vim.opt.smartcase      = true
-vim.opt.ignorecase     = true
-
--- No intro message, less command line messages
-vim.opt.shortmess:append('WIcS')
-
---
-vim.opt.formatoptions = 'qjl1'
-
-vim.opt.diffopt:append({ 'algorithm:patience', 'iwhiteall', 'context:0' })
-
-vim.opt.fillchars = 'fold: ,eob: ,diff:╱'
-
-vim.opt.listchars = { tab = '› ', trail = '—', extends = '…', precedes = '…', eol = '↴', nbsp = '␣' }
-
-vim.opt.list = true
-
-vim.opt.showtabline = 1
-
-vim.opt.winbar = "%=%#Error#%m %#Comment#%P %#Function#%y"
-
--- Wait indefinitely for mappings (not needed when using mini.clue)
-vim.opt.timeout = false
-
--- Leaders for mappings
-vim.g.mapleader = ' '
-
--- Local leader for plugin mappings
-vim.g.maplocalleader = ';'
+-- [nfnl] Compiled from fnl/jev/core/options.fnl by https://github.com/Olical/nfnl, do not edit.
+local function opt(name, value)
+  vim.opt[name] = value
+  return nil
+end
+opt("termguicolors", true)
+opt("signcolumn", "yes")
+opt("cursorline", true)
+opt("number", true)
+opt("relativenumber", true)
+opt("splitbelow", true)
+opt("splitright", true)
+opt("linebreak", true)
+opt("breakindent", true)
+opt("undofile", true)
+opt("swapfile", false)
+opt("laststatus", 3)
+opt("cmdheight", 0)
+opt("showcmd", false)
+opt("winbar", "%=%S%#Error#%m %#Comment#%P %#Function#%y")
+opt("smartcase", true)
+opt("ignorecase", true)
+opt("tabstop", 4)
+opt("shiftwidth", 4)
+opt("expandtab", true)
+opt("scrolloff", 8)
+opt("sidescrolloff", 8)
+opt("shortmess", "atToOCFWIc")
+opt("spelllang", {"en", "fr"})
+opt("timeout", false)
+opt("list", true)
+opt("fillchars", {fold = " ", eob = " ", diff = "\226\149\177"})
+opt("listchars", {tab = "\226\128\186 ", trail = "\226\128\148", extends = "\226\128\166", precedes = "\226\128\166", eol = "\226\134\180", nbsp = "\226\144\163"})
+local function set_global(name, value)
+  vim.g[name] = value
+  return nil
+end
+set_global("mapleader", " ")
+set_global("maplocalleader", ";")
+return {opt = opt, ["set-global"] = set_global}
