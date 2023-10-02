@@ -32,17 +32,10 @@ return {
         require("mason-lspconfig").setup()
 
         -- Default function to run when attaching a client its LSP server
-        local on_attach = function(client, buffer)
-            local utils = require("jev.utils")
+        local on_attach = function()
+            local keymaps = require("jev.core.keymaps")
 
-            local map = function(mode, keys, action, desc)
-                return utils.map(mode, keys, action, desc, { buffer = buffer })
-            end
-
-            -- if client.server_capabilities.inlayHintProvider then
-            --     vim.lsp.inlay_hint(0, true)
-            --     vim.api.nvim_set_hl(0, 'LspInlayHint', { link = 'Comment' })
-            -- end
+            local map = keymaps["map-local"]
 
             -- Don't map 'gc' or 'gb' because they are used by Comment.nvim
             map("n", "gd", function()

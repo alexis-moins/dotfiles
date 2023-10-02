@@ -63,9 +63,16 @@
 ;; Display list charaters
 (opt :list true)
 
-;;
+;; Characters to fill various places
 (opt :fillchars {:fold " " :eob " " :diff "╱"})
-(opt :listchars {:tab "› " :trail "—" :extends "…" :precedes "…" :eol "↴" :nbsp "␣" })
+
+;; Characters used in 'list' mode
+(opt :listchars {:tab      "› "
+                 :trail    "—"
+                 :extends  "…"
+                 :precedes "…"
+                 :eol      "↴"
+                 :nbsp     "␣"})
 
 ;; Mappings
 (fn set-global [name value]

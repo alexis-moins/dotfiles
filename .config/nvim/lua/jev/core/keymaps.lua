@@ -3,6 +3,10 @@ local function map(modes, lhs, rhs, desc)
   local opts = {desc = desc}
   return vim.keymap.set(modes, lhs, rhs, opts)
 end
+local function map_local(modes, lhs, rhs, desc)
+  local opts = {desc = desc, buffer = true}
+  return vim.keymap.set(modes, lhs, rhs, opts)
+end
 map("i", "jk", "<C-C>", "Leave insert mode")
 map("n", "<Leader><BS>", vim.cmd.nohlsearch, "Clear search highlighting")
 map("n", "=", vim.lsp.buf.format, "Format file")
@@ -27,48 +31,53 @@ local function _1_()
 end
 map("n", "<Leader>ss", _1_, "Write a session")
 local function _3_()
+  return _G.MiniSessions.select("write")
+end
+map("n", "<Leader>sw", _3_, "Write a session")
+local function _4_()
   return _G.MiniSessions.write("Session.vim")
 end
-map("n", "<Leader>sl", _3_, "Write a local session")
-local function _4_()
+map("n", "<Leader>sl", _4_, "Write a local session")
+local function _5_()
   return _G.MiniSessions.select("read")
 end
-map("n", "<Leader>sr", _4_, "Read a session")
-local function _5_()
+map("n", "<Leader>sr", _5_, "Read a session")
+local function _6_()
   return _G.MiniSessions.select("delete")
 end
-map("n", "<Leader>sd", _5_, "Delete a session")
+map("n", "<Leader>sd", _6_, "Delete a session")
 map("n", "[<Space>", "mzO<esc>`z", "Insert a line above cursor")
 map("n", "]<Space>", "mzo<esc>`z", "Insert a line below cursor")
 map("n", "<Leader>tt", vim.cmd.terminal, "Open a terminal")
 map("n", "<Leader>ts", "<cmd>horizontal terminal<cr>", "Open a terminal in a split")
+map("t", "<esc>", "<C-\\><C-N>", "Leave terminal mode")
 map("t", "<C-^>", "<C-\\><C-N><C-O>", "Leave terminal mode and jump to last buffer")
 local function toggle(option)
   vim.o[option] = not vim.o[option]
   return nil
 end
-local function _6_()
+local function _7_()
   return toggle("number")
 end
-map("n", "|n", _6_, "Toggle line number")
-local function _7_()
+map("n", "|n", _7_, "Toggle line number")
+local function _8_()
   return toggle("relativenumber")
 end
-map("n", "|r", _7_, "Toggle relative line number")
-local function _8_()
+map("n", "|r", _8_, "Toggle relative line number")
+local function _9_()
   return toggle("cursorline")
 end
-map("n", "|c", _8_, "Toggle cursorline")
-local function _9_()
+map("n", "|c", _9_, "Toggle cursorline")
+local function _10_()
   return toggle("list")
 end
-map("n", "|l", _9_, "Toggle list chararcters")
-local function _10_()
+map("n", "|l", _10_, "Toggle list chararcters")
+local function _11_()
   return toggle("wrap")
 end
-map("n", "|w", _10_, "Toggle line wrapping")
-local function _11_()
+map("n", "|w", _11_, "Toggle line wrapping")
+local function _12_()
   return toggle("spell")
 end
-map("n", "|s", _11_, "Toggle spell checking")
-return {map = map, toggle = toggle}
+map("n", "|s", _12_, "Toggle spell checking")
+return {map = map, ["map-local"] = map_local, toggle = toggle}

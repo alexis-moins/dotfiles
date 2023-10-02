@@ -1,19 +1,11 @@
-local utils = {}
-
----Wrapper around the nvim keymap api
----@param mode string|table the mode of the mapping
----@param keys string the keys used to trigger the mapping
----@param action function|string string or lua function to execute
----@param description? string description of the mapping
----@param opts? string[] optional options
-function utils.map(mode, keys, action, description, opts)
-    local default_opts = {
-        silent = true,
-        desc = description
-    }
-
-    local _opts = vim.tbl_deep_extend('force', default_opts, opts or {})
-    vim.keymap.set(mode, keys, action, _opts)
+-- [nfnl] Compiled from fnl/jev/utils.fnl by https://github.com/Olical/nfnl, do not edit.
+local function is_nil(x)
+  return ("nil" == type(x))
 end
-
-return utils
+local function table_merge(a, b)
+  return vim.tbl_deep_extend("force", a, b)
+end
+local function use_picker(name)
+  return vim.cmd.Telescope({name})
+end
+return {["is-nil"] = is_nil, ["table-merge"] = table_merge, ["use-picker"] = use_picker}

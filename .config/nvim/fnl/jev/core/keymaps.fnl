@@ -1,12 +1,17 @@
 (fn map [modes lhs rhs desc]
-  "Creates a neovim mapping with the given description"
-  (let [opts {:desc desc}]
+  "Creates a neovim mapping with the given description."
+  (let [opts {: desc}]
+    (vim.keymap.set modes lhs rhs opts)))
+
+(fn map-local [modes lhs rhs desc]
+  "Create a buffer local neovim mapping with description"
+  (let [opts {: desc :buffer true}]
     (vim.keymap.set modes lhs rhs opts)))
 
 (map :i :jk :<C-C> "Leave insert mode")
 (map :n :<Leader><BS> vim.cmd.nohlsearch "Clear search highlighting")
 
-(map :n := vim.lsp.buf.format "Format file")
+(map :n "=" vim.lsp.buf.format "Format file")
 (map :n :<Leader>so vim.cmd.source "Source current file")
 
 (map :n :<Leader>- vim.cmd.bdelete "Delete the current buffer")
@@ -18,7 +23,7 @@
 (map :n :J "mzJ`z" "Join line below without moving cursor")
 
 ;; Easier line navigation
-(map :n :L :$ "Go to the end of the line")
+(map :n :L "$" "Go to the end of the line")
 
 ;; Center scroll
 (map :n :<C-U> :<C-U>zz "Scroll upwards (center)")
@@ -36,10 +41,12 @@
 
 ;; Sessions (via mini.sessions)
 (map :n :<Leader>ss
-     #(vim.ui.input {:prompt "Session name: "}
-                    #(_G.MiniSessions.write $1)) "Write a session")
+     #(vim.ui.input {:prompt "Session name: "} #(_G.MiniSessions.write $1))
+     "Write a session")
 
-(map :n :<Leader>sl #(_G.MiniSessions.write :Session.vim) "Write a local session")
+(map :n :<Leader>sw #(_G.MiniSessions.select :write) "Write a session")
+(map :n :<Leader>sl #(_G.MiniSessions.write :Session.vim)
+     "Write a local session")
 
 (map :n :<Leader>sr #(_G.MiniSessions.select :read) "Read a session")
 (map :n :<Leader>sd #(_G.MiniSessions.select :delete) "Delete a session")
@@ -52,13 +59,13 @@
 (map :n :<Leader>tt vim.cmd.terminal "Open a terminal")
 (map :n :<Leader>ts "<cmd>horizontal terminal<cr>" "Open a terminal in a split")
 
+(map :t :<esc> "<C-\\><C-N>" "Leave terminal mode")
 (map :t :<C-^> "<C-\\><C-N><C-O>" "Leave terminal mode and jump to last buffer")
 
 ;; Option toggling
 (fn toggle [option]
   "Toggles the given neovim option"
-  (tset vim.o option
-        (not (. vim.o option))))
+  (tset vim.o option (not (. vim.o option))))
 
 (map :n :|n #(toggle :number) "Toggle line number")
 (map :n :|r #(toggle :relativenumber) "Toggle relative line number")
@@ -70,4 +77,4 @@
 
 (map :n :|s #(toggle :spell) "Toggle spell checking")
 
-{ : map : toggle}
+{: map : map-local : toggle}
