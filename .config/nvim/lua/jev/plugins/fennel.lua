@@ -7,7 +7,7 @@ return {
 
     {
         "Olical/conjure",
-        ft = "fennel",
+        ft = { "fennel", "clojure" },
 
         config = function()
             require("conjure.main").main()
