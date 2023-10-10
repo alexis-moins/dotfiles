@@ -64,7 +64,11 @@
 (opt :list true)
 
 ;; Characters to fill various places
-(opt :fillchars {:fold " " :eob " " :diff "╱"})
+(opt :fillchars {:fold      " "
+                 :foldclose "›"
+                 :foldsep   " "
+                 :eob       " "
+                 :diff      "╱"})
 
 ;; Characters used in 'list' mode
 (opt :listchars {:tab      "› "
@@ -73,6 +77,16 @@
                  :precedes "…"
                  :eol      "↴"
                  :nbsp     "␣"})
+
+;; Manually define folds with 'zf'
+(opt :foldmethod :manual)
+
+;; Show folds hints only if there is at least 1
+(opt :foldcolumn "auto:1")
+
+;; Use treesitter to highlight folded text
+(opt :foldexpr "v:lua.vim.treesitter.foldexpr()")
+(opt :foldtext "v:lua.vim.treesitter.foldtext()")
 
 ;; Mappings
 (fn set-global [name value]

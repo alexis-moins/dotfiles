@@ -8,7 +8,9 @@ return {
         { '<Leader>fg',      '<cmd>Telescope live_grep<CR>',       desc = 'Grep files',             silent = true },
         { '<Leader>fb',      '<cmd>Telescope buffers<CR>',         desc = 'Find buffers',           silent = true },
         { '<Leader>fh',      '<cmd>Telescope help_tags<CR>',       desc = 'Find help',              silent = true },
-        { '<Leader>fc',      '<cmd>Telescope command_history<CR>', desc = 'Open command history',   silent = true },
+        { '<Leader>fc',      '<cmd>Telescope command_history<CR>', desc = 'Open command history',   silent = true,
+                                                                                                                       mode = {
+                'n', 'v' } },
         { '<Leader>*',       '<cmd>Telescope grep_string<CR>',     desc = 'Grep item under cursor', silent = true },
         { 'gz',              '<cmd>Telescope spell_suggest<CR>',   desc = 'Find spelling',          silent = true },
         { '<C-R>',           '<cmd>Telescope registers<CR>',       desc = 'Find register content',  mode = 'i' },

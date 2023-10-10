@@ -11,6 +11,11 @@ return {
     },
 
     {
+        'shaunsingh/nord.nvim',
+        priority = 1000,
+    },
+
+    {
         "catppuccin/nvim",
         name = "catppuccin",
         priority = 1000,
@@ -19,7 +24,9 @@ return {
                 flavour = "macchiato",
                 custom_highlights = function(colors)
                     return {
-                        Folded = { fg = colors.surface2, bg = colors.base },
+                        Folded = { bg = colors.base },
+                        FoldColumn = { fg = colors.green },
+
                         NormalFloat = { bg = colors.base },
                         TabLine = { fg = colors.surface2, bg = colors.base },
                         TabLineSel = { fg = colors.none, bg = colors.base },

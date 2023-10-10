@@ -15,4 +15,14 @@ return {
             },
         },
     },
+
+    {
+        "danymat/neogen",
+        dependencies = "nvim-treesitter/nvim-treesitter",
+        opts = {},
+
+        keys = {
+            { '<Leader>df', '<cmd>Neogen func<cr>', silent = true }
+        }
+    }
 }

@@ -122,6 +122,6 @@ return {
         opts = {
             verbose = { read = true }
         },
-    }
+    },
 
 }
