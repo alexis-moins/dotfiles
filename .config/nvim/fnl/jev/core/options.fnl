@@ -71,7 +71,7 @@
                  :diff      "╱"})
 
 ;; Characters used in 'list' mode
-(opt :listchars {:tab      "› "
+(opt :listchars {:tab      "· "
                  :trail    "—"
                  :extends  "…"
                  :precedes "…"
