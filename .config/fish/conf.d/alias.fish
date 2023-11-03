@@ -35,3 +35,5 @@ alias session 'nvim -S'
 alias rg 'rg --smart-case'
 
 alias ci git-commit
+
+alias gc 'git-resolve-conflict'

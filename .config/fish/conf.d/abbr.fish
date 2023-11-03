@@ -10,7 +10,7 @@ abbr --add gd "git-diff"
 abbr --add gds "git-diff-staged"
 
 abbr --add gA "git add -A"
-abbr --add gs "git status"
+abbr --add gs "git status --short"
 
 abbr --add gl "git log"
 

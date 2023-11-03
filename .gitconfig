@@ -67,6 +67,7 @@
     dl = diff HEAD^
     ds = diff --staged
     da = diff HEAD
+    dc = diff --diff-filter=U
 
     l = log --all --graph -n 15
     lb = log main...

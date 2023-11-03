@@ -1,7 +1,7 @@
 \.DS_Store
 
 README.*
-Brewfile.*
+Brewfile.lock.json
 Session.vim
 osx
 
