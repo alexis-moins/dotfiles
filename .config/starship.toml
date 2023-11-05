@@ -1,7 +1,7 @@
 format = """
 $directory\
 $git_branch$git_state$git_status\
-$python$nodejs$lua$golang\
+$python$nodejs$lua$golang$package\
 $character
 """
 
@@ -53,6 +53,9 @@ style = "yellow"
 [golang]
 symbol = "go "
 style = "yellow"
+
+[package]
+style = "bold black"
 
 [character]
 # ❯ or ➜
