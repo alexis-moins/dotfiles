@@ -1,7 +1,7 @@
 format = """
 $directory\
 $git_branch$git_state$git_status\
-$python$nodejs$lua$golang$package\
+$python$nodejs$lua$golang$elixir\
 $character
 """
 
@@ -39,23 +39,30 @@ deleted = "-$count"
 renamed = "$count"
 
 [python]
+style = "bold black"
 symbol = "python "
+format = '[\[$symbol$version\]]($style) '
 
 [nodejs]
 detect_extensions = []
+style = "bold black"
 symbol = "node "
-style = "yellow"
+format = '[\[$symbol$version\]]($style) '
 
 [lua]
 symbol = "lua "
-style = "yellow"
+style = "bold black"
+format = '[\[$symbol$version\]]($style) '
 
 [golang]
 symbol = "go "
-style = "yellow"
-
-[package]
 style = "bold black"
+format = '[\[$symbol$version\]]($style) '
+
+[elixir]
+symbol = "elixir "
+style = "bold black"
+format = '[\[$symbol$version\]]($style) '
 
 [character]
 # ❯ or ➜

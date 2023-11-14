@@ -32,6 +32,11 @@ return {
     },
 
     {
+        "tpope/vim-fugitive",
+        event = "VeryLazy"
+    },
+
+    {
         'stevearc/conform.nvim',
         opts = {
             formatters_by_ft = {
@@ -42,5 +47,11 @@ return {
                 javascript = { { "prettierd", "prettier" } },
             },
         },
+    },
+
+
+    {
+        "j-hui/fidget.nvim",
+        opts = {},
     }
 }

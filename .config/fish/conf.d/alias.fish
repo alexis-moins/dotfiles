@@ -37,3 +37,5 @@ alias rg 'rg --smart-case'
 alias ci git-commit
 
 alias gc 'git-resolve-conflict'
+
+alias psql 'docker exec -it postgres psql'

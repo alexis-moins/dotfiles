@@ -15,6 +15,7 @@
 (map :n :<Leader>so vim.cmd.source "Source current file")
 
 (map :n :<Leader>- vim.cmd.bdelete "Delete the current buffer")
+(map :n :<Leader>q vim.cmd.copen "Open/focus the quickfix list")
 
 (map [:n :v] :j :gj "Move down (respects wrap)")
 (map [:n :v] :k :gk "Move up (respects wrap)")
