@@ -18,3 +18,5 @@ abbr --add ta "tmux attach"
 
 abbr --add ss "session"
 abbr --add gg "git-switch-branch"
+
+abbr --add da "direnv allow ."
