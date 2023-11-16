@@ -40,29 +40,24 @@ renamed = "$count"
 
 [python]
 symbol = "python "
-style = "bold black"
-format = '[\[$symbol$version\]]($style) '
+style = "italic bold black"
 
 [nodejs]
 detect_extensions = []
 symbol = "node "
-style = "bold black"
-format = '[\[$symbol$version\]]($style) '
+style = "italic bold black"
 
 [lua]
 symbol = "lua "
-style = "bold black"
-format = '[\[$symbol$version\]]($style) '
+style = "italic bold black"
 
 [golang]
 symbol = "go "
-style = "bold black"
-format = '[\[$symbol$version\]]($style) '
+style = "italic bold black"
 
 [elixir]
 symbol = "elixir "
-style = "bold black"
-format = '[\[$symbol$version\]]($style) '
+style = "italic bold black"
 
 [character]
 # ❯ or ➜

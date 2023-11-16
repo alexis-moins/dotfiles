@@ -16,10 +16,10 @@ return {
             mode = {
                 'n', 'v' }
         },
-        { '<Leader>*', '<cmd>Telescope grep_string<CR>',                 desc = 'Grep item under cursor', silent = true },
-        { 'gz',        '<cmd>Telescope spell_suggest<CR>',               desc = 'Find spelling',          silent = true },
+        { '<Leader>*', '<cmd>Telescope grep_string<CR>',               desc = 'Grep item under cursor', silent = true },
+        { 'gz',        '<cmd>Telescope spell_suggest<CR>',             desc = 'Find spelling',          silent = true },
         { '/',         '<cmd>Telescope current_buffer_fuzzy_find<CR>', desc = 'Find in buffer',         silent = true },
-        { '<C-R>',     '<cmd>Telescope registers<CR>',                   desc = 'Find register content',  mode = 'i' },
+        { '<C-R>',     '<cmd>Telescope registers<CR>',                 desc = 'Find register content',  mode = 'i' },
     },
 
     dependencies = {
@@ -41,8 +41,7 @@ return {
                     },
                     i = {
                         ['<C-L>'] = actions.smart_send_to_loclist + actions.open_loclist,
-                        ['<C-J>'] = actions.move_selection_next,
-                        ['<C-K>'] = actions.move_selection_previous,
+                        ['<C-Q>'] = actions.smart_send_to_qflist + actions.open_qflist,
                     }
                 }
             },

@@ -81,12 +81,14 @@
     this = !git init && git add -A && git commit -m 'feat: initial commit'
     oops = !git stash && git switch -c oops && git stash pop
 	lr = log -n 8
+	sp = stash pop
+	sd = stash drop
 
 [format]
     pretty = format:%C(auto)%h [%D] %C(brightblue)%an%C(reset) %s %C(bold black)%cr%C(reset)
 
 [push]
-    autoSetupRemote = true
+	autoSetupRemote = false
 
 [remote "origin"]
     prune = true
