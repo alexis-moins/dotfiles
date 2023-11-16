@@ -39,14 +39,14 @@ deleted = "-$count"
 renamed = "$count"
 
 [python]
-style = "bold black"
 symbol = "python "
+style = "bold black"
 format = '[\[$symbol$version\]]($style) '
 
 [nodejs]
 detect_extensions = []
-style = "bold black"
 symbol = "node "
+style = "bold black"
 format = '[\[$symbol$version\]]($style) '
 
 [lua]
