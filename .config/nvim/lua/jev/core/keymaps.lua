@@ -8,7 +8,7 @@ local function map_local(modes, lhs, rhs, desc)
   return vim.keymap.set(modes, lhs, rhs, opts)
 end
 map("i", "jk", "<C-C>", "Leave insert mode")
-map("n", "<Leader><BS>", vim.cmd.nohlsearch, "Clear search highlighting")
+map("n", "<BS>", vim.cmd.nohlsearch, "Clear search highlighting")
 map("n", "=", vim.lsp.buf.format, "Format file")
 map("n", "<Leader>so", vim.cmd.source, "Source current file")
 map("n", "<Leader>-", vim.cmd.bdelete, "Delete the current buffer")
