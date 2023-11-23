@@ -15,15 +15,32 @@
 
 ---
 
-## Prerequisites
+## 🚦 Prerequisites
 
 - [fd](https://github.com/sharkdp/fd)
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 
-## Quick Start
+## 🛎️ Quick Start
 
 After installing, you can jump to these files to quickly see how it works:
 
-[mappings](fnl/jev/core/keymaps.fnl) | [options](fnl/jev/core/options.fnl)
+- [Mappings](fnl/jev/core/keymaps.fnl)
+- [Options](fnl/jev/core/options.fnl)
+- [Plugins](lua/jev/plugins)
 
-## Usage
+## 🚀 Usage
+
+Open a list of available keymaps
+```
+:Telescope keymaps
+```
+
+Browse help pages
+```
+:Telescope help
+```
+
+Or using neovim's builtin help command
+```
+:help
+```
