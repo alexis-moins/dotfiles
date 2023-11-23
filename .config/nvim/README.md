@@ -20,6 +20,12 @@
 - [fd](https://github.com/sharkdp/fd)
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 
+## 🧰 Installation
+
+Use your package manger of choice or use [bob](https://github.com/MordechaiHadad/bob).
+
+> Visit the neovim [repository](https://github.com/neovim/neovim) for platform specific installation instructions.
+
 ## 🛎️ Quick Start
 
 After installing, you can jump to these files to quickly see how it works:
