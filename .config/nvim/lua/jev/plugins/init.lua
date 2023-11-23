@@ -53,5 +53,10 @@ return {
     {
         "j-hui/fidget.nvim",
         opts = {},
+    },
+
+    {
+        "folke/twilight.nvim",
+        opts = {}
     }
 }
