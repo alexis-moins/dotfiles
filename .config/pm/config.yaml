@@ -1,4 +1,4 @@
 default: default
 home: /Users/alexis/dev
-projects: {}
-spaces: []
+spaces:
+    - personal
