@@ -1,7 +1,3 @@
-# Configuration of the environment
-# Author Alexis Moins
-# Creation: 4 June 2022
-
 # Don't go any further if this is not an interactive session
 not status is-interactive && exit 0
 
@@ -21,7 +17,7 @@ function fish_user_cursor --on-event fish_prompt
     echo -ne '\e[5 q'
 end
 
-source ~/.asdf/asdf.fish
+test -f ~/.asdf/asdf.fish && source ~/.asdf/asdf.fish
 
 # ocaml configuration
 test -d ~/.opam/opam-init/init.fish && source ~/.opam/opam-init/init.fish

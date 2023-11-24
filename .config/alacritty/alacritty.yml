@@ -1,0 +1,23 @@
+env:
+  XTERM: xterm-256color
+
+window:
+  decorations: none
+
+font:
+  size: 13
+
+colors:
+  primary:
+    background: '#24273a'
+    foreground: '#e0e0e0'
+
+  normal:
+    black:   '#3f3f3f'
+    red:     '#b06060'
+    green:   '#60b47a'
+    yellow:  '#dfaf8f'
+    blue:    '#506080'
+    magenta: '#dc9cc3'
+    cyan:    '#8cd0d8'
+    white:   '#ffffff'
