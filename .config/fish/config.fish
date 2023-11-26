@@ -36,3 +36,9 @@ if [ -f '/Users/alexis/google-cloud-sdk/path.fish.inc' ]; . '/Users/alexis/googl
 
 fish_add_path "$HOME/.cargo/bin"
 fish_add_path "$HOME/.local/share/bob/nvim-bin"
+
+# For bevy (rust) fast compilation
+fish_add_path "$(brew --prefix)/opt/llvm/bin"
+
+set -gx LDFLAGS "-L/opt/homebrew/opt/llvm/lib"
+set -gx CPPFLAGS "-I/opt/homebrew/opt/llvm/include"

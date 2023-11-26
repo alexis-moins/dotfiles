@@ -1,6 +1,5 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR --export CC:/opt/homebrew/bin/gcc\x2d12
 SETUVAR --export CPPFLAGS:\x2dI/opt/homebrew/opt/tcl\x2dtk/include
 SETUVAR --export EDITOR:nvim
 SETUVAR --export FZF_ALT_C_COMMAND:fd\x1e\x2d\x2dstrip\x2dcwd\x2dprefix\x1e\x2d\x2dhidden\x1e\x2d\x2dfollow\x1e\x2d\x2dtype\x20d
