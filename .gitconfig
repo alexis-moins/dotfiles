@@ -88,7 +88,7 @@
     pretty = format:%C(auto)%h [%D] %C(brightblue)%an%C(reset) %s %C(bold black)%cr%C(reset)
 
 [push]
-	autoSetupRemote = false
+	autoSetupRemote = true
 
 [remote "origin"]
     prune = true
