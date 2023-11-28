@@ -36,7 +36,7 @@ untracked = "…$count"
 modified = "~$count"
 
 deleted = "-$count"
-renamed = "$count"
+renamed = "*$count"
 
 [python]
 symbol = "python "
