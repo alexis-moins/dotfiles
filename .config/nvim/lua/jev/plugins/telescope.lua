@@ -16,10 +16,11 @@ return {
             mode = {
                 'n', 'v' }
         },
-        { '<Leader>*', '<cmd>Telescope grep_string<CR>',               desc = 'Grep item under cursor', silent = true },
-        { 'gz',        '<cmd>Telescope spell_suggest<CR>',             desc = 'Find spelling',          silent = true },
-        { '/',         '<cmd>Telescope current_buffer_fuzzy_find<CR>', desc = 'Find in buffer',         silent = true },
-        { '<C-R>',     '<cmd>Telescope registers<CR>',                 desc = 'Find register content',  mode = 'i' },
+        { '<Leader>*',  '<cmd>Telescope grep_string<CR>',               desc = 'Grep item under cursor', silent = true },
+        { 'gz',         '<cmd>Telescope spell_suggest<CR>',             desc = 'Find spelling',          silent = true },
+        { '/',          '<cmd>Telescope current_buffer_fuzzy_find<CR>', desc = 'Find in buffer',         silent = true },
+        { '<Leader>rr', '<cmd>Telescope registers<CR>',                 desc = 'Find register content',  mode = 'n' },
+        { '<C-P>',      '<cmd>Telescope registers<CR>',                 desc = 'Find register content',  mode = 'i' },
     },
 
     dependencies = {

@@ -47,7 +47,7 @@ return {
             end, "Go to type definition")
 
             map("n", "gi", "<cmd>Telescope lsp_implementations<cr>", "Go to LSP implementations(s)")
-            map("n", "gr", "<cmd>Telescope lsp_references<cr>", "Go to LSP reference(s)")
+            map("n", "gR", "<cmd>Telescope lsp_references<cr>", "Go to LSP reference(s)")
 
             map('n', '<Leader>fs', '<cmd>Telescope lsp_document_symbols<cr>', 'Show document symbols')
             map('n', '<Leader>fw', '<cmd>Telescope lsp_dynamic_workspace_symbols<cr>', 'Show workspace symbols')

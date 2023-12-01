@@ -1,6 +1,8 @@
-default: personal
+default: default
+default_space: personal
 home: /Users/alexis/dev
 spaces:
-    - default
     - personal
     - epitech
+    - tools
+    - advent-of-code

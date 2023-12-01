@@ -22,7 +22,7 @@ return {
         opts = {},
 
         keys = {
-            { '<Leader>df', '<cmd>Neogen func<cr>', silent = true }
+            { '<Leader>gf', '<cmd>Neogen func<cr>', silent = true }
         }
     },
 
