@@ -33,7 +33,10 @@ return {
 
     {
         "tpope/vim-fugitive",
-        event = "VeryLazy"
+        cmd = { 'Git' },
+        keys = {
+            { '<Leader>gs', '<cmd>Git<cr>', silent = true }
+        }
     },
 
     {
