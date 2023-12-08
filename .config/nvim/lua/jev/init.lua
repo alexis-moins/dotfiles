@@ -1,8 +1,8 @@
 -- Options
-require('jev.core.options')
+require("jev.core.options")
 
 -- Autocmds
-require('jev.core.autocmds')
+require("jev.core.autocmds")
 
 -- Mappings
 require("jev.core.keymaps")
