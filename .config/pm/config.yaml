@@ -3,3 +3,4 @@ default_space: personal
 home: /Users/alexis/dev
 spaces:
     - personal
+    - unifox

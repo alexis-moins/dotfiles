@@ -10,8 +10,6 @@
 
 (map :i :jk :<C-C> "Leave insert mode")
 (map :n :<BS> vim.cmd.nohlsearch "Clear search highlighting")
-
-(map :n "=" vim.lsp.buf.format "Format file")
 (map :n :<Leader>so vim.cmd.source "Source current file")
 
 (map :n :<Leader>- vim.cmd.bdelete "Delete the current buffer")
