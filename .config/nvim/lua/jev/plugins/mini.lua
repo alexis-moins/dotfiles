@@ -130,4 +130,14 @@ return {
 			verbose = { read = true },
 		},
 	},
+
+    {
+        "echasnovski/mini.pick",
+        opts = {}
+    },
+
+    {
+        "echasnovski/mini.visits",
+        opts = {}
+    }
 }
