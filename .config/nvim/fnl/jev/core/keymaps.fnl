@@ -18,6 +18,9 @@
 (map [:n :v] :j :gj "Move down (respects wrap)")
 (map [:n :v] :k :gk "Move up (respects wrap)")
 
+(map :n :Q "@qj" "Play macro")
+(map :x :Q "<cmd>norm @q<cr>" "Play macro")
+
 ;; Stay in place
 (map :n :J "mzJ`z" "Join line below without moving cursor")
 

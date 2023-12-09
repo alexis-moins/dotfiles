@@ -1,6 +1,6 @@
 local plugin = {
 	"L3MON4D3/LuaSnip",
-	lazy = true,
+	event = "InsertEnter",
 }
 
 plugin.config = function()

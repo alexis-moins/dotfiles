@@ -2,6 +2,7 @@ local plugin = {
 	-- Language parser
 	"nvim-treesitter/nvim-treesitter",
 	build = vim.cmd.TSUpdate,
+	event = { "BufReadPre", "BufNewFile" },
 
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter-textobjects",

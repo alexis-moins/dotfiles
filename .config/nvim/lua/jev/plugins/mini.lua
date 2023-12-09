@@ -2,7 +2,8 @@ return {
 
 	{
 		"echasnovski/mini.pairs",
-		event = "VeryLazy",
+		event = { "InsertEnter", "CmdlineEnter" },
+
 		opts = {
 			modes = { insert = true, command = true, terminal = true },
 		},
@@ -119,6 +120,7 @@ return {
 
 	{
 		"echasnovski/mini.tabline",
+        event = "VeryLazy",
 		opts = {},
 	},
 
