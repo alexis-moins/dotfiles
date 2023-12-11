@@ -41,10 +41,10 @@
 (map [:n :x] :gp "\"+p" "Paste after cursor (+register)")
 (map [:n :x] :gP "\"+P" "Paste before cursor (+register)")
 
-;; Sessions (via mini.sessions)
+;; Sessions (mini.sessions)
 (map :n :<Leader>ss
      #(vim.ui.input {:prompt "Session name: "} #(_G.MiniSessions.write $1))
-     "Write a session")
+     "Write a new session")
 
 (map :n :<Leader>sw #(_G.MiniSessions.select :write) "Write a session")
 (map :n :<Leader>sl #(_G.MiniSessions.write :Session.vim)
@@ -52,6 +52,20 @@
 
 (map :n :<Leader>sr #(_G.MiniSessions.select :read) "Read a session")
 (map :n :<Leader>sd #(_G.MiniSessions.select :delete) "Delete a session")
+
+;; Pickers (mini.pick)
+(map :n :<Leader><Space> #(_G.MiniPick.builtin.files) "Find files")
+(map :n :<Leader>fb #(_G.MiniPick.builtin.buffers) "Find buffers")
+
+;; Additional pickers (mini.extra)
+(map :n :<Leader>fc #(_G.MiniExtra.pickers.history { :scope ":"}) "Find command")
+
+;; Visits (mini.visits)
+(map :n :<Leader>v #(_G.MiniVisits.select_path "" { :filter :core}) "Select core (all)")
+(map :n :<Leader>V #(_G.MiniVisits.select_path nil { :filter :core}) "Select core (cwd)")
+
+(map :n :<Leader>la #(_G.MiniVisits.add_label :core) "Add to core")
+(map :n :<Leader>ld #(_G.MiniVisits.remove_label :core) "Remove from core")
 
 ;; Insert blank lines
 (map :n "[<Space>" "mzO<esc>`z" "Insert a line above cursor")

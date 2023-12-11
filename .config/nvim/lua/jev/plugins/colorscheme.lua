@@ -76,6 +76,10 @@ return {
 
 			vim.api.nvim_set_hl(0, "WinbarNC", { link = "StatusLine" })
 
+			vim.api.nvim_set_hl(0, "MiniPickNormal", { link = "Comment" })
+			vim.api.nvim_set_hl(0, "MiniPickPrompt", { link = "Normal" })
+			vim.api.nvim_set_hl(0, "MiniPickMatchRanges", { link = "String" })
+
 			vim.cmd.colorscheme("catppuccin")
 		end,
 	},

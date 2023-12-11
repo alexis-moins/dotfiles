@@ -120,7 +120,7 @@ return {
 
 	{
 		"echasnovski/mini.tabline",
-        event = "VeryLazy",
+		event = "VeryLazy",
 		opts = {},
 	},
 
@@ -131,13 +131,32 @@ return {
 		},
 	},
 
-    {
-        "echasnovski/mini.pick",
-        opts = {}
-    },
+	{
+		"echasnovski/mini.extra",
+		opts = {},
+	},
 
-    {
-        "echasnovski/mini.visits",
-        opts = {}
-    }
+	{
+		"echasnovski/mini.pick",
+		opts = function()
+			return {
+				source = {
+					-- Don't use icons for files and directories
+					show = require("mini.pick").default_show,
+				},
+			}
+		end,
+
+		config = function(_, opts)
+			local pick = require("mini.pick")
+
+			pick.setup(opts)
+			vim.ui.select = pick.ui_select
+		end,
+	},
+
+	{
+		"echasnovski/mini.visits",
+		opts = {},
+	},
 }

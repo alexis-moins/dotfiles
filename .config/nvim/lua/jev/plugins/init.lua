@@ -4,17 +4,17 @@ return {
 		lazy = true,
 	},
 
-	{
-		"stevearc/dressing.nvim",
-		event = "VeryLazy",
-		config = {
-			input = {
-				win_options = {
-					winblend = 0,
-				},
-			},
-		},
-	},
+	-- {
+	-- 	"stevearc/dressing.nvim",
+	-- 	event = "VeryLazy",
+	-- 	config = {
+	-- 		input = {
+	-- 			win_options = {
+	-- 				winblend = 0,
+	-- 			},
+	-- 		},
+	-- 	},
+	-- },
 
 	{
 		"danymat/neogen",
