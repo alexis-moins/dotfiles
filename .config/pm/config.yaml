@@ -1,8 +1,12 @@
-default: default
-default_space: personal
+defaultSpace: personal
 home: /Users/alexis/dev
 spaces:
     - personal
     - unifox
     - advent-of-code
     - epitech
+templates:
+    cargo-new:
+        commands:
+            - cargo new PATH
+        frominside: false

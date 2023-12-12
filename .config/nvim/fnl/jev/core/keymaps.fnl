@@ -55,14 +55,19 @@
 
 ;; Pickers (mini.pick)
 (map :n :<Leader><Space> #(_G.MiniPick.builtin.files) "Find files")
+(map :n :<Leader>z #(_G.MiniPick.builtin.resume) "Resume last picker")
+
 (map :n :<Leader>fb #(_G.MiniPick.builtin.buffers) "Find buffers")
+(map :n :<Leader>fh #(_G.MiniPick.builtin.help) "Find help")
+(map :n :<Leader>fg #(_G.MiniPick.builtin.grep_live) "Find content")
 
 ;; Additional pickers (mini.extra)
 (map :n :<Leader>fc #(_G.MiniExtra.pickers.history { :scope ":"}) "Find command")
+(map [:n :i] :<C-P> #(_G.MiniExtra.pickers.registers) "Find registers")
 
 ;; Visits (mini.visits)
-(map :n :<Leader>v #(_G.MiniVisits.select_path "" { :filter :core}) "Select core (all)")
-(map :n :<Leader>V #(_G.MiniVisits.select_path nil { :filter :core}) "Select core (cwd)")
+(map :n :<Leader>v #(_G.MiniVisits.select_path nil { :filter :core}) "Select core (cwd)")
+(map :n :<Leader>V #(_G.MiniVisits.select_path "" { :filter :core}) "Select core (all)")
 
 (map :n :<Leader>la #(_G.MiniVisits.add_label :core) "Add to core")
 (map :n :<Leader>ld #(_G.MiniVisits.remove_label :core) "Remove from core")

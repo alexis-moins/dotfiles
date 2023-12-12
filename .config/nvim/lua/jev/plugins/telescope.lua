@@ -5,9 +5,9 @@ return {
 	keys = {
 		-- { "<Leader><space>", "<cmd>Telescope find_files<CR>", desc = "Find files", silent = true },
 		{ "<Leader>fk", "<cmd>Telescope keymaps<CR>", desc = "Find keymaps", silent = true },
-		{ "<Leader>fg", "<cmd>Telescope live_grep<CR>", desc = "Grep files", silent = true },
+		-- { "<Leader>fg", "<cmd>Telescope live_grep<CR>", desc = "Grep files", silent = true },
 		-- { "<Leader>fb", "<cmd>Telescope buffers<CR>", desc = "Find buffers", silent = true },
-		{ "<Leader>fh", "<cmd>Telescope help_tags<CR>", desc = "Find help", silent = true },
+		-- { "<Leader>fh", "<cmd>Telescope help_tags<CR>", desc = "Find help", silent = true },
 		-- {
 		-- 	"<Leader>fc",
 		-- 	"<cmd>Telescope command_history<CR>",
@@ -36,8 +36,8 @@ return {
 			desc = "Find in buffer",
 			silent = true,
 		},
-		{ "<Leader>rr", "<cmd>Telescope registers<CR>", desc = "Find register content", mode = "n" },
-		{ "<C-P>", "<cmd>Telescope registers<CR>", desc = "Find register content", mode = "i" },
+		-- { "<Leader>rr", "<cmd>Telescope registers<CR>", desc = "Find register content", mode = "n" },
+		-- { "<C-P>", "<cmd>Telescope registers<CR>", desc = "Find register content", mode = "i" },
 	},
 
 	dependencies = {
