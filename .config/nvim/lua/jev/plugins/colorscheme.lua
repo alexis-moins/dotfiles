@@ -80,6 +80,8 @@ return {
 			vim.api.nvim_set_hl(0, "MiniPickPrompt", { link = "Normal" })
 			vim.api.nvim_set_hl(0, "MiniPickMatchRanges", { link = "String" })
 
+			vim.api.nvim_set_hl(0, "Search", { fg = "#cad3f5", bold = true, italic = true })
+
 			vim.cmd.colorscheme("catppuccin")
 		end,
 	},
