@@ -72,7 +72,7 @@ return {
 
 			vim.api.nvim_set_hl(0, "TabLineSel", { link = "Normal" })
 			vim.api.nvim_set_hl(0, "MiniTablineCurrent", { link = "TabLineSel" })
-			vim.api.nvim_set_hl(0, "MiniTablineVisible", { link = "Function" })
+			vim.api.nvim_set_hl(0, "MiniTablineVisible", { link = "TabLine" })
 
 			vim.api.nvim_set_hl(0, "WinbarNC", { link = "StatusLine" })
 

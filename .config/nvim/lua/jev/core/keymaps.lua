@@ -73,25 +73,29 @@ local function _12_()
 end
 map("n", "<Leader>fc", _12_, "Find command")
 local function _13_()
+  return _G.MiniExtra.pickers.buf_lines({scope = "current"})
+end
+map("n", "<Leader>/", _13_, "Find lines")
+local function _14_()
   return _G.MiniExtra.pickers.registers()
 end
-map({"n", "i"}, "<C-P>", _13_, "Find registers")
-local function _14_()
+map({"n", "i"}, "<C-P>", _14_, "Find registers")
+local function _15_()
   return _G.MiniVisits.select_path(nil, {filter = "core"})
 end
-map("n", "<Leader>v", _14_, "Select core (cwd)")
-local function _15_()
+map("n", "<Leader>v", _15_, "Select core (cwd)")
+local function _16_()
   return _G.MiniVisits.select_path("", {filter = "core"})
 end
-map("n", "<Leader>V", _15_, "Select core (all)")
-local function _16_()
+map("n", "<Leader>V", _16_, "Select core (all)")
+local function _17_()
   return _G.MiniVisits.add_label("core")
 end
-map("n", "<Leader>la", _16_, "Add to core")
-local function _17_()
+map("n", "<Leader>la", _17_, "Add to core")
+local function _18_()
   return _G.MiniVisits.remove_label("core")
 end
-map("n", "<Leader>ld", _17_, "Remove from core")
+map("n", "<Leader>ld", _18_, "Remove from core")
 map("n", "[<Space>", "mzO<esc>`z", "Insert a line above cursor")
 map("n", "]<Space>", "mzo<esc>`z", "Insert a line below cursor")
 map("n", "<Leader>tt", vim.cmd.terminal, "Open a terminal")
@@ -102,28 +106,28 @@ local function toggle(option)
   vim.o[option] = not vim.o[option]
   return nil
 end
-local function _18_()
+local function _19_()
   return toggle("number")
 end
-map("n", "|n", _18_, "Toggle line number")
-local function _19_()
+map("n", "|n", _19_, "Toggle line number")
+local function _20_()
   return toggle("relativenumber")
 end
-map("n", "|r", _19_, "Toggle relative line number")
-local function _20_()
+map("n", "|r", _20_, "Toggle relative line number")
+local function _21_()
   return toggle("cursorline")
 end
-map("n", "|c", _20_, "Toggle cursorline")
-local function _21_()
+map("n", "|c", _21_, "Toggle cursorline")
+local function _22_()
   return toggle("list")
 end
-map("n", "|l", _21_, "Toggle list chararcters")
-local function _22_()
+map("n", "|l", _22_, "Toggle list chararcters")
+local function _23_()
   return toggle("wrap")
 end
-map("n", "|w", _22_, "Toggle line wrapping")
-local function _23_()
+map("n", "|w", _23_, "Toggle line wrapping")
+local function _24_()
   return toggle("spell")
 end
-map("n", "|s", _23_, "Toggle spell checking")
+map("n", "|s", _24_, "Toggle spell checking")
 return {map = map, ["map-local"] = map_local, toggle = toggle}

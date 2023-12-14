@@ -144,6 +144,10 @@ return {
 					-- Don't use icons for files and directories
 					show = require("mini.pick").default_show,
 				},
+
+                mappings = {
+                    refine = '<C-J>'
+                }
 			}
 		end,
 

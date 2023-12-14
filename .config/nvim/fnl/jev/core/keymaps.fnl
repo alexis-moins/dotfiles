@@ -63,6 +63,7 @@
 
 ;; Additional pickers (mini.extra)
 (map :n :<Leader>fc #(_G.MiniExtra.pickers.history { :scope ":"}) "Find command")
+(map :n :<Leader>/ #(_G.MiniExtra.pickers.buf_lines { :scope :current }) "Find lines")
 (map [:n :i] :<C-P> #(_G.MiniExtra.pickers.registers) "Find registers")
 
 ;; Visits (mini.visits)
