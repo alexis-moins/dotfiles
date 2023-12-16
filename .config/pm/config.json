@@ -2,33 +2,25 @@
   "global": {
     "home": "/Users/alexis/dev"
   },
-  "scripts": {
-    "cargo-new": {
-      "exec": [
-        "cargo new PATH"
-      ],
-      "init": true
-    },
-    "git-init": {
-      "exec": [
-        "git init -C PATH",
-        "git commit -m 'feat: initial commit'"
-      ],
-      "init": false
-    },
-    "make-dir": {
-      "exec": [
-        "mkdir PATH"
-      ],
-      "init": true
-    }
-  },
   "spaces": {
     "default": "personal",
     "list": [
-      "personal",
-      "advent-of-code",
-      "epitech"
+      "default",
+      "playground",
+      "personal"
+    ]
+  },
+  "templates": {
+    "cargo": [
+      "cargo new PATH"
+    ],
+    "default": [
+      "mkdir PATH",
+      "git init"
+    ],
+    "go": [
+      "mkdir PATH",
+      "go mod init github.com/alexis-moins/NAME"
     ]
   }
 }

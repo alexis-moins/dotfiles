@@ -9,8 +9,11 @@
     (vim.keymap.set modes lhs rhs opts)))
 
 (map :i :jk :<C-C> "Leave insert mode")
+
 (map :n :<BS> vim.cmd.nohlsearch "Clear search highlighting")
 (map :n :<Leader>so vim.cmd.source "Source current file")
+
+(map :n :<Leader>o vim.cmd.only "Close all splits")
 
 (map :n :<Leader>- vim.cmd.bdelete "Delete the current buffer")
 (map :n :<Leader>q vim.cmd.copen "Open/focus the quickfix list")
@@ -26,6 +29,8 @@
 
 ;; Easier line navigation
 (map :n :L "$" "Go to the end of the line")
+
+(map :n "]]" "<cmd>edit #<cr>" "Edit alternate file")
 
 ;; Center scroll
 (map :n :<C-U> :<C-U>zz "Scroll upwards (center)")
