@@ -4,6 +4,7 @@ local function opt(name, value)
   return nil
 end
 opt("termguicolors", true)
+vim.cmd.colorscheme("catppuccin-macchiato")
 opt("signcolumn", "yes")
 opt("cursorline", true)
 opt("number", true)

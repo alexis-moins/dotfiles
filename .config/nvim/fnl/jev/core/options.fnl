@@ -5,6 +5,9 @@
 ;; Use 24-bit colors
 (opt :termguicolors true)
 
+;; Use tweaked version of catppuccin
+(vim.cmd.colorscheme :catppuccin-macchiato)
+
 ;; Always display sign column (diagnostics...)
 (opt :signcolumn :yes)
 
