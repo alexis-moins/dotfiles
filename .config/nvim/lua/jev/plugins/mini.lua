@@ -145,9 +145,9 @@ return {
 					show = require("mini.pick").default_show,
 				},
 
-                mappings = {
-                    refine = '<C-J>'
-                }
+				mappings = {
+					refine = "<C-J>",
+				},
 			}
 		end,
 
@@ -162,5 +162,21 @@ return {
 	{
 		"echasnovski/mini.visits",
 		opts = {},
+	},
+
+	{
+		"echasnovski/mini.colors",
+		opts = {},
+	},
+
+	{
+		"echasnovski/mini.hipatterns",
+		opts = function()
+			return {
+				highlighters = {
+					hex_color = require("mini.hipatterns").gen_highlighter.hex_color(),
+				},
+			}
+		end,
 	},
 }

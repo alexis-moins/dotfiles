@@ -78,6 +78,9 @@
 (map :n :<Leader>la #(_G.MiniVisits.add_label :core) "Add to core")
 (map :n :<Leader>ld #(_G.MiniVisits.remove_label :core) "Remove from core")
 
+;; mini.colors
+(map :n :<Leader>co #(_G.MiniColors.interactive { :mappings {:Apply :<LocalLeader>a :Reset :<LocalLeader>r :Quit :<LocalLeader>q :Write :<LocalLeader>w}}))
+
 ;; Insert blank lines
 (map :n "[<Space>" "mzO<esc>`z" "Insert a line above cursor")
 (map :n "]<Space>" "mzo<esc>`z" "Insert a line below cursor")

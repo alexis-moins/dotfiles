@@ -98,6 +98,10 @@ local function _18_()
   return _G.MiniVisits.remove_label("core")
 end
 map("n", "<Leader>ld", _18_, "Remove from core")
+local function _19_()
+  return _G.MiniColors.interactive({mappings = {Apply = "<LocalLeader>a", Reset = "<LocalLeader>r", Quit = "<LocalLeader>q", Write = "<LocalLeader>w"}})
+end
+map("n", "<Leader>co", _19_)
 map("n", "[<Space>", "mzO<esc>`z", "Insert a line above cursor")
 map("n", "]<Space>", "mzo<esc>`z", "Insert a line below cursor")
 map("n", "<Leader>tt", vim.cmd.terminal, "Open a terminal")
@@ -108,28 +112,28 @@ local function toggle(option)
   vim.o[option] = not vim.o[option]
   return nil
 end
-local function _19_()
+local function _20_()
   return toggle("number")
 end
-map("n", "|n", _19_, "Toggle line number")
-local function _20_()
+map("n", "|n", _20_, "Toggle line number")
+local function _21_()
   return toggle("relativenumber")
 end
-map("n", "|r", _20_, "Toggle relative line number")
-local function _21_()
+map("n", "|r", _21_, "Toggle relative line number")
+local function _22_()
   return toggle("cursorline")
 end
-map("n", "|c", _21_, "Toggle cursorline")
-local function _22_()
+map("n", "|c", _22_, "Toggle cursorline")
+local function _23_()
   return toggle("list")
 end
-map("n", "|l", _22_, "Toggle list chararcters")
-local function _23_()
+map("n", "|l", _23_, "Toggle list chararcters")
+local function _24_()
   return toggle("wrap")
 end
-map("n", "|w", _23_, "Toggle line wrapping")
-local function _24_()
+map("n", "|w", _24_, "Toggle line wrapping")
+local function _25_()
   return toggle("spell")
 end
-map("n", "|s", _24_, "Toggle spell checking")
+map("n", "|s", _25_, "Toggle spell checking")
 return {map = map, ["map-local"] = map_local, toggle = toggle}

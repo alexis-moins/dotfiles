@@ -1,6 +1,6 @@
 root = true
 
-[*.{js,ts,vue,jsx,tsx}]
+[*.{js,ts,vue,jsx,tsx,json,jsonc}]
 indent_style = tab
 indent_size = 2
 
