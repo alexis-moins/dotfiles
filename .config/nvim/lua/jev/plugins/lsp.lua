@@ -40,22 +40,22 @@ return {
 			local map = keymaps["map-local"]
 
 			-- Don't map 'gc' or 'gb' because they are used by Comment.nvim
-			map("n", "gd", function()
+			map("n", "<Leader>gd", function()
 				require("telescope.builtin").lsp_definitions()
 			end, "Go to definition")
 
-			map("n", "gt", function()
+			map("n", "<Leader>gt", function()
 				require("telescope.builtin").lsp_type_definitions()
 			end, "Go to type definition")
 
-			map("n", "gi", "<cmd>Telescope lsp_implementations<cr>", "Go to LSP implementations(s)")
-			map("n", "gR", "<cmd>Telescope lsp_references<cr>", "Go to LSP reference(s)")
+			map("n", "<Leader>gi", "<cmd>Telescope lsp_implementations<cr>", "Go to LSP implementations(s)")
+			map("n", "<Leader>gr", "<cmd>Telescope lsp_references<cr>", "Go to LSP reference(s)")
 
 			map("n", "<Leader>fs", "<cmd>Telescope lsp_document_symbols<cr>", "Show document symbols")
 			map("n", "<Leader>fw", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Show workspace symbols")
 
-			map("n", "<Leader>d", "<cmd>Telescope diagnostics bufnr=0<cr>", "Show buffer diagnostic")
-			map("n", "<Leader>w", "<cmd>Telescope diagnostics<cr>", "Show workspace diagnostic")
+			-- map("n", "<Leader>d", "<cmd>Telescope diagnostics bufnr=0<cr>", "Show buffer diagnostic")
+			-- map("n", "<Leader>w", "<cmd>Telescope diagnostics<cr>", "Show workspace diagnostic")
 
 			map("n", "<Leader>rn", vim.lsp.buf.rename, "Rename symbol under the cursor")
 			map("n", "<Leader>ca", vim.lsp.buf.code_action, "Code actions")

@@ -2,14 +2,16 @@ local function augroup(name)
 	return vim.api.nvim_create_augroup("jev_" .. name, { clear = true })
 end
 
+local autocmd = vim.api.nvim_create_autocmd
+
 -- Check if we need to reload the file when it changed
-vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
+autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
 	group = augroup("checktime"),
 	command = "checktime",
 })
 
 -- Highlight on yank
-vim.api.nvim_create_autocmd("TextYankPost", {
+autocmd("TextYankPost", {
 	group = augroup("highlight_yank"),
 	callback = function()
 		vim.highlight.on_yank({
@@ -21,7 +23,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 -- close some filetypes with <q>
-vim.api.nvim_create_autocmd("FileType", {
+autocmd("FileType", {
 	group = augroup("close_with_q"),
 	pattern = {
 		"help",
@@ -38,15 +40,25 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- resize splits if window got resized
-vim.api.nvim_create_autocmd({ "VimResized" }, {
+autocmd({ "VimResized" }, {
 	group = augroup("resize_splits"),
 	callback = function()
 		vim.cmd("tabdo wincmd =")
 	end,
 })
 
+-- Don't display line numbers for certain filetypes
+autocmd("FileType", {
+	group = augroup("no_line_number"),
+	pattern = { "fugitive", "qf" },
+	callback = function()
+		vim.opt_local.number = false
+		vim.opt_local.relativenumber = false
+	end,
+})
+
 -- wrap and check for spell in text filetypes
-vim.api.nvim_create_autocmd("FileType", {
+autocmd("FileType", {
 	group = augroup("wrap_spell"),
 	pattern = { "gitcommit", "html", "norg", "markdown", "typescriptreact" },
 	callback = function()
@@ -55,7 +67,7 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
-vim.api.nvim_create_autocmd("FileType", {
+autocmd("FileType", {
 	group = augroup("format_options"),
 	pattern = "*",
 	callback = function()
@@ -63,11 +75,18 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
-vim.api.nvim_create_autocmd("TermOpen", {
+autocmd("TermOpen", {
 	group = augroup("auto_term_insert_mode"),
 	callback = function()
 		vim.opt_local.number = false
 		vim.opt_local.relativenumber = false
 		vim.cmd.startinsert()
 	end,
+})
+
+autocmd("FileType", {
+    group = augroup("prisma_commentstring"),
+    callback = function ()
+        vim.opt_local.commentstring = "// %s"
+    end
 })

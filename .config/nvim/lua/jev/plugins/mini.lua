@@ -64,7 +64,6 @@ return {
 		opts = {
 			treesitter = { suffix = "" },
 			oldfile = { suffix = "" },
-			comment = { suffix = "" },
 		},
 	},
 
