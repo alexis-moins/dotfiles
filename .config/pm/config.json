@@ -7,20 +7,61 @@
     "list": [
       "default",
       "playground",
-      "personal"
+      "personal",
+      "three-js-journey"
     ]
   },
   "templates": {
     "cargo": [
-      "cargo new PATH"
+      {
+        "command": [
+          "cargo",
+          "new",
+          "{project}"
+        ],
+        "dir": "SPACE"
+      }
     ],
     "default": [
-      "mkdir PATH",
-      "git init"
+      {
+        "command": [
+          "mkdir",
+          "{project}"
+        ],
+        "dir": "SPACE"
+      },
+      {
+        "command": [
+          "git",
+          "init"
+        ],
+        "dir": "PROJECT"
+      }
     ],
-    "go": [
-      "mkdir PATH",
-      "go mod init github.com/alexis-moins/NAME"
+    "golang": [
+      {
+        "command": [
+          "mkdir",
+          "{project}"
+        ],
+        "dir": "SPACE"
+      },
+      {
+        "command": [
+          "go",
+          "mod",
+          "init",
+          "github.com/alexis-moins/{project}"
+        ],
+        "dir": "PROJECT"
+      },
+      {
+        "command": [
+          "git",
+          "init"
+        ],
+        "dir": "PROJECT"
+      }
     ]
   }
 }

@@ -39,7 +39,6 @@ return {
 
 			local map = keymaps["map-local"]
 
-			-- Don't map 'gc' or 'gb' because they are used by Comment.nvim
 			map("n", "<LocalLeader>gd", function()
 				require("telescope.builtin").lsp_definitions()
 			end, "Go to definition")
