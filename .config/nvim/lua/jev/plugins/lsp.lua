@@ -40,27 +40,27 @@ return {
 			local map = keymaps["map-local"]
 
 			-- Don't map 'gc' or 'gb' because they are used by Comment.nvim
-			map("n", "<Leader>gd", function()
+			map("n", "<LocalLeader>gd", function()
 				require("telescope.builtin").lsp_definitions()
 			end, "Go to definition")
 
-			map("n", "<Leader>gt", function()
+			map("n", "<LocalLeader>gt", function()
 				require("telescope.builtin").lsp_type_definitions()
 			end, "Go to type definition")
 
-			map("n", "<Leader>gi", "<cmd>Telescope lsp_implementations<cr>", "Go to LSP implementations(s)")
-			map("n", "<Leader>gr", "<cmd>Telescope lsp_references<cr>", "Go to LSP reference(s)")
+			map("n", "<LocalLeader>gi", "<cmd>Telescope lsp_implementations<cr>", "Go to LSP implementations(s)")
+			map("n", "<LocalLeader>gr", "<cmd>Telescope lsp_references<cr>", "Go to LSP reference(s)")
 
-			map("n", "<Leader>fs", "<cmd>Telescope lsp_document_symbols<cr>", "Show document symbols")
-			map("n", "<Leader>fw", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Show workspace symbols")
+			map("n", "<LocalLeader>fs", "<cmd>Telescope lsp_document_symbols<cr>", "Show document symbols")
+			map("n", "<LocalLeader>fw", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Show workspace symbols")
 
-			-- map("n", "<Leader>d", "<cmd>Telescope diagnostics bufnr=0<cr>", "Show buffer diagnostic")
-			-- map("n", "<Leader>w", "<cmd>Telescope diagnostics<cr>", "Show workspace diagnostic")
+			-- map("n", "<LocalLeader>d", "<cmd>Telescope diagnostics bufnr=0<cr>", "Show buffer diagnostic")
+			-- map("n", "<LocalLeader>w", "<cmd>Telescope diagnostics<cr>", "Show workspace diagnostic")
 
-			map("n", "<Leader>rn", vim.lsp.buf.rename, "Rename symbol under the cursor")
-			map("n", "<Leader>ca", vim.lsp.buf.code_action, "Code actions")
+			map("n", "<LocalLeader>rn", vim.lsp.buf.rename, "Rename symbol under the cursor")
+			map("n", "<LocalLeader>ca", vim.lsp.buf.code_action, "Code actions")
 
-			map("n", "<Leader>lr", "<cmd>LspRestart<cr>", "Restart Lsp client")
+			map("n", "<LocalLeader>lr", "<cmd>LspRestart<cr>", "Restart Lsp client")
 		end
 
 		-- Capabilities from nvim-cmp

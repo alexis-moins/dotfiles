@@ -50,7 +50,7 @@ autocmd({ "VimResized" }, {
 -- Don't display line numbers for certain filetypes
 autocmd("FileType", {
 	group = augroup("no_line_number"),
-	pattern = { "fugitive", "qf" },
+	pattern = { "fugitive", "qf", "gitcommit" },
 	callback = function()
 		vim.opt_local.number = false
 		vim.opt_local.relativenumber = false
@@ -85,8 +85,8 @@ autocmd("TermOpen", {
 })
 
 autocmd("FileType", {
-    group = augroup("prisma_commentstring"),
-    callback = function ()
-        vim.opt_local.commentstring = "// %s"
-    end
+	group = augroup("prisma_commentstring"),
+	callback = function()
+		vim.opt_local.commentstring = "// %s"
+	end,
 })
