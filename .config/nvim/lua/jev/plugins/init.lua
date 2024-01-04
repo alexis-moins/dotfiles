@@ -72,12 +72,6 @@ return {
 	},
 
 	{
-		"j-hui/fidget.nvim",
-		event = "LspAttach",
-		opts = {},
-	},
-
-	{
 		"folke/twilight.nvim",
 		opts = {},
 	},

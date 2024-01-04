@@ -178,4 +178,9 @@ return {
 			}
 		end,
 	},
+
+	{
+		"echasnovski/mini.notify",
+		opts = {},
+	},
 }
