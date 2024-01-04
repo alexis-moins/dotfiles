@@ -67,7 +67,7 @@
 (map :n :<Leader>fg #(_G.MiniPick.builtin.grep_live) "Find content")
 
 ;; Additional pickers (mini.extra)
-(map :n :<Leader>fc #(_G.MiniExtra.pickers.history { :scope ":"}) "Find command")
+(map :n :<Leader>fc #(_G.MiniExtra.pickers.history { :scope ":"}) "Filter command history")
 (map :n :<Leader>/ #(_G.MiniExtra.pickers.buf_lines { :scope :current }) "Find lines")
 
 (map :n :<Leader>d #(_G.MiniExtra.pickers.diagnostic {:scope :current}) "Find diagnostics (current)")
@@ -81,9 +81,6 @@
 
 (map :n :<Leader>la #(_G.MiniVisits.add_label :core) "Add to core")
 (map :n :<Leader>ld #(_G.MiniVisits.remove_label :core) "Remove from core")
-
-;; mini.colors
-(map :n :<Leader>co #(_G.MiniColors.interactive { :mappings {:Apply :<LocalLeader>a :Reset :<LocalLeader>r :Quit :<LocalLeader>q :Write :<LocalLeader>w}}))
 
 ;; Insert blank lines
 (map :n "[<Space>" "mzO<esc>`z" "Insert a line above cursor")

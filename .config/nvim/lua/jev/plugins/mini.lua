@@ -181,6 +181,19 @@ return {
 
 	{
 		"echasnovski/mini.notify",
-		opts = {},
+		opts = {
+			content = {
+				-- Use notification message as is
+				format = function(notif)
+					return notif.msg
+				end,
+			},
+
+			window = {
+				config = {
+					border = "rounded",
+				},
+			},
+		},
 	},
 }

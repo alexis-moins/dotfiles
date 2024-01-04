@@ -73,7 +73,7 @@ map("n", "<Leader>fg", _11_, "Find content")
 local function _12_()
   return _G.MiniExtra.pickers.history({scope = ":"})
 end
-map("n", "<Leader>fc", _12_, "Find command")
+map("n", "<Leader>fc", _12_, "Filter command history")
 local function _13_()
   return _G.MiniExtra.pickers.buf_lines({scope = "current"})
 end
@@ -106,10 +106,6 @@ local function _20_()
   return _G.MiniVisits.remove_label("core")
 end
 map("n", "<Leader>ld", _20_, "Remove from core")
-local function _21_()
-  return _G.MiniColors.interactive({mappings = {Apply = "<LocalLeader>a", Reset = "<LocalLeader>r", Quit = "<LocalLeader>q", Write = "<LocalLeader>w"}})
-end
-map("n", "<Leader>co", _21_)
 map("n", "[<Space>", "mzO<esc>`z", "Insert a line above cursor")
 map("n", "]<Space>", "mzo<esc>`z", "Insert a line below cursor")
 map("n", "<Leader>tt", vim.cmd.terminal, "Open a terminal")
@@ -120,28 +116,28 @@ local function toggle(option)
   vim.o[option] = not vim.o[option]
   return nil
 end
-local function _22_()
+local function _21_()
   return toggle("number")
 end
-map("n", "|n", _22_, "Toggle line number")
-local function _23_()
+map("n", "|n", _21_, "Toggle line number")
+local function _22_()
   return toggle("relativenumber")
 end
-map("n", "|r", _23_, "Toggle relative line number")
-local function _24_()
+map("n", "|r", _22_, "Toggle relative line number")
+local function _23_()
   return toggle("cursorline")
 end
-map("n", "|c", _24_, "Toggle cursorline")
-local function _25_()
+map("n", "|c", _23_, "Toggle cursorline")
+local function _24_()
   return toggle("list")
 end
-map("n", "|l", _25_, "Toggle list chararcters")
-local function _26_()
+map("n", "|l", _24_, "Toggle list chararcters")
+local function _25_()
   return toggle("wrap")
 end
-map("n", "|w", _26_, "Toggle line wrapping")
-local function _27_()
+map("n", "|w", _25_, "Toggle line wrapping")
+local function _26_()
   return toggle("spell")
 end
-map("n", "|s", _27_, "Toggle spell checking")
+map("n", "|s", _26_, "Toggle spell checking")
 return {map = map, ["map-local"] = map_local, toggle = toggle}

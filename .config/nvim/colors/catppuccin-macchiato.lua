@@ -1,6 +1,8 @@
 -- Made with 'mini.colors' module of https://github.com/echasnovski/mini.nvim
 
-if vim.g.colors_name ~= nil then vim.cmd('highlight clear') end
+if vim.g.colors_name ~= nil then
+	vim.cmd("highlight clear")
+end
 vim.g.colors_name = "catppuccin-macchiato"
 
 -- Highlight groups
@@ -419,6 +421,8 @@ hi(0, "MiniTablineModifiedCurrent", { link = "Normal" })
 hi(0, "MiniTablineModifiedHidden", { link = "TabLine" })
 hi(0, "MiniTablineModifiedVisible", { link = "TabLine" })
 hi(0, "MiniTablineVisible", { link = "TabLine" })
+hi(0, "MiniNotifyBorder", { fg = "#c6a0f6" })
+hi(0, "MiniNotifyNormal", { link = "Comment" })
 hi(0, "ModeMsg", { bold = true, fg = "#cad3f5" })
 hi(0, "MoreMsg", { fg = "#8aadf4" })
 hi(0, "MsgSeparator", {})
