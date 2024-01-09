@@ -85,7 +85,7 @@
 (opt :foldmethod :manual)
 
 ;; Show folds hints only if there is at least 1
-(opt :foldcolumn "auto:1")
+(opt :foldcolumn "0")
 
 ;; Use treesitter to highlight folded text
 (opt :foldexpr "v:lua.vim.treesitter.foldexpr()")

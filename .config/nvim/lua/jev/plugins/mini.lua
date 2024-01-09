@@ -146,6 +146,7 @@ return {
 
 				mappings = {
 					refine = "<C-J>",
+					choose_marked = "<C-Q>",
 				},
 			}
 		end,
