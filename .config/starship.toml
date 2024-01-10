@@ -1,7 +1,7 @@
 format = """
 $directory\
 $git_branch$git_state$git_status\
-$python$nodejs$lua$golang$elixir\
+$python$nodejs$golang$elixir\
 $character
 """
 
@@ -21,6 +21,7 @@ symbol = "*"
 style = "bold yellow"
 
 [git_branch]
+format = "@[$branch]($style) "
 style = "purple"
 
 [git_status]
@@ -39,17 +40,8 @@ deleted = "-$count"
 renamed = "*$count"
 
 [python]
-symbol = "python "
-style = "italic bold black"
-
-[nodejs]
-detect_extensions = []
-symbol = "node "
-style = "italic bold black"
-
-[lua]
-symbol = "lua "
-style = "italic bold black"
+format = '[(\($virtualenv\) )]($style)'
+style = "bright-black"
 
 [golang]
 symbol = "go "
