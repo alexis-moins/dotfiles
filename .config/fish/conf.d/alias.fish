@@ -36,6 +36,10 @@ alias rg 'rg --smart-case'
 
 alias ci git-commit
 
+alias j 'just'
+
 alias gc 'git-resolve-conflict'
 
 alias psql 'docker exec -it postgres psql'
+
+alias v nvim

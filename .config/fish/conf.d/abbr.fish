@@ -20,3 +20,5 @@ abbr --add ss "session"
 abbr --add gg "git-switch-branch"
 
 abbr --add da "direnv allow ."
+
+abbr --add dk docker
