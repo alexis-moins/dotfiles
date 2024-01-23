@@ -10,6 +10,11 @@
 
 (map :i :jk :<C-C> "Leave insert mode")
 
+(map :n :/ :ms/ "Search a pattern forward")
+(map :n :? :ms? "Search a pattern backward")
+
+(map :n :<C-S> "`s" "Go back to before search")
+
 (map :n :<BS> vim.cmd.nohlsearch "Clear search highlighting")
 (map :n :<Leader>so vim.cmd.source "Source current file")
 
