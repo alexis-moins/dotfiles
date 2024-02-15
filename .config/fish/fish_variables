@@ -53,7 +53,7 @@ SETUVAR fish_pager_color_selected_completion:white
 SETUVAR fish_pager_color_selected_description:green
 SETUVAR fish_pager_color_selected_prefix:white
 SETUVAR fish_prompt_pwd_dir_length:0
-SETUVAR fish_user_paths:/usr/local/opt/openjdk/bin\x1e/usr/local/sbin\x1e/Users/alexis/scripts\x1e/Users/alexis/go/bin\x1e/Users/alexis/\x2elocal/bin\x1e/usr/local/bin\x1e/opt/homebrew/bin\x1e/opt/homebrew/opt/fzf/bin\x1e/usr/local/Cellar/fzf/0\x2e34\x2e0/bin
+SETUVAR fish_user_paths:/Users/alexis/\x2elocal/share/bob/nvim\x2dbin\x1e/Users/alexis/\x2ecargo/bin\x1e/usr/local/opt/openjdk/bin\x1e/usr/local/sbin\x1e/Users/alexis/scripts\x1e/Users/alexis/go/bin\x1e/Users/alexis/\x2elocal/bin\x1e/usr/local/bin\x1e/opt/homebrew/bin\x1e/opt/homebrew/opt/fzf/bin\x1e/usr/local/Cellar/fzf/0\x2e34\x2e0/bin
 SETUVAR --export fzf_command:fd\x1e\x2d\x2dtype\x1ef\x1e\x2d\x2dhidden\x1e\x2d\x2dfollow\x1e\x2d\x2dstrip\x2dcwd\x2dprefix
 SETUVAR --export fzf_options:\x2d\x2dcycle
 SETUVAR --export fzf_tmux_options:\x2dp\x2085\x25\x2c70\x25
