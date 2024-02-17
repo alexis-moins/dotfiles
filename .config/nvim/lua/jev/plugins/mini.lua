@@ -1,200 +1,237 @@
-return {
+local map = JevKeys.map
+local add = MiniDeps.add
 
-	{
-		"echasnovski/mini.pairs",
-		event = { "InsertEnter", "CmdlineEnter" },
+-- {{{ mini.pick
+add("echasnovski/mini.pick")
 
-		opts = {
-			modes = { insert = true, command = true, terminal = true },
-		},
+require("mini.pick").setup({
+	source = {
+		show = require("mini.pick").default_show,
 	},
 
-	{
-		"echasnovski/mini.comment",
-		event = "VeryLazy",
-		opts = {
-			options = { ignore_blank_line = true },
-		},
+	mappings = {
+		refine = "<C-J>",
+		choose_marked = "<C-Q>",
 	},
+})
 
-	{
-		"echasnovski/mini.surround",
-		event = "VeryLazy",
-		opts = {
-			custom_surroundings = {
-				["b"] = { output = { left = "(", right = ")" } },
-				["B"] = { output = { left = "{", right = "}" } },
-				["r"] = { output = { left = "[", right = "]" } },
-			},
-			silent = true,
-		},
-	},
+-- Use mini.pick as the default selector in vim
+vim.ui.select = MiniPick.ui_select
 
-	{
-		"echasnovski/mini.move",
-		event = "VeryLazy",
-		opts = {
-			mappings = {
-				-- Normal mode
-				down = "<C-J>",
-				up = "<C-K>",
-				left = "<C-H>",
-				right = "<C-L>",
+map("n", "<Leader><Space>", MiniPick.builtin.files, "Find files")
+map("n", "<Leader>z", MiniPick.builtin.resume, "Resume last picker")
 
-				-- Visual node
-				line_down = "<C-J>",
-				line_up = "<C-K>",
-				line_left = "<C-H>",
-				line_right = "<C-L>",
-			},
-		},
-	},
+map("n", "<Leader>fb", MiniPick.builtin.buffers, "Find buffers")
+map("n", "<Leader>fh", MiniPick.builtin.help, "Find help")
+map("n", "<Leader>fg", MiniPick.builtin.grep_live, "Find content")
+-- }}}
 
-	{
-		"echasnovski/mini.ai",
-		event = "VeryLazy",
-		opts = {
-			silent = true,
-		},
-	},
+-- {{{ mini.pairs
+add("echasnovski/mini.pairs")
 
-	{
-		"echasnovski/mini.bracketed",
-		event = "VeryLazy",
-		opts = {
-			treesitter = { suffix = "" },
-			oldfile = { suffix = "" },
-		},
-	},
+require("mini.pairs").setup({
+    modes = { insert = true, command = true, terminal = true },
+})
+-- }}}
 
-	{
-		"echasnovski/mini.jump",
-		event = "VeryLazy",
-		opts = {
-			mappings = {
-				repeat_jump = ",",
-			},
+-- {{{ mini.files
+add("echasnovski/mini.files")
 
-			delay = {
-				highlight = 0,
-			},
-		},
-	},
+require("mini.files").setup({
+ 			mappings = {
+ 				go_in = "L",
+ 				go_in_plus = "<CR>",
 
-	{
-		"echasnovski/mini.splitjoin",
-		keys = { "gS" },
-		opts = {},
-	},
+ 				go_out = "H",
+ 				go_out_plus = "",
+ 			},
+})
 
-	{
-		"echasnovski/mini.files",
-		event = "BufEnter",
-		opts = {
-			mappings = {
-				go_in = "L",
-				go_in_plus = "<CR>",
+map("n", "-", MiniFiles.open, "Open file explorer")
+-- }}}
 
-				go_out = "H",
-				go_out_plus = "",
-			},
-		},
+-- {{{ mini.notify
+add("echasnovski/mini.notify")
 
-		keys = {
-			{
-				"-",
-				function()
-					require("mini.files").open(vim.api.nvim_buf_get_name(0))
-				end,
-				desc = "Open file explorer",
-			},
-		},
-	},
+require("mini.notify").setup({
+    content = {
+        -- Use notification message as is
+        format = function(notif)
+            return notif.msg
+        end,
+    },
 
-	{
-		"echasnovski/mini.operators",
-		event = "BufEnter",
-		opts = {},
-	},
+    window = {
+        config = {
+            border = "rounded",
+        },
+    },
+})
 
-	{
-		"echasnovski/mini.tabline",
-		event = "VeryLazy",
-		opts = {},
-	},
+-- Use mini.notify for general notification
+vim.notify = MiniNotify.make_notify()
+-- }}}
 
-	{
-		"echasnovski/mini.sessions",
-		opts = {
-			verbose = { read = true },
-		},
-	},
+-- {{{ mini.tabline
+add("echasnovski/mini.tabline")
 
-	{
-		"echasnovski/mini.extra",
-		opts = {},
-	},
+require("mini.tabline").setup()
+-- }}}
 
-	{
-		"echasnovski/mini.pick",
-		opts = function()
-			return {
-				source = {
-					-- Don't use icons for files and directories
-					show = require("mini.pick").default_show,
-				},
+-- {{{ mini.comment
+add("echasnovski/mini.comment")
 
-				mappings = {
-					refine = "<C-J>",
-					choose_marked = "<C-Q>",
-				},
-			}
-		end,
+require("mini.comment").setup({
+    options = { ignore_blank_line = true }
+})
+-- }}}
 
-		config = function(_, opts)
-			local pick = require("mini.pick")
+-- {{{ mini.move
+add("echasnovski/mini.move")
 
-			pick.setup(opts)
-			vim.ui.select = pick.ui_select
-		end,
-	},
+require("mini.move").setup({
+    mappings = {
+    	-- Normal mode
+    	down = "<C-J>",
+    	up = "<C-K>",
+        left = "<C-H>",
+    	right = "<C-L>",
 
-	{
-		"echasnovski/mini.visits",
-		opts = {},
-	},
+    	-- Visual node
+    	line_down = "<C-J>",
+    	line_up = "<C-K>",
+    	line_left = "<C-H>",
+    	line_right = "<C-L>",
+    },
+})
+-- }}}
 
-	{
-		"echasnovski/mini.colors",
-		opts = {},
-	},
+-- {{{ Extra pickers
+add("echasnovski/mini.extra")
 
-	{
-		"echasnovski/mini.hipatterns",
-		opts = function()
-			return {
-				highlighters = {
-					hex_color = require("mini.hipatterns").gen_highlighter.hex_color(),
-				},
-			}
-		end,
-	},
+require("mini.extra").setup()
+-- }}}
 
-	{
-		"echasnovski/mini.notify",
-		opts = {
-			content = {
-				-- Use notification message as is
-				format = function(notif)
-					return notif.msg
-				end,
-			},
+-- return {
+--
+-- 	
+--
+-- 	{
+-- 		"echasnovski/mini.surround",
+-- 		event = "VeryLazy",
+-- 		opts = {
+-- 			custom_surroundings = {
+-- 				["b"] = { output = { left = "(", right = ")" } },
+-- 				["B"] = { output = { left = "{", right = "}" } },
+-- 				["r"] = { output = { left = "[", right = "]" } },
+-- 			},
+-- 			silent = true,
+-- 		},
+-- 	},
+--
+--
+-- 	{
+-- 		"echasnovski/mini.ai",
+-- 		event = "VeryLazy",
+-- 		opts = {
+-- 			silent = true,
+-- 		},
+-- 	},
+--
+-- 	{
+-- 		"echasnovski/mini.bracketed",
+-- 		event = "VeryLazy",
+-- 		opts = {
+-- 			treesitter = { suffix = "" },
+-- 			oldfile = { suffix = "" },
+-- 		},
+-- 	},
+--
+-- 	{
+-- 		"echasnovski/mini.jump",
+-- 		event = "VeryLazy",
+-- 		opts = {
+-- 			mappings = {
+-- 				repeat_jump = ",",
+-- 			},
+--
+-- 			delay = {
+-- 				highlight = 0,
+-- 			},
+-- 		},
+-- 	},
+--
+-- 	{
+-- 		"echasnovski/mini.splitjoin",
+-- 		keys = { "gS" },
+-- 		opts = {},
+-- 	},
+--
+-- 	{
+-- 		"echasnovski/mini.files",
+-- 		event = "BufEnter",
+-- 		opts = {
+-- 			mappings = {
+-- 				go_in = "L",
+-- 				go_in_plus = "<CR>",
+--
+-- 				go_out = "H",
+-- 				go_out_plus = "",
+-- 			},
+-- 		},
+--
+-- 		keys = {
+-- 			{
+-- 				"-",
+-- 				function()
+-- 					require("mini.files").open(vim.api.nvim_buf_get_name(0))
+-- 				end,
+-- 				desc = "Open file explorer",
+-- 			},
+-- 		},
+-- 	},
+--
+-- 	{
+-- 		"echasnovski/mini.operators",
+-- 		event = "BufEnter",
+-- 		opts = {},
+-- 	},
+--
+--
+-- 	{
+-- 		"echasnovski/mini.sessions",
+-- 		opts = {
+-- 			verbose = { read = true },
+-- 		},
+-- 	},
+--
+-- 	{
+-- 		"echasnovski/mini.extra",
+-- 		opts = {},
+-- 	},
+--
+-- 	{
+--
+-- 	{
+-- 		"echasnovski/mini.visits",
+-- 		opts = {},
+-- 	},
+--
+-- 	{
+-- 		"echasnovski/mini.colors",
+-- 		opts = {},
+-- 	},
+--
+-- 	{
+-- 		"echasnovski/mini.hipatterns",
+-- 		opts = function()
+-- 			return {
+-- 				highlighters = {
+-- 					hex_color = require("mini.hipatterns").gen_highlighter.hex_color(),
+-- 				},
+-- 			}
+-- 		end,
+-- 	},
+--
 
-			window = {
-				config = {
-					border = "rounded",
-				},
-			},
-		},
-	},
-}
+-- vim: fdm=marker

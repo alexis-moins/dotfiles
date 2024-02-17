@@ -1,5 +1,5 @@
 local function augroup(name)
-	return vim.api.nvim_create_augroup("jev_" .. name, { clear = true })
+	return vim.api.nvim_create_augroup("Jev" .. name, { clear = true })
 end
 
 local autocmd = vim.api.nvim_create_autocmd
@@ -24,7 +24,7 @@ autocmd("TextYankPost", {
 
 -- close some filetypes with <q>
 autocmd("FileType", {
-	group = augroup("close_with_q"),
+	group = augroup("CloseWithQ"),
 	pattern = {
 		"help",
 		"lspinfo",
@@ -59,7 +59,7 @@ autocmd("FileType", {
 
 -- wrap and check for spell in text filetypes
 autocmd("FileType", {
-	group = augroup("wrap_spell"),
+	group = augroup("WrapSpell"),
 	pattern = { "gitcommit", "html", "norg", "markdown", "typescriptreact" },
 	callback = function()
 		vim.opt_local.wrap = true
@@ -90,3 +90,10 @@ autocmd("FileType", {
 		vim.opt_local.commentstring = "// %s"
 	end,
 })
+
+local helpers = {
+    augroup = augroup,
+    autocmd = autocmd
+}
+
+_G.JevCommands = helpers

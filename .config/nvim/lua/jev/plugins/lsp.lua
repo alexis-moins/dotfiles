@@ -1,141 +1,76 @@
-return {
-	"neovim/nvim-lspconfig",
-	lazy = false,
+local add = MiniDeps.add
 
-	dependencies = {
-		"williamboman/mason.nvim",
-		"williamboman/mason-lspconfig.nvim",
-		{
-			"folke/neodev.nvim",
-			ft = { "lua", "vim" },
+local map = JevKeys.map
+local maplocal = JevKeys.maplocal
 
-			opts = {},
-		},
-	},
+local augroup = JevCommands.augroup
+local autocmd = JevCommands.autocmd
 
-	keys = {
-		{ "<Leader>lm", ":Mason<cr>", desc = "Open Mason", silent = true },
-		{ "<Leader>li", ":LspInfo<cr>", desc = "Show Lsp info", silent = true },
-	},
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+	border = "rounded",
+})
 
-	config = function()
-		-- Changing mason's UI
-		require("mason").setup({
-			ui = {
-				icons = {
-					package_installed = "*",
-					package_pending = "~",
-					package_uninstalled = "-",
-				},
-				border = "rounded",
-			},
-		})
+vim.diagnostic.config({
+	float = { border = "rounded" },
+	update_in_insert = true,
+	virtual_text = false,
+})
 
-		require("mason-lspconfig").setup()
+map("n", "H", function() vim.diagnostic.open_float(nil, { focus = false }) end, "Open diagnostics popup")
 
-		-- Default function to run when attaching a client its LSP server
-		local on_attach = function()
-			local keymaps = require("jev.core.keymaps")
+-- Configuration for the neovim LSP client
+add("neovim/nvim-lspconfig")
+local lspconfig = require("lspconfig")
 
-			local map = keymaps["map-local"]
+-- Add documentation for nvim-lua api and plugins
+add("folke/neodev.nvim")
+require('neodev').setup()
 
-			map("n", "<LocalLeader>gd", function()
-				require("telescope.builtin").lsp_definitions()
-			end, "Go to definition")
+-- 
+autocmd('LspAttach', {
+  group = augroup('LspConfig'),
+  callback = function(args)
+    local buffer = args.buf
 
-			map("n", "<LocalLeader>gt", function()
-				require("telescope.builtin").lsp_type_definitions()
-			end, "Go to type definition")
+    local function lsp(scope)
+        return function()
+            MiniExtra.pickers.lsp({scope = scope})
+        end
+    end
 
-			map("n", "<LocalLeader>gi", "<cmd>Telescope lsp_implementations<cr>", "Go to LSP implementations(s)")
-			map("n", "<LocalLeader>gr", "<cmd>Telescope lsp_references<cr>", "Go to LSP reference(s)")
+    local function diagnostic(scope)
+        return function()
+            MiniExtra.pickers.disgnostic({scope = scope})
+        end
+    end
 
-			map("n", "<LocalLeader>fs", "<cmd>Telescope lsp_document_symbols<cr>", "Show document symbols")
-			map("n", "<LocalLeader>fw", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Show workspace symbols")
+    maplocal("n", "<LocalLeader>gd", lsp("definition"), "Go to definitions", buffer)
+    maplocal("n", "<LocalLeader>gr", lsp("references"), "Go to references", buffer)
+    maplocal("n", "<LocalLeader>gt", lsp("type_definition"), "Go to type definitions", buffer)
 
-			-- map("n", "<LocalLeader>d", "<cmd>Telescope diagnostics bufnr=0<cr>", "Show buffer diagnostic")
-			-- map("n", "<LocalLeader>w", "<cmd>Telescope diagnostics<cr>", "Show workspace diagnostic")
+    maplocal("n", "<LocalLeader>w", diagnostic("all"), "Find diagnostic (all)", buffer)
+    maplocal("n", "<LocalLeader>d", diagnostic("current"), "Find diagnostic (current)", buffer)
 
-			map("n", "<LocalLeader>rn", vim.lsp.buf.rename, "Rename symbol under the cursor")
-			map("n", "<LocalLeader>ca", vim.lsp.buf.code_action, "Code actions")
+    maplocal("n", "<LocalLeader>rn", vim.lsp.buf.rename, "Rename symbol under the cursor", buffer)
+    maplocal("n", "<LocalLeader>ca", vim.lsp.buf.code_action, "Code actions", buffer)
+    maplocal("n", "<LocalLeader>lr", vim.cmd.LspRestart, "Restart Lsp client", buffer)
+  end,
+})
 
-			map("n", "<LocalLeader>lr", "<cmd>LspRestart<cr>", "Restart Lsp client")
-		end
+map("n", "<Leader>li", "<cmd>LspInfo<cr>", "Show LSP info")
 
-		-- Capabilities from nvim-cmp
-		local client_capabilities = vim.lsp.protocol.make_client_capabilities()
-		local capabilities = require("cmp_nvim_lsp").default_capabilities(client_capabilities)
+-- {{{ lua LSP
+lspconfig.lua_ls.setup({
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { "vim" },
+            },
 
-		require("mason-lspconfig").setup_handlers({
-			-- Default handler called for each server installed with mason
-			function(server_name)
-				require("lspconfig")[server_name].setup({
-					capabilities = capabilities,
-					on_attach = on_attach,
-				})
-			end,
-			-- Server-specific config below
-			["lua_ls"] = function()
-				require("lspconfig").lua_ls.setup({
-					capabilities = capabilities,
-					on_attach = on_attach,
-					settings = {
-						Lua = {
-							diagnostics = {
-								globals = { "vim" },
-							},
+            hint = { enable = true, },
+        },
+    },
+})
+-- }}}
 
-							hint = {
-								enable = true,
-							},
-						},
-					},
-				})
-			end,
-
-			["fennel_language_server"] = function()
-				require("lspconfig").fennel_language_server.setup({
-					capabilities = capabilities,
-					on_attach = on_attach,
-
-					root_dir = require("lspconfig.util").root_pattern("fnl", "lua"),
-					single_file_support = true,
-
-					filetypes = { "fennel" },
-
-					settings = {
-						fennel = {
-							diagnostics = {
-								globals = { "vim", "jit", "comment" },
-							},
-
-							hint = {
-								enable = true,
-							},
-
-							workspace = {
-								library = vim.api.nvim_list_runtime_paths(),
-							},
-						},
-					},
-				})
-			end,
-		})
-
-		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-			border = "rounded",
-		})
-
-		vim.diagnostic.config({
-			float = { border = "rounded" },
-			update_in_insert = true,
-			virtual_text = false,
-		})
-
-		vim.keymap.set("n", "H", function()
-			vim.diagnostic.open_float(nil, { focus = false })
-		end, {
-			desc = "Open diagnostics popup",
-		})
-	end,
-}
+-- vim: fdm=marker

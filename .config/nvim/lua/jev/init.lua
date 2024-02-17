@@ -8,4 +8,7 @@ require("jev.core.autocmds")
 require("jev.core.keymaps")
 
 -- Package manager
-require("jev.lazy")
+require("jev.deps")
+
+-- Plugins
+require("jev.plugins")

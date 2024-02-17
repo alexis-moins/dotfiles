@@ -64,9 +64,6 @@
 (map :n :<Leader>sd #(_G.MiniSessions.select :delete) "Delete a session")
 
 ;; Pickers (mini.pick)
-(map :n :<Leader><Space> #(_G.MiniPick.builtin.files) "Find files")
-(map :n :<Leader>z #(_G.MiniPick.builtin.resume) "Resume last picker")
-
 (map :n :<Leader>fb #(_G.MiniPick.builtin.buffers) "Find buffers")
 (map :n :<Leader>fh #(_G.MiniPick.builtin.help) "Find help")
 (map :n :<Leader>fg #(_G.MiniPick.builtin.grep_live) "Find content")
@@ -94,9 +91,6 @@
 ;; Terminal
 (map :n :<Leader>tt vim.cmd.terminal "Open a terminal")
 (map :n :<Leader>ts "<cmd>horizontal terminal<cr>" "Open a terminal in a split")
-
-(map :t :<esc> "<C-\\><C-N>" "Leave terminal mode")
-(map :t :<C-^> "<C-\\><C-N><C-O>" "Leave terminal mode and jump to last buffer")
 
 ;; Option toggling
 (fn toggle [option]

@@ -1,36 +1,28 @@
-return {
-	-- Gitsigns
-	"lewis6991/gitsigns.nvim",
-	event = { "BufReadPre", "BufNewFile" },
+local add = MiniDeps.add
+local maplocal = JevKeys.maplocal
 
-	config = function()
-		local git_signs = require("gitsigns")
-		local keymaps = require("jev.core.keymaps")
+add("lewis6991/gitsigns.nvim")
 
-		local map = keymaps["map-local"]
+require("gitsigns").setup({
+	signs = {
+		add = { text = "▍" },
+		change = { text = "▍" },
+		delete = { text = "▍" },
+		topdelete = { text = "▍" },
+		changedelete = { text = "▍" },
+		untracked = { text = "" },
+	},
 
-		local on_attach = function()
-			map("n", "[h", git_signs.prev_hunk, "Previous git hunk")
-			map("n", "]h", git_signs.next_hunk, "Next git hunk")
+	current_line_blame_opts = {
+		delay = 150,
+	},
 
-			map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
-		end
+	on_attach = function()
+		maplocal("n", "[h", require("gitsigns").prev_hunk, "Previous git hunk")
+		maplocal("n", "]h", require("gitsigns").next_hunk, "Next git hunk")
 
-		git_signs.setup({
-			signs = {
-				add = { text = "▍" },
-				change = { text = "▍" },
-				delete = { text = "▍" },
-				topdelete = { text = "▍" },
-				changedelete = { text = "▍" },
-				untracked = { text = "" },
-			},
-
-			current_line_blame_opts = {
-				delay = 150,
-			},
-
-			on_attach = on_attach,
-		})
+		maplocal({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
 	end,
-}
+})
+
+-- vim: fdm=marker
