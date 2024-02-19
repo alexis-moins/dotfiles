@@ -6,13 +6,13 @@ local autocmd = vim.api.nvim_create_autocmd
 
 -- Check if we need to reload the file when it changed
 autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
-	group = augroup("checktime"),
+	group = augroup("Checktime"),
 	command = "checktime",
 })
 
 -- Highlight on yank
 autocmd("TextYankPost", {
-	group = augroup("highlight_yank"),
+	group = augroup("HighlightYank"),
 	callback = function()
 		vim.highlight.on_yank({
 			higroup = "Visual",
@@ -49,7 +49,7 @@ autocmd({ "VimResized" }, {
 
 -- Don't display line numbers for certain filetypes
 autocmd("FileType", {
-	group = augroup("no_line_number"),
+	group = augroup("NoLineNumber"),
 	pattern = { "fugitive", "qf", "gitcommit" },
 	callback = function()
 		vim.opt_local.number = false
@@ -96,4 +96,4 @@ local helpers = {
     autocmd = autocmd
 }
 
-_G.JevCommands = helpers
+return helpers

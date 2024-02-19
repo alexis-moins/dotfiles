@@ -1,5 +1,8 @@
 local add = MiniDeps.add
 
+--
+-- nvim-treesitter
+--
 add({
 	source = "nvim-treesitter/nvim-treesitter",
 	hooks = { post_checkout = vim.cmd.TSUpdate },
@@ -8,7 +11,6 @@ add({
 	},
 })
 
--- {{{ Configuration
 require("nvim-treesitter.configs").setup({
 	auto_install = true,
 	sync_install = false,
@@ -91,6 +93,3 @@ require("nvim-treesitter.configs").setup({
 		},
 	},
 })
---- }}}
-
--- vim: fdm=marker
