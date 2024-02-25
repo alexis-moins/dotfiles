@@ -1,41 +1,24 @@
 local function augroup(name)
-	return vim.api.nvim_create_augroup("jev_" .. name, { clear = true })
+	return vim.api.nvim_create_augroup("Jev" .. name, { clear = true })
 end
 
 local autocmd = vim.api.nvim_create_autocmd
 
 -- Check if we need to reload the file when it changed
 autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
-	group = augroup("checktime"),
+	group = augroup("Checktime"),
 	command = "checktime",
 })
 
 -- Highlight on yank
 autocmd("TextYankPost", {
-	group = augroup("highlight_yank"),
+	group = augroup("HighlightYank"),
 	callback = function()
 		vim.highlight.on_yank({
 			higroup = "Visual",
 			timeout = 200,
 			on_visual = false,
 		})
-	end,
-})
-
--- close some filetypes with <q>
-autocmd("FileType", {
-	group = augroup("close_with_q"),
-	pattern = {
-		"help",
-		"lspinfo",
-		"man",
-		"qf",
-		"norg",
-		"fugitive",
-	},
-	callback = function(event)
-		vim.bo[event.buf].buflisted = false
-		vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
 	end,
 })
 
@@ -49,7 +32,7 @@ autocmd({ "VimResized" }, {
 
 -- Don't display line numbers for certain filetypes
 autocmd("FileType", {
-	group = augroup("no_line_number"),
+	group = augroup("NoLineNumber"),
 	pattern = { "fugitive", "qf", "gitcommit" },
 	callback = function()
 		vim.opt_local.number = false
@@ -59,7 +42,7 @@ autocmd("FileType", {
 
 -- wrap and check for spell in text filetypes
 autocmd("FileType", {
-	group = augroup("wrap_spell"),
+	group = augroup("WrapSpell"),
 	pattern = { "gitcommit", "html", "norg", "markdown", "typescriptreact" },
 	callback = function()
 		vim.opt_local.wrap = true
@@ -84,9 +67,21 @@ autocmd("TermOpen", {
 	end,
 })
 
-autocmd("FileType", {
-	group = augroup("prisma_commentstring"),
+--
+-- Don't display numbers and sign column in command window.
+--
+autocmd("CmdwinEnter", {
+	group = augroup("CommandWindow"),
 	callback = function()
-		vim.opt_local.commentstring = "// %s"
+		vim.opt_local.number = false
+		vim.opt_local.relativenumber = false
+		vim.opt_local.signcolumn = "no"
 	end,
 })
+
+local helpers = {
+	augroup = augroup,
+	autocmd = autocmd,
+}
+
+return helpers
