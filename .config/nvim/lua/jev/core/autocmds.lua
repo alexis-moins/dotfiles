@@ -22,23 +22,6 @@ autocmd("TextYankPost", {
 	end,
 })
 
--- close some filetypes with <q>
-autocmd("FileType", {
-	group = augroup("CloseWithQ"),
-	pattern = {
-		"help",
-		"lspinfo",
-		"man",
-		"qf",
-		"norg",
-		"fugitive",
-	},
-	callback = function(event)
-		vim.bo[event.buf].buflisted = false
-		vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
-	end,
-})
-
 -- resize splits if window got resized
 autocmd({ "VimResized" }, {
 	group = augroup("resize_splits"),
@@ -84,16 +67,21 @@ autocmd("TermOpen", {
 	end,
 })
 
-autocmd("FileType", {
-	group = augroup("prisma_commentstring"),
+--
+-- Don't display numbers and sign column in command window.
+--
+autocmd("CmdwinEnter", {
+	group = augroup("CommandWindow"),
 	callback = function()
-		vim.opt_local.commentstring = "// %s"
+		vim.opt_local.number = false
+		vim.opt_local.relativenumber = false
+		vim.opt_local.signcolumn = "no"
 	end,
 })
 
 local helpers = {
-    augroup = augroup,
-    autocmd = autocmd
+	augroup = augroup,
+	autocmd = autocmd,
 }
 
 return helpers

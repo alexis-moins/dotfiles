@@ -4,6 +4,20 @@ local cmd = require("jev.core.autocmds")
 local keys = require("jev.core.keymaps")
 
 --
+-- mini.extra
+--
+add("echasnovski/mini.extra")
+require("mini.extra").setup()
+
+-- Mappings
+keys.map("n", "<Leader>fk", MiniExtra.pickers.keymaps, "Find keymaps")
+keys.map("n", "<C-f>", function()
+	MiniExtra.pickers.history({ scope = ":" })
+end, "Filter command history")
+keys.map("n", "<C-b>", function()
+	MiniExtra.pickers.buf_lines({ scope = "current" })
+end, "Find lines")
+--
 -- mini.pick
 --
 add("echasnovski/mini.pick")
@@ -27,6 +41,7 @@ keys.map("n", "<Leader>z", MiniPick.builtin.resume, "Resume last picker")
 keys.map("n", "<Leader>fb", MiniPick.builtin.buffers, "Find buffers")
 keys.map("n", "<Leader>fh", MiniPick.builtin.help, "Find help")
 keys.map("n", "<Leader>fg", MiniPick.builtin.grep_live, "Find content")
+keys.map("n", "<Leader>*", "<cmd>Pick grep pattern='<cword>'<cr>", "Grep string under cursor")
 
 --
 -- mini.pairs
@@ -52,7 +67,7 @@ require("mini.files").setup({
 
 -- Mappings
 keys.map("n", "-", function()
-	MiniFiles.open(vim.api.nvim_buf_get_name(0))
+	MiniFiles.open(vim.fn.expand("%"))
 end, "Open file explorer")
 
 --
@@ -83,7 +98,7 @@ local group = cmd.augroup("MacroNotification")
 cmd.autocmd("RecordingEnter", {
 	group = group,
 	callback = function()
-		MiniNotify.add("Recording @" .. vim.fn.reg_recording())
+		MiniNotify.add("(macro) Recording @" .. vim.fn.reg_recording())
 	end,
 })
 
@@ -124,17 +139,6 @@ require("mini.move").setup({
 })
 
 --
--- mini.extra
---
-add("echasnovski/mini.extra")
-require("mini.extra").setup()
-
--- Mappings
-keys.map("n", "<Leader>fc", function() MiniExtra.pickers.history({ scope = ":" }) end, "Filter command history")
-keys.map("n", "<Leader>/", function() MiniExtra.pickers.buf_lines({ scope = "current" }) end, "Find lines")
-
-
---
 -- mini.surrounds
 --
 add("echasnovski/mini.surround")
@@ -151,13 +155,19 @@ require("mini.surround").setup({
 -- mini.ai
 --
 add("echasnovski/mini.ai")
-require("mini.ai").setup()
+require("mini.ai").setup({
+	custom_textobjects = {
+		B = MiniExtra.gen_ai_spec.buffer(),
+		I = MiniExtra.gen_ai_spec.indent(),
+		L = MiniExtra.gen_ai_spec.line(),
+	},
+})
 
 --
 -- mini.bracketed
 --
 add("echasnovski/mini.bracketed")
-require("mini.surround").setup({
+require("mini.bracketed").setup({
 	treesitter = { suffix = "" },
 	oldfile = { suffix = "" },
 })
@@ -254,15 +264,32 @@ end, "Find labels (all)")
 -- 		"echasnovski/mini.colors",
 -- 		opts = {},
 -- 	},
+
 --
--- 	{
--- 		"echasnovski/mini.hipatterns",
--- 		opts = function()
--- 			return {
--- 				highlighters = {
--- 					hex_color = require("mini.hipatterns").gen_highlighter.hex_color(),
--- 				},
--- 			}
--- 		end,
--- 	},
+-- mini.hipatterns
 --
+add("echasnovski/mini.hipatterns")
+local hipatterns = require("mini.hipatterns")
+local words = MiniExtra.gen_highlighter.words
+
+hipatterns.setup({
+	highlighters = {
+		hex_color = hipatterns.gen_highlighter.hex_color(),
+		todo = words({ "TODO", "todo" }, "MiniHipatternsTodo"),
+		note = words({ "NOTE", "note" }, "MiniHipatternsNote"),
+		fixme = words({ "FIXME", "fixme" }, "MiniHipatternsFixme"),
+	},
+})
+
+--
+-- mini.completion
+--
+add("echasnovski/mini.completion")
+require("mini.completion").setup({
+	window = {
+		info = { border = "single" },
+		signature = { border = "single" },
+	},
+
+	fallback_action = "<C-n>",
+})

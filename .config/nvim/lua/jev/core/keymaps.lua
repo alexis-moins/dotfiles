@@ -35,7 +35,7 @@ end
 --
 -- Mappings
 --
-map("i", "jk", "<C-C>", "Leave insert mode")
+map("i", "jk", "<Esc>", "Leave insert mode")
 
 map("n", "/", "ms/", "Search a pattern forward")
 map("n", "?", "ms?", "Search a pattern backward")
@@ -51,6 +51,8 @@ map("n", "<Leader>-", vim.cmd.bdelete, "Delete the current buffer")
 map("n", "<Leader>q", vim.cmd.copen, "Open/focus the quickfix list")
 map({ "n", "v" }, "j", "gj", "Move down (respects wrap)")
 map({ "n", "v" }, "k", "gk", "Move up (respects wrap)")
+
+-- Play @q macro and move to next line (recusrive)
 map("n", "Q", "@qj", "Play macro")
 map("x", "Q", "<cmd>norm @q<cr>", "Play macro")
 
@@ -59,6 +61,7 @@ map("n", "J", "mzJ`z", "Join line below without moving cursor")
 
 -- Easier line navigation
 map("n", "L", "$", "Go to the end of the line")
+map("v", "L", "$", "Go to the end of the line (visual)")
 
 map("n", "]]", "<cmd>edit #<cr>", "Edit alternate file")
 map("n", "<C-U>", "<C-U>zz", "Scroll upwards (center)")

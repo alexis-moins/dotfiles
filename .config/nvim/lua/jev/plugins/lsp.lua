@@ -13,7 +13,9 @@ vim.diagnostic.config({
 	virtual_text = false,
 })
 
-keys.map("n", "H", function() vim.diagnostic.open_float(nil, { focus = false }) end, "Open diagnostics popup")
+keys.map("n", "H", function()
+	vim.diagnostic.open_float(nil, { focus = false })
+end, "Open diagnostics popup")
 
 --
 -- Configuration for the neovim LSP client
@@ -25,36 +27,36 @@ local lspconfig = require("lspconfig")
 -- Add documentation for nvim-lua api and plugins
 --
 add("folke/neodev.nvim")
-require('neodev').setup()
+require("neodev").setup()
 
-cmd.autocmd('LspAttach', {
-  group = cmd.augroup('LspConfig'),
-  callback = function(args)
-    local buffer = args.buf
+cmd.autocmd("LspAttach", {
+	group = cmd.augroup("LspConfig"),
+	callback = function(args)
+		local buffer = args.buf
 
-    local function lsp(scope)
-        return function()
-            MiniExtra.pickers.lsp({scope = scope})
-        end
-    end
+		local function lsp(scope)
+			return function()
+				MiniExtra.pickers.lsp({ scope = scope })
+			end
+		end
 
-    local function diagnostic(scope)
-        return function()
-            MiniExtra.pickers.diagnostic({scope = scope})
-        end
-    end
+		local function diagnostic(scope)
+			return function()
+				MiniExtra.pickers.diagnostic({ scope = scope })
+			end
+		end
 
-    keys.maplocal("n", "<LocalLeader>gd", lsp("definition"), "Go to definitions", buffer)
-    keys.maplocal("n", "<LocalLeader>gr", lsp("references"), "Go to references", buffer)
-    keys.maplocal("n", "<LocalLeader>gt", lsp("type_definition"), "Go to type definitions", buffer)
+		keys.maplocal("n", "<LocalLeader>gd", lsp("definition"), "Go to definitions", buffer)
+		keys.maplocal("n", "<LocalLeader>gr", lsp("references"), "Go to references", buffer)
+		keys.maplocal("n", "<LocalLeader>gt", lsp("type_definition"), "Go to type definitions", buffer)
 
-    keys.maplocal("n", "<LocalLeader>w", diagnostic("all"), "Find diagnostic (all)", buffer)
-    keys.maplocal("n", "<LocalLeader>d", diagnostic("current"), "Find diagnostic (current)", buffer)
+		keys.maplocal("n", "<LocalLeader>w", diagnostic("all"), "Find diagnostic (all)", buffer)
+		keys.maplocal("n", "<LocalLeader>d", diagnostic("current"), "Find diagnostic (current)", buffer)
 
-    keys.maplocal("n", "<LocalLeader>rn", vim.lsp.buf.rename, "Rename symbol under the cursor", buffer)
-    keys.maplocal("n", "<LocalLeader>ca", vim.lsp.buf.code_action, "Code actions", buffer)
-    keys.maplocal("n", "<LocalLeader>lr", vim.cmd.LspRestart, "Restart Lsp client", buffer)
-  end,
+		keys.maplocal("n", "<LocalLeader>rn", vim.lsp.buf.rename, "Rename symbol under the cursor", buffer)
+		keys.maplocal("n", "<LocalLeader>ca", vim.lsp.buf.code_action, "Code actions", buffer)
+		keys.maplocal("n", "<LocalLeader>lr", vim.cmd.LspRestart, "Restart Lsp client", buffer)
+	end,
 })
 
 -- Mappings
@@ -64,13 +66,28 @@ keys.map("n", "<Leader>li", "<cmd>LspInfo<cr>", "Show LSP info")
 -- lua-language-server
 --
 lspconfig.lua_ls.setup({
-    settings = {
-        Lua = {
-            diagnostics = {
-                globals = { "vim" },
-            },
+	settings = {
+		Lua = {
+			diagnostics = {
+				globals = { "vim" },
+			},
 
-            hint = { enable = true, },
-        },
-    },
+			hint = { enable = true },
+		},
+	},
 })
+
+--
+-- typescript-language-server
+--
+lspconfig.tsserver.setup({})
+
+--
+-- prisma-language-server
+--
+lspconfig.prismals.setup({})
+
+--
+-- golang-language-server
+--
+lspconfig.gopls.setup({})
