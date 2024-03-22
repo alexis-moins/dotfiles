@@ -11,6 +11,7 @@ conform.setup({
 		javascript = { { "prettierd", "prettier" } },
 		json = { { "prettierd", "prettier" } },
 		typescript = { { "prettierd", "prettier" } },
+		php = { "pint" },
 	},
 })
 

@@ -56,6 +56,8 @@ cmd.autocmd("LspAttach", {
 		keys.maplocal("n", "<LocalLeader>rn", vim.lsp.buf.rename, "Rename symbol under the cursor", buffer)
 		keys.maplocal("n", "<LocalLeader>ca", vim.lsp.buf.code_action, "Code actions", buffer)
 		keys.maplocal("n", "<LocalLeader>lr", vim.cmd.LspRestart, "Restart Lsp client", buffer)
+
+		vim.lsp.inlay_hint.enable(0, true)
 	end,
 })
 
@@ -78,16 +80,50 @@ lspconfig.lua_ls.setup({
 })
 
 --
--- typescript-language-server
+-- typescript
 --
 lspconfig.tsserver.setup({})
 
 --
--- prisma-language-server
+-- prisma
 --
 lspconfig.prismals.setup({})
 
 --
--- golang-language-server
+-- golang
 --
 lspconfig.gopls.setup({})
+
+--
+-- vue
+--
+lspconfig.volar.setup({
+	filetypes = {
+		"typescript",
+		"javascript",
+		"javascriptreact",
+		"typescriptreact",
+		"vue",
+		"json",
+	},
+})
+
+--
+-- tailwindcss
+--
+lspconfig.tailwindcss.setup({})
+
+--
+-- php
+--
+lspconfig.phpactor.setup({
+	init_options = {
+		["language_server_phpstan.enabled"] = false,
+		["language_server_psalm.enabled"] = false,
+	},
+})
+
+--
+-- gleam
+--
+lspconfig.gleam.setup({})

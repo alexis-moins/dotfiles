@@ -26,10 +26,10 @@ end
 ---
 ---@param option string
 local function toggle(option)
-    return function()
-        local opt = vim.opt_local[option]:get()
-        vim.opt_local[option] = not opt
-    end
+	return function()
+		local opt = vim.opt_local[option]:get()
+		vim.opt_local[option] = not opt
+	end
 end
 
 --
@@ -63,7 +63,7 @@ map("n", "J", "mzJ`z", "Join line below without moving cursor")
 map("n", "L", "$", "Go to the end of the line")
 map("v", "L", "$", "Go to the end of the line (visual)")
 
-map("n", "]]", "<cmd>edit #<cr>", "Edit alternate file")
+map("n", "<C-E>", "<cmd>edit #<cr>", "Edit alternate file")
 map("n", "<C-U>", "<C-U>zz", "Scroll upwards (center)")
 map("n", "<C-D>", "<C-D>zz", "Scroll downwards (center)")
 map("n", "n", "nzz", "Repeat last search (center)")
@@ -72,15 +72,21 @@ map({ "n", "x" }, "gy", '"+y', "Copy (+register)")
 map({ "n", "x" }, "gp", '"+p', "Paste after cursor (+register)")
 map({ "n", "x" }, "gP", '"+P', "Paste before cursor (+register)")
 
+--
+-- Terminal keymaps
+--
+map("t", "<esc>", "<C-\\><C-N>", "Leave terminal mode")
+map("t", "<C-^>", "<C-\\><C-N><C-O>", "Leave terminal mode and jump to last buffer")
+map("t", "<C-w>", "<C-\\><C-N><C-w>", "")
+
+map("n", "<Leader>ts", "<cmd>horizontal terminal<cr>", "Open a terminal in a horizontal split")
+map("n", "<Leader>tv", "<cmd>vertical terminal<cr>", "Open a terminal in a vertical split")
+
 local function _10_()
 	return _G.MiniExtra.pickers.history({ scope = ":" })
 end
 
 map("n", "<Leader>fc", _10_, "Filter command history")
-local function _11_()
-	return _G.MiniExtra.pickers.buf_lines({ scope = "current" })
-end
-map("n", "<Leader>/", _11_, "Find lines")
 
 -- map({ "n", "i" }, "<C-P>", MiniExtra.pickers.registers, "Find registers")
 -- Insert blank lines

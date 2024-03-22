@@ -93,6 +93,23 @@
         "dir": "PROJECT"
       }
     ],
+    "elixir": [
+      {
+        "command": [
+          "mix",
+          "new",
+          "{project}"
+        ],
+        "dir": "SPACE"
+      },
+      {
+        "command": [
+          "git",
+          "init"
+        ],
+        "dir": "PROJECT"
+      }
+    ],
     "gleam": [
       {
         "command": [

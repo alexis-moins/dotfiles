@@ -14,7 +14,7 @@ keys.map("n", "<Leader>fk", MiniExtra.pickers.keymaps, "Find keymaps")
 keys.map("n", "<C-f>", function()
 	MiniExtra.pickers.history({ scope = ":" })
 end, "Filter command history")
-keys.map("n", "<C-b>", function()
+keys.map("n", "<C-s>", function()
 	MiniExtra.pickers.buf_lines({ scope = "current" })
 end, "Find lines")
 --
@@ -38,7 +38,7 @@ vim.ui.select = MiniPick.ui_select
 -- Mappings
 keys.map("n", "<Leader><Space>", MiniPick.builtin.files, "Find files")
 keys.map("n", "<Leader>z", MiniPick.builtin.resume, "Resume last picker")
-keys.map("n", "<Leader>fb", MiniPick.builtin.buffers, "Find buffers")
+keys.map("n", "<C-b>", MiniPick.builtin.buffers, "Find buffers")
 keys.map("n", "<Leader>fh", MiniPick.builtin.help, "Find help")
 keys.map("n", "<Leader>fg", MiniPick.builtin.grep_live, "Find content")
 keys.map("n", "<Leader>*", "<cmd>Pick grep pattern='<cword>'<cr>", "Grep string under cursor")
@@ -105,12 +105,6 @@ cmd.autocmd("RecordingEnter", {
 cmd.autocmd("RecordingLeave", { group = group, callback = MiniNotify.clear })
 
 --
--- mini.tabline
---
-add("echasnovski/mini.tabline")
-require("mini.tabline").setup()
-
---
 -- mini.comment
 --
 add("echasnovski/mini.comment")
@@ -173,19 +167,17 @@ require("mini.bracketed").setup({
 })
 
 --
--- 	{
--- 		"echasnovski/mini.jump",
--- 		event = "VeryLazy",
--- 		opts = {
--- 			mappings = {
--- 				repeat_jump = ",",
--- 			},
---
--- 			delay = {
--- 				highlight = 0,
--- 			},
--- 		},
--- 	},
+-- mini.jump
+add("echasnovski/mini.jump")
+require("mini.jump").setup({
+	mappings = {
+		repeat_jump = ",",
+	},
+
+	delay = {
+		highlight = 0,
+	},
+})
 
 --
 -- mini.splitjoin
@@ -203,7 +195,10 @@ require("mini.operators").setup()
 -- mini.sessions
 --
 add("echasnovski/mini.sessions")
-require("mini.sessions").setup({ verbose = { read = true } })
+require("mini.sessions").setup({
+	autowrite = false,
+	verbose = { read = true },
+})
 
 --- Wrapper around mini.sessions functions. Returns a function that
 --- behaves differently based on the given scope.

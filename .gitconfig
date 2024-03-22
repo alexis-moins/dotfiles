@@ -51,8 +51,11 @@
 [alias]
     ci = commit
     force = !git amend && git push -f
+    main-branch = !git symbolic-ref refs/remotes/origin/HEAD | cut -d'/' -f4
 
     sw = switch
+    sm = !git switch $(git main-branch)
+    M = !git merge $(git main-branch)
 
     bl = branch --format '%(color:red)[%(HEAD)]%(color:white) %(refname:short) %(color:green)%(upstream:short) %(color:blue)%(authorname) %(color:bold black)%(committerdate:relative) %(upstream:track)'
     blr = branch --remote --format '%(color:red)[%(HEAD)]%(color:white) %(refname:short) %(color:blue)%(authorname) %(color:bold black)%(committerdate:relative)'
