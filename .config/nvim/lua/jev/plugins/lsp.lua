@@ -56,8 +56,6 @@ cmd.autocmd("LspAttach", {
 		keys.maplocal("n", "<LocalLeader>rn", vim.lsp.buf.rename, "Rename symbol under the cursor", buffer)
 		keys.maplocal("n", "<LocalLeader>ca", vim.lsp.buf.code_action, "Code actions", buffer)
 		keys.maplocal("n", "<LocalLeader>lr", vim.cmd.LspRestart, "Restart Lsp client", buffer)
-
-		vim.lsp.inlay_hint.enable(0, true)
 	end,
 })
 

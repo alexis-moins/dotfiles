@@ -7,18 +7,16 @@ local keys = require("jev.core.keymaps")
 add("tpope/vim-fugitive")
 keys.map("n", "<Leader>gs", "<cmd>Git<cr>", "Open git status")
 
----
---- Gitsigns
----
-add("lewis6991/gitsigns.nvim")
-require("gitsigns").setup({
-	on_attach = function()
-		keys.maplocal("n", "[h", require("gitsigns").prev_hunk, "Previous git hunk", true)
-		keys.maplocal("n", "]h", require("gitsigns").next_hunk, "Next git hunk", true)
-
-		keys.maplocal({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "Select inner git hunk", true)
-	end,
+--
+-- mini.diff
+--
+add("echasnovski/mini.diff")
+require("mini.diff").setup({
+	view = {
+		style = "sign",
+		signs = { add = "┃", change = "┃", delete = "┃" },
+	},
 })
 
 -- Mappings
-keys.map("n", "|g", "<cmd>Gitsigns toggle_signs<cr>", "Toggle git signs")
+keys.map("n", "|d", MiniDiff.toggle_overlay, "Toggle diff overlay")

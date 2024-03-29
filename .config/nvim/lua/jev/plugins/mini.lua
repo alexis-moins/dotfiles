@@ -255,10 +255,11 @@ keys.map("n", "<Leader>V", function()
 	MiniVisits.select_path("", { filter = LABEL })
 end, "Find labels (all)")
 
--- 	{
--- 		"echasnovski/mini.colors",
--- 		opts = {},
--- 	},
+--
+-- mini.colors
+--
+add("echasnovski/mini.colors")
+require('mini.colors').setup()
 
 --
 -- mini.hipatterns

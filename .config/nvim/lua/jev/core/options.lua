@@ -81,6 +81,8 @@ opt("listchars", {
 	nbsp = "␣",
 })
 
+opt("conceallevel", 1)
+
 -- Manually define folds with 'zf'
 opt("foldmethod", "manual")
 
