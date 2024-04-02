@@ -41,7 +41,7 @@ opt("cmdheight", 0)
 opt("showcmd", false)
 
 -- Format of the winbar
-opt("winbar", "%=%S%#Error#%m %#Comment#%t %#Function#%y")
+opt("winbar", "%=%S%#Error#%m %#Comment#%-0.30f %#Function#%y")
 
 -- [search] Ignore case unless uppercase is used
 opt("smartcase", true)
