@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#
+# Interactive git diff (staged)
+#
+git_root="$(git rev-parse --show-toplevel)"
+
+candidates="$(git diff --cached --name-only)"
+[[ -z "${candidates}" ]] && echo 'No staged changes to diff' && exit 1
+
+echo "${candidates}" \
+    | tr ' ' '\n' \
+    | gum filter --no-limit --fuzzy --placeholder="Select files to diff" \
+    | sed -e "s!^!${git_root}/!" \
+    | xargs git diff --staged

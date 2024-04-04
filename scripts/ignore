@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#
+# Add items to .gitignore with ease
+#
+git_root="$(git rev-parse --show-toplevel)"
+
+echo "${*}" \
+    | tr ' ' '\n' \
+    | tr '\n' ' ' >> "${git_root}/.gitignore"
+
+echo "${#} item(s) added to .gitignore"

@@ -6,7 +6,9 @@ $character
 """
 
 right_format = """
-$jobs
+$jobs\
+$shlvl\
+$shell
 """
 
 [directory]
@@ -41,7 +43,7 @@ deleted = "-$count"
 renamed = "*$count"
 
 [python]
-format = '[(\($virtualenv\) )]($style)'
+format = '#[(($virtualenv-)$version )]($style)'
 style = "#6e738d"
 
 [nodejs]
@@ -62,3 +64,14 @@ error_symbol = "[➜](red)"
 
 vimcmd_symbol = "[N](green)"
 vimcmd_visual_symbol = "[V](purple)"
+
+[shell]
+# disabled = false
+
+[shlvl]
+disabled = false
+style = "purple"
+format = '[\[$shlvl\] ]($style)'
+repeat = true
+threshold = 2
+repeat_offset = 1

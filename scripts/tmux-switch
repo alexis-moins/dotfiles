@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#
+# Switch tmux sessions interactively
+#
+session="$(tmux list-sessions -F '#S' | gum filter --placeholder="Select a session")"
+[[ -z "${session}" ]] && exit 0
+
+if [[ -n "${TMUX}" ]]; then
+    tmux switch-client -t "${session}"
+else
+    tmux attach-session -t "${session}"
+fi

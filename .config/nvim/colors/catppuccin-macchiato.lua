@@ -425,8 +425,13 @@ hi(0, "rainbow6", { fg = "#b7bdf8" })
 hi(0, "zshKSHFunction", { link = "Function" })
 
 --
--- mini.hipatterns groups
+-- mini.hipatterns
 --
 hi(0, "MiniHipatternsTodo", { fg = "#f5a97f" })
 hi(0, "MiniHipatternsNote", { fg = "#b7bdf8" })
 hi(0, "MiniHipatternsFixme", { fg = "#ed8796" })
+
+--
+-- mini.diff
+--
+hi(0, "MiniDiffSignChange", { link = 'Changed' })

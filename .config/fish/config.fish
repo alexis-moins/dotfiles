@@ -31,9 +31,6 @@ test -d ~/.opam/opam-init/init.fish && source ~/.opam/opam-init/init.fish
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/alexis/google-cloud-sdk/path.fish.inc' ]; . '/Users/alexis/google-cloud-sdk/path.fish.inc'; end
-
 fish_add_path "$HOME/.cargo/bin"
 fish_add_path "$HOME/.local/share/bob/nvim-bin"
 

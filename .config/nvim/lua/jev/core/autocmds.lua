@@ -54,7 +54,7 @@ autocmd("FileType", {
 	group = augroup("format_options"),
 	pattern = "*",
 	callback = function()
-		vim.opt_local.formatoptions = "qjl1"
+		vim.opt_local.formatoptions = "coqjl1"
 	end,
 })
 
