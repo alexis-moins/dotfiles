@@ -73,7 +73,9 @@ alias psql="docker exec -it postgres psql"
 
 alias v="nvim"
 
+# Easier directory navigation
 alias ..="cd .."
+alias ...="cd ..."
 
 #
 # Functions

@@ -17,6 +17,8 @@ end, "Filter command history")
 keys.map("n", "<C-s>", function()
 	MiniExtra.pickers.buf_lines({ scope = "current" })
 end, "Find lines")
+keys.map("n", "<Leader>fs", MiniExtra.pickers.spellsuggest, "Find spelling")
+
 --
 -- mini.pick
 --
@@ -259,7 +261,7 @@ end, "Find labels (all)")
 -- mini.colors
 --
 add("echasnovski/mini.colors")
-require('mini.colors').setup()
+require("mini.colors").setup()
 
 --
 -- mini.hipatterns
@@ -289,3 +291,9 @@ require("mini.completion").setup({
 
 	fallback_action = "<C-n>",
 })
+
+--
+-- mini.tabline
+--
+add("echasnovski/mini.tabline")
+require("mini.tabline").setup()

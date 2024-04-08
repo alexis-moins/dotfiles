@@ -100,12 +100,9 @@ hi(0, "@text.reference", { link = "Tag" })
 hi(0, "@text.strike", { fg = "#cad3f5", strikethrough = true })
 hi(0, "@text.strong", { bold = true, fg = "#ee99a0" })
 hi(0, "@text.title", { bold = true, fg = "#8aadf4" })
-hi(0, "@text.title.1.markdown", { link = "rainbow1" })
-hi(0, "@text.title.2.markdown", { link = "rainbow2" })
-hi(0, "@text.title.3.markdown", { link = "rainbow3" })
-hi(0, "@text.title.4.markdown", { link = "rainbow4" })
-hi(0, "@text.title.5.markdown", { link = "rainbow5" })
-hi(0, "@text.title.6.markdown", { link = "rainbow6" })
+
+
+
 hi(0, "@text.todo", { bg = "#eed49f", fg = "#24273a" })
 hi(0, "@text.todo.checked", { fg = "#a6da95" })
 hi(0, "@text.todo.unchecked", { fg = "#8087a2" })
@@ -285,9 +282,9 @@ hi(0, "MiniPickMatchRanges", { link = "String" })
 hi(0, "MiniPickNormal", { link = "Comment" })
 hi(0, "MiniPickPrompt", { link = "Normal" })
 hi(0, "MiniTablineCurrent", { link = "TabLineSel" })
-hi(0, "MiniTablineModifiedCurrent", { link = "Normal" })
-hi(0, "MiniTablineModifiedHidden", { link = "TabLine" })
-hi(0, "MiniTablineModifiedVisible", { link = "TabLine" })
+hi(0, "MiniTablineModifiedCurrent", { fg = "#ed8796", italic = true })
+hi(0, "MiniTablineModifiedHidden", { fg = "#f5a97f", italic = true })
+hi(0, "MiniTablineModifiedVisible", { fg = "#f5a97f", italic = true })
 hi(0, "MiniTablineVisible", { link = "TabLine" })
 hi(0, "MiniNotifyBorder", { fg = "#c6a0f6" })
 hi(0, "MiniNotifyNormal", { link = "Comment" })
@@ -435,3 +432,20 @@ hi(0, "MiniHipatternsFixme", { fg = "#ed8796" })
 -- mini.diff
 --
 hi(0, "MiniDiffSignChange", { link = 'Changed' })
+
+--
+-- Filetypes
+--
+
+--
+-- Markdown
+--
+hi(0, "@markup.heading.1.markdown", { fg = "#ed8796" })
+hi(0, "@markup.heading.2.markdown", { fg = "#f5a97f" })
+hi(0, "@markup.heading.3.markdown", { fg = "#eed49f" })
+hi(0, "@markup.heading.4.markdown", { fg = "#a6da95" })
+hi(0, "@markup.heading.5.markdown", { fg = "#b7bdf8" })
+hi(0, "@markup.heading.6.markdown", { fg = "#7dc4e4" })
+
+hi(0, "@markup.italic.markdown_inline", { fg = "#f5a97f", italic = true })
+hi(0, "@markup.strong.markdown_inline", { fg = "#ed8796", bold = true })

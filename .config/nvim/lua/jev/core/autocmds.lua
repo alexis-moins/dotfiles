@@ -2,6 +2,7 @@ local function augroup(name)
 	return vim.api.nvim_create_augroup("Jev" .. name, { clear = true })
 end
 
+local keys = require("jev.core.keymaps")
 local autocmd = vim.api.nvim_create_autocmd
 
 -- Check if we need to reload the file when it changed
@@ -77,6 +78,57 @@ autocmd("CmdwinEnter", {
 		vim.opt_local.relativenumber = false
 		vim.opt_local.signcolumn = "no"
 	end,
+})
+
+--
+-- Auto pairs for angle brackets
+--
+autocmd("FileType", {
+	group = augroup("AutoPairs"),
+	pattern = {
+		"markdown",
+		"html",
+		"vue",
+		"javascriptreact",
+		"typescriptreact",
+	},
+	callback = function()
+		MiniPairs.map_buf(0, "i", "<", { action = "open", pair = "<>", register = { cr = false } })
+		MiniPairs.map_buf(0, "i", ">", { action = "close", pair = "<>", register = { cr = false } })
+	end,
+})
+
+--
+-- Templates
+--
+local template_group = augroup("Templates")
+
+local read_template = function(template_name)
+	return function()
+		vim.cmd("0r ~/.config/nvim/templates/" .. template_name)
+		keys.maplocal("n", "<Leader>i", "cgn", "Change next template placeholder", 0)
+
+		-- set search register to @@
+		vim.cmd('let @/ = "@@"')
+	end
+end
+
+--
+-- React
+--
+autocmd("BufNewFile", {
+	group = template_group,
+	pattern = { "*.jsx", "*.tsx" },
+	callback = read_template("react"),
+})
+
+--
+-- Vue
+--
+autocmd("BufNewFile", {
+	group = template_group,
+	pattern = { "*.vue" },
+	callback = read_template("vue"),
 })
 
 local helpers = {

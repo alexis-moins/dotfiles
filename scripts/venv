@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#
+# Create a local python virtual environment
+#
+python -m venv "${1}" && "${1}"/bin/pip install -U pip
