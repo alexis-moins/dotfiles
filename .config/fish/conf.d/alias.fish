@@ -43,3 +43,5 @@ alias gc 'git-resolve-conflict'
 alias psql 'docker exec -it postgres psql'
 
 alias v nvim
+
+alias gg "git switch (git-branch)"

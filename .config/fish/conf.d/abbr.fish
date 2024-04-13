@@ -17,7 +17,6 @@ abbr --add gl "git log"
 abbr --add ta "tmux attach"
 
 abbr --add ss "session"
-abbr --add gg "git-switch"
 
 abbr --add da "direnv allow ."
 

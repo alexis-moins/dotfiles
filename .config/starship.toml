@@ -44,7 +44,7 @@ renamed = "*$count"
 
 [python]
 format = '#[(($virtualenv-)$version )]($style)'
-style = "#6e738d"
+style = "green"
 
 [nodejs]
 symbol = ""
@@ -70,8 +70,8 @@ vimcmd_visual_symbol = "[V](purple)"
 
 [shlvl]
 disabled = false
-style = "purple"
-format = '[\[$shlvl\] ]($style)'
+style = "#6e738d"
+format = '[\($shlvl\) ]($style)'
 repeat = true
 threshold = 2
 repeat_offset = 1

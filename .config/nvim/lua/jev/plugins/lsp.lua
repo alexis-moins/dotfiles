@@ -125,3 +125,8 @@ lspconfig.phpactor.setup({
 -- gleam
 --
 lspconfig.gleam.setup({})
+
+--
+-- Python
+--
+lspconfig.pyright.setup({})
