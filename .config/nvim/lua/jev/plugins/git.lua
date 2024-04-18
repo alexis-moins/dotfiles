@@ -5,7 +5,7 @@ local keys = require("jev.core.keymaps")
 -- Fugitive
 --
 add("tpope/vim-fugitive")
-keys.map("n", "<Leader>gs", "<cmd>Git<cr>", "Open git status")
+keys.map("n", "<C-G>", "<cmd>Git<cr>", "Open git status")
 
 --
 -- mini.diff

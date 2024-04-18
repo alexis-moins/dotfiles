@@ -1,7 +1,7 @@
 alias nvimrc 'nvim $HOME/.config/nvim/init.lua'
 
 # Active a python virtual env
-alias activate 'source (fd activate.fish .venv)'
+alias activate 'source (fd -I activate.fish)'
 
 alias ... 'cd .. && cd ..'
 

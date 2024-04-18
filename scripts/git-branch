@@ -4,4 +4,4 @@
 #
 git branch --sort='-committerdate' --format='%(refname:short)' \
     | gum filter --placeholder='Select branches' --no-limit \
-    | tr '\n' ' '
+    | tr -d '\n'
