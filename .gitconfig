@@ -92,6 +92,7 @@
 
 [push]
 	autoSetupRemote = true
+    default = "current"
 
 [remote "origin"]
     prune = true

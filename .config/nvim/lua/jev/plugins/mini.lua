@@ -1,8 +1,5 @@
 local add = MiniDeps.add
 
-local cmd = require("jev.core.autocmds")
-local keys = require("jev.core.keymaps")
-
 --
 -- mini.extra
 --
@@ -11,13 +8,15 @@ require("mini.extra").setup()
 
 -- Mappings
 keys.map("n", "<Leader>fk", MiniExtra.pickers.keymaps, "Find keymaps")
+keys.map("n", "<Leader>fs", MiniExtra.pickers.spellsuggest, "Find spelling")
+
 keys.map("n", "<C-f>", function()
 	MiniExtra.pickers.history({ scope = ":" })
 end, "Filter command history")
+
 keys.map("n", "<C-s>", function()
 	MiniExtra.pickers.buf_lines({ scope = "current" })
 end, "Find lines")
-keys.map("n", "<Leader>fs", MiniExtra.pickers.spellsuggest, "Find spelling")
 
 --
 -- mini.pick
@@ -59,11 +58,7 @@ require("mini.pairs").setup({
 add("echasnovski/mini.files")
 require("mini.files").setup({
 	mappings = {
-		go_in = "L",
 		go_in_plus = "<CR>",
-
-		go_out = "H",
-		go_out_plus = "",
 	},
 })
 
@@ -95,16 +90,16 @@ require("mini.notify").setup({
 vim.notify = MiniNotify.make_notify()
 
 -- Autocommands
-local group = cmd.augroup("MacroNotification")
+local group = event.augroup("MacroNotification")
 
-cmd.autocmd("RecordingEnter", {
+event.autocmd("RecordingEnter", {
 	group = group,
 	callback = function()
 		MiniNotify.add("(macro) Recording @" .. vim.fn.reg_recording())
 	end,
 })
 
-cmd.autocmd("RecordingLeave", { group = group, callback = MiniNotify.clear })
+event.autocmd("RecordingLeave", { group = group, callback = MiniNotify.clear })
 
 --
 -- mini.comment
@@ -166,6 +161,7 @@ add("echasnovski/mini.bracketed")
 require("mini.bracketed").setup({
 	treesitter = { suffix = "" },
 	oldfile = { suffix = "" },
+	diagnostic = { suffix = "" },
 })
 
 --
@@ -289,7 +285,11 @@ require("mini.completion").setup({
 		signature = { border = "single" },
 	},
 
-	fallback_action = "<C-n>",
+	fallback_action = "<C-x><C-l>",
+
+	mappings = {
+		force_twostep = "<C-h>",
+	},
 })
 
 --
@@ -297,3 +297,11 @@ require("mini.completion").setup({
 --
 add("echasnovski/mini.tabline")
 require("mini.tabline").setup()
+
+--
+-- mini.indentscope
+--
+add("echasnovski/mini.indentscope")
+require("mini.indentscope").setup({
+	symbol = "┃",
+})

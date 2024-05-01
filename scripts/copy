@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+#
+# Interactively copy a file
+#
+file="$(fd -H | gum filter)"
+
+[[ -z "${file}" ]] && exit 1
+filename="$(basename ${file})"
+
+destination="$(gum file \
+    --directory \
+    --cursor.foreground="#ed8796" \
+    --directory.foreground="#8aadf4" \
+    --selected.foreground="#c6a0f6" \
+    --permissions.foreground="#5b6078" \
+    --file-size.foreground="#5b6078")"
+
+[[ -z "${destination}" ]] && exit 1
+
+echo $filename
+echo $destination
+
+if [[ -d "${destination}" ]]; then
+    command cp -iv "${file}" "${destination}/${filename}"
+else
+    command cp -iv "${file}" "${destination}"
+fi

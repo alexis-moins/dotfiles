@@ -2,7 +2,6 @@ local function augroup(name)
 	return vim.api.nvim_create_augroup("Jev" .. name, { clear = true })
 end
 
-local keys = require("jev.core.keymaps")
 local autocmd = vim.api.nvim_create_autocmd
 
 -- Check if we need to reload the file when it changed

@@ -1,119 +1,67 @@
---- Creates a mapping with a description
----
----@param modes string|table
----@param keys string
----@param action string|function
----@param description string
-local function map(modes, keys, action, description)
-	local opts = { desc = description }
-	return vim.keymap.set(modes, keys, action, opts)
-end
+keys.map("i", "jk", "<Esc>", "Leave insert mode")
 
---- Creates a buffer local mapping with the a description
----
----@param modes string|table
----@param keys string
----@param action string|function
----@param description string
----@param buffer integer|boolean
-local function maplocal(modes, keys, action, description, buffer)
-	local opts = { desc = description, buffer = buffer }
-	return vim.keymap.set(modes, keys, action, opts)
-end
+keys.map("n", "/", "ms/", "Search a pattern forward")
+keys.map("n", "?", "ms?", "Search a pattern backward")
 
---- Returns a function that toggles a vim option.
---- Meant to be used in conjunction with the map function.
----
----@param option string
-local function toggle(option)
-	return function()
-		local opt = vim.opt_local[option]:get()
-		vim.opt_local[option] = not opt
-	end
-end
+keys.map("n", "<C-S>", "`s", "Go back to before search")
 
---
--- Mappings
---
-map("i", "jk", "<Esc>", "Leave insert mode")
+keys.map("n", "<BS>", vim.cmd.nohlsearch, "Clear search highlighting")
+keys.map("n", "<Leader>so", vim.cmd.source, "Source current file")
 
-map("n", "/", "ms/", "Search a pattern forward")
-map("n", "?", "ms?", "Search a pattern backward")
+keys.map("n", "<Leader>o", vim.cmd.only, "Close all splits")
+keys.map("n", "<Leader>-", vim.cmd.bdelete, "Delete the current buffer")
 
-map("n", "<C-S>", "`s", "Go back to before search")
-
-map("n", "<BS>", vim.cmd.nohlsearch, "Clear search highlighting")
-map("n", "<Leader>so", vim.cmd.source, "Source current file")
-
-map("n", "<Leader>o", vim.cmd.only, "Close all splits")
-map("n", "<Leader>-", vim.cmd.bdelete, "Delete the current buffer")
-
-map("n", "<Leader>q", vim.cmd.copen, "Open/focus the quickfix list")
-map({ "n", "v" }, "j", "gj", "Move down (respects wrap)")
-map({ "n", "v" }, "k", "gk", "Move up (respects wrap)")
+keys.map("n", "<Leader>q", vim.cmd.copen, "Open/focus the quickfix list")
+keys.map({ "n", "v" }, "j", "gj", "Move down (respects wrap)")
+keys.map({ "n", "v" }, "k", "gk", "Move up (respects wrap)")
 
 -- Play @q macro and move to next line (recusrive)
-map("n", "Q", "@qj", "Play macro")
-map("x", "Q", "<cmd>norm @q<cr>", "Play macro")
+keys.map("n", "Q", "@qj", "Play macro")
+keys.map("x", "Q", "<cmd>norm @q<cr>", "Play macro")
 
 -- Stay in place
-map("n", "J", "mzJ`z", "Join line below without moving cursor")
+keys.map("n", "J", "mzJ`z", "Join line below without moving cursor")
 
 -- Easier line navigation
-map("n", "L", "$", "Go to the end of the line")
-map("v", "L", "$", "Go to the end of the line (visual)")
+keys.map("n", "L", "$", "Go to the end of the line")
+keys.map("v", "L", "$", "Go to the end of the line (visual)")
 
-map("n", "<C-E>", "<cmd>edit #<cr>", "Edit alternate file")
-map("n", "<C-U>", "<C-U>zz", "Scroll upwards (center)")
-map("n", "<C-D>", "<C-D>zz", "Scroll downwards (center)")
-map("n", "n", "nzz", "Repeat last search (center)")
-map("n", "N", "Nzz", "Repeat last search in opposite direction (center)")
-map({ "n", "x" }, "gy", '"+y', "Copy (+register)")
-map({ "n", "x" }, "gp", '"+p', "Paste after cursor (+register)")
-map({ "n", "x" }, "gP", '"+P', "Paste before cursor (+register)")
+keys.map("n", "<C-E>", "<cmd>edit #<cr>", "Edit alternate file")
+keys.map("n", "<C-U>", "<C-U>zz", "Scroll upwards (center)")
+keys.map("n", "<C-D>", "<C-D>zz", "Scroll downwards (center)")
+keys.map("n", "n", "nzz", "Repeat last search (center)")
+keys.map("n", "N", "Nzz", "Repeat last search in opposite direction (center)")
+keys.map({ "n", "x" }, "gy", '"+y', "Copy (+register)")
+keys.map({ "n", "x" }, "gp", '"+p', "Paste after cursor (+register)")
+keys.map({ "n", "x" }, "gP", '"+P', "Paste before cursor (+register)")
 
 --
 -- Terminal keymaps
 --
-map("t", "<esc>", "<C-\\><C-N>", "Leave terminal mode")
-map("t", "<C-^>", "<C-\\><C-N><C-O>", "Leave terminal mode and jump to last buffer")
-map("t", "<C-w>", "<C-\\><C-N><C-w>", "")
+keys.map("t", "<esc>", "<C-\\><C-N>", "Leave terminal mode")
+keys.map("t", "<C-^>", "<C-\\><C-N><C-O>", "Leave terminal mode and jump to last buffer")
+keys.map("t", "<C-w>", "<C-\\><C-N><C-w>", "")
 
-map("n", "<Leader>ts", "<cmd>horizontal terminal<cr>", "Open a terminal in a horizontal split")
-map("n", "<Leader>tv", "<cmd>vertical terminal<cr>", "Open a terminal in a vertical split")
+keys.map("n", "<Leader>ts", "<cmd>horizontal terminal<cr>", "Open a terminal in a horizontal split")
+keys.map("n", "<Leader>tv", "<cmd>vertical terminal<cr>", "Open a terminal in a vertical split")
 
-local function _10_()
-	return _G.MiniExtra.pickers.history({ scope = ":" })
-end
-
-map("n", "<Leader>fc", _10_, "Filter command history")
-
--- map({ "n", "i" }, "<C-P>", MiniExtra.pickers.registers, "Find registers")
 -- Insert blank lines
-map("n", "[<Space>", "mzO<esc>`z", "Insert a line above cursor")
-map("n", "]<Space>", "mzo<esc>`z", "Insert a line below cursor")
+keys.map("n", "[<Space>", "mzO<esc>`z", "Insert a line above cursor")
+keys.map("n", "]<Space>", "mzo<esc>`z", "Insert a line below cursor")
 
 --
 -- Option toggling
 --
 
 -- Numbers on the left
-map("n", "|n", toggle("number"), "Toggle line number")
-map("n", "|r", toggle("relativenumber"), "Toggle relative line number")
+keys.map("n", "|n", keys.toggle("number"), "Toggle line number")
+keys.map("n", "|r", keys.toggle("relativenumber"), "Toggle relative line number")
 
-map("n", "|c", toggle("cursorline"), "Toggle cursorline")
-map("n", "|l", toggle("list"), "Toggle list chararcters")
+keys.map("n", "|c", keys.toggle("cursorline"), "Toggle cursorline")
+keys.map("n", "|l", keys.toggle("list"), "Toggle list chararcters")
 
 -- Wrap lines that are longer than 'textwidth'
-map("n", "|w", toggle("wrap"), "Toggle line wrapping")
+keys.map("n", "|w", keys.toggle("wrap"), "Toggle line wrapping")
 
 -- Spelling errors and suggestions
-map("n", "|s", toggle("spell"), "Toggle spell checking")
-
-local helpers = {
-	map = map,
-	maplocal = maplocal,
-	toggle = toggle,
-}
-
-return helpers
+keys.map("n", "|s", keys.toggle("spell"), "Toggle spell checking")

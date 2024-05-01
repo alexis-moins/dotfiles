@@ -93,3 +93,11 @@ require("nvim-treesitter.configs").setup({
 		},
 	},
 })
+
+--
+-- Treesitter context
+--
+add("nvim-treesitter/nvim-treesitter-context")
+require("treesitter-context").setup({})
+
+vim.api.nvim_set_hl(0, "TreesitterContext", { link = "CursorLine" })

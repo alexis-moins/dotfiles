@@ -1,5 +1,4 @@
 local add = MiniDeps.add
-local keys = require("jev.core.keymaps")
 
 --
 -- Fugitive

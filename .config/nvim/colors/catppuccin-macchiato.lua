@@ -228,7 +228,7 @@ hi(0, "ErrorMsg", { bold = true, fg = "#ed8796", italic = true })
 hi(0, "Exception", { fg = "#c6a0f6" })
 hi(0, "FloatBorder", { fg = "#8aadf4" })
 hi(0, "FloatTitle", { fg = "#a5adcb" })
-hi(0, "FoldColumn", { fg = "#a6da95" })
+hi(0, "FoldColumn", { link = "CursorLineNr" })
 hi(0, "Folded", { bg = "#24273a", fg = "#8aadf4" })
 hi(0, "Function", { fg = "#8aadf4" })
 hi(0, "GlyphPalette1", { fg = "#ed8796" })
@@ -432,6 +432,11 @@ hi(0, "MiniHipatternsFixme", { fg = "#ed8796" })
 -- mini.diff
 --
 hi(0, "MiniDiffSignChange", { link = 'Changed' })
+
+--
+-- mini.indentscope
+--
+hi(0, "MiniIndentscopeSymbol", { link = "NonText" })
 
 --
 -- Filetypes

@@ -22,13 +22,13 @@ alias fd 'fd --color="never"'
 
 alias mkdir 'mkdir -p'
 
-alias ls 'exa --git-ignore'
+alias ls 'eza --git-ignore'
 
-alias la 'exa --all'
+alias la 'eza --all'
 
-alias ll 'exa --all --long --git'
+alias ll 'eza --all --long --git'
 
-alias tree 'exa --tree --git-ignore'
+alias tree 'eza --tree --git-ignore'
 
 alias session 'nvim -S'
 

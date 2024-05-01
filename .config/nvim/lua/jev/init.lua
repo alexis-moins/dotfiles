@@ -1,11 +1,5 @@
--- Options
-require("jev.core.options")
-
--- Autocmds
-require("jev.core.autocmds")
-
--- Mappings
-require("jev.core.keymaps")
+-- Core (mappings, options, autocmds...)
+require("jev.core")
 
 -- Package manager
 require("jev.deps")
