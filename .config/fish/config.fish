@@ -33,3 +33,5 @@ fish_add_path "$HOME/.local/share/bob/nvim-bin"
 
 fish_add_path "$HOME/scripts"
 fish_add_path "$HOME/.local/bin"
+
+set --export PM_INSTALL_DIR "$HOME/dev/personal/pm"
