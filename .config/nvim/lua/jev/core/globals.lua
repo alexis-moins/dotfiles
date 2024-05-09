@@ -6,7 +6,7 @@ local function set(name, value)
 end
 
 local function setlocal(name, value)
-	vim.opt.set_local[name] = value
+	vim.opt_local[name] = value
 end
 
 local function setglobal(name, value)

@@ -35,3 +35,4 @@ fish_add_path "$HOME/scripts"
 fish_add_path "$HOME/.local/bin"
 
 set --export PM_INSTALL_DIR "$HOME/dev/personal/pm"
+set --export DOT_INSTALL_DIR "$HOME/dev/personal/dot"
