@@ -17,7 +17,7 @@ end
 test -f ~/.asdf/asdf.fish && source ~/.asdf/asdf.fish
 
 # ocaml configuration
-test -d ~/.opam/opam-init/init.fish && source ~/.opam/opam-init/init.fish
+test -f ~/.opam/opam-init/init.fish && source ~/.opam/opam-init/init.fish
 
 # echo '  ⟋|､'
 # echo ' (°､ ｡ 7'

@@ -7,7 +7,7 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 vim.diagnostic.config({
 	float = { border = "rounded" },
 	update_in_insert = true,
-	virtual_text = false,
+	-- virtual_text = false,
 })
 
 --
@@ -78,8 +78,11 @@ event.autocmd("LspAttach", {
 		keys.maplocal("n", "<Leader>d", diagnostic("current"), "Find diagnostic (current)", buffer)
 
 		keys.maplocal("n", "<Leader>lr", vim.cmd.LspRestart, "Restart Lsp client", buffer)
+
+		keys.maplocal("n", "H", function()
+			vim.diagnostic.open_float(nil, { focus = false })
+		end, "Open diagnostics popup", buffer)
 	end,
 })
 
--- Mappings
 keys.map("n", "<Leader>li", "<cmd>LspInfo<cr>", "Show LSP info")

@@ -11,6 +11,7 @@ conform.setup({
 		json = { { "prettierd", "prettier" } },
 		typescript = { { "prettierd", "prettier" } },
 		php = { "pint" },
+		ocaml = { "ocamlformat" },
 	},
 })
 
