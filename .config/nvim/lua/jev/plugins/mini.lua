@@ -285,7 +285,7 @@ require("mini.completion").setup({
 		signature = { border = "single" },
 	},
 
-	fallback_action = "<C-x><C-l>",
+	fallback_action = "<C-x><C-n>",
 
 	mappings = {
 		force_twostep = "<C-h>",

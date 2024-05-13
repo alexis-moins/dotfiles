@@ -77,14 +77,10 @@ opt.set("listchars", {
 })
 
 -- Conceal text
-opt.set("conceallevel", 1)
+-- opt.set("conceallevel", 1)
 
 -- Manually define folds with 'zf'
 opt.set("foldmethod", "manual")
-
-local a = function()
-	print("hello")
-end
 
 -- Show folds hints only if there is at least 1
 opt.set("foldcolumn", "auto")
