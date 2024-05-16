@@ -374,6 +374,30 @@ hi(0, "shNoQuote", { link = "shAstQuote" })
 hi(0, "shQuote", { link = "String" })
 hi(0, "shTestOpr", { link = "Operator" })
 
+--
+-- mini.tabline
+--
+hi(0, "TabLineSel", { bg = "#e7e7e7" })
+hi(0, "TabLine", { bg = "#e7e7e7", fg = "#a0a0a0" })
+
+hi(0, "MiniTablineVisible", { link = "TabLine" })
+hi(0, "MiniTablineCurrent", { link = "TabLineSel" })
+
+hi(0, "MiniTablineModifiedCurrent", { fg = "#b23b34", italic = true })
+hi(0, "MiniTablineModifiedHidden", { fg = "#a0713c", italic = true })
+hi(0, "MiniTablineModifiedVisible", { fg = "#a0713c", italic = true })
+
+--
+-- mini.diff
+--
+hi(0, "Added", { fg = "#6a824f" })
+hi(0, "Changed", { fg = "#a0713c" })
+hi(0, "Removed", { fg = "#b23b34" })
+
+hi(0, "MiniDiffSignAdd", { fg = "#6a824f" })
+hi(0, "MiniDiffSignChange", { fg = "#a0713c" })
+hi(0, "MiniDiffSignDelete", { fg = "#b23b34" })
+
 -- Terminal colors
 local g = vim.g
 

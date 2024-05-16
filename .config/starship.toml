@@ -2,6 +2,7 @@ format = """
 $directory\
 $git_branch$git_state$git_status\
 $python\
+$ocaml\
 $character
 """
 
@@ -56,6 +57,12 @@ style = "italic bold black"
 [elixir]
 symbol = "elixir "
 style = "italic bold black"
+
+[ocaml]
+format = '$switch_indicator[$switch_name-$version ]($style)'
+global_switch_indicator = '#'
+style = "green"
+
 
 [character]
 # ❯ or ➜
