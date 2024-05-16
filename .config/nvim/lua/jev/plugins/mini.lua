@@ -151,6 +151,7 @@ require("mini.ai").setup({
 		B = MiniExtra.gen_ai_spec.buffer(),
 		I = MiniExtra.gen_ai_spec.indent(),
 		L = MiniExtra.gen_ai_spec.line(),
+		N = MiniExtra.gen_ai_spec.number(),
 	},
 })
 
