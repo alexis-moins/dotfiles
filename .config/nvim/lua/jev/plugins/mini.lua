@@ -254,6 +254,15 @@ keys.map("n", "<Leader>V", function()
 	MiniVisits.select_path("", { filter = LABEL })
 end, "Find labels (all)")
 
+local function cycle(direction)
+	return function()
+		MiniVisits.iterate_paths(direction, nil, { filter = LABEL })
+	end
+end
+
+keys.map("n", "]]", cycle("forward"), "Next file in " .. LABEL)
+keys.map("n", "[[", cycle("backward"), "Previous file in " .. LABEL)
+
 --
 -- mini.colors
 --

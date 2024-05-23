@@ -3,8 +3,8 @@ local add = MiniDeps.add
 --
 -- Fugitive
 --
-add("tpope/vim-fugitive")
-keys.map("n", "<C-G>", "<cmd>Git<cr>", "Open git status")
+add("echasnovski/mini-git")
+require("mini.git").setup({})
 
 --
 -- mini.diff

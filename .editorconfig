@@ -4,14 +4,14 @@ root = true
 indent_style = tab
 indent_size = 2
 
-[*.{html,css}]
+[Makefile]
+indent_style = tab
+indent_size = 4
+
+[*.{html,css,ml}]
 indent_style = space
 indent_size = 2
 
 [*.py]
 indent_style = space
 indent_size = 4
-
-[*.ml]
-indent_style = space
-indent_size = 2

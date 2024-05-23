@@ -77,7 +77,7 @@ event.autocmd("LspAttach", {
 		keys.maplocal("n", "<Leader>w", diagnostic("all"), "Find diagnostic (all)", buffer)
 		keys.maplocal("n", "<Leader>d", diagnostic("current"), "Find diagnostic (current)", buffer)
 
-		keys.maplocal("n", "<Leader>lr", vim.cmd.LspRestart, "Restart Lsp client", buffer)
+		keys.maplocal("n", "<Leader>lR", vim.cmd.LspRestart, "Restart Lsp client", buffer)
 
 		keys.maplocal("n", "H", function()
 			vim.diagnostic.open_float(nil, { focus = false })

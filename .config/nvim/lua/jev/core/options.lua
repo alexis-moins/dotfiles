@@ -36,7 +36,7 @@ opt.set("showcmd", false)
 -- Format of the winbar
 -- opt("winbar", "%=%S%#Error#%m %#Comment#%-0.30f %#Function#%y")
 -- opt("winbar", "%=%S%#Error#%m %#Function#%y")
-opt.set("winbar", " ")
+-- opt.set("winbar", " ")
 
 -- [search] Ignore case unless uppercase is used
 opt.set("smartcase", true)
