@@ -60,6 +60,10 @@ opt.set("spelllang", { "en", "fr" })
 -- Wait undefinitely for keymaps
 opt.set("timeout", false)
 
+opt.set("jumpoptions", { "stack", "view" })
+
+opt.set("inccommand", "split")
+
 -- Display list charaters
 opt.set("list", true)
 
