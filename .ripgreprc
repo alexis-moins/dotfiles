@@ -1,0 +1,8 @@
+# Search hidden files/directories
+--hidden
+
+--smart-case
+
+# But exclude .git directory
+--glob=!.git/*
+--glob=!node_modules/*

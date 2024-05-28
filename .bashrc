@@ -11,7 +11,34 @@ eval "$(zoxide init bash)"
 export PATH="${HOME}/scripts:${PATH}"
 export PATH="${HOME}/.local/share/bob/nvim-bin:${PATH}"
 
+#
+# ENV VARS
+#
+export RIPGREP_CONFIG_PATH="${HOME}/.ripgreprc"
+
 export SHELL="$(which bash)"
+
+#
+# PM
+#
+export PM_HOME="${HOME}/git"
+export PM_INSTALL_DIR="${PM_HOME}/cli/pm"
+
+export PM_SHOW_CMD="bat"
+
+export PM_VITE_CMD="bun"
+export PM_VITE_TEMPLATE="vue-ts"
+
+#
+# DOT
+#
+export DOT_INSTALL_DIR="${PM_HOME}/cli/dot"
+export DOTFILES_DIR="${PM_HOME}/personal/dotfiles"
+
+#
+# RECIPE
+#
+export RECIPE_INSTALL_DIR="${PM_HOME}/cli/recipe"
 
 #
 # Aliases
@@ -35,20 +62,12 @@ alias ta="tmux attach"
 alias dk="docker"
 
 alias nvimrc="nvim $HOME/.config/nvim/init.lu="
-
-# Active a python virtual env
 alias activate="source (fd activate.fish .venv)"
 
-alias ...="cd .. && cd .."
-
-# Copy stuff verbosely (-v) and ask for confirmation (-i)
 alias cp="cp -iv"
-
-# Rename / move stuff verbosely (-v) and ask for confirmation (-i)
 alias mv="mv -iv"
-
-# Remove stuff verbosely (-v) and ask for confirmation (-i)
 alias rm="rm -iv"
+alias mkdir="mkdir -p"
 
 # Perform the daily brew checkout
 alias daily="brew update; brew upgrade; brew cleanup"
@@ -56,16 +75,12 @@ alias daily="brew update; brew upgrade; brew cleanup"
 # Never display colors
 alias fd="fd --color="never""
 
-alias mkdir="mkdir -p"
-
 alias ls="exa --git-ignore"
 alias la="exa --all"
 alias ll="exa --all --long --git"
 alias tree="exa --tree --git-ignore"
 
 alias session="nvim -S"
-
-alias rg="rg --smart-case"
 
 alias j="just"
 
@@ -75,7 +90,7 @@ alias v="nvim"
 
 # Easier directory navigation
 alias ..="cd .."
-alias ...="cd ..."
+alias ...="cd .. && cd .."
 
 #
 # Functions

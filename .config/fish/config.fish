@@ -34,8 +34,26 @@ fish_add_path "$HOME/.local/share/bob/nvim-bin"
 fish_add_path "$HOME/scripts"
 fish_add_path "$HOME/.local/bin"
 
-set --export PM_INSTALL_DIR "$HOME/dev/personal/pm"
+set --export RIPGREP_CONFIG_PATH "$HOME/.ripgreprc"
+
+#
+# PM
+#
+set --export PM_HOME "$HOME/git"
+set --export PM_INSTALL_DIR "$PM_HOME/cli/pm"
+
 set --export PM_SHOW_CMD "bat"
 
-set --export DOT_INSTALL_DIR "$HOME/dev/personal/dot"
-set --export RECIPE_INSTALL_DIR "$HOME/dev/personal/recipe"
+set --export PM_VITE_CMD "bun"
+set --export PM_VITE_TEMPLATE "vue-ts"
+
+#
+# DOT
+#
+set --export DOT_INSTALL_DIR "$PM_HOME/cli/dot"
+set --export DOTFILES_DIR "$PM_HOME/personal/dotfiles"
+
+#
+# RECIPE
+#
+set --export RECIPE_INSTALL_DIR "$PM_HOME/cli/recipe"

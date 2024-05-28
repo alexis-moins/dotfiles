@@ -4,8 +4,7 @@
 #
 git_root="$(git rev-parse --show-toplevel)"
 
-echo "${*}" \
-    | tr ' ' '\n' \
-    | tr '\n' ' ' >> "${git_root}/.gitignore"
+for item in ${*}; do
+    echo "${item}" >> "${git_root}/.gitignore"; done
 
 echo "${#} item(s) added to .gitignore"

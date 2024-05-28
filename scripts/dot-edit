@@ -2,7 +2,7 @@
 #
 # Edit dotfiles from anywhere
 #
-dotfiles="${DOTFILES:-${HOME}/dotfiles}"
+dotfiles="${DOTFILES_DIR:-${HOME}/dotfiles}"
 pushd "${dotfiles}" &> /dev/null || exit 1
 
 file="$(fd --hidden --ignore --type f . | gum filter --placeholder="Select a file")"

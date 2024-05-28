@@ -12,5 +12,8 @@ defaults write com.apple.dock autohide-time-modifier -float 0.5
 # Dock delay before animation
 defaults write com.apple.dock autohide-delay -float 0
 
+# Font smoothing
+defaults -currentHost write -g AppleFontSmoothing -int 3
+
 # Restart dock
 killAll Dock

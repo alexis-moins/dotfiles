@@ -32,8 +32,6 @@ alias tree 'eza --tree --git-ignore'
 
 alias session 'nvim -S'
 
-alias rg 'rg --smart-case'
-
 alias ci git-commit
 
 alias j 'just'
