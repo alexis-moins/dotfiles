@@ -2,7 +2,7 @@
 opt.set("termguicolors", true)
 
 -- Use tweaked version of catppuccin
-vim.cmd.colorscheme("catppuccin-macchiato")
+vim.cmd.colorscheme(vim.env.COLORSCHEME or "catppuccin-macchiato")
 
 -- Always display sign column (diagnostics...)
 opt.set("signcolumn", "yes")

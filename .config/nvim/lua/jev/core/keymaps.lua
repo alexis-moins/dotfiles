@@ -47,8 +47,7 @@ keys.map("t", "<esc>", "<C-\\><C-N>", "Leave terminal mode")
 keys.map("t", "<C-^>", "<C-\\><C-N><C-O>", "Leave terminal mode and jump to last buffer")
 keys.map("t", "<C-w>", "<C-\\><C-N><C-w>", "")
 
-keys.map("n", "<Leader>ts", "<cmd>horizontal terminal<cr>", "Open a terminal in a horizontal split")
-keys.map("n", "<Leader>tv", "<cmd>vertical terminal<cr>", "Open a terminal in a vertical split")
+keys.map("n", "<C-t>", "<cmd>horizontal terminal<cr>", "Open a terminal in a horizontal split")
 
 -- Insert blank lines
 keys.map("n", "[<Space>", "mzO<esc>`z", "Insert a line above cursor")

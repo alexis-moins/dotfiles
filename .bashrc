@@ -6,10 +6,35 @@ eval "$(zoxide init bash)"
 [[ -f "${HOME}/.asdf/asdf.sh" ]] && source "${HOME}/.asdf/asdf.sh"
 
 #
+# Functions
+#
+add_path() {
+    # Empty directory name
+    [[ -z "${1}" ]] && return 0
+
+    # Directory does not exist
+    [[ ! -d "${1}" ]] && return 0
+
+    # Directory is already in path
+    [[ "${PATH}" == *"${1}"* ]] && return 0
+
+    echo "add ${1} to PATH"
+    export PATH="${1}:${PATH}"
+}
+
+take() {
+    mkdir -p "${1}" && cd "${1}"
+}
+
+#
 # PATH
 #
-export PATH="${HOME}/scripts:${PATH}"
-export PATH="${HOME}/.local/share/bob/nvim-bin:${PATH}"
+add_path "/opt/homebrew/bin"
+
+add_path "${HOME}/.local"
+add_path "${HOME}/.local/share/bob/nvim-bin"
+
+add_path "${HOME}/scripts"
 
 #
 # ENV VARS
@@ -19,26 +44,13 @@ export RIPGREP_CONFIG_PATH="${HOME}/.ripgreprc"
 export SHELL="$(which bash)"
 
 #
-# PM
+# pm
 #
 export PM_HOME="${HOME}/git"
-export PM_INSTALL_DIR="${PM_HOME}/cli/pm"
-
 export PM_SHOW_CMD="bat"
 
 export PM_VITE_CMD="bun"
 export PM_VITE_TEMPLATE="vue-ts"
-
-#
-# DOT
-#
-export DOT_INSTALL_DIR="${PM_HOME}/cli/dot"
-export DOTFILES_DIR="${PM_HOME}/personal/dotfiles"
-
-#
-# RECIPE
-#
-export RECIPE_INSTALL_DIR="${PM_HOME}/cli/recipe"
 
 #
 # Aliases
@@ -61,12 +73,13 @@ alias gg="git switch \$(git-branch)"
 alias ta="tmux attach"
 alias dk="docker"
 
-alias nvimrc="nvim $HOME/.config/nvim/init.lu="
+alias nvimrc="nvim ${HOME}/.config/nvim/init.lua"
 alias activate="source (fd activate.fish .venv)"
 
 alias cp="cp -iv"
 alias mv="mv -iv"
 alias rm="rm -iv"
+
 alias mkdir="mkdir -p"
 
 # Perform the daily brew checkout
@@ -75,10 +88,10 @@ alias daily="brew update; brew upgrade; brew cleanup"
 # Never display colors
 alias fd="fd --color="never""
 
-alias ls="exa --git-ignore"
-alias la="exa --all"
-alias ll="exa --all --long --git"
-alias tree="exa --tree --git-ignore"
+alias ls="eza --git-ignore"
+alias la="eza --all"
+alias ll="eza --all --long --git"
+alias tree="eza --tree --git-ignore"
 
 alias session="nvim -S"
 
@@ -86,15 +99,6 @@ alias j="just"
 
 alias psql="docker exec -it postgres psql"
 
-alias v="nvim"
-
 # Easier directory navigation
 alias ..="cd .."
 alias ...="cd .. && cd .."
-
-#
-# Functions
-#
-take() {
-    mkdir -p "${1}" && cd "${1}"
-}

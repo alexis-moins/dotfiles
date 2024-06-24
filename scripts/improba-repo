@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#
+# Set improba git config for local project
+#
+git config user.name "alexis-improba"
+git config user.email "alexis.moins@improba.fr"
+
+log() {
+    echo "=> set ${1} to $(git config "${1}")"
+}
+
+log "user.name"
+log "user.email"

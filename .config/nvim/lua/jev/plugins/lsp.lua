@@ -8,6 +8,7 @@ vim.diagnostic.config({
 	float = { border = "rounded" },
 	update_in_insert = true,
 	-- virtual_text = false,
+	jump = { float = true },
 })
 
 --
@@ -69,6 +70,8 @@ event.autocmd("LspAttach", {
 	group = event.augroup("LspConfig"),
 	callback = function(args)
 		local buffer = args.buf
+
+		-- vim.lsp.completion.enable(true, 0, buffer, { autotrigger = true })
 
 		keys.maplocal("n", "<Leader>gd", lsp("definition"), "Go to definitions", buffer)
 		keys.maplocal("n", "<Leader>gr", lsp("references"), "Go to references", buffer)

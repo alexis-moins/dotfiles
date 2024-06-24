@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#
+# Open nvim with default colorscheme
+#
+theme="${HOME}/.config/nvim/colorscheme"
+
+[[ -f "${theme}" ]] && export COLORSCHEME="$(cat "${theme}")"
+
+command nvim ${@}

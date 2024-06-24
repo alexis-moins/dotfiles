@@ -398,6 +398,15 @@ hi(0, "MiniDiffSignAdd", { fg = "#6a824f" })
 hi(0, "MiniDiffSignChange", { fg = "#a0713c" })
 hi(0, "MiniDiffSignDelete", { fg = "#b23b34" })
 
+--
+-- mini.pick
+--
+hi(0, "MiniPickBorder", { fg = "#537788" })
+
+hi(0, "MiniPickBorderText", { link = "Normal" })
+hi(0, "MiniPickMatchMarked", { link = "Normal" })
+hi(0, "MiniPickMatchRanges", { link = "Normal" })
+
 -- Terminal colors
 local g = vim.g
 

@@ -3,6 +3,7 @@
 Session.vim
 .luarc.json
 *.backup
+colorscheme
 
 # Brew lock
 Brewfile.lock.json

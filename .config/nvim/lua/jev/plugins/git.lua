@@ -9,8 +9,8 @@ keys.map("n", "<C-G>", "<cmd>Git<cr>", "Open git status")
 --
 -- mini.git
 --
-add("echasnovski/mini-git")
-require("mini.git").setup({})
+-- add("echasnovski/mini-git")
+-- require("mini.git").setup({})
 
 --
 -- mini.diff
