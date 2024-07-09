@@ -1,9 +1,0 @@
-<script setup lang="@@">
-defineProps<{
-    @@
-}>()
-</script>
-
-<template>
-    @@
-</template

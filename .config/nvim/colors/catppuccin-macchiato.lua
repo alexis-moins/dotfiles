@@ -198,6 +198,7 @@ hi(0, "CursorLine", { bg = "#303347" })
 hi(0, "CursorLineNr", { fg = "#b7bdf8" })
 hi(0, "Delimiter", { fg = "#939ab7" })
 hi(0, "DiagnosticError", { fg = "#ed8796", italic = true })
+hi(0, "DiagnosticOk", { fg = "#a6da95", italic = true })
 hi(0, "DiagnosticFloatingError", { fg = "#ed8796" })
 hi(0, "DiagnosticFloatingHint", { fg = "#8bd5ca" })
 hi(0, "DiagnosticFloatingInfo", { fg = "#91d7e3" })
@@ -380,8 +381,6 @@ hi(0, "WinSeparator", { fg = "#181926" })
 hi(0, "debugBreakpoint", { bg = "#24273a", fg = "#6e738d" })
 hi(0, "debugPC", { bg = "#181926" })
 hi(0, "diffAdded", { fg = "#a6da95" })
-hi(0, "Changed", { fg = "#eed49f" })
-hi(0, "Removed", { fg = "#ed8796" })
 hi(0, "diffChanged", { fg = "#8aadf4" })
 hi(0, "diffFile", { fg = "#8aadf4" })
 hi(0, "diffIndexLine", { fg = "#8bd5ca" })
@@ -431,12 +430,27 @@ hi(0, "MiniHipatternsFixme", { fg = "#ed8796" })
 --
 -- mini.diff
 --
-hi(0, "MiniDiffSignChange", { link = 'Changed' })
+hi(0, "Changed", { fg = "#eed49f" })
+hi(0, "Removed", { fg = "#ed8796" })
+hi(0, "Added", { fg = "#a6da95" })
 
 --
 -- mini.indentscope
 --
 hi(0, "MiniIndentscopeSymbol", { link = "NonText" })
+
+--
+-- mini.icons
+--
+hi(0, "MiniIconsAzure", { fg = "#8aadf4" })
+hi(0, "MiniIconsBlue", { fg = "#8aadf4" })
+hi(0, "MiniIconsCyan", { fg = "#8aadf4" })
+hi(0, "MiniIconsGreen", { fg = "#a6da95" })
+
+hi(0, "MiniIconsPurple", { fg = "#b7bdf8" })
+hi(0, "MiniIconsOrange", { fg = "#f5a97f" })
+hi(0, "MiniIconsRed", { fg = "#ed8796" })
+hi(0, "MiniIconsYellow", { fg = "#eed49f" })
 
 --
 -- Filetypes

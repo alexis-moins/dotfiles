@@ -14,8 +14,6 @@ function fish_user_cursor --on-event fish_prompt
     echo -ne '\e[5 q'
 end
 
-test -f ~/.asdf/asdf.fish && source ~/.asdf/asdf.fish
-
 # ocaml configuration
 test -f ~/.opam/opam-init/init.fish && source ~/.opam/opam-init/init.fish
 
@@ -44,3 +42,6 @@ set --export PM_SHOW_CMD "bat"
 
 set --export PM_VITE_CMD "bun"
 set --export PM_VITE_TEMPLATE "vue-ts"
+
+# Alias to use mise shims without adding them to the path
+alias x 'mise exec --'

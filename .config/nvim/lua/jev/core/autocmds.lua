@@ -100,35 +100,35 @@ autocmd("FileType", {
 --
 -- Templates
 --
-local template_group = augroup("Templates")
+-- local template_group = augroup("Templates")
 
-local read_template = function(template_name)
-	return function()
-		vim.cmd("0r ~/.config/nvim/templates/" .. template_name)
-		keys.maplocal("n", "<Leader>i", "cgn", "Change next template placeholder", 0)
+-- local read_template = function(template_name)
+-- 	return function()
+-- 		vim.cmd("0r ~/.config/nvim/templates/" .. template_name)
+-- 		keys.maplocal("n", "<Leader>i", "cgn", "Change next template placeholder", 0)
 
-		-- set search register to @@
-		vim.cmd('let @/ = "@@"')
-	end
-end
+-- 		-- set search register to @@
+-- 		vim.cmd('let @/ = "@@"')
+-- 	end
+-- end
 
 --
 -- React
 --
-autocmd("BufNewFile", {
-	group = template_group,
-	pattern = { "*.jsx", "*.tsx" },
-	callback = read_template("react"),
-})
+-- autocmd("BufNewFile", {
+-- 	group = template_group,
+-- 	pattern = { "*.jsx", "*.tsx" },
+-- 	callback = read_template("react"),
+-- })
 
 --
 -- Vue
 --
-autocmd("BufNewFile", {
-	group = template_group,
-	pattern = { "*.vue" },
-	callback = read_template("vue"),
-})
+-- autocmd("BufNewFile", {
+-- 	group = template_group,
+-- 	pattern = { "*.vue" },
+-- 	callback = read_template("vue"),
+-- })
 
 local helpers = {
 	augroup = augroup,

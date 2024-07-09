@@ -346,3 +346,9 @@ add("echasnovski/mini.indentscope")
 require("mini.indentscope").setup({
 	symbol = "┃",
 })
+
+--
+-- mini.icons
+--
+add('echasnovski/mini.icons')
+require('mini.icons').setup()

@@ -1,0 +1,8 @@
+[tools]
+node = "latest"
+python = "latest"
+go = "latest"
+
+[settings]
+asdf_compat = false
+env_file = '.env'

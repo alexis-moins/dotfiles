@@ -3,8 +3,6 @@ set -o vi
 eval "$(starship init bash)"
 eval "$(zoxide init bash)"
 
-[[ -f "${HOME}/.asdf/asdf.sh" ]] && source "${HOME}/.asdf/asdf.sh"
-
 #
 # Functions
 #
@@ -37,7 +35,7 @@ add_path "${HOME}/.local/share/bob/nvim-bin"
 add_path "${HOME}/scripts"
 
 #
-# ENV VARS
+# ENVIRONMENT
 #
 export RIPGREP_CONFIG_PATH="${HOME}/.ripgreprc"
 
@@ -53,11 +51,16 @@ export PM_VITE_CMD="bun"
 export PM_VITE_TEMPLATE="vue-ts"
 
 #
+# mise
+#
+export MISE_USE_TOML=1
+
+#
 # Aliases
 #
-alias de="dot-edit"
 alias gs="git status --short"
 
+alias gA="git add -A"
 alias ga="git-add"
 alias gr="git-restore"
 
@@ -102,3 +105,10 @@ alias psql="docker exec -it postgres psql"
 # Easier directory navigation
 alias ..="cd .."
 alias ...="cd .. && cd .."
+
+# Use mise shims without adding them to the path
+#
+# For instance:
+#   x python  <=> mise exec -- python
+#   x node@18 <=> mise exec -- node@18
+alias x="mise exec --"
