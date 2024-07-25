@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#
+# Interactively delete git branches merged with HEAD.
+# Any branch still in the file once the editor is closed will be removed.
+#
+FILE="/tmp/merged-branches"
+
+git branch --merged | grep -vE "\*|$(git main-branch)" > "${FILE}"
+[[ ! -s "${FILE}" ]] && echo "No branches to delete" && exit 0
+
+command "${EDITOR:-vim}" "${FILE}"
+
+[[ ! -s "${FILE}" ]] && echo "No branches to delete" && exit 0
+
+xargs git branch -d < "${FILE}"

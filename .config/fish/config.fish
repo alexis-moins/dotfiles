@@ -45,3 +45,5 @@ set --export PM_VITE_TEMPLATE "vue-ts"
 
 # Alias to use mise shims without adding them to the path
 alias x 'mise exec --'
+
+$HOME/.local/bin/mise activate fish | source

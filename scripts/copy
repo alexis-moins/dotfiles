@@ -3,6 +3,7 @@
 # Interactively copy a file
 #
 file="$(fd -H | gum filter)"
+hello
 
 [[ -z "${file}" ]] && exit 1
 filename="$(basename ${file})"

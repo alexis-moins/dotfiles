@@ -1,7 +1,7 @@
 alias nvimrc 'nvim $HOME/.config/nvim/init.lua'
 
 # Active a python virtual env
-alias activate 'source (fd -I activate.fish)'
+alias activate 'source (fd --no-ignore --hidden activate.fish)'
 
 alias ... 'cd .. && cd ..'
 
@@ -36,10 +36,27 @@ alias ci git-commit
 
 alias j 'just'
 
-alias gc 'git-resolve-conflict'
-
 alias psql 'docker exec -it postgres psql'
 
 # alias v nvim
 
-alias gg "git switch (git-branch)"
+#
+# git
+#
+alias gw "git-switch-branch"
+alias gc 'git switch --create'
+
+alias gs="git status --short"
+
+alias gA="git add -A"
+alias ga="git-add"
+
+alias gr="git-restore-staged"
+alias gR="git-restore"
+
+alias gp="git push"
+
+alias gd="git-diff"
+alias gds="git-diff-staged"
+
+alias gl="git log"

@@ -9,12 +9,8 @@
 #
 # PROJECT_PATH - absolute path to the project directory. It corresponds to the
 #                following pattern evaluated: ${SPACE_PATH}/${PROJECT}.
-mkdir -p "${PROJECT_PATH}"
+cd "${SPACE_PATH}"
 
-cd "${PROJECT_PATH}"
+poetry new "${PROJECT}"
 
-go mod init "github.com/${PM_GO_USERNAME}/${PROJECT}"
-
-git init
-
-cobra-cli init "${PROJECT}"
+git -C "${PROJECT}" init

@@ -3,6 +3,9 @@ set -o vi
 eval "$(starship init bash)"
 eval "$(zoxide init bash)"
 
+bind 'set show-all-if-ambiguous on'
+bind 'TAB:menu-complete'
+
 #
 # Functions
 #
@@ -24,6 +27,10 @@ take() {
     mkdir -p "${1}" && cd "${1}"
 }
 
+activate() {
+    source "$(fd --no-ignore --hidden "activate$")"
+}
+
 #
 # PATH
 #
@@ -40,6 +47,18 @@ add_path "${HOME}/scripts"
 export RIPGREP_CONFIG_PATH="${HOME}/.ripgreprc"
 
 export SHELL="$(which bash)"
+
+#
+# gum
+#
+export GUM_FILTER_MATCH_FOREGROUND="2"
+export GUM_FILTER_PROMPT_FOREGROUND="7"
+export GUM_FILTER_INDICATOR_FOREGROUND="1"
+
+export GUM_FILTER_SELECTED_PREFIX_FOREGROUND="4"
+export GUM_FILTER_UNSELECTED_PREFIX_FOREGROUND="#6e738d"
+
+export GUM_FILTER_INDICATOR=">"
 
 #
 # pm
@@ -77,7 +96,6 @@ alias ta="tmux attach"
 alias dk="docker"
 
 alias nvimrc="nvim ${HOME}/.config/nvim/init.lua"
-alias activate="source (fd activate.fish .venv)"
 
 alias cp="cp -iv"
 alias mv="mv -iv"
@@ -112,3 +130,5 @@ alias ...="cd .. && cd .."
 #   x python  <=> mise exec -- python
 #   x node@18 <=> mise exec -- node@18
 alias x="mise exec --"
+
+eval "$(~/.local/bin/mise activate bash)"
