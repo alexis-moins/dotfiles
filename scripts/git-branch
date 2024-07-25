@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-#
-# Switch git branches interactively
-#
-git branch --sort='-committerdate' --format='%(refname:short)' \
-    | gum filter --placeholder='Select branches' --no-limit \
-    | tr -d '\n'

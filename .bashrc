@@ -3,9 +3,6 @@ set -o vi
 eval "$(starship init bash)"
 eval "$(zoxide init bash)"
 
-bind 'set show-all-if-ambiguous on'
-bind 'TAB:menu-complete'
-
 #
 # Functions
 #
@@ -83,14 +80,16 @@ alias gA="git add -A"
 alias ga="git-add"
 alias gr="git-restore"
 
-alias gb="git-branch"
-alias gp="git push"
+alias gp="git pull"
+alias gP="git push"
 
 alias gd="git-diff"
 alias gds="git-diff-staged"
 
 alias gl="git log"
-alias gg="git switch \$(git-branch)"
+alias gw="git-switch-branch"
+
+alias gc="git switch --create"
 
 alias ta="tmux attach"
 alias dk="docker"
