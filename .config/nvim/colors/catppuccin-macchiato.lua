@@ -100,9 +100,6 @@ hi(0, "@text.reference", { link = "Tag" })
 hi(0, "@text.strike", { fg = "#cad3f5", strikethrough = true })
 hi(0, "@text.strong", { bold = true, fg = "#ee99a0" })
 hi(0, "@text.title", { bold = true, fg = "#8aadf4" })
-
-
-
 hi(0, "@text.todo", { bg = "#eed49f", fg = "#24273a" })
 hi(0, "@text.todo.checked", { fg = "#a6da95" })
 hi(0, "@text.todo.unchecked", { fg = "#8087a2" })
@@ -342,10 +339,6 @@ hi(0, "SignColumn", { fg = "#494d64" })
 hi(0, "SignColumnSB", { bg = "#181926", fg = "#494d64" })
 hi(0, "Special", { fg = "#f5bde6" })
 hi(0, "SpecialKey", { link = "NonText" })
-hi(0, "SpellBad", { sp = "#ed8796", undercurl = true })
-hi(0, "SpellCap", { sp = "#eed49f", undercurl = true })
-hi(0, "SpellLocal", { sp = "#8aadf4", undercurl = true })
-hi(0, "SpellRare", { sp = "#a6da95", undercurl = true })
 hi(0, "Statement", { fg = "#c6a0f6" })
 hi(0, "StatusLine", { bg = "#24273a", fg = "#24273a" })
 hi(0, "StatusLineNC", { bg = "#1e2030", fg = "#494d64" })
@@ -419,6 +412,14 @@ hi(0, "rainbow4", { fg = "#a6da95" })
 hi(0, "rainbow5", { fg = "#7dc4e4" })
 hi(0, "rainbow6", { fg = "#b7bdf8" })
 hi(0, "zshKSHFunction", { link = "Function" })
+
+--
+-- Spell
+--
+hi(0, "SpellBad", { fg = "#ed8796", undercurl = true, italic = true })
+hi(0, "SpellCap", { fg = "#eed49f", undercurl = true })
+hi(0, "SpellLocal", { fg = "#8aadf4", undercurl = true })
+hi(0, "SpellRare", { fg = "#a6da95", undercurl = true, italic = true })
 
 --
 -- mini.hipatterns

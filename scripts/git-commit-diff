@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#
+# Interactive git diff of a commit
+#
+commit="$(git-commit-hash)"
+[[ -z "${commit}" ]] && echo 'No commit selected' && exit 1
+
+git diff "${commit}^!"
