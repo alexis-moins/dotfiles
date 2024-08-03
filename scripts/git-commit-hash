@@ -2,9 +2,9 @@
 #
 # Interactive git commit hash
 #
-git_root="$(git rev-parse --show-toplevel)"
+candidates="$(git log -n "${1:-20}" --color="always" \
+    --pretty=format:"%C(yellow)%h %C(auto)[%C(black)%cs%C(auto)] %C(brightblue)%an %C(auto)%<(100,trunc)%s")"
 
-candidates="$(git log -n "${1:-20}" --pretty=format:"%h [%an] %s")"
 [[ -z "${candidates}" ]] && echo 'No commit selected' && exit 1
 
 echo "${candidates}" \

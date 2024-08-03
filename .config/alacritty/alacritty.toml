@@ -9,10 +9,10 @@ x = 0
 y = 1
 
 [font.normal]
-family = "JetbrainsMono NF"
+family = "JetbrainsMono Nerd Font Mono"
 
 [font.bold]
-family = "JetbrainsMono NF"
+family = "JetbrainsMono Nerd Font Mono"
 style = "Bold"
 
 [colors]
@@ -52,7 +52,7 @@ white = "#b8c0e0"
 style = "Underline"
 
 [window]
-decorations = "None"
+# decorations = "None"
 
 [window.padding]
 x = 5

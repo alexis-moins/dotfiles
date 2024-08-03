@@ -43,9 +43,9 @@ keys.map({ "n", "x" }, "gP", '"+P', "Paste before cursor (+register)")
 --
 -- Terminal keymaps
 --
-keys.map("t", "<esc>", "<C-\\><C-N>", "Leave terminal mode")
+keys.map("t", "<Esc>", "<C-\\><C-N>", "Leave terminal mode")
 keys.map("t", "<C-^>", "<C-\\><C-N><C-O>", "Leave terminal mode and jump to last buffer")
-keys.map("t", "<C-w>", "<C-\\><C-N><C-w>", "")
+keys.map("t", "<C-w>", "<C-\\><C-N><C-w>", "Window prefix")
 
 keys.map("n", "<C-t>", "<cmd>horizontal terminal<cr>", "Open a terminal in a horizontal split")
 
