@@ -10,3 +10,8 @@ install
 \.git
 \.gitignore
 \.config/iterm
+
+\.zshenv
+\.config/zsh
+
+\.config/fish

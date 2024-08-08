@@ -61,7 +61,12 @@ keys.map("n", "]<Space>", "mzo<esc>`z", "Insert a line below cursor")
 keys.map("n", "|n", keys.toggle("number"), "Toggle line number")
 keys.map("n", "|r", keys.toggle("relativenumber"), "Toggle relative line number")
 
-keys.map("n", "|c", keys.toggle("cursorline"), "Toggle cursorline")
+-- Toggle colorcolumn
+keys.map("n", "|c", function()
+    local value = vim.opt_local.colorcolumn:get()
+    opt.setlocal("colorcolumn", #value > 0 and "" or "79")
+end, "Toggle colorcolumn")
+
 keys.map("n", "|l", keys.toggle("list"), "Toggle list chararcters")
 
 -- Wrap lines that are longer than 'textwidth'

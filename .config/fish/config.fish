@@ -14,13 +14,8 @@ function fish_user_cursor --on-event fish_prompt
     echo -ne '\e[5 q'
 end
 
-# ocaml configuration
-test -f ~/.opam/opam-init/init.fish && source ~/.opam/opam-init/init.fish
-
-# echo '  ⟋|､'
-# echo ' (°､ ｡ 7'
-# echo ' |､  ~ヽ'
-# echo ' じしf_,)〳'
+# # ocaml configuration
+# test -f ~/.opam/opam-init/init.fish && source ~/.opam/opam-init/init.fish
 
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
@@ -30,7 +25,9 @@ fish_add_path "$HOME/.cargo/bin"
 fish_add_path "$HOME/.local/share/bob/nvim-bin"
 
 fish_add_path "$HOME/scripts"
+
 fish_add_path "$HOME/.local/bin"
+fish_add_path "$HOME/.local/bin/bruce"
 
 set --export RIPGREP_CONFIG_PATH "$HOME/.ripgreprc"
 

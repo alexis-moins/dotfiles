@@ -1,5 +1,8 @@
 [env]
-term = "tmux-256color"
+term = "xterm-256color"
+
+[shell]
+program = "/opt/homebrew/bin/bash"
 
 [font]
 size = 14.0
@@ -48,11 +51,13 @@ magenta = "#c6a0f6"
 cyan = "#7dc4e4"
 white = "#b8c0e0"
 
-[cursor]
-style = "Underline"
+[cursor.style]
+shape = "Block"
+blinking = "On"
 
 [window]
 # decorations = "None"
+title = "(°-°)"
 
 [window.padding]
 x = 5

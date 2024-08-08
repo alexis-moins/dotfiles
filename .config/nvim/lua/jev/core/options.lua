@@ -57,9 +57,6 @@ opt.set("shortmess", "atToOCFWIc")
 -- [spell] Work with english and french
 opt.set("spelllang", { "en", "fr" })
 
--- Enable spelling by default
-opt.set("spell", true)
-
 -- Wait undefinitely for keymaps
 opt.set("timeout", false)
 

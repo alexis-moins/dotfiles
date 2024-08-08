@@ -2,7 +2,7 @@
 # Creation: 6 janvier 2021
 
 # Change de dossier sans avoir à utiliser cd
-setopt AUTOCD       
+setopt AUTOCD
 
 # N'affiche pas le dossier lors de la navigation
 setopt CDSILENT 

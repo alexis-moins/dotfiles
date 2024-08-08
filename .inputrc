@@ -1,13 +1,21 @@
 C-L: clear-screen
 
-TAB: menu-complete
+C-H: menu-complete
+
+Tab: menu-complete
 "\e[Z": menu-complete-backward
+
+C-U: backward-kill-line
+C-K: kill-line
+
+C-X: kill-whole-line
+
+C-P: history-search-backward
+C-N: history-search-forward
 
 set colored-stats on
 
 set show-all-if-ambiguous on
-set colored-completion-prefix on
-
 set menu-complete-display-prefix on
 
 set completion-ignore-case on

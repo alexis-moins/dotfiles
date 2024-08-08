@@ -1,8 +1,5 @@
 set -o vi
 
-eval "$(starship init bash)"
-eval "$(zoxide init bash)"
-
 #
 # Functions
 #
@@ -16,7 +13,7 @@ add_path() {
     # Directory is already in path
     [[ "${PATH}" == *"${1}"* ]] && return 0
 
-    echo "add ${1} to PATH"
+    # echo "added ${1} to path"
     export PATH="${1}:${PATH}"
 }
 
@@ -25,7 +22,15 @@ take() {
 }
 
 activate() {
-    source "$(fd --no-ignore --hidden "activate$")"
+    local script="$(fd --no-ignore --hidden "activate$")"
+
+    [[ -z "${script}" ]] && echo "<activate> script not found" && return 1
+    source "${script}"
+}
+
+is_executable() {
+    local executable="$(which "${1}")"
+    [[ -n "${executable}" ]] && return 0 || return 1
 }
 
 #
@@ -34,16 +39,20 @@ activate() {
 add_path "/opt/homebrew/bin"
 
 add_path "${HOME}/.local"
-add_path "${HOME}/.local/share/bob/nvim-bin"
+add_path "${HOME}/.local/bin/bruce"
+
+add_path "${HOME}/.bun/bin"
+add_path "${HOME}/.cargo/bin"
 
 add_path "${HOME}/scripts"
+
+add_path "${HOME}/.local/share/bob/nvim-bin"
 
 #
 # ENVIRONMENT
 #
 export RIPGREP_CONFIG_PATH="${HOME}/.ripgreprc"
-
-export SHELL="$(which bash)"
+export EDITOR="nvim"
 
 #
 # gum
@@ -70,6 +79,14 @@ export PM_VITE_TEMPLATE="vue-ts"
 # mise
 #
 export MISE_USE_TOML=1
+#
+#
+# Tools config
+#
+is_executable starship && eval "$(starship init bash)"
+is_executable zoxide && eval "$(zoxide init bash)"
+
+is_executable mise && eval "$(mise activate bash)"
 
 #
 # Aliases
@@ -106,7 +123,7 @@ alias mkdir="mkdir -p"
 alias daily="brew update; brew upgrade; brew cleanup"
 
 # Never display colors
-alias fd="fd --color="never""
+alias fd="fd --color=never"
 
 alias ls="eza --git-ignore"
 alias la="eza --all"
@@ -122,12 +139,3 @@ alias psql="docker exec -it postgres psql"
 # Easier directory navigation
 alias ..="cd .."
 alias ...="cd .. && cd .."
-
-# Use mise shims without adding them to the path
-#
-# For instance:
-#   x python  <=> mise exec -- python
-#   x node@18 <=> mise exec -- node@18
-alias x="mise exec --"
-
-eval "$(~/.local/bin/mise activate bash)"
