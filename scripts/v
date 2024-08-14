@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
 #
-# Open nvim with default colorscheme
+# Interactive editor wrapper
 #
-theme="${HOME}/.config/nvim/colorscheme"
+if [[ -n "${@}" ]]; then
+    command "${EDITOR:-vim}" ${@}
+else
+    # No arguments? Find files to open
+    candidates="$(fd --hidden --ignore | gum filter --no-limit --placeholder="Select elements...")"
 
-[[ -f "${theme}" ]] && export COLORSCHEME="$(cat "${theme}")"
-
-command nvim ${@}
+    command "${EDITOR:-vim}" ${candidates}
+fi
