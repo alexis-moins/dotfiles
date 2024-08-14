@@ -2,7 +2,7 @@
 opt.set("termguicolors", true)
 
 -- Use tweaked version of catppuccin
-vim.cmd.colorscheme(vim.env.COLORSCHEME or "catppuccin-macchiato")
+vim.cmd.colorscheme("catppuccin-macchiato")
 
 -- Always display sign column (diagnostics...)
 opt.set("signcolumn", "yes")
@@ -84,7 +84,7 @@ opt.set("listchars", {
 -- Conceal text
 -- opt.set("conceallevel", 1)
 
-opt.set("completeopt", { "menuone", "noinsert", "noselect", "fuzzy" })
+-- opt.set("completeopt", { "menuone", "noinsert", "noselect", "fuzzy" })
 
 -- Manually define folds with 'zf'
 opt.set("foldmethod", "manual")
