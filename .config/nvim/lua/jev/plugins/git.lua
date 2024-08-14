@@ -25,3 +25,4 @@ require("mini.diff").setup({
 
 -- Mappings
 keys.map("n", "|d", MiniDiff.toggle_overlay, "Toggle diff overlay")
+keys.map("n", "|g", MiniDiff.toggle, "Toggle git signs")

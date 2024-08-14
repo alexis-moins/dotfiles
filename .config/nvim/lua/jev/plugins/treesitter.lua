@@ -101,3 +101,5 @@ add("nvim-treesitter/nvim-treesitter-context")
 require("treesitter-context").setup({})
 
 vim.api.nvim_set_hl(0, "TreesitterContext", { link = "CursorLine" })
+
+add("OXY2DEV/helpview.nvim")

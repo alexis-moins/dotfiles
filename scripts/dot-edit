@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 #
-# Edit dotfiles from anywhere
+# Edit dotfiles interactively
 #
 dotfiles="${DOTFILES_DIR:-${HOME}/dotfiles}"
 pushd "${dotfiles}" &> /dev/null || exit 1
 
 file="$(fd --hidden --ignore --type f . | gum filter --placeholder="Select a file")"
 
-[[ -n "${file}" ]] && $EDITOR "${dotfiles}/${file}"
+[[ -n "${file}" ]] && command "${EDITOR}" "${file}"
 popd &> /dev/null || exit 0

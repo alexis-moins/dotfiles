@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#
+# Edit scripts interactively
+#
+dotfiles="${DOTFILES_DIR:-${HOME}/dotfiles}"
+pushd "${dotfiles}/scripts" &> /dev/null || exit 1
+
+file="$(fd --type f . | gum filter --placeholder="Select a script")"
+
+[[ -n "${file}" ]] && command "${EDITOR}" "${file}"
+popd &> /dev/null || exit 0

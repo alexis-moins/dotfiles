@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#
+# Add a new script
+#
+dotfiles="${DOTFILES_DIR:-${HOME}/dotfiles}"
+pushd "${dotfiles}/scripts" &> /dev/null || exit 1
+
+command "${EDITOR}" "${file}"
+popd &> /dev/null || exit 0

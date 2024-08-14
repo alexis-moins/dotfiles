@@ -38,13 +38,11 @@ is_executable() {
 #
 add_path "/opt/homebrew/bin"
 
-add_path "${HOME}/.local"
-add_path "${HOME}/.local/bin/bruce"
+add_path "${HOME}/scripts"
+add_path "${HOME}/.local/bin"
 
 add_path "${HOME}/.bun/bin"
 add_path "${HOME}/.cargo/bin"
-
-add_path "${HOME}/scripts"
 
 add_path "${HOME}/.local/share/bob/nvim-bin"
 
@@ -66,6 +64,9 @@ export GUM_FILTER_UNSELECTED_PREFIX_FOREGROUND="#6e738d"
 
 export GUM_FILTER_INDICATOR=">"
 
+export GUM_PAGER_HELP_FOREGROUND="#6e738d"
+export GUM_PAGER_LINE_NUMBER_FOREGROUND="#6e738d"
+
 #
 # pm
 #
@@ -74,6 +75,8 @@ export PM_SHOW_CMD="bat"
 
 export PM_VITE_CMD="bun"
 export PM_VITE_TEMPLATE="vue-ts"
+
+export PM_GO_USERNAME="alexis-moins"
 
 #
 # mise
@@ -139,3 +142,6 @@ alias psql="docker exec -it postgres psql"
 # Easier directory navigation
 alias ..="cd .."
 alias ...="cd .. && cd .."
+
+alias de="dot-edit"
+alias se="script-edit"

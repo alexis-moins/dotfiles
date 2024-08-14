@@ -84,6 +84,8 @@ opt.set("listchars", {
 -- Conceal text
 -- opt.set("conceallevel", 1)
 
+opt.set("completeopt", { "menuone", "noinsert", "noselect", "fuzzy" })
+
 -- Manually define folds with 'zf'
 opt.set("foldmethod", "manual")
 
