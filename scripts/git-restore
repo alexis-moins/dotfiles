@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Restore git files interactively
+# Restore files interactively
 #
 git_root="$(git rev-parse --show-toplevel)"
 
@@ -9,6 +9,6 @@ candidates="$(git ls-files -mo --exclude-standard --full-name)"
 
 echo "${candidates}" \
     | tr ' ' '\n' \
-    | gum filter --no-limit --fuzzy --placeholder="Select files to restore" \
+    | gum filter --no-limit --fuzzy --placeholder="Files to restore" \
     | sed -e "s!^!${git_root}/!" \
     | xargs git restore

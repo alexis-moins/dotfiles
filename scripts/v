@@ -6,7 +6,7 @@ if [[ -n "${@}" ]]; then
     command "${EDITOR:-vim}" ${@}
 else
     # No arguments? Find files to open
-    candidates="$(fd --hidden --ignore | gum filter --no-limit --placeholder="Select elements...")"
+    candidates="$(fd --hidden --ignore --type f | gum filter --no-limit --placeholder="Select elements...")"
 
     command "${EDITOR:-vim}" ${candidates}
 fi

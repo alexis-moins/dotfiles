@@ -314,19 +314,19 @@ hipatterns.setup({
 --
 -- mini.completion
 --
-add("echasnovski/mini.completion")
-require("mini.completion").setup({
-	window = {
-		info = { border = "single" },
-		signature = { border = "single" },
-	},
+-- add("echasnovski/mini.completion")
+-- require("mini.completion").setup({
+-- 	window = {
+-- 		info = { border = "single" },
+-- 		signature = { border = "single" },
+-- 	},
 
-	fallback_action = "<C-x><C-n>",
+-- 	fallback_action = "<C-x><C-n>",
 
-	mappings = {
-		force_twostep = "<C-h>",
-	},
-})
+-- 	mappings = {
+-- 		force_twostep = "<C-h>",
+-- 	},
+-- })
 
 --
 -- mini.tabline

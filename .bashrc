@@ -98,7 +98,9 @@ alias gs="git status --short"
 
 alias gA="git add -A"
 alias ga="git-add"
-alias gr="git-restore"
+
+alias gR="git-restore"
+alias gr="git-restore-staged"
 
 alias gp="git pull"
 alias gP="git push"
