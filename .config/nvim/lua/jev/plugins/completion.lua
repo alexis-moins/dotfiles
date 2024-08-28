@@ -62,7 +62,7 @@ cmp.setup({
 	}),
 
 	formatting = {
-        expandable_indicator = true,
+		expandable_indicator = true,
 
 		format = function(entry, vim_item)
 			local menu = {
@@ -76,6 +76,13 @@ cmp.setup({
 			vim_item.menu = menu[entry.source.name]
 			return vim_item
 		end,
+	},
+})
+
+cmp.setup.cmdline({ "/", "?" }, {
+	mapping = cmp.mapping.preset.cmdline(),
+	sources = {
+		{ name = "buffer" },
 	},
 })
 

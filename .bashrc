@@ -33,6 +33,15 @@ is_executable() {
     [[ -n "${executable}" ]] && return 0 || return 1
 }
 
+H() {
+    selected="$(history | awk '{$1=""; print $0}' | awk '!seen[$0]++' | gum filter)"
+
+    if [[ -n "${selected}" ]]; then
+        echo ${selected}
+        command ${selected}
+    fi
+}
+
 #
 # PATH
 #
