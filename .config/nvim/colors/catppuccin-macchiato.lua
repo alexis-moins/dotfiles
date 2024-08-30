@@ -279,11 +279,6 @@ hi(0, "MiniFilesBorderModified", { fg = "#ed8796" })
 hi(0, "MiniPickMatchRanges", { link = "String" })
 hi(0, "MiniPickNormal", { link = "Comment" })
 hi(0, "MiniPickPrompt", { link = "Normal" })
-hi(0, "MiniTablineCurrent", { link = "TabLineSel" })
-hi(0, "MiniTablineModifiedCurrent", { fg = "#ed8796", italic = true })
-hi(0, "MiniTablineModifiedHidden", { fg = "#f5a97f", italic = true })
-hi(0, "MiniTablineModifiedVisible", { fg = "#f5a97f", italic = true })
-hi(0, "MiniTablineVisible", { link = "TabLine" })
 hi(0, "MiniNotifyBorder", { fg = "#c6a0f6" })
 hi(0, "MiniNotifyNormal", { link = "Comment" })
 hi(0, "ModeMsg", { bold = true, fg = "#cad3f5" })
@@ -452,6 +447,15 @@ hi(0, "MiniIconsPurple", { fg = "#b7bdf8" })
 hi(0, "MiniIconsOrange", { fg = "#f5a97f" })
 hi(0, "MiniIconsRed", { fg = "#ed8796" })
 hi(0, "MiniIconsYellow", { fg = "#eed49f" })
+
+--
+-- mini.tabline
+--
+hi(0, "MiniTablineCurrent", { link = "TabLineSel" })
+hi(0, "MiniTablineModifiedCurrent", { fg = "#ed8796", italic = true })
+hi(0, "MiniTablineModifiedHidden", { fg = "#f5a97f", italic = true })
+hi(0, "MiniTablineModifiedVisible", { fg = "#f5a97f", italic = true })
+hi(0, "MiniTablineVisible", { link = "TabLine" })
 
 --
 -- Filetypes

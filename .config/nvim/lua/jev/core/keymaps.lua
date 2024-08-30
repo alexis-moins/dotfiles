@@ -53,6 +53,9 @@ keys.map("n", "<C-t>", "<cmd>horizontal terminal<cr>", "Open a terminal in a hor
 keys.map("n", "[<Space>", "mzO<esc>`z", "Insert a line above cursor")
 keys.map("n", "]<Space>", "mzo<esc>`z", "Insert a line below cursor")
 
+keys.map("n", "[t", vim.cmd.tabnext, "Navigate to next tab page")
+keys.map("n", "]t", vim.cmd.tabprevious, "Navigate to previous tab page")
+
 --
 -- Option toggling
 --
