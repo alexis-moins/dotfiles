@@ -99,11 +99,13 @@ is_executable starship && eval "$(starship init bash)"
 is_executable zoxide && eval "$(zoxide init bash)"
 
 is_executable mise && eval "$(mise activate bash)"
+is_executable direnv && eval "$(direnv hook bash)"
 
 #
 # Aliases
 #
 alias gs="git status --short"
+alias g-="git switch -"
 
 alias gA="git add -A"
 alias ga="git-add"
