@@ -3,7 +3,7 @@ local add = MiniDeps.add
 add("stevearc/conform.nvim")
 local conform = require("conform")
 
-local prettiers = { "prettierd", "prettier", stop_after_first = true }
+local prettiers = { "prettier" }
 
 conform.setup({
 	formatters_by_ft = {

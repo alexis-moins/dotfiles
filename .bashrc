@@ -55,6 +55,8 @@ add_path "${HOME}/.cargo/bin"
 
 add_path "${HOME}/.local/share/bob/nvim-bin"
 
+add_path "/Applications/Docker.app/Contents/Resources/bin"
+
 #
 # ENVIRONMENT
 #
@@ -76,11 +78,16 @@ export GUM_FILTER_INDICATOR=">"
 export GUM_PAGER_HELP_FOREGROUND="#6e738d"
 export GUM_PAGER_LINE_NUMBER_FOREGROUND="#6e738d"
 
+export GUM_INPUT_HEADER_FOREGROUND="7"
+export GUM_CHOOSE_HEADER_FOREGROUND="7"
+
 #
 # pm
 #
 export PM_HOME="${HOME}/git"
-export PM_SHOW_CMD="bat"
+
+export PM_BACKEND_SHOW_CMD="bat"
+export PM_TEMPLATE_SHOW_CMD="bat"
 
 export PM_VITE_CMD="bun"
 export PM_VITE_TEMPLATE="vue-ts"
@@ -100,6 +107,8 @@ is_executable zoxide && eval "$(zoxide init bash)"
 
 is_executable mise && eval "$(mise activate bash)"
 is_executable direnv && eval "$(direnv hook bash)"
+
+is_executable pm && eval "$(pm completions)"
 
 #
 # Aliases

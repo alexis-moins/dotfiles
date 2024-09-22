@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#
+# Interactive pm open
+#
+project="$(pm filter)"
+
+if [[ -z "${project}" ]]; then
+    echo 'No project selected'
+    exit 1
+fi
+
+pm open "${project}"
