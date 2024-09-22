@@ -1,15 +1,19 @@
 local add = MiniDeps.add
 
 --
+-- NOTE: To register new textobjects, take a look at textobjects.lua
+--
+
+--
 -- nvim-treesitter
 --
 add({
 	source = "nvim-treesitter/nvim-treesitter",
+	checkout = "master", monitor = "main",
 	hooks = { post_checkout = vim.cmd.TSUpdate },
-	dependencies = {
-		"nvim-treesitter/nvim-treesitter-textobjects",
-	},
 })
+
+add("nvim-treesitter/nvim-treesitter-textobjects")
 
 require("nvim-treesitter.configs").setup({
 	auto_install = true,
@@ -26,28 +30,6 @@ require("nvim-treesitter.configs").setup({
 	},
 
 	textobjects = {
-		select = {
-			enable = true,
-			lookahead = true,
-
-			keymaps = {
-				["af"] = { query = "@function.outer", desc = "a function" },
-				["if"] = { query = "@function.inner", desc = "inner function" },
-
-				["aP"] = { query = "@parameter.outer", desc = "a parameter" },
-				["iP"] = { query = "@parameter.inner", desc = "inner parameter" },
-
-				["ac"] = { query = "@comment.outer", desc = "a comment" },
-				["ic"] = { query = "@comment.inner", desc = "inner comment" },
-
-				["as"] = { query = "@class.outer", desc = "a class" },
-				["is"] = { query = "@class.inner", desc = "inner class" },
-
-				["aa"] = { query = "@attribute.outer", desc = "an attribute" },
-				["ia"] = { query = "@attribute.inner", desc = "inner attribute" },
-			},
-		},
-
 		swap = {
 			enable = true,
 
@@ -64,7 +46,7 @@ require("nvim-treesitter.configs").setup({
 			set_jumps = true,
 
 			goto_next_start = {
-				["]f"] = "@function.outer",
+				["]f"] = { query = "@function.outer", desc = "Next function start" },
 				["]p"] = { query = "@parameter.inner", desc = "Next parameter start" },
 				["]c"] = { query = "@comment.inner", desc = "Next comment start" },
 				["]s"] = { query = "@class.inner", desc = "Next class start" },
@@ -102,4 +84,4 @@ require("treesitter-context").setup({})
 
 vim.api.nvim_set_hl(0, "TreesitterContext", { link = "CursorLine" })
 
-add("OXY2DEV/helpview.nvim")
+-- add("OXY2DEV/helpview.nvim")

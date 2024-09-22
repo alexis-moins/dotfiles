@@ -409,6 +409,12 @@ hi(0, "rainbow6", { fg = "#b7bdf8" })
 hi(0, "zshKSHFunction", { link = "Function" })
 
 --
+-- LSP
+--
+hi(0, "@lsp.type.parameter.dockerfile", { link = "Normal" })
+hi(0, "@lsp.typemod.function.readonly.vue", { link = "Function" })
+
+--
 -- Spell
 --
 hi(0, "SpellBad", { fg = "#ed8796", undercurl = true, italic = true })

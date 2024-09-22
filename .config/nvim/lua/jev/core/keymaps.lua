@@ -11,7 +11,6 @@ keys.map("n", "<Leader>so", vim.cmd.source, "Source current file")
 keys.map("n", "<Leader>o", vim.cmd.only, "Close all splits")
 keys.map("n", "<Leader>-", vim.cmd.bdelete, "Delete the current buffer")
 
-keys.map("n", "<Leader>q", vim.cmd.copen, "Open/focus the quickfix list")
 keys.map({ "n", "v" }, "j", "gj", "Move down (respects wrap)")
 keys.map({ "n", "v" }, "k", "gk", "Move up (respects wrap)")
 
@@ -69,6 +68,19 @@ keys.map("n", "|c", function()
     local value = vim.opt_local.colorcolumn:get()
     opt.setlocal("colorcolumn", #value > 0 and "" or "79")
 end, "Toggle colorcolumn")
+
+-- Toggle quickfix list
+keys.map("n", "|q", function()
+    for _, win in pairs(vim.fn.getwininfo()) do
+        if win.quickfix == 1 then
+            -- Close quickfix window if opened
+            vim.cmd.cclose()
+            return
+        end
+    end
+
+    vim.cmd.copen()
+end, "Toggle quickfix")
 
 keys.map("n", "|l", keys.toggle("list"), "Toggle list chararcters")
 

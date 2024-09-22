@@ -9,6 +9,9 @@ if not vim.loop.fs_stat(deps_path) then
 		"https://github.com/echasnovski/mini.deps",
 		deps_path,
 	})
+
+    vim.cmd.packadd('mini.deps | helptags ALL')
+    vim.cmd.echo('"Installed `mini.deps`" | redraw')
 end
 
 require("mini.deps").setup({ path = { package = package_path } })
