@@ -33,15 +33,6 @@ is_executable() {
     [[ -n "${executable}" ]] && return 0 || return 1
 }
 
-H() {
-    selected="$(history | awk '{$1=""; print $0}' | awk '!seen[$0]++' | gum filter)"
-
-    if [[ -n "${selected}" ]]; then
-        echo ${selected}
-        command ${selected}
-    fi
-}
-
 #
 # PATH
 #
@@ -75,11 +66,28 @@ export GUM_FILTER_UNSELECTED_PREFIX_FOREGROUND="#6e738d"
 
 export GUM_FILTER_INDICATOR=">"
 
+#
+# PAGER
+#
 export GUM_PAGER_HELP_FOREGROUND="#6e738d"
 export GUM_PAGER_LINE_NUMBER_FOREGROUND="#6e738d"
 
+#
+# INPUT
+#
 export GUM_INPUT_HEADER_FOREGROUND="7"
+export GUM_INPUT_PLACEHOLDER_FOREGROUND="#6e738d"
+export GUM_INPUT_CURSOR_FOREGROUND="7"
+
+#
+# CHOOSE
+#
 export GUM_CHOOSE_HEADER_FOREGROUND="7"
+# export GUM_CHOOSE_ITEM_FOREGROUND="#6e738d"
+
+export GUM_CHOOSE_SELECTED_FOREGROUND="3"
+export GUM_CHOOSE_CURSOR_FOREGROUND="3"
+
 
 #
 # pm
@@ -98,7 +106,7 @@ export PM_GO_USERNAME="alexis-moins"
 # mise
 #
 export MISE_USE_TOML=1
-#
+
 #
 # Tools config
 #
