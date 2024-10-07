@@ -20,6 +20,9 @@ fi
 
 echo -e "Select the type of change: ${COLOR}${TYPE}${WHITE}"
 
+#
+# Scope
+#
 SCOPE=$(gum input --prompt="What is the scope of this change? " --placeholder="scope (optional)" --no-show-help)
 
 echo -e "What is the scope of this change: ${COLOR}${SCOPE:--}${WHITE}"
@@ -27,17 +30,45 @@ echo -e "What is the scope of this change: ${COLOR}${SCOPE:--}${WHITE}"
 # Since the scope is optional, wrap it in parentheses if it has a value.
 test -n "$SCOPE" && SCOPE="($SCOPE)"
 
+#
+# Summary
+#
 SUMMARY=$(gum input --prompt="Write a short summary of the code change: " --placeholder "change summary" --no-show-help)
 test -z "${SUMMARY}" && exit 1
 
 echo -e "Write a short summary of the code change: ${COLOR}${SUMMARY}${WHITE}"
 
-# DESCRIPTION=$(gum write --placeholder "Details of this change" --no-show-help)
+confirm() {
+    local answer="$(gum choose "Yes" "No" --header="${1}" --no-show-help)"
+    [[ "${answer}" = "Yes" ]] && return 0 || return 1
+}
 
-IS_BREAKING="$(gum choose "Yes" "No" --header="Is this a breaking change?" --no-show-help)"
-echo -e "Is this a breaking change: ${COLOR}${IS_BREAKING}${WHITE}"
+#
+# Description
+#
+if confirm "Provide additional information?"; then
+    DESCRIPTION=$(gum write --header="Provide additional information about the code changes: " --placeholder "details (optional)")
+fi
 
-test "${IS_BREAKING}" = "Yes" && BREAKING="!" || BREAKING=""
+echo -e "Provide additional information about the code changes: ${COLOR}${DESCRIPTION:--}${WHITE}"
 
+#
+# Breaking Change
+#
+if confirm "Is this a breaking change?"; then
+    echo -e "Is this a breaking change: ${COLOR}Yes${WHITE}"
+    BREAKING="!"
+else
+    echo -e "Is this a breaking change: ${COLOR}No${WHITE}"
+fi
+
+#
+# Commit
+#
 MESSAGE="${TYPE}${BREAKING}${SCOPE}: ${SUMMARY}"
-git commit -m "${MESSAGE}" # -m "$DESCRIPTION"
+
+if [[ -z "${DESCRIPTION}" ]]; then
+    git commit -m "${MESSAGE}"
+else
+    git commit -m "${MESSAGE}" -m "$DESCRIPTION"
+fi
