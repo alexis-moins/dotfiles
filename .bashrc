@@ -142,6 +142,8 @@ alias gw="git-switch-branch"
 alias gc="git switch --create"
 
 alias ta="tmux attach"
+alias tsi="tmux-session-init"
+
 alias dk="docker"
 
 alias nvimrc="nvim ${HOME}/.config/nvim/init.lua"

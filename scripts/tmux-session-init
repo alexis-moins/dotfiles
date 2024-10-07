@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#
+# Create basic tmux session windows
+#
+tmux rename-window "dev"
+
+# Create a new <temp> window (detached)
+tmux new-window -c "#{pane_current_path}" -n "temp" -d
+
+# Create a new <run> window (detached)
+tmux new-window -c "#{pane_current_path}" -n "run" -d
