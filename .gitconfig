@@ -56,6 +56,8 @@
     force = !git amend && git push -f
     main-branch = !git symbolic-ref refs/remotes/origin/HEAD | cut -d'/' -f4
 
+    current = !git rev-parse --abbrev-ref HEAD
+
     sw = switch
     sm = !git switch $(git main-branch)
     M = !git merge $(git main-branch)

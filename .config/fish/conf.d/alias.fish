@@ -32,8 +32,6 @@ alias tree 'eza --tree --git-ignore'
 
 alias session 'nvim -S'
 
-alias ci git-commit
-
 alias j 'just'
 
 alias psql 'docker exec -it postgres psql'
@@ -60,3 +58,4 @@ alias gd="git-diff"
 alias gds="git-diff-staged"
 
 alias gl="git log"
+alias v='nvim'
