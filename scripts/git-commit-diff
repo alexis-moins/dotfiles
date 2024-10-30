@@ -2,7 +2,7 @@
 #
 # Interactive git diff of a commit
 #
-commit="$(git-commit-hash)"
+commit="$(git-commit-hash 50)"
 [[ -z "${commit}" ]] && echo 'No commit selected' && exit 1
 
 git diff "${commit}^!"

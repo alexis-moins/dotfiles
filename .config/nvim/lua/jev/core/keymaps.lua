@@ -27,7 +27,7 @@ keys.map("v", "L", "$", "Go to the end of the line (visual)")
 
 -- Buffers
 keys.map("n", "<C-E>", "<cmd>edit #<cr>", "Edit alternate file")
-keys.map("n", "<Leader>bd", "<cmd>%bdelete<bar>edit #<cr>", "Close all buffers except current one")
+keys.map("n", "<Leader>bd", "<cmd>%bdelete<bar>edit #<bar>bdelete #<cr>", "Close all buffers but current one")
 
 keys.map("n", "<C-U>", "<C-U>zz", "Scroll upwards (center)")
 keys.map("n", "<C-D>", "<C-D>zz", "Scroll downwards (center)")

@@ -88,14 +88,36 @@ export GUM_CHOOSE_HEADER_FOREGROUND="7"
 export GUM_CHOOSE_SELECTED_FOREGROUND="3"
 export GUM_CHOOSE_CURSOR_FOREGROUND="3"
 
+#
+# WRITE
+#
+export GUM_WRITE_HEADER_FOREGROUND="7"
+
+
+#
+# INPUT
+#
+export GUM_INPUT_HEADER_FOREGROUND="7"
+export GUM_INPUT_PLACEHOLDER_FOREGROUND="#6e738d"
+export GUM_INPUT_CURSOR_FOREGROUND="7"
+
+#
+# CHOOSE
+#
+export GUM_CHOOSE_HEADER_FOREGROUND="7"
+# export GUM_CHOOSE_ITEM_FOREGROUND="#6e738d"
+
+export GUM_CHOOSE_SELECTED_FOREGROUND="3"
+export GUM_CHOOSE_CURSOR_FOREGROUND="3"
+
 
 #
 # pm
 #
 export PM_HOME="${HOME}/git"
-
 export PM_BACKEND_SHOW_CMD="bat"
 export PM_TEMPLATE_SHOW_CMD="bat"
+export PM_SHOW_CMD="cat"
 
 export PM_VITE_CMD="bun"
 export PM_VITE_TEMPLATE="vue-ts"
@@ -177,3 +199,5 @@ alias ...="cd .. && cd .."
 
 alias de="dot-edit"
 alias se="script-edit"
+
+alias v='nvim'
