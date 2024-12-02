@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#
+# Select git branches interactively
+#
+git branch --format='%(refname:short)' | gum filter --placeholder="Filter branches"

@@ -1,7 +1,7 @@
 [env]
 term = "xterm-256color"
 
-[shell]
+[terminal.shell]
 program = "/opt/homebrew/bin/bash"
 
 [font]

@@ -1,43 +1,3 @@
-alias nvimrc 'nvim $HOME/.config/nvim/init.lua'
-
-# Active a python virtual env
-alias activate 'source (fd --no-ignore --hidden activate.fish)'
-
-alias ... 'cd .. && cd ..'
-
-# Copy stuff verbosely (-v) and ask for confirmation (-i)
-alias cp 'cp -iv'
-
-# Rename / move stuff verbosely (-v) and ask for confirmation (-i)
-alias mv 'mv -iv'
-
-# Remove stuff verbosely (-v) and ask for confirmation (-i)
-alias rm 'rm -iv'
-
-# Perform the daily brew checkout
-alias daily 'brew update; brew upgrade; brew cleanup'
-
-# Never display colors
-alias fd 'fd --color="never"'
-
-alias mkdir 'mkdir -p'
-
-alias ls 'eza --git-ignore'
-
-alias la 'eza --all'
-
-alias ll 'eza --all --long --git'
-
-alias tree 'eza --tree --git-ignore'
-
-alias session 'nvim -S'
-
-alias j 'just'
-
-alias psql 'docker exec -it postgres psql'
-
-# alias v nvim
-
 #
 # git
 #
@@ -59,3 +19,7 @@ alias gds="git-diff-staged"
 
 alias gl="git log"
 alias v='nvim'
+
+alias ni='npm install'
+
+alias x='pkgx'

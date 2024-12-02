@@ -1,11 +1,29 @@
 #!/usr/bin/env bash
 #
-# Edit scripts interactively
+# Edit scripts interactively (or not)
 #
+usage="usage: script-edit [SCRIPT]"
+
 dotfiles="${DOTFILES_DIR:-${HOME}/dotfiles}"
-pushd "${dotfiles}/scripts" &> /dev/null || exit 1
 
-file="$(fd --type f . | gum filter --placeholder="Select a script")"
+if [[ ! -d "${dotfiles}/scripts" ]]; then
+    echo "script-edit: ${dotfiles}/scripts: no such directory"
+    echo "${usage}"
+    exit 1
+fi
 
-[[ -n "${file}" ]] && command "${EDITOR}" "${file}"
-popd &> /dev/null || exit 0
+pushd "${dotfiles}/scripts" &> /dev/null
+
+if [[ -z "${1}" ]]; then
+    file="$(fd --type f . | gum filter --placeholder="Filter scripts")"
+
+    [[ -n "${file}" ]] && command "${EDITOR}" "${file}"
+else
+    if [[ ! -f "${1}" ]]; then
+        echo "script-edit: ${1}: no such file"
+        echo "${usage}"
+        exit 1
+    fi
+
+    command "${EDITOR}" "${1}"
+fi

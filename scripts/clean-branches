@@ -5,11 +5,14 @@
 #
 FILE="/tmp/merged-branches"
 
-git branch --merged | grep -vE "\*|$(git main-branch)" > "${FILE}"
+git branch --format="%(refname:short) %(upstream:track)" | \
+    rg --fixed-strings "[disparue]" | \
+    awk '{ print $1; }' > "${FILE}"
+
 [[ ! -s "${FILE}" ]] && echo "No branches to delete" && exit 0
 
 command "${EDITOR:-vim}" "${FILE}"
 
 [[ ! -s "${FILE}" ]] && echo "No branches to delete" && exit 0
 
-xargs git branch -d < "${FILE}"
+xargs git branch --delete --force < "${FILE}"

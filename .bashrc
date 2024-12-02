@@ -139,6 +139,7 @@ is_executable mise && eval "$(mise activate bash)"
 is_executable direnv && eval "$(direnv hook bash)"
 
 is_executable pm && eval "$(pm completions)"
+is_executable opam && eval "$(opam env)"
 
 #
 # Aliases
@@ -200,4 +201,5 @@ alias ...="cd .. && cd .."
 alias de="dot-edit"
 alias se="script-edit"
 
+alias po='pm open $(pm filter)'
 alias v='nvim'

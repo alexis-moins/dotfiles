@@ -13,5 +13,3 @@ install
 
 \.zshenv
 \.config/zsh
-
-\.config/fish

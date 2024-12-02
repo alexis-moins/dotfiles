@@ -3,10 +3,6 @@
 # Interactive pm open
 #
 project="$(pm filter)"
-
-if [[ -z "${project}" ]]; then
-    echo 'No project selected'
-    exit 1
-fi
+[[ -z "${project}" ]] && exit 1
 
 pm open "${project}"

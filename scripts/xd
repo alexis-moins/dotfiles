@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+#
+#
+
+if [[ -z "${1}" ]]; then
+    echo "usage: xd DIRECTORY COMMAND..."
+    exit 1
+fi
+
+if [[ ! -d "${1}" ]]; then
+    echo "error: ${1} is not a directory"
+    exit 1
+fi
+
+directory="${1}"
+shift
+
+cmd="${@}"
+
+if [[ -z "${cmd}" ]]; then
+    echo "usage: xd DIRECTORY COMMAND..."
+    exit 1
+fi
+
+pushd "${directory}" > /dev/null
+
+command ${cmd}

@@ -1,0 +1,49 @@
+{
+  "commands": {
+    "clone": {
+      "hostname": "github.com"
+    },
+    "new": {
+      "hook": [],
+      "tmux": true
+    },
+    "open": {
+      "hook": [],
+      "tmux": true
+    }
+  },
+  "global": {
+    "colors": {
+      "comment": "#6e738d",
+      "error": "#ed8796",
+      "normal": "#8aadf4",
+      "success": "#a6da95",
+      "suggestion": "#eed49f"
+    },
+    "home": "/Users/alexis/dev"
+  },
+  "spaces": {
+    "default": "default",
+    "list": [
+      "default"
+    ]
+  },
+  "templates": {
+    "default": [
+      {
+        "command": [
+          "mkdir",
+          "{path}"
+        ],
+        "dir": ""
+      },
+      {
+        "command": [
+          "git",
+          "init"
+        ],
+        "dir": "PROJECT"
+      }
+    ]
+  }
+}

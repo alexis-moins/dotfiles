@@ -8,8 +8,6 @@ $character
 
 right_format = """
 $jobs\
-$shlvl\
-$shell
 """
 
 [directory]
@@ -21,7 +19,7 @@ style = "cyan"
 format = "[$symbol$number]($style) "
 number_threshold = 1
 symbol = "*"
-style = "bold yellow"
+style = "bold purple"
 
 [git_branch]
 format = "@[$branch]($style) "
@@ -73,7 +71,7 @@ vimcmd_symbol = "[N](green)"
 vimcmd_visual_symbol = "[V](purple)"
 
 [shell]
-# disabled = false
+disabled = false
 
 [shlvl]
 disabled = false

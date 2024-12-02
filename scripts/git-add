@@ -2,7 +2,9 @@
 #
 # Add files to git interactively
 #
-git_root="$(git rev-parse --show-toplevel)"
+git_root="$(git-root)"
+
+pushd "${git_root}" > /dev/null
 
 candidates="$(git ls-files -mo --exclude-standard --full-name)"
 [[ -z "${candidates}" ]] && echo 'No more changes to stage' && exit 0

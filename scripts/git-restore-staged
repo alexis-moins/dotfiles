@@ -2,7 +2,9 @@
 #
 # Unstage files interactively
 #
-git_root="$(git rev-parse --show-toplevel)"
+git_root="$(git-root)"
+
+pushd "${git_root}" > /dev/null
 
 candidates="$(git diff --cached --name-only)"
 [[ -z "${candidates}" ]] && echo 'No more changes to unstage' && exit 0

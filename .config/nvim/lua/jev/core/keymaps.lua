@@ -27,7 +27,7 @@ keys.map("v", "L", "$", "Go to the end of the line (visual)")
 
 -- Buffers
 keys.map("n", "<C-E>", "<cmd>edit #<cr>", "Edit alternate file")
-keys.map("n", "<Leader>bd", "<cmd>%bdelete<bar>edit #<bar>bdelete #<cr>", "Close all buffers but current one")
+keys.map("n", "<Leader>bd", "<cmd>silent %bdelete<bar>edit #<bar>bdelete #<cr>'\"", "Close all buffers but current one")
 
 keys.map("n", "<C-U>", "<C-U>zz", "Scroll upwards (center)")
 keys.map("n", "<C-D>", "<C-D>zz", "Scroll downwards (center)")
@@ -38,15 +38,6 @@ keys.map("n", "N", "Nzz", "Repeat last search in opposite direction (center)")
 keys.map({ "n", "x" }, "gy", '"+y', "Copy (+register)")
 keys.map({ "n", "x" }, "gp", '"+p', "Paste after cursor (+register)")
 keys.map({ "n", "x" }, "gP", '"+P', "Paste before cursor (+register)")
-
---
--- Terminal keymaps
---
-keys.map("t", "<Esc>", "<C-\\><C-N>", "Leave terminal mode")
-keys.map("t", "<C-^>", "<C-\\><C-N><C-O>", "Leave terminal mode and jump to last buffer")
-keys.map("t", "<C-w>", "<C-\\><C-N><C-w>", "Window prefix")
-
-keys.map("n", "<C-t>", "<cmd>horizontal terminal<cr>", "Open a terminal in a horizontal split")
 
 -- Insert blank lines
 keys.map("n", "[<Space>", "mzO<esc>`z", "Insert a line above cursor")

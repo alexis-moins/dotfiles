@@ -10,3 +10,8 @@ require("jev.plugins.completion")
 require("jev.plugins.conform")
 require("jev.plugins.ai")
 require("jev.plugins.explorer")
+
+--
+-- Filetypes
+--
+require("jev.plugins.reason")
