@@ -38,8 +38,8 @@ fish_add_path "$HOME/.local/share/bob/nvim-bin"
 
 fish_add_path "$HOME/scripts"
 
+fish_add_path "/usr/local/bin"
 fish_add_path "$HOME/.local/bin"
-fish_add_path "$HOME/.local/bin/bruce"
 
 set --export RIPGREP_CONFIG_PATH "$HOME/.ripgreprc"
 

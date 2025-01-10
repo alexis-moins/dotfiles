@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# 
+# Extract a file from the current stash
+#
+file="$(git stash show --name-only | gum filter)"
+
+[[ -z $file ]] && exit 0
+
+git show stash@{0}:${file}
