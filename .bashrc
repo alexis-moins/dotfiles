@@ -48,6 +48,13 @@ add_path "${HOME}/.local/share/bob/nvim-bin"
 
 add_path "/Applications/Docker.app/Contents/Resources/bin"
 
+
+ #Defines colors used by the macOS ls command (BSD)
+export LSCOLORS="gxfxDxCxbxEgEdxbxgxcxd"
+
+# LSCOLORS equivalent used by zsh and other commands
+export LS_COLORS="di=36:ln=35:ex=31:su=41:sg=46:tw=42:ow=43"
+
 #
 # ENVIRONMENT
 #
@@ -144,26 +151,31 @@ is_executable opam && eval "$(opam env)"
 #
 # Aliases
 #
+
+#
+# git
+#
+alias gg="git-switch-branch"
+alias gc='git switch --create'
+
 alias gs="git status --short"
-alias g-="git switch -"
 
 alias gA="git add -A"
 alias ga="git-add"
 
-alias gR="git-restore"
 alias gr="git-restore-staged"
+alias gR="git-restore"
 
-alias gp="git pull"
-alias gP="git push"
+alias gp="git push"
 
 alias gd="git-diff"
 alias gds="git-diff-staged"
 
 alias gl="git log"
-alias gw="git-switch-branch"
 
-alias gc="git switch --create"
-
+#
+# tmux
+#
 alias ta="tmux attach"
 alias tsi="tmux-session-init"
 
@@ -183,14 +195,18 @@ alias daily="brew update; brew upgrade; brew cleanup"
 # Never display colors
 alias fd="fd --color=never"
 
-alias ls="eza --git-ignore"
-alias la="eza --all"
-alias ll="eza --all --long --git"
-alias tree="eza --tree --git-ignore"
+# alias ls="eza --git-ignore"
+
+alias ls="ls -G --color"
+alias la="ls -A"
+alias ll="ls -Alh"
+alias tree="tree -a -I __pycache__ -I node_modules -I .git -I .venv"
+
+# alias la="eza --all"
+# alias ll="eza --all --long --git"
+# alias tree="eza --tree --git-ignore"
 
 alias session="nvim -S"
-
-alias j="just"
 
 alias psql="docker exec -it postgres psql"
 

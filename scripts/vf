@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-#
-# Interactive file opener
-#
-candidates="$(fd --hidden --ignore --type f | gum filter --no-limit --placeholder="Select elements...")"
-[[ -z ${candidates} ]] && exit 1
-
-command "${EDITOR:-vim}" ${candidates}
