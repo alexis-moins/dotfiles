@@ -1,25 +1,25 @@
 #
 # git
 #
-alias gw "git-switch-branch"
+alias g 'git'
+
+alias gg 'tv git-branch'
 alias gc 'git switch --create'
 
-alias gs="git status --short"
+# alias gm 'git-merge-branch'
 
-alias gA="git add -A"
-alias ga="git-add"
+alias gs='git status --short'
 
-alias gr="git-restore-staged"
-alias gR="git-restore"
+alias gA='git add -A'
+alias ga='git-add'
 
-alias gp="git push"
+alias gr='git-restore-staged'
+alias gR='git-restore'
 
-alias gd="git-diff"
-alias gds="git-diff-staged"
+alias gd='git-diff'
+alias gds='git-diff-staged'
 
-alias gl="git log"
+alias gl='git log'
 alias v='nvim'
 
 alias ni='npm install'
-
-alias x='pkgx'

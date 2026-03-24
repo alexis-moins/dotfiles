@@ -1,21 +1,16 @@
 # Don't go any further if this is not an interactive session
 not status is-interactive && exit 0
 
-# Prepend homebrew packages to the user path
-type -qf brew && fish_add_path (brew --prefix)/bin
-
 # Use sarship prompt
 type -qf starship && starship init fish | source
 
 # Initialize the z jump command
 type -qf zoxide && zoxide init fish | source
 
-function fish_user_cursor --on-event fish_prompt
-    echo -ne '\e[5 q'
-end
+# Initialize mise env
+type -qf mise && mise env | source
 
-# # ocaml configuration
-# test -f ~/.opam/opam-init/init.fish && source ~/.opam/opam-init/init.fish
+type -qf tv && tv init fish | source
 
 #
 # ENVIRONMENT
@@ -44,6 +39,12 @@ fish_add_path "$HOME/.local/bin"
 set --export RIPGREP_CONFIG_PATH "$HOME/.ripgreprc"
 
 #
+# pnpm
+#
+set --export PNPM_HOME "$HOME/.local/share/pnpm"
+fish_add_path "$PNPM_HOME"
+
+#
 # pm
 #
 set --export PM_HOME "$HOME/git"
@@ -51,8 +52,6 @@ set --export PM_SHOW_CMD "bat"
 
 set --export PM_VITE_CMD "bun"
 set --export PM_VITE_TEMPLATE "vue-ts"
-
-$HOME/.local/bin/mise activate fish | source
 
 #
 # Aliases
@@ -74,9 +73,6 @@ alias mv 'mv -iv'
 # Remove stuff verbosely (-v) and ask for confirmation (-i)
 alias rm 'rm -iv'
 
-# Perform the daily brew checkout
-alias daily 'brew update; brew upgrade; brew cleanup'
-
 # Never display colors
 alias fd 'fd --color="never"'
 
@@ -95,6 +91,8 @@ alias session 'nvim -S'
 alias j 'just'
 
 alias v nvim
+
+abbr --add tg 'tv git-branch'
 
 #
 # Abbreviations

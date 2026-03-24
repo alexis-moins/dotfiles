@@ -1,0 +1,22 @@
+{
+  "Log object": {
+    "prefix": "log",
+    "body": "console.log({ ${1}: ${0:${1}} })",
+    "description": "Log object"
+  },
+  "Stringify anything": {
+    "prefix": "stringify",
+    "body": "JSON.stringify(${0}, null, 2)",
+    "description": "Stringify anything"
+  },
+  "Simple function": {
+    "prefix": "func",
+    "body": ["function($1)", "{", "\t$0", "}"],
+    "description": "Simple function"
+  },
+  "Vue 3 Ref": {
+    "prefix": "vref",
+    "body": "const $1 = ref(${0:null})",
+    "description": "Simple function"
+  }
+}

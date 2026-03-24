@@ -1,7 +1,8 @@
 [tools]
+bun = "latest"
 node = "latest"
 python = "latest"
-go = "latest"
+rust = "latest"
 
 [settings]
 asdf_compat = false

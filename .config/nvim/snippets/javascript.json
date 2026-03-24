@@ -1,0 +1,12 @@
+{
+  "log object": {
+    "prefix": "log",
+    "body": ["console.log({ ${1}: ${0:${1}} })"],
+    "description": ""
+  },
+  "json stringify": {
+    "prefix": "stringify",
+    "body": ["JSON.stringify(${0}, null, 2)"],
+    "description": ""
+  }
+}

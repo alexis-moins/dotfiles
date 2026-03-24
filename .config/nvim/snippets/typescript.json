@@ -1,0 +1,45 @@
+{
+  "Log": {
+    "prefix": "log",
+    "body": "console.log(${0})",
+    "description": "Log an element"
+  },
+  "Stringify": {
+    "prefix": "stringify",
+    "body": "JSON.stringify(${0}, null, 2)",
+    "description": "Stringify an element"
+  },
+  "Function": {
+    "prefix": "func",
+    "body": ["function $1($2)", "{", "\t$0", "}"],
+    "description": "Simple function"
+  },
+  "Arrow function": {
+    "prefix": "afunc",
+    "body": "const $1 = ($2) => $0",
+    "description": "Create an arrow function"
+  },
+  "Vue ref": {
+    "prefix": "ref",
+    "body": "const $1 = ref(${0:null})"
+  },
+  "Vue shared State": {
+    "prefix": "state",
+    "body": "const state = reactive({${0}})"
+  },
+  "Vue props": {
+    "prefix": "props",
+    "body": "const props = defineProps<{$0}>()",
+    "description": "Define props"
+  },
+  "Vue props (defaults)": {
+    "prefix": "props-defaults",
+    "body": "const props = withDefaults(defineProps<{$1}>(), {$0})",
+    "description": "Define props with defaults"
+  },
+  "Vue emit": {
+    "prefix": "emit",
+    "body": "const emit = defineEmits<{ '$0': [] }>()",
+    "description": "Define events"
+  }
+}

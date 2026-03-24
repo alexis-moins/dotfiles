@@ -1,11 +1,9 @@
 \.DS_Store
 
-README.*
+\*.md
 Brewfile.lock.json
 Session.vim
 osx
-
-install
 
 \.git
 \.gitignore
