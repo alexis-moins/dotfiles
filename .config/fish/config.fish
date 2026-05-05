@@ -7,15 +7,20 @@ type -qf starship && starship init fish | source
 # Initialize the z jump command
 type -qf zoxide && zoxide init fish | source
 
-# Initialize mise env
-type -qf mise && mise env | source
-
 type -qf tv && tv init fish | source
+
+fish_config theme choose "rose-pine-moon"
+
+#
+# Homebrew
+#
+set --local DOT_LINUXBREW '/home/linuxbrew/.linuxbrew'
+test -f $DOT_LINUXBREW/bin/brew && $DOT_LINUXBREW/bin/brew shellenv fish | source
 
 #
 # ENVIRONMENT
 #
-set -gx GUM_FILTER_MATCH_FOREGROUND  "2"
+set --global --export GUM_FILTER_MATCH_FOREGROUND  "2"
 set -gx GUM_FILTER_PROMPT_FOREGROUND "7"
 set -gx GUM_FILTER_INDICATOR_FOREGROUND "1"
 
@@ -43,15 +48,6 @@ set --export RIPGREP_CONFIG_PATH "$HOME/.ripgreprc"
 #
 set --export PNPM_HOME "$HOME/.local/share/pnpm"
 fish_add_path "$PNPM_HOME"
-
-#
-# pm
-#
-set --export PM_HOME "$HOME/git"
-set --export PM_SHOW_CMD "bat"
-
-set --export PM_VITE_CMD "bun"
-set --export PM_VITE_TEMPLATE "vue-ts"
 
 #
 # Aliases
@@ -100,6 +96,8 @@ abbr --add tg 'tv git-branch'
 abbr --add ta "tmux attach"
 abbr --add tsi 'tmux-session-init'
 
+abbr --add zd 'lazydocker'
+
 abbr --add ss "session"
 
 abbr --add da "direnv allow ."
@@ -111,7 +109,8 @@ abbr --add dsp "docker system prune --all --volumes"
 abbr --add gb 'git switch -'
 abbr --add cb 'clean-branches'
 
-abbr --add sw 'git switch'
-
 abbr --add se 'script-edit'
 abbr --add de 'dot-edit'
+
+# Activate mise last to take precedence over other PATH additions
+type -qf mise && mise activate fish | source

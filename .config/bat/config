@@ -3,8 +3,12 @@
 # run `bat --help` to get a list of all possible configuration options.
 
 # Show line numbers, Git modifications (but no file header or grid)
---style="grid,changes,numbers"
+--style='grid,header,changes,numbers'
 
+--nonprintable-notation='caret'
+
+--wrap='never'
+--tabs='4'
 
 # Specify desired highlighting theme (e.g. "TwoDark"). Run `bat --list-themes`
 # for a list of all available themes
@@ -13,7 +17,7 @@
 
 # Enable this to use italic text on the terminal. This is not supported on all
 # terminal emulators (like tmux, by default):
---italic-text=never
+--italic-text=always
 
 # Additional pattern to syntax mappings
 --map-syntax='justfile:Makefile'

@@ -28,6 +28,8 @@ map({ "n", "v" }, "L", "g$", "Go to the end of the line (respects wrap)")
 map({ "n", "v" }, "j", "gj", "Move down (respects wrap)")
 map({ "n", "v" }, "k", "gk", "Move up (respects wrap)")
 
+map("n", "X", "daW", "Delete around WORD")
+
 map("n", "<C-U>", "{", "Scroll upwards (center)")
 map("n", "<C-D>", "}", "Scroll downwards (center)")
 
@@ -49,6 +51,8 @@ map("n", "H", "<Cmd>lua vim.diagnostic.open_float()<CR>", "Open diagnostic popup
 
 map("n", "g.", ":%s/<C-R><C-W>//gc<left><left><left>", "Substitute cword in buffer")
 map("v", "g.", '"zy:%s/<C-R>z//gc<left><left><left>', "Substitute cword in buffer")
+
+map("v", "s", ":s/\\%V//gc<left><left><left><left>", "Substitute in visual selection")
 
 map("n", "<Leader>cd", "<Cmd>cd %:h<CR>", "Set working directory to current file's directory")
 

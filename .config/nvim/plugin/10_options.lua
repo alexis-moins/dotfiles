@@ -164,10 +164,9 @@ vim.opt.completeopt = { "menuone", "noselect", "fuzzy", "nosort" }
 
 -- Don't auto-wrap comments and don't insert comment leader after hitting 'o'.
 -- Do on `FileType` to always override these changes from filetype plugins.
-local f = function()
+Config.new_autocmd("FileType", nil, function()
     vim.cmd("setlocal formatoptions-=c formatoptions-=o")
-end
-Config.new_autocmd("FileType", nil, f, "Proper 'formatoptions'")
+end, "Proper 'formatoptions'")
 
 -- Show cursorline when entering buffer or window
 Config.new_autocmd({ "WinEnter", "BufEnter" }, nil, function()

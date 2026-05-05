@@ -1,11 +1,14 @@
 [env]
 term = "xterm-256color"
 
+[general]
+import = ["themes/rose-pine-moon.toml"]
+
 [terminal.shell]
-program = "/opt/homebrew/bin/bash"
+program = "/usr/bin/fish"
 
 [font]
-size = 14.0
+size = 13.0
 
 [font.offset]
 x = 0
@@ -20,36 +23,6 @@ style = "Bold"
 
 [colors]
 draw_bold_text_with_bright_colors = true
-
-[colors.primary]
-background = "#24273a"
-foreground = "#cad3f5"
-dim_foreground = "#8087a2"
-bright_foreground = "#cad3f5"
-
-[colors.cursor]
-text = "#24273a"
-cursor = "#f4dbd6"
-
-[colors.normal]
-black = "#494d64"
-red = "#ed8796"
-green = "#a5d885"
-yellow = "#eed49f"
-blue = "#8aadf4"
-magenta = "#c6a0f6"
-cyan = "#7dc4e4"
-white = "#b8c0e0"
-
-[colors.bright]
-black = "#494d64"
-red = "#ed8796"
-green = "#a5d885"
-yellow = "#eed49f"
-blue = "#8aadf4"
-magenta = "#c6a0f6"
-cyan = "#7dc4e4"
-white = "#b8c0e0"
 
 [cursor.style]
 shape = "Block"

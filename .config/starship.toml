@@ -1,19 +1,57 @@
 format = """
 $directory\
-$git_branch$git_state$git_status\
-$python\
-$ocaml\
+$git_branch\
+$git_state\
+$git_status\
 $character
 """
 
 right_format = """
+$python\
+$ocaml\
 $jobs\
+$time\
 """
 
+#
+# Palettes
+#
+
+palette = "rose-pine-moon"
+
+[palettes.rose-pine-moon]
+overlay = '#393552'
+love = '#eb6f92'
+gold = '#f6c177'
+rose = '#ea9a97'
+pine = '#3e8fb0'
+foam = '#9ccfd8'
+iris = '#c4a7e7'
+
+[palettes.rose-pine-dawn]
+overlay = '#f2e9e1'
+love = '#b4637a'
+gold = '#ea9d34'
+rose = '#d7827e'
+pine = '#286983'
+foam = '#56949f'
+iris = '#907aa9'
+
+#
+#
+#
+
 [directory]
-read_only = '(r)'
-read_only_style = 'green'
-style = "cyan"
+format = "[](fg:overlay)[ $path ]($style)[](fg:overlay)"
+style = "bg:overlay fg:pine"
+truncation_length = 2
+truncation_symbol = "…/"
+
+[directory.substitutions]
+Documents = "󰈙"
+Downloads = " "
+Music = " "
+Pictures = " "
 
 [jobs]
 format = "[$symbol$number]($style) "
@@ -22,28 +60,66 @@ symbol = "*"
 style = "bold purple"
 
 [git_branch]
-format = "@[$branch]($style) "
-style = "purple"
+format = " [](fg:overlay)[ $symbol $branch ]($style)[](fg:overlay)"
+style = "bg:overlay fg:foam"
+symbol = ""
+
+# [git_status]
+# style = "red"
+# # format = '[($conflicted )($stashed )($deleted )($renamed )($modified )($staged )($untracked )]($style)'
+#
+# diverged = "$ahead$behind"
+# ahead = "↑$count"
+# behind = "↓$count"
+#
+# stashed = "≡$count"
+# staged = "+$count"
+# untracked = "…$count"
+# modified = "~$count"
+#
+# deleted = "-$count"
+# renamed = "*$count"
 
 [git_status]
-style = "red"
-# format = '[($conflicted )($stashed )($deleted )($renamed )($modified )($staged )($untracked )]($style)'
+style = "bg:overlay fg:love"
+format = ' [](fg:overlay)[ $all_status( $ahead_behind) ]($style)[](fg:overlay)'
+up_to_date = '[✓](bg:overlay fg:iris)'
+untracked = '[…${count}](bg:overlay fg:gold)'
+stashed = '[≡${count}](bg:overlay fg:iris)'
+modified = '[~${count}](bg:overlay fg:gold)'
+renamed = '[*${count}](bg:overlay fg:iris)'
+deleted = '[-${count}](style)'
+staged = '[+${count}](bg:overlay fg:gold)'
+ahead = '[↑${count}](bg:overlay fg:foam)'
+diverged = '[↑${ahead_count}](bg:overlay fg:foam)[↓${behind_count}](bg:overlay fg:rose)'
+behind = '[↓${count}](bg:overlay fg:rose)'
 
-diverged = "$ahead$behind"
-ahead = "↑$count"
-behind = "↓$count"
+[time]
+disabled = false
+format = " [](fg:overlay)[ $time 󰴈 ]($style)[](fg:overlay)"
+style = "bg:overlay fg:rose"
+time_format = "%H:%M"
+use_12hr = false
 
-stashed = "≡$count"
-staged = "+$count"
-untracked = "…$count"
-modified = "~$count"
+[character]
+# ❯ or ➜
+success_symbol = " [➜](fg:white)"
+error_symbol = " [➜](fg:love)"
+vimcmd_symbol = " [➜](fg:gold)"
+vimcmd_visual_symbol = " [➜](fg:iris)"
 
-deleted = "-$count"
-renamed = "*$count"
+#
+# Languages
+#
 
+# [python]
+# format = '#[(($virtualenv-)$version )]($style)'
+# style = "green"
 [python]
-format = '#[(($virtualenv-)$version )]($style)'
-style = "green"
+style = "bg:overlay fg:pine"
+format = "[](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+disabled = false
+symbol = ' '
 
 [nodejs]
 symbol = ""
@@ -61,14 +137,6 @@ format = '$switch_indicator[$switch_name-$version ]($style)'
 global_switch_indicator = '#'
 style = "green"
 
-
-[character]
-# ❯ or ➜
-success_symbol = "[➜](white)"
-error_symbol = "[➜](red)"
-
-vimcmd_symbol = "[N](green)"
-vimcmd_visual_symbol = "[V](purple)"
 
 [shell]
 disabled = false

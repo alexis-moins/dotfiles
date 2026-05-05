@@ -1,8 +1,10 @@
 [tools]
-bun = "latest"
+"cargo:alacritty" = "latest"
+"cargo:zellij" = "latest"
 node = "latest"
 python = "latest"
 rust = "latest"
+usage = "latest"
 
 [settings]
 asdf_compat = false
