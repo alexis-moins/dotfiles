@@ -84,13 +84,13 @@ symbol = ""
 style = "bg:overlay fg:love"
 format = ' [](fg:overlay)[( $all_status)( $ahead_behind) ]($style)[](fg:overlay)'
 up_to_date = '[✓](bg:overlay fg:iris)'
-untracked = '[…${count}](bg:overlay fg:gold)'
+untracked = '[…${count}](style)'
 stashed = '[≡${count}](bg:overlay fg:iris)'
 modified = '[~${count}](bg:overlay fg:gold)'
 renamed = '[*${count}](bg:overlay fg:iris)'
 deleted = '[-${count}](style)'
-staged = '[+${count}](bg:overlay fg:gold)'
-ahead = '[↑${count}](bg:overlay fg:foam)'
+staged = '[+${count}](bg:overlay fg:foam)'
+ahead = '[↑${count}](bg:overlay fg:pine)'
 diverged = '[↑${ahead_count}](bg:overlay fg:foam)[↓${behind_count}](bg:overlay fg:rose)'
 behind = '[↓${count}](bg:overlay fg:rose)'
 
