@@ -10,23 +10,17 @@ function fish_user_key_bindings
 
     bind -M insert jk vi-normal-mode
 
-    # Bind ^h to 'accept-suggestion'
-    bind -M insert \ch forward-char
-    bind -M insert \ck kill-line
+    # Bind <Tab> to 'accept-suggestion'
+    bind -M insert ctrl-h accept-autosuggestion
+    #
+    # bind -M insert \t accept-autosuggestion
 
-    bind -M insert \cp up-or-search
-    bind -M insert \cn down-or-search
+    bind -M insert ctrl-k kill-line
+
+    bind -M insert ctrl-p up-or-search
+    bind -M insert ctrl-n down-or-search
 
     # Bind ^z to resume background process
-    bind -M insert \cz fg\r
-
-    # Bind ^e to git branch
-    bind -M insert \ce git-branch
-
-    # Bind ^b to gum find widget
-    bind -M insert \cb gum-find-widget
-
-    # Bind ^f to gum cd widget
-    bind -M insert \cf gum-cd-widget
+    bind -M insert ctrl-z fg\r
 end
 

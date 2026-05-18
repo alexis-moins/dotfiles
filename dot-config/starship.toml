@@ -8,7 +8,12 @@ $character
 
 right_format = """
 $python\
+$nodejs\
 $ocaml\
+$rust\
+$elixir\
+$golang\
+$cmd_duration\
 $jobs\
 $time\
 """
@@ -38,7 +43,7 @@ foam = '#56949f'
 iris = '#907aa9'
 
 #
-#
+# Left components
 #
 
 [directory]
@@ -53,32 +58,14 @@ Downloads = " "
 Music = " "
 Pictures = " "
 
-[jobs]
-format = "[$symbol$number]($style) "
-number_threshold = 1
-symbol = "*"
-style = "bold purple"
-
 [git_branch]
 format = " [](fg:overlay)[ $symbol $branch ]($style)[](fg:overlay)"
 style = "bg:overlay fg:foam"
 symbol = ""
 
-# [git_status]
-# style = "red"
-# # format = '[($conflicted )($stashed )($deleted )($renamed )($modified )($staged )($untracked )]($style)'
-#
-# diverged = "$ahead$behind"
-# ahead = "↑$count"
-# behind = "↓$count"
-#
-# stashed = "≡$count"
-# staged = "+$count"
-# untracked = "…$count"
-# modified = "~$count"
-#
-# deleted = "-$count"
-# renamed = "*$count"
+[git_state]
+format = " [](fg:overlay)[ $state( $progress_count/$progress_total) ]($style)[](fg:overlay)"
+style = "bg:overlay fg:gold"
 
 [git_status]
 style = "bg:overlay fg:love"
@@ -94,13 +81,6 @@ ahead = '[↑${count}](bg:overlay fg:pine)'
 diverged = '[↑${ahead_count}](bg:overlay fg:foam)[↓${behind_count}](bg:overlay fg:rose)'
 behind = '[↓${count}](bg:overlay fg:rose)'
 
-[time]
-disabled = false
-format = " [](fg:overlay)[ $time 󰴈 ]($style)[](fg:overlay)"
-style = "bg:overlay fg:rose"
-time_format = "%H:%M"
-use_12hr = false
-
 [character]
 # ❯ or ➜
 success_symbol = " [➜](fg:white)"
@@ -109,42 +89,63 @@ vimcmd_symbol = " [➜](fg:gold)"
 vimcmd_visual_symbol = " [➜](fg:iris)"
 
 #
+# Right components
+#
+
+[cmd_duration]
+format = " [](fg:overlay)[ $duration ]($style)[](fg:overlay)"
+style = "bg:overlay fg:love"
+min_time = 3_000
+
+[jobs]
+format = " [](fg:overlay)[ $symbol $number ]($style)[](fg:overlay)"
+style = "bg:overlay fg:iris"
+number_threshold = 1
+symbol = "⟲"
+
+[time]
+disabled = false
+format = " [](fg:overlay)[ $time 󰴈 ]($style)[](fg:overlay)"
+style = "bg:overlay fg:rose"
+time_format = "%H:%M"
+use_12hr = false
+
+#
 # Languages
 #
 
-# [python]
-# format = '#[(($virtualenv-)$version )]($style)'
-# style = "green"
 [python]
 style = "bg:overlay fg:pine"
-format = "[](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+# format = '#[(($virtualenv-)$version )]($style)'
+format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
 disabled = false
 symbol = ' '
 
 [nodejs]
-symbol = ""
-
-[golang]
-symbol = "go "
-style = "italic bold black"
-
-[elixir]
-symbol = "elixir "
-style = "italic bold black"
+style = "bg:overlay fg:pine"
+format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+disabled = false
+symbol = "󰎙 "
 
 [ocaml]
 format = '$switch_indicator[$switch_name-$version ]($style)'
 global_switch_indicator = '#'
 style = "green"
 
-
-[shell]
+[rust]
+style = "bg:overlay fg:pine"
+format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
 disabled = false
+symbol = " "
 
-[shlvl]
+[elixir]
+style = "bg:overlay fg:pine"
+format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
 disabled = false
-style = "#6e738d"
-format = '[\($shlvl\) ]($style)'
-repeat = true
-threshold = 2
-repeat_offset = 1
+symbol = " "
+
+[golang]
+style = "bg:overlay fg:pine"
+format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+disabled = false
+symbol = " "

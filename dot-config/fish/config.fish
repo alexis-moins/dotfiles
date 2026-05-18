@@ -11,11 +11,17 @@ type -qf tv && tv init fish | source
 
 fish_config theme choose "rose-pine-moon"
 
+function setx -a name value
+    set --global --export $name $value
+end
+
 #
 # Homebrew
 #
 set --local DOT_LINUXBREW '/home/linuxbrew/.linuxbrew'
 test -f $DOT_LINUXBREW/bin/brew && $DOT_LINUXBREW/bin/brew shellenv fish | source
+
+setx XDG_CONFIG_HOME "$HOME/.config"
 
 #
 # ENVIRONMENT
@@ -29,19 +35,18 @@ set -gx GUM_FILTER_UNSELECTED_PREFIX_FOREGROUND "#6e738d"
 
 set -gx GUM_FILTER_INDICATOR ">"
 
-# bun
-set --export BUN_INSTALL "$HOME/.bun"
+setx BUN_INSTALL "$HOME/.bun"
+setx RIPGREP_CONFIG_PATH "$HOME/.ripgreprc"
+
 fish_add_path "$BUN_INSTALL/bin"
 
 fish_add_path "$HOME/.cargo/bin"
-fish_add_path "$HOME/.local/share/bob/nvim-bin"
 
 fish_add_path "$HOME/scripts"
 
 fish_add_path "/usr/local/bin"
 fish_add_path "$HOME/.local/bin"
 
-set --export RIPGREP_CONFIG_PATH "$HOME/.ripgreprc"
 
 #
 # pnpm
@@ -52,7 +57,6 @@ fish_add_path "$PNPM_HOME"
 #
 # Aliases
 #
-alias dev 'npm run dev'
 alias nvimrc 'nvim $HOME/.config/nvim/init.lua'
 
 # Active a python virtual env
@@ -87,6 +91,8 @@ alias session 'nvim -S'
 alias j 'just'
 
 alias v nvim
+
+abbr --add zz zellij
 
 abbr --add tg 'tv git-branch'
 

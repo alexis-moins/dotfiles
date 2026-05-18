@@ -4,8 +4,8 @@ term = "xterm-256color"
 [general]
 import = ["themes/rose-pine-moon.toml"]
 
-[terminal.shell]
-program = "/usr/bin/fish"
+# [terminal.shell]
+# program = "/usr/bin/fish"
 
 [font]
 size = 13.0

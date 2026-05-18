@@ -12,7 +12,6 @@ SETUVAR --export LS_COLORS:di\x3d34\x3aln\x3d35\x3aso\x3d32\x3api\x3d33\x3aex\x3
 SETUVAR --export MANPAGER:nvim\x1e\x2bMan\x21
 SETUVAR --export PYENV_ROOT:/Users/alexis/\x2epyenv
 SETUVAR --export TERM:screen\x2d256color\x20tmux
-SETUVAR XDG_CONFIG_HOME:/Users/alexis/\x2econfig
 SETUVAR Z_DATA_DIR:/Users/alexis/\x2elocal/share/z
 SETUVAR __fish_initialized:4300
 SETUVAR _fisher_jorgebucaran_2F_autopair_2E_fish_files:\x7e/\x2econfig/fish/functions/_autopair_backspace\x2efish\x1e\x7e/\x2econfig/fish/functions/_autopair_insert_left\x2efish\x1e\x7e/\x2econfig/fish/functions/_autopair_insert_right\x2efish\x1e\x7e/\x2econfig/fish/functions/_autopair_insert_same\x2efish\x1e\x7e/\x2econfig/fish/functions/_autopair_tab\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/autopair\x2efish

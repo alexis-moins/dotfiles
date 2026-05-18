@@ -47,7 +47,7 @@ require("mini.cmdline").setup()
 vim.pack.add({ { src = gh('rose-pine/neovim'), name = 'rose-pine' } })
 
 -- Once mini.hues is installed, we can set the colorscheme (which depends on it)
-vim.cmd("colorscheme cursor-light")
+vim.cmd("colorscheme rose-pine-moon")
 
 -- Icons ======================================================================
 

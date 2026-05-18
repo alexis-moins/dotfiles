@@ -10,3 +10,12 @@ stow:
 
 unstow:
 	stow --dotfiles --target ~ --delete .
+
+check:
+	brew bundle check --global
+
+dump:
+	brew bundle dump --describe --global --no-vscode --force
+
+install:
+	brew bundle install --global
