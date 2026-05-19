@@ -1,3 +1,4 @@
+# vim: ft=gitconfig
 [user]
     name = alexis-moins
     email = sinus.nacre0v@icloud.com
@@ -30,7 +31,7 @@
 
 [diff]
     colorMoved = default
-	mnemonicPrefix = true
+    mnemonicPrefix = true
 
 [interactive]
     diffFilter = delta --color-only
@@ -53,55 +54,45 @@
 
 [alias]
     ci = commit
-    force = !git amend && git push -f
-    main-branch = !git symbolic-ref refs/remotes/origin/HEAD | cut -d'/' -f4
+    amend = commit --amend --no-edit
 
-    current = !git rev-parse --abbrev-ref HEAD
+    unstage = restore --staged --
+    discard = checkout --
+    untracked = ls-files --others --exclude-standard
 
-    sw = switch
-    sm = !git switch $(git main-branch)
-    M = !git merge $(git main-branch)
+    fap = fetch --all --prune
+    current = rev-parse --abbrev-ref HEAD
 
     bl = branch --format '%(color:red)[%(HEAD)]%(color:white) %(refname:short) %(color:green)%(upstream:short) %(color:blue)%(authorname) %(color:bold black)%(committerdate:relative) %(upstream:track)'
     blr = branch --remote --format '%(color:red)[%(HEAD)]%(color:white) %(refname:short) %(color:blue)%(authorname) %(color:bold black)%(committerdate:relative)'
-
-    bd = branch --delete
-
-    rn = branch --move
     rename = branch --move
 
-    rs = restore
+    uncommit = reset HEAD^
+    remove-commit = reset --hard HEAD^
 
-    d = diff
-    dl = diff HEAD^
-    ds = diff --staged
-    da = diff HEAD
+    diff-staged = diff --staged
+    diff-modified = diff --diff-filter=M
+
     dc = diff --diff-filter=U
 
+    precommit = diff --cached --diff-algorithm=minimal -w
+
     l = log --all --graph -n 15
-    lb = log main...
     ll = log --all --graph
 
-    st = "status"
+    graph = log --graph -10 --branches --remotes --tags  --format=format:'%Cgreen%h %Creset• %<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order
 
-    amend = commit --amend --no-edit
-    ignore = !git rm -r --cached . && git add -A
-
-    this = !git init && git add -A && git commit -m 'feat: initial commit'
-    oops = !git stash && git switch -c oops && git stash pop
-	lr = log -n 8
-	sp = stash pop
-	sd = stash drop
+    ignore = !git rm -r --cached . && git add --all
 
 [format]
     pretty = format:%C(auto)%h [%D] %C(brightblue)%an%C(reset) %s %C(bold black)%cr%C(reset)
 
 [push]
-	autoSetupRemote = true
+    autoSetupRemote = true
     default = "current"
 
 [remote "origin"]
     prune = true
 
 [pull]
-	rebase = true
+    rebase = true

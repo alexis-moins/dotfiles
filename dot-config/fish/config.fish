@@ -22,6 +22,7 @@ set --local DOT_LINUXBREW '/home/linuxbrew/.linuxbrew'
 test -f $DOT_LINUXBREW/bin/brew && $DOT_LINUXBREW/bin/brew shellenv fish | source
 
 setx XDG_CONFIG_HOME "$HOME/.config"
+setx XDG_DATA_HOME "$HOME/.local/share"
 
 #
 # ENVIRONMENT
@@ -111,12 +112,24 @@ abbr --add da "direnv allow ."
 abbr --add dk docker
 abbr --add dsp "docker system prune --all --volumes"
 
-# git
+#
+# Git
+#
 abbr --add gb 'git switch -'
 abbr --add cb 'clean-branches'
 
 abbr --add se 'script-edit'
 abbr --add de 'dot-edit'
+
+abbr --add gds 'git diff-staged'
+abbr --add gdm 'git diff-modified'
+
+abbr --add gc 'git switch --create'
+
+abbr --add gA 'git add --all'
+
+abbr --add gs 'git status --short'
+abbr --add gS 'git status'
 
 # Activate mise last to take precedence over other PATH additions
 type -qf mise && mise activate fish | source

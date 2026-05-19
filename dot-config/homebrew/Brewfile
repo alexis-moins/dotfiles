@@ -12,6 +12,8 @@ brew "fd"
 brew "fish"
 # GitHub command-line tool
 brew "gh"
+# Syntax-highlighting pager for git and diff output
+brew "git-delta"
 # Lazier way to manage everything docker
 brew "lazydocker"
 # Simple terminal UI for git commands
@@ -28,7 +30,11 @@ brew "starship"
 brew "stow"
 # Parser generator tool
 brew "tree-sitter-cli"
+# JavaScript package manager
+brew "yarn"
 # Pluggable terminal workspace, with terminal multiplexer as the base feature
 brew "zellij"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
+cask "font-fira-code-nerd-font"
+cask "font-jetbrains-mono-nerd-font"
