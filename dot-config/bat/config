@@ -2,8 +2,8 @@
 # a command-line option that you want to pass to `bat` by default. You can
 # run `bat --help` to get a list of all possible configuration options.
 
-# Show line numbers, Git modifications (but no file header or grid)
---style='grid,header,changes,numbers'
+# Show line numbers, grid, Git modifications (but no file header)
+--style='grid,changes,numbers'
 
 --nonprintable-notation='caret'
 
@@ -12,7 +12,7 @@
 
 # Specify desired highlighting theme (e.g. "TwoDark"). Run `bat --list-themes`
 # for a list of all available themes
---theme="Catppuccin-macchiato"
+--theme="Rose-Pine-Moon"
 --color=always
 
 # Enable this to use italic text on the terminal. This is not supported on all

@@ -6,7 +6,7 @@ help:
 	@echo  '  unstow            - Unstow the dotfiles'
 
 stow:
-	stow --dotfiles --restow --no-folding .
+	stow --dotfiles --adopt --restow --no-folding .
 
 unstow:
 	stow --dotfiles --target ~ --delete .

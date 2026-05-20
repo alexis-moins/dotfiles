@@ -13,21 +13,21 @@
 [delta]
     tabs = 6
     side-by-side = true
-    ; line-numbers = true
+    true-color = always
 
     navigate = true
     file-modified-label = "~"
 
-    syntax-theme = Catppuccin-macchiato
+    syntax-theme = Rose-Pine-Moon
 
-    plus-style = syntax "#3b474a"
-    minus-style = syntax "#48384b"
+    plus-style = syntax "#3b4456"
+    minus-style = syntax "#4b3148"
 
-    line-numbers-plus-style = "#a6da95"
-    line-numbers-minus-style = "#ed8796"
+    line-numbers-plus-style = "#9ccfd8"
+    line-numbers-minus-style = "#eb6f92"
 
-    plus-emph-style = "#a6da95" ul "#3b474a"
-    minus-emph-style = "#ed8796" ul "#48384b"
+    plus-emph-style = "#9ccfd8" ul "#3b4456"
+    minus-emph-style = "#eb6f92" ul "#4b3148"
 
 [diff]
     colorMoved = default
@@ -58,6 +58,7 @@
 
     unstage = restore --staged --
     discard = checkout --
+
     untracked = ls-files --others --exclude-standard
 
     fap = fetch --all --prune
@@ -71,11 +72,9 @@
     remove-commit = reset --hard HEAD^
 
     diff-staged = diff --staged
-    diff-modified = diff --diff-filter=M
+    diff-unstaged = diff --diff-filter=M
 
-    dc = diff --diff-filter=U
-
-    precommit = diff --cached --diff-algorithm=minimal -w
+    precommit = diff --staged --diff-algorithm=minimal --ignore-all-space
 
     l = log --all --graph -n 15
     ll = log --all --graph

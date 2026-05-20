@@ -118,11 +118,12 @@ abbr --add dsp "docker system prune --all --volumes"
 abbr --add gb 'git switch -'
 abbr --add cb 'clean-branches'
 
-abbr --add se 'script-edit'
-abbr --add de 'dot-edit'
+abbr --add gai 'git add --interactive'
+abbr --add gap 'git add --patch --interactive'
+
 
 abbr --add gds 'git diff-staged'
-abbr --add gdm 'git diff-modified'
+abbr --add gdu 'git diff-unstaged'
 
 abbr --add gc 'git switch --create'
 
