@@ -52,9 +52,16 @@
 [rerere]
     enabled = true
 
+[branch]
+    sort = -committerdate
+
 [alias]
     ci = commit
     amend = commit --amend --no-edit
+
+    tags = tag
+    stashes = stash list
+    branches = branch --format '%(color:yellow)%(HEAD) %(color:reset)%(refname:short) %(color:red)%(upstream:short) %(color:reset)[%(color:bold black)%(authorname) %(color:reset), %(color:bold black)%(committerdate:relative)%(color:reset)] %(upstream:track)'
 
     unstage = restore --staged --
     discard = checkout --
@@ -64,27 +71,23 @@
     fap = fetch --all --prune
     current = rev-parse --abbrev-ref HEAD
 
-    bl = branch --format '%(color:red)[%(HEAD)]%(color:white) %(refname:short) %(color:green)%(upstream:short) %(color:blue)%(authorname) %(color:bold black)%(committerdate:relative) %(upstream:track)'
+    bl = branch --format '%(color:yellow)[%(HEAD)]%(color:white) %(refname:short) %(color:red)%(upstream:short) %(color:cyan)%(authorname) %(color:bold black)(%(committerdate:relative)) %(color:bold green)%(upstream:track)'
     blr = branch --remote --format '%(color:red)[%(HEAD)]%(color:white) %(refname:short) %(color:blue)%(authorname) %(color:bold black)%(committerdate:relative)'
-    rename = branch --move
 
     uncommit = reset HEAD^
     remove-commit = reset --hard HEAD^
 
     diff-staged = diff --staged
     diff-unstaged = diff --diff-filter=M
-
     precommit = diff --staged --diff-algorithm=minimal --ignore-all-space
 
-    l = log --all --graph -n 15
-    ll = log --all --graph
-
-    graph = log --graph -10 --branches --remotes --tags  --format=format:'%Cgreen%h %Creset• %<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order
+    graph = log --graph -n20 --format='format:%C(yellow)%h %C(reset)[%C(red)%an%C(reset), %C(green)%cr%C(reset)] %C(reset)%<(100,trunc)%s %C(auto)%d'
 
     ignore = !git rm -r --cached . && git add --all
 
 [format]
-    pretty = format:%C(auto)%h [%D] %C(brightblue)%an%C(reset) %s %C(bold black)%cr%C(reset)
+    ; Pretty format used for the log command
+    pretty = format:%C(yellow)%h %C(reset)[%C(red)%an%C(reset), %C(green)%cr%C(reset)] %C(reset)%<(100,trunc)%s
 
 [push]
     autoSetupRemote = true

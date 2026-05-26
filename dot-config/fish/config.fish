@@ -58,6 +58,8 @@ fish_add_path "$PNPM_HOME"
 #
 # Aliases
 #
+alias g 'git'
+
 alias nvimrc 'nvim $HOME/.config/nvim/init.lua'
 
 # Active a python virtual env
@@ -89,17 +91,16 @@ alias tree 'eza --tree --git-ignore'
 
 alias session 'nvim -S'
 
-alias j 'just'
-
 alias v nvim
 
-abbr --add zz zellij
-
-abbr --add tg 'tv git-branch'
 
 #
 # Abbreviations
 #
+abbr --add zz zellij
+
+abbr --add tg 'tv git-branch'
+
 abbr --add ta "tmux attach"
 abbr --add tsi 'tmux-session-init'
 
@@ -115,6 +116,8 @@ abbr --add dsp "docker system prune --all --volumes"
 #
 # Git
 #
+abbr --add gl 'git log --all -n20'
+
 abbr --add gb 'git switch -'
 abbr --add cb 'clean-branches'
 

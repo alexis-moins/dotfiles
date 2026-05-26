@@ -179,10 +179,16 @@ Config.new_autocmd({ "WinLeave", "BufLeave" }, nil, function()
 end)
 
 Config.new_autocmd("TextYankPost", nil, function()
-    vim.highlight.on_yank({
+    vim.hl.hl_op({
         higroup = "Visual",
-        timeout = 200,
-        on_visual = false,
+        timeout = 300,
+    })
+end)
+
+Config.new_autocmd("TextPutPost", nil, function()
+    vim.hl.hl_op({
+        higroup = "Visual",
+        timeout = 300,
     })
 end)
 
