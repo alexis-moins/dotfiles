@@ -1,7 +1,0 @@
-{
-  "Simple function": {
-    "prefix": "echo",
-    "body": "echo \"$1=$${0:$1}\"",
-    "description": "Simple function"
-  }
-}

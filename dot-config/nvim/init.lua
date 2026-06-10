@@ -15,4 +15,3 @@ _G.Config.maplocal = function(mode, lhs, rhs, desc, buffer)
     vim.keymap.set(mode, lhs, rhs, { desc = desc, buffer = buffer or true })
 end
 
-_G.gh = function(x) return 'https://github.com/' .. x end

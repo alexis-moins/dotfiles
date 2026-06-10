@@ -1,9 +1,3 @@
-vim.pack.add({
-    gh("neovim/nvim-lspconfig"),
-    gh("mason-org/mason.nvim"),
-    gh("stevearc/conform.nvim"),
-})
-
 -- LSP ========================================================================
 
 vim.lsp.enable({
@@ -45,3 +39,26 @@ require("conform").setup({
         lsp_format = "fallback",
     },
 })
+
+-- Tree-sitter ================================================================
+
+-- Auto-install these language parsers
+require("nvim-treesitter").install({
+    "html",
+    "css",
+    "scss",
+
+    "vue",
+    "javascript",
+    "typescript",
+})
+
+Config.new_autocmd("PackChanged", nil, function(event)
+    if (event.data.kind == "install" or event.data.kind == "update") and event.data.spec.name == "nvim-treesitter" then
+        local ok = pcall(vim.cmd.TSUpdate)
+
+        if not ok then
+            vim.notify("TSUpdate failed!", vim.log.levels.WARN)
+        end
+    end
+end)

@@ -62,6 +62,7 @@
     tags = tag
     stashes = stash list
     branches = branch --format '%(color:yellow)%(HEAD) %(color:reset)%(refname:short) %(color:red)%(upstream:short) %(color:reset)[%(color:bold black)%(authorname) %(color:reset), %(color:bold black)%(committerdate:relative)%(color:reset)] %(upstream:track)'
+    remotes = remote show
 
     unstage = restore --staged --
     discard = checkout --

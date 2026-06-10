@@ -59,6 +59,7 @@ fish_add_path "$PNPM_HOME"
 # Aliases
 #
 alias g 'git'
+alias b 'bat'
 
 alias nvimrc 'nvim $HOME/.config/nvim/init.lua'
 

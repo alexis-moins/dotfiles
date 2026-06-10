@@ -1,42 +1,35 @@
-vim.pack.add({
-    gh("nvim-mini/mini.hues"),
-    gh("nvim-mini/mini.icons"),
-    gh("nvim-mini/mini.notify"),
-    gh("nvim-mini/mini.extra"),
-    gh("nvim-mini/mini.ai"),
-    gh("nvim-mini/mini.completion"),
-    gh("nvim-mini/mini.diff"),
-    gh("nvim-mini/mini.files"),
-    gh("nvim-mini/mini.hipatterns"),
-    gh("nvim-mini/mini.move"),
-    gh("nvim-mini/mini.operators"),
-    gh("nvim-mini/mini.pairs"),
-    gh("nvim-mini/mini.pick"),
-    gh("nvim-mini/mini.surround"),
-    gh("nvim-mini/mini.splitjoin"),
-    gh("nvim-mini/mini.cmdline"),
+-- Statusline =================================================================
 
-    -- Other plugins
-    {
-        src = gh("nvim-treesitter/nvim-treesitter"),
-        version = "main",
-    },
-    {
-        src = gh("nvim-treesitter/nvim-treesitter-textobjects"),
-        version = "main",
-    },
-})
+require("mini.statusline").setup({
+    content = {
+        active = function()
+            local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 120 })
+            local git           = MiniStatusline.section_git({ trunc_width = 40 })
+            local diff          = MiniStatusline.section_diff({ trunc_width = 75 })
+            local diagnostics   = MiniStatusline.section_diagnostics({
+                trunc_width = 75,
+                signs = {
+                    ERROR = '!', WARN = '?', INFO = '@', HINT = '*'
+                }
+            })
+            local lsp           = MiniStatusline.section_lsp({ trunc_width = 75 })
+            local filename      = MiniStatusline.section_filename({ trunc_width = 140 })
+            -- local fileinfo      = MiniStatusline.section_fileinfo({ trunc_width = 120 })
+            local location      = MiniStatusline.section_location({ trunc_width = 75 })
+            local search        = MiniStatusline.section_searchcount({ trunc_width = 75 })
 
--- Run `:TSUpdate`
-Config.new_autocmd("PackChanged", nil, function(event)
-    if (event.data.kind == "install" or event.data.kind == "update") and event.data.spec.name == "nvim-treesitter" then
-        local ok = pcall(vim.cmd.TSUpdate)
-
-        if not ok then
-            vim.notify("TSUpdate failed!", vim.log.levels.WARN)
+            return MiniStatusline.combine_groups({
+                { hl = mode_hl,                 strings = { mode } },
+                { hl = 'MiniStatuslineDevinfo', strings = { git, diff, diagnostics, lsp } },
+                '%<', -- Mark general truncate point
+                { hl = 'MiniStatuslineFilename', strings = { filename } },
+                '%=', -- End left alignment
+                -- { hl = 'MiniStatuslineFileinfo', strings = { fileinfo } },
+                { hl = mode_hl,                  strings = { search, location } },
+            })
         end
-    end
-end)
+    }
+})
 
 -- Cmdline ====================================================================
 
@@ -44,9 +37,9 @@ require("mini.cmdline").setup()
 
 -- Hues =======================================================================
 
-vim.pack.add({ { src = gh('rose-pine/neovim'), name = 'rose-pine' } })
+require('mini.hues')
 
--- Once mini.hues is installed, we can set the colorscheme (which depends on it)
+-- -- Once mini.hues is installed, we can set the colorscheme (which depends on it)
 vim.cmd("colorscheme rose-pine-moon")
 
 -- Icons ======================================================================
@@ -271,15 +264,6 @@ end
 
 require("mini.splitjoin").setup()
 
--- Tree-sitter ================================================================
+-- Input ======================================================================
 
--- Auto-install these language parsers
-require("nvim-treesitter").install({
-    "html",
-    "css",
-    "scss",
-
-    "vue",
-    "javascript",
-    "typescript",
-})
+require("mini.input").setup()
