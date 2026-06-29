@@ -19,7 +19,6 @@ vim.pack.add({
     gh("nvim-mini/mini.splitjoin"),
     gh("nvim-mini/mini.cmdline"),
     gh("nvim-mini/mini.input"),
-    gh("nvim-mini/mini.statusline"),
 
     -- lsp
     gh("neovim/nvim-lspconfig"),

@@ -46,13 +46,13 @@ vim.o.breakindent = true
 vim.o.breakindentopt = "list:-1"
 
 -- Never show a status line
-vim.o.laststatus = 3
+vim.o.laststatus = 0
 
 -- Empty the status line because it is still used as a separator for horizontal splits
--- vim.o.statusline = " "
+vim.o.statusline = " "
 
 -- Set the content of the window bar
--- vim.o.winbar = "%= %#PmenuSel# %t%m "
+vim.o.winbar = "%= %#PmenuSel# %t%m "
 
 -- Show helpful text indicators (toggle with \l)
 vim.o.list = true

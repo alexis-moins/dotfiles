@@ -15,8 +15,9 @@ $elixir\
 $golang\
 $cmd_duration\
 $jobs\
-$time\
 """
+
+#$time\
 
 #
 # Palettes
