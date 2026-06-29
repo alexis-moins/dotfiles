@@ -1,13 +1,10 @@
 \.DS_Store
 
-\*.md
+README.md
 Brewfile.lock.json
+
+Makefile
 Session.vim
-osx
 
 \.git
 \.gitignore
-\.config/iterm
-
-\.zshenv
-\.config/zsh

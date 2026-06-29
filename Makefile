@@ -6,10 +6,10 @@ help:
 	@echo  '  unstow            - Unstow the dotfiles'
 
 stow:
-	stow --dotfiles --adopt --restow .
+	stow --target="${HOME}" --verbose --dotfiles .
 
 unstow:
-	stow --dotfiles --target ~ --delete .
+	stow --verbose --dotfiles --delete --simulate  --target ~
 
 check:
 	brew bundle check --global
