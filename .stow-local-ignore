@@ -1,5 +1,6 @@
 \.DS_Store
 
+assets
 README.md
 Brewfile.lock.json
 
