@@ -1,6 +1,6 @@
 # Dotfiles
 
-This repository is a collection of my personal dotfiles.
+![Banner Image](assets/banner.png?raw=true "Banner Image")
 
 ## Installation
 
