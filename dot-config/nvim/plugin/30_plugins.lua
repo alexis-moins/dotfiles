@@ -3,7 +3,7 @@ local function gh(x) return 'https://github.com/' .. x end
 vim.pack.add({
     -- mini
     gh("nvim-mini/mini.hues"),
-    gh("nvim-mini/mini.icons"),
+    -- gh("nvim-mini/mini.icons"),
     gh("nvim-mini/mini.notify"),
     gh("nvim-mini/mini.extra"),
     gh("nvim-mini/mini.ai"),

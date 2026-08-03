@@ -11,17 +11,17 @@ vim.cmd("colorscheme rose-pine-moon")
 
 -- Icons ======================================================================
 
-require("mini.icons").setup()
-
--- Mock 'nvim-tree/nvim-web-devicons' for plugins without 'mini.icons' support.
-MiniIcons.mock_nvim_web_devicons()
-
--- Add LSP kind icons. Useful for 'mini.completion'.
-MiniIcons.tweak_lsp_kind()
+-- require("mini.icons").setup()
+--
+-- -- Mock 'nvim-tree/nvim-web-devicons' for plugins without 'mini.icons' support.
+-- MiniIcons.mock_nvim_web_devicons()
+--
+-- -- Add LSP kind icons. Useful for 'mini.completion'.
+-- MiniIcons.tweak_lsp_kind()
 
 -- Notify =====================================================================
 
-require("mini.notify").setup()
+-- require("mini.notify").setup()
 
 -- Extra ======================================================================
 
@@ -201,7 +201,9 @@ require("mini.move").setup({
 
 -- Operators ==================================================================
 
-require("mini.operators").setup()
+require("mini.operators").setup({
+    replace = { prefix = 'cr' }
+})
 
 -- Pairs ======================================================================
 

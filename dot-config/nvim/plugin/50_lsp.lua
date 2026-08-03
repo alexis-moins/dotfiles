@@ -1,3 +1,5 @@
+local map, maplocal = Config.map, Config.maplocal
+
 -- LSP ========================================================================
 
 vim.lsp.enable({
@@ -61,4 +63,34 @@ Config.new_autocmd("PackChanged", nil, function(event)
             vim.notify("TSUpdate failed!", vim.log.levels.WARN)
         end
     end
+end)
+
+-- Override default nvim lsp mapping with mini.pick
+Config.new_autocmd("LspAttach", nil, function(args)
+    map("n", "gri", "<Cmd>Pick lsp scope='implementation'<CR>", "Find implementations")
+    map("n", "grr", "<Cmd>Pick lsp scope='references'<CR>", "Find references")
+
+    map("n", "grt", "<Cmd>Pick lsp scope='type_definition'<CR>", "Find type definitions")
+    map("n", "grd", "<Cmd>Pick lsp scope='definition'<CR>", "Find definitions")
+
+    map("n", "gO", "<Cmd>Pick lsp scope='document_symbol'<CR>", "Find document symbols")
+
+    -- maplocal("n", "<Leader>ld", "<Cmd>Pick lsp scope='definition'<CR>", "Go to definition")
+    -- maplocal("n", "<Leader>lr", "<Cmd>Pick lsp scope='references'<CR>", "Go to references")
+
+    -- maplocal("n", "<Leader>lt", "<Cmd>Pick lsp scope='type_definition'<CR>", "Go to type definitions")
+
+    -- maplocal("n", "<Leader>la", "<Cmd>lua vim.lsp.buf.code_action()<CR>", "Execute code action")
+    -- maplocal("n", "<Leader>ln", "<Cmd>lua vim.lsp.buf.rename()<CR>", "Rename symbol under cursor")
+
+    -- maplocal("n", "<Leader>lO", "<Cmd>Pick lsp scope='document_symbol'<CR>", "Find document symbol")
+
+    maplocal("n", "<Leader>lw", '<Cmd>Pick diagnostic scope="all"<CR>', "Find workspace diagnostic")
+
+    maplocal("n", "<Leader>lD", '<Cmd>Pick diagnostic scope="current"<CR>', "Find buffer diagnostic")
+
+    -- maplocal("n", "<Leader>lw", "<Cmd>Pick lsp scope='workspace_symbol'<CR>", "Find workspace symbol")
+
+    maplocal("n", "<Leader>lR", "<Cmd>LspRestart<CR>", "Restart LSP")
+    maplocal("n", "<Leader>li", "<Cmd>LspInfo<CR>", "Show LSP info")
 end)

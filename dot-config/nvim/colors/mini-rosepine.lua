@@ -4,10 +4,10 @@ local palette
 
 if vim.o.background == "dark" then
     palette = hues.make_palette({
-        background = "#1f1d2e",
+        background = "#232136",
         foreground = "#e0def4",
 
-        saturation = "lowmedium",
+        saturation = "mediumhigh",
     })
 
     palette.red = "#eb6f92"    -- Love
