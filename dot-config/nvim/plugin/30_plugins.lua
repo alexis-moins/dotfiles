@@ -7,6 +7,7 @@ vim.pack.add({
     gh("nvim-mini/mini.notify"),
     gh("nvim-mini/mini.extra"),
     gh("nvim-mini/mini.ai"),
+    gh('nvim-mini/mini.bracketed'),
     gh("nvim-mini/mini.completion"),
     gh("nvim-mini/mini.diff"),
     gh("nvim-mini/mini.files"),

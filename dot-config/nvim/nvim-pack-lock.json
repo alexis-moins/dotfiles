@@ -12,6 +12,10 @@
       "rev": "25248c6aa002391936a6200f12d1466015987133",
       "src": "https://github.com/nvim-mini/mini.ai"
     },
+    "mini.bracketed": {
+      "rev": "203eb35f386b4fc9abcff1518c84d5537d41c80a",
+      "src": "https://github.com/nvim-mini/mini.bracketed"
+    },
     "mini.cmdline": {
       "rev": "3dcca5e11c819718d250f9a3a61605698ea1f756",
       "src": "https://github.com/nvim-mini/mini.cmdline"
