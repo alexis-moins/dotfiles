@@ -219,7 +219,12 @@ require("mini.pairs").setup({
 
 -- Pickers ====================================================================
 
-require("mini.pick").setup()
+require("mini.pick").setup({
+    mappings = {
+        choose_marked = '<C-q>',
+        refine = '<C-b>'
+    }
+})
 
 -- Add custom 'staged' scope for `:Pick git_files`
 MiniPick.registry.git_files = function(local_opts)
