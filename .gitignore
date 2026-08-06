@@ -1,5 +1,6 @@
 # neovim
 **/nvim/spell/
+nvim.log
 Session.vim
 .luarc.json
 *.backup
