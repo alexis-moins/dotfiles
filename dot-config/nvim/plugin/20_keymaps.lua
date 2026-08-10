@@ -20,8 +20,9 @@ map("n", "<S-Tab>", "<Cmd>tabprevious<CR>", "Navigate to previous tab")
 map("n", "<BS>", "<Cmd>nohlsearch<CR>", "Clear search highlighting")
 map("n", "<Leader>so", "<Cmd>source %<CR>", "Source current file")
 
-map("n", "<Leader>o", "mP<cmd>sil %bd<bar>e #<bar>bd #<CR>'P", "Close all buffers but current one")
-map("n", "<Leader>-", "<Cmd>bdelete<CR>", "Delete the current buffer")
+map("n", "<Leader>bo", "mP<cmd>sil %bd<bar>e #<bar>bd #<CR>'P", "Close other buffers")
+map("n", "<Leader>bw", "mP<cmd>bufdo write<Bar>update<CR>'P", "Write all buffers")
+map("n", "<Leader>b-", "<Cmd>bdelete<CR>", "Delete current buffer")
 
 map({ "n", "v" }, "L", "g$", "Go to the end of the line (respects wrap)")
 
@@ -54,7 +55,7 @@ map("v", "g.", '"zy:%s/<C-R>z//gc<left><left><left>', "Substitute cword in buffe
 
 map("v", "s", ":s/\\%V//gc<left><left><left><left>", "Substitute in visual selection")
 
-map("n", "<Leader>cd", "<Cmd>cd %:h<CR>", "Set working directory to current file's directory")
+-- map("n", "<Leader>cd", "<Cmd>cd %:h<CR>", "Set working directory to current file's directory")
 
 map("n", "<Leader>pu", "<Cmd>lua vim.pack.update()<CR>")
 
@@ -89,14 +90,14 @@ end, "Toggle quickfix")
 -- Plugins ====================================================================
 
 map("n", "<Leader><Space>", "<Cmd>Pick files<CR>", "Find files")
-map("n", "<C-b>", "<Cmd>Pick buffers<CR>", "Find buffers")
-
-map("n", "<Leader>*", "<Cmd>Pick resume<CR>", "Resume last picker")
+map("n", "<Leader>bb", "<Cmd>Pick buffers<CR>", "Find buffers")
 
 map("n", "<Leader>fg", "<Cmd>Pick grep_live<CR>", "Grep files")
+map("n", "<Leader>f:", "<Cmd>Pick history scope='cmd'<CR>", "Find history")
 
-map({ "n", "v" }, "<Leader>*", "<Cmd>Pick grep pattern='<cword>'<CR>", "Grep <cword>")
 map("n", "<Leader>z", "<Cmd>Pick resume<CR>", "Resume last picker")
+
+map({ "n", "v" }, "<Leader>f*", "<Cmd>Pick grep pattern='<cword>'<CR>", "Grep <cword>")
 
 map("n", "<Leader>fk", "<Cmd>Pick keymaps<CR>", "Find keymaps")
 map("n", "<Leader>fh", "<Cmd>Pick help<CR>", "Find help")

@@ -6,6 +6,7 @@ vim.lsp.enable({
     "lua_ls",
     "pyright",
     "ts_ls",
+    "ruff",
 
     -- Since v3.0.0, the Vue language server requires vtsls to support typescript
     "vtsls",
@@ -74,6 +75,11 @@ Config.new_autocmd("LspAttach", nil, function(args)
     map("n", "grd", "<Cmd>Pick lsp scope='definition'<CR>", "Find definitions")
 
     map("n", "gO", "<Cmd>Pick lsp scope='document_symbol'<CR>", "Find document symbols")
+
+    map("n", "gR", "<Cmd>lsp restart<CR>", "Restart all clients attached to the current buffer")
+    map("n", "gI", "<Cmd>checkhealth vim.lsp<CR>", "Shows the statsu of active LSP clients and servers")
+
+    map("n", "gw", "<Cmd>Pick lsp scope='workspace_symbol_live'<CR>", "")
 
     -- maplocal("n", "<Leader>ld", "<Cmd>Pick lsp scope='definition'<CR>", "Go to definition")
     -- maplocal("n", "<Leader>lr", "<Cmd>Pick lsp scope='references'<CR>", "Go to references")

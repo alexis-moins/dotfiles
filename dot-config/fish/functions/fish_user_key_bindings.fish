@@ -11,7 +11,7 @@ function fish_user_key_bindings
     bind -M insert jk vi-normal-mode
 
     # Bind <Tab> to 'accept-suggestion'
-    bind -M insert ctrl-h accept-autosuggestion
+    bind -M insert ctrl-y accept-autosuggestion
     #
     # bind -M insert \t accept-autosuggestion
 

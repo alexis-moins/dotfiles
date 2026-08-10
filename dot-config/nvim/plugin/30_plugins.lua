@@ -5,6 +5,8 @@ vim.pack.add({
     gh("nvim-mini/mini.hues"),
     -- gh("nvim-mini/mini.icons"),
     gh("nvim-mini/mini.notify"),
+    gh("nvim-mini/mini.clue"),
+    gh("nvim-mini/mini-git"),
     gh("nvim-mini/mini.extra"),
     gh("nvim-mini/mini.ai"),
     gh('nvim-mini/mini.bracketed'),

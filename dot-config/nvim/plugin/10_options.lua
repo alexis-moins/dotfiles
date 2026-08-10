@@ -52,7 +52,7 @@ vim.o.laststatus = 0
 vim.o.statusline = " "
 
 -- Set the content of the window bar
-vim.o.winbar = "%= %#Comment# %t%m "
+vim.o.winbar = "%= %#Comment# %t%m "
 
 -- Show helpful text indicators (toggle with \l)
 vim.o.list = true
