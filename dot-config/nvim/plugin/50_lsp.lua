@@ -13,6 +13,9 @@ vim.lsp.enable({
     "vue_ls",
 })
 
+-- Enable codelens
+vim.lsp.codelens.enable()
+
 -- Mason ======================================================================
 
 require("mason").setup()
