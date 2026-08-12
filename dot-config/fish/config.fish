@@ -1,6 +1,9 @@
 # Don't go any further if this is not an interactive session
 not status is-interactive && exit 0
 
+# Vi key bindings (required for -M insert binds in fish_user_key_bindings)
+fish_vi_key_bindings
+
 # Use sarship prompt
 type -qf starship && starship init fish | source
 
@@ -62,6 +65,8 @@ alias g 'git'
 alias b 'bat'
 
 alias nvimrc 'nvim $HOME/.config/nvim/init.lua'
+
+alias daily 'brew update && brew upgrade'
 
 # Active a python virtual env
 alias activate 'source (fd --no-ignore --hidden activate.fish)'
