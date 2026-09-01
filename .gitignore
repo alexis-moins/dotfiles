@@ -10,8 +10,7 @@ Brewfile.lock.json
 
 # misc
 .DS_Store
-.config/gh/hosts*
+dot-config/gh/hosts*
 
-# zsh
-.zsh_history
-.zsh_sessions/
+# fish (état runtime réécrit en continu)
+dot-config/fish/fish_variables

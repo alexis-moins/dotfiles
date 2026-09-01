@@ -21,35 +21,29 @@ end
 #
 # Homebrew
 #
-set --local DOT_LINUXBREW '/home/linuxbrew/.linuxbrew'
-test -f $DOT_LINUXBREW/bin/brew && $DOT_LINUXBREW/bin/brew shellenv fish | source
+# Sur macOS /home est un automount autofs : le moindre stat y coûte ~20 ms.
+# conf.d/env.fish a déjà mis en place /opt/homebrew le cas échéant, donc on ne
+# sonde linuxbrew que si aucun brew n'a été trouvé.
+if not command -q brew
+    set --local DOT_LINUXBREW '/home/linuxbrew/.linuxbrew'
+    test -f $DOT_LINUXBREW/bin/brew && $DOT_LINUXBREW/bin/brew shellenv fish | source
+end
 
 setx XDG_CONFIG_HOME "$HOME/.config"
 setx XDG_DATA_HOME "$HOME/.local/share"
+
+#
+# Prompt (ex-variables universelles)
+#
+set -g fish_greeting ''
+set -g fish_prompt_pwd_dir_length 0
 
 #
 # ENVIRONMENT
 #
 __gum_rose_pine
 
-setx BUN_INSTALL "$HOME/.bun"
 setx RIPGREP_CONFIG_PATH "$HOME/.ripgreprc"
-
-fish_add_path "$BUN_INSTALL/bin"
-
-fish_add_path "$HOME/.cargo/bin"
-
-fish_add_path "$HOME/scripts"
-
-fish_add_path "/usr/local/bin"
-fish_add_path "$HOME/.local/bin"
-
-
-#
-# pnpm
-#
-set --export PNPM_HOME "$HOME/.local/share/pnpm"
-fish_add_path "$PNPM_HOME"
 
 #
 # Aliases
@@ -92,7 +86,6 @@ alias session 'nvim -S'
 
 alias v nvim
 
-
 #
 # Abbreviations
 #
@@ -125,7 +118,6 @@ abbr --add cb 'clean-branches'
 abbr --add gai 'git add --interactive'
 abbr --add gap 'git add --patch --interactive'
 
-
 abbr --add gds 'git diff-staged'
 abbr --add gdu 'git diff-unstaged'
 
@@ -136,5 +128,9 @@ abbr --add gA 'git add --all'
 abbr --add gs 'git status --short'
 abbr --add gS 'git status'
 
-# Activate mise last to take precedence over other PATH additions
-type -qf mise && mise activate fish | source
+# mise est déjà activé par son conf.d, ce qui le rend disponible aux shells
+# non-interactifs (config.fish, lui, sort tôt via `status is-interactive`).
+# On ne refait donc que le recalcul d'environnement, pour que ses chemins
+# repassent devant les fish_add_path ci-dessus, plutôt qu'un second
+# `mise activate` complet.
+functions -q __mise_env_eval && __mise_env_eval
