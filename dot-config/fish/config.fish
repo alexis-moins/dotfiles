@@ -108,7 +108,7 @@ abbr --add dsp "docker system prune --all --volumes"
 #
 # Git
 #
-abbr --add gl 'git log --all -n20'
+abbr --add gl 'git log -n20'
 abbr --add gm 'git-merge-here'
 abbr --add gmt 'git-merge-this'
 

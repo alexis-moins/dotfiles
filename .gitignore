@@ -14,3 +14,8 @@ dot-config/gh/hosts*
 
 # fish (état runtime réécrit en continu)
 dot-config/fish/fish_variables
+
+# herdr
+dot-config/herdr/herdr-server.log
+dot-config/herdr/herdr-client.log
+dot-config/herdr/session.json
