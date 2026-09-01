@@ -4,8 +4,6 @@
 
 alias gg 'tv git-branch'
 
-# alias gm 'git-merge-branch'
-
 alias ga='git-add'
 
 alias gr='git-restore-staged'

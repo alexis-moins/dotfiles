@@ -30,14 +30,7 @@ setx XDG_DATA_HOME "$HOME/.local/share"
 #
 # ENVIRONMENT
 #
-set --global --export GUM_FILTER_MATCH_FOREGROUND  "2"
-set -gx GUM_FILTER_PROMPT_FOREGROUND "7"
-set -gx GUM_FILTER_INDICATOR_FOREGROUND "1"
-
-set -gx GUM_FILTER_SELECTED_PREFIX_FOREGROUND "4"
-set -gx GUM_FILTER_UNSELECTED_PREFIX_FOREGROUND "#6e738d"
-
-set -gx GUM_FILTER_INDICATOR ">"
+__gum_rose_pine
 
 setx BUN_INSTALL "$HOME/.bun"
 setx RIPGREP_CONFIG_PATH "$HOME/.ripgreprc"
@@ -123,6 +116,8 @@ abbr --add dsp "docker system prune --all --volumes"
 # Git
 #
 abbr --add gl 'git log --all -n20'
+abbr --add gm 'git-merge-here'
+abbr --add gmt 'git-merge-this'
 
 abbr --add gb 'git switch -'
 abbr --add cb 'clean-branches'
